@@ -259,7 +259,210 @@ h3{font-size:16px;font-weight:700}
 /* 提交按钮 */
 .submitBtn{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;width:100%;text-align:center;transition:transform .12s;box-shadow:0 4px 12px rgba(22,163,74,.3)}
 .submitBtn:active{transform:scale(.97)}
+/* 深色考试界面（参考高考真实UI） */
+.examDark{background:#1a1a2e;min-height:100vh;color:#fff}
+.examDark .examHeader{display:flex;align-items:center;gap:12px;padding:16px 18px;background:#16213e;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,.3)}
+.examDark .examHeader .ehBack{color:#fff;font-size:20px;background:none;border:none;cursor:pointer;padding:4px 8px}
+.examDark .examHeader .ehTitle{font-size:18px;font-weight:700;color:#fff;flex:1}
+.examDark .examHeader .ehMode{font-size:12px;color:#8892b0;font-weight:600;background:#1a1a2e;padding:3px 10px;border-radius:999px}
+.examDark .examStage{padding:20px 18px}
+.examDark .examStageTitle{font-size:24px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:.01em}
+.examDark .examStageSub{font-size:13px;color:#8892b0;margin-bottom:16px}
+.examDark .examProgress{display:flex;gap:4px;margin-bottom:20px}
+.examDark .examProgressSeg{flex:1;height:4px;border-radius:2px;background:#2a2a4a;transition:all .3s}
+.examDark .examProgressSeg.done{background:#6c5ce7}
+.examDark .examProgressSeg.active{background:#4a90d9}
+.examDark .examCard{background:#16213e;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.examDark .examCardTitle{font-size:14px;color:#8892b0;font-weight:600;margin-bottom:10px}
+.examDark .examCardText{font-size:17px;line-height:2;color:#e8e8e8;letter-spacing:.01em}
+.examDark .examCardText .cn{color:#a0a0c0;font-size:15px;margin-bottom:8px}
+.examDark .examBilingual{background:#1e2a4a;border-left:3px solid #4a90d9;border-radius:10px;padding:14px;margin-bottom:16px}
+.examDark .examBilingual .bpCn{font-size:14px;color:#e8e8e8;font-weight:600;margin-bottom:4px}
+.examDark .examBilingual .bpEn{font-size:13px;color:#8892b0;font-style:italic}
+.examDark .examStatusBarD{background:#1e2a4a;border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.examDark .examStatusBarD .esbStatus{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;color:#e8e8e8}
+.examDark .examStatusBarD .esbDot{width:10px;height:10px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}
+.examDark .examStatusBarD.recording .esbDot{background:#f87171}
+.examDark .examStatusBarD .esbTimer{background:#2a2a4a;color:#fff;border-radius:999px;padding:4px 14px;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+.examDark .examStatusBarD .esbTimer.warn{background:#f87171;animation:pulse 1s infinite}
+.examDark .examVideoStage{background:#000;border-radius:14px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:16px}
+.examDark .examVideoStage .vsOverlay{position:absolute;inset:0;background:linear-gradient(135deg,#0f172a,#1e3a5f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.examDark .examVideoStage .vsIcon{font-size:48px}
+.examDark .examVideoStage .vsLabel{color:#94a3b8;font-size:13px}
+.examDark .examVideoStage .vsSubtitles{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:16px;padding:0 20px;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.examDark .examVideoStage .vsPlayBtn{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;cursor:pointer}
+.examDark .examRecBar{display:flex;align-items:center;gap:12px;background:#1e2a4a;border-radius:14px;padding:14px;margin-top:14px}
+.examDark .examRecBar .recDot{width:14px;height:14px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.examDark .examRecBar.recording{background:#2a1a1a}
+.examDark .examRecBar.recording .recDot{background:#f87171;animation:pulse 1.2s infinite}
+.examDark .examRecBar span{color:#e8e8e8;font-size:15px}
+.examDark .examRecProgress{height:4px;border-radius:2px;background:#2a2a4a;margin-top:10px;overflow:hidden}
+.examDark .examRecProgressFill{height:100%;background:linear-gradient(90deg,#f87171,#ef4444);transition:width .3s;width:0%}
+.examDark .examBtnRow{display:flex;gap:10px;margin-top:16px}
+.examDark .examBtnPrimary{flex:1;background:#4a90d9;color:#fff;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:transform .12s}
+.examDark .examBtnPrimary:active{transform:scale(.97)}
+.examDark .examBtnGhost{background:transparent;color:#8892b0;border:1px solid #2a2a4a;border-radius:12px;padding:14px 18px;font-size:14px;cursor:pointer;transition:all .15s}
+.examDark .examBtnGhost:active{transform:scale(.96)}
+.examDark .examBtnSubmit{flex:1;background:#16a34a;color:#fff;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:transform .12s}
+.examDark .examBtnSubmit:active{transform:scale(.97)}
+.examDark .examResultCard{background:#16213e;border-radius:16px;padding:24px;margin-bottom:16px;text-align:center}
+.examDark .examResultScore{font-size:56px;font-weight:800;line-height:1}
+.examDark .examResultMax{font-size:18px;color:#8892b0;font-weight:600;margin-top:4px}
+.examDark .examResultGrade{display:inline-block;font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px;margin-top:10px}
+.examDark .examResultGrade.high{background:rgba(59,130,246,.2);color:#60a5fa}
+.examDark .examResultGrade.mid{background:rgba(245,158,11,.2);color:#fbbf24}
+.examDark .examResultGrade.low{background:rgba(239,68,68,.2);color:#f87171}
+.examDark .examDimRow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.examDark .examDimCard{background:#1e2a4a;border-radius:12px;padding:14px;text-align:center}
+.examDark .examDimCard .dv{font-size:22px;font-weight:800}
+.examDark .examDimCard .dv.high{color:#60a5fa}
+.examDark .examDimCard .dv.mid{color:#fbbf24}
+.examDark .examDimCard .dv.low{color:#f87171}
+.examDark .examDimCard .dl{font-size:11px;color:#8892b0;margin-top:2px}
+.examDark .examDimBar{height:4px;border-radius:2px;background:#2a2a4a;margin-top:6px;overflow:hidden}
+.examDark .examDimBarFill{height:100%;border-radius:2px;transition:width .5s}
+.examDark .examCorrBox{background:#16213e;border-radius:16px;padding:18px;margin-bottom:16px}
+.examDark .examCorrBox h4{font-size:15px;font-weight:700;color:#e8e8e8;margin-bottom:12px}
+.examDark .examCorrItem{background:#1e2a4a;border-radius:10px;padding:14px;margin-bottom:8px;border-left:3px solid #f87171}
+.examDark .examCorrItem.correct{border-left-color:#4ade80}
+.examDark .examCorrItem .ciHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.examDark .examCorrItem .ciLabel{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px}
+.examDark .examCorrItem .ciLabel.wrong{background:rgba(239,68,68,.2);color:#f87171}
+.examDark .examCorrItem .ciLabel.right{background:rgba(74,222,128,.2);color:#4ade80}
+.examDark .examCorrItem .ciRow{display:flex;gap:6px;margin:4px 0;align-items:flex-start}
+.examDark .examCorrItem .ciTag{font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;flex-shrink:0;margin-top:2px}
+.examDark .examCorrItem .ciTag.your{background:rgba(239,68,68,.2);color:#f87171}
+.examDark .examCorrItem .ciTag.correct{background:rgba(74,222,128,.2);color:#4ade80}
+.examDark .examCorrItem .ciTag.tip{background:rgba(74,144,217,.2);color:#4a90d9}
+.examDark .examCorrItem .ciText{font-size:13px;color:#e8e8e8;line-height:1.6}
+.examDark .examCorrItem .ciError{background:rgba(239,68,68,.1);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12px;color:#f87171;line-height:1.5}
+.examDark .examCorrItem .ciTip{background:rgba(74,144,217,.1);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12px;color:#4a90d9;line-height:1.5;white-space:pre-line}
+.examDark .examTranscript{background:#1e2a4a;border-radius:10px;padding:12px;font-size:13px;color:#8892b0;margin-top:10px;line-height:1.7;max-height:160px;overflow-y:auto}
+.examDark .examAudioBtn{display:inline-flex;align-items:center;gap:6px;background:#1e2a4a;color:#4a90d9;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;border:1px solid #2a2a4a;cursor:pointer}
+.examDark .examAudioBtn:active{transform:scale(.96)}
+.examDark .examAudioBtn:disabled{opacity:.5}
+.examDark .examPassage{background:#1e2a4a;border-radius:12px;padding:18px;font-size:17px;line-height:2;color:#e8e8e8;letter-spacing:.01em}
+.examDark .examKeywordRow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.examDark .examKeyword{background:rgba(74,144,217,.15);color:#4a90d9;border:1px solid rgba(74,144,217,.3);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.examDark .examKeyword small{color:#8892b0;font-weight:400;margin-left:4px}
+.examDark .examQABlock{background:#1e2a4a;border-radius:12px;padding:14px;margin:10px 0}
+.examDark .examQABlock .qlabel{font-size:12px;color:#8892b0;font-weight:700;margin-bottom:4px}
+.examDark .examQABlock .qtext{font-size:15px;font-weight:600;color:#e8e8e8;margin-bottom:6px}
+.examDark .examQABlock .atext{font-size:14px;color:#8892b0}
+.examDark .examCNPrompt{background:rgba(245,158,11,.1);border-left:3px solid #f59e0b;border-radius:8px;padding:12px 14px;font-size:14px;color:#e8e8e8;margin:8px 0}
+.examDark .examCountdown{font-size:32px;font-weight:800;text-align:center;color:#f87171;font-variant-numeric:tabular-nums}
+.examDark .examCountdownLabel{text-align:center;font-size:13px;color:#8892b0;margin-top:4px}
+.examDark .hidden{display:none!important}
 .hidden{display:none!important}
+/* === 深色主题覆盖：让现有考试组件在.examDark内自动变深色 === */
+.examDark{background:#1a1a2e;min-height:100vh;color:#e8e8e8}
+.examDark .examWrap{background:#16213e;border-radius:16px;padding:20px;box-shadow:0 4px 20px rgba(0,0,0,.2);margin-bottom:16px}
+.examDark .phaseBar{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.examDark .phaseDot{flex:1;min-width:50px;text-align:center;font-size:10px;color:#8892b0;padding:6px 4px;border-radius:10px;background:#1e2a4a;font-weight:600}
+.examDark .phaseDot.active{background:#4a90d9;color:#fff}
+.examDark .phaseDot.done{background:rgba(108,92,231,.3);color:#a78bfa}
+.examDark .examTitle{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;color:#e8e8e8}
+.examDark .timer{background:#1e2a4a;color:#4a90d9;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:700}
+.examDark .bilingualPrompt{background:#1e2a4a;border-left:3px solid #4a90d9;border-radius:10px;padding:14px;margin-bottom:16px}
+.examDark .bilingualPrompt .bpCn{font-size:14px;color:#e8e8e8;font-weight:600;margin-bottom:4px}
+.examDark .bilingualPrompt .bpEn{font-size:13px;color:#8892b0;font-style:italic}
+.examDark .passage{background:#1e2a4a;border-radius:12px;padding:18px;font-size:17px;line-height:2;color:#e8e8e8;letter-spacing:.01em}
+.examDark .videoStage{background:#000;border-radius:14px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:16px}
+.examDark .videoStage .vsOverlay{position:absolute;inset:0;background:linear-gradient(135deg,#0f172a,#1e3a5f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.examDark .videoStage .vsIcon{font-size:48px}
+.examDark .videoStage .vsLabel{color:#94a3b8;font-size:13px}
+.examDark .videoStage .vsPlayBtn{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;cursor:pointer}
+.examDark .videoStage .vsSubtitles{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:16px;padding:0 20px;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.examDark .videoStage .vsProgress{position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.1)}
+.examDark .videoStage .vsProgressFill{height:100%;background:#4a90d9;transition:width .3s;width:0%}
+.examDark .examStatusBar{background:#1e2a4a;border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.examDark .examStatusBar .esbStatus{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;color:#e8e8e8}
+.examDark .examStatusBar .esbDot{width:10px;height:10px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}
+.examDark .examStatusBar.recording .esbDot{background:#f87171}
+.examDark .examStatusBar .esbTimer{background:#2a2a4a;color:#fff;border-radius:999px;padding:4px 14px;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+.examDark .examStatusBar .esbTimer.warn{background:#f87171;animation:pulse 1s infinite}
+.examDark .recBar{display:flex;align-items:center;gap:12px;background:#1e2a4a;border-radius:14px;padding:14px;margin-top:14px}
+.examDark .recBar .recDot{width:14px;height:14px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.examDark .recBar.recording{background:#2a1a1a}
+.examDark .recBar.recording .recDot{background:#f87171;animation:pulse 1.2s infinite}
+.examDark .recBar span{color:#e8e8e8;font-size:15px}
+.examDark .recProgressBar{height:4px;border-radius:2px;background:#2a2a4a;margin-top:10px;overflow:hidden}
+.examDark .recProgressBarFill{height:100%;background:linear-gradient(90deg,#f87171,#ef4444);transition:width .3s;width:0%}
+.examDark .countdownMid{font-size:28px;font-weight:700;font-variant-numeric:tabular-nums;color:#f87171}
+.examDark .countdownLabel{text-align:center;font-size:13px;color:#8892b0;margin-top:4px}
+.examDark .countdownBig{font-size:48px;font-weight:800;font-variant-numeric:tabular-nums;text-align:center;color:#f87171;letter-spacing:.02em}
+.examDark .audioBtn{display:inline-flex;align-items:center;gap:6px;background:#1e2a4a;color:#4a90d9;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:600;border:1px solid #2a2a4a;cursor:pointer}
+.examDark .audioBtn:active{transform:scale(.96)}
+.examDark .audioBtn:disabled{opacity:.5}
+.examDark .resultBox{background:#16213e;border-radius:16px;padding:24px;margin-bottom:16px}
+.examDark .resultBox.warn{border:1px solid rgba(245,158,11,.3)}
+.examDark .resultBox.fail{border:1px solid rgba(239,68,68,.3)}
+.examDark .scoreBig{font-size:48px;font-weight:800;color:#60a5fa}
+.examDark .scoreBig.warn{color:#fbbf24}
+.examDark .scoreBig.fail{color:#f87171}
+.examDark .scoreGrade{display:inline-block;font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px}
+.examDark .scoreGrade.high{background:rgba(59,130,246,.2);color:#60a5fa}
+.examDark .scoreGrade.mid{background:rgba(245,158,11,.2);color:#fbbf24}
+.examDark .scoreGrade.low{background:rgba(239,68,68,.2);color:#f87171}
+.examDark .dimRow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:16px}
+.examDark .dimCard{background:#1e2a4a;border-radius:12px;padding:14px;text-align:center}
+.examDark .dimCard .dv{font-size:22px;font-weight:800}
+.examDark .dimCard .dv.high{color:#60a5fa}
+.examDark .dimCard .dv.mid{color:#fbbf24}
+.examDark .dimCard .dv.low{color:#f87171}
+.examDark .dimCard .dl{font-size:11px;color:#8892b0;margin-top:2px}
+.examDark .dimBar{height:4px;border-radius:2px;background:#2a2a4a;margin-top:6px;overflow:hidden}
+.examDark .dimBarFill{height:100%;border-radius:2px;transition:width .5s}
+.examDark .correctionBox{background:#16213e;border-radius:16px;padding:18px;margin-bottom:16px}
+.examDark .correctionBox h4{font-size:15px;font-weight:700;color:#e8e8e8;margin-bottom:12px}
+.examDark .corrItem{background:#1e2a4a;border-radius:10px;padding:14px;margin-bottom:8px;border-left:3px solid #f87171}
+.examDark .corrItem.correct{border-left-color:#4ade80}
+.examDark .corrItem .ciHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.examDark .corrItem .ciLabel{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px}
+.examDark .corrItem .ciLabel.wrong{background:rgba(239,68,68,.2);color:#f87171}
+.examDark .corrItem .ciLabel.right{background:rgba(74,222,128,.2);color:#4ade80}
+.examDark .corrItem .ciBody{margin-top:8px}
+.examDark .corrItem .ciRow{display:flex;gap:6px;margin:4px 0;align-items:flex-start}
+.examDark .corrItem .ciTag{font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;flex-shrink:0;margin-top:2px}
+.examDark .corrItem .ciTag.your{background:rgba(239,68,68,.2);color:#f87171}
+.examDark .corrItem .ciTag.correct{background:rgba(74,222,128,.2);color:#4ade80}
+.examDark .corrItem .ciTag.tip{background:rgba(74,144,217,.2);color:#4a90d9}
+.examDark .corrItem .ciText{font-size:13px;color:#e8e8e8;line-height:1.6}
+.examDark .corrItem .ciError{background:rgba(239,68,68,.1);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12px;color:#f87171;line-height:1.5}
+.examDark .corrItem .ciTip{background:rgba(74,144,217,.1);border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12px;color:#4a90d9;line-height:1.5;white-space:pre-line}
+.examDark .corrItem .mw{display:inline-block;background:rgba(239,68,68,.15);color:#fca5a5;padding:2px 8px;border-radius:6px;margin:2px;font-size:12px;font-weight:600}
+.examDark .transcript{background:#1e2a4a;border-radius:10px;padding:12px;font-size:13px;color:#8892b0;margin-top:10px;line-height:1.7;max-height:160px;overflow-y:auto}
+.examDark .cnPrompt{background:rgba(245,158,11,.1);border-left:3px solid #f59e0b;border-radius:8px;padding:12px 14px;font-size:14px;color:#e8e8e8;margin:8px 0}
+.examDark .keywordRow{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.examDark .kw{background:rgba(74,144,217,.15);color:#4a90d9;border:1px solid rgba(74,144,217,.3);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.examDark .kw small{color:#8892b0;font-weight:400;margin-left:4px}
+.examDark .qaBlock{background:#1e2a4a;border-radius:12px;padding:14px;margin:10px 0}
+.examDark .qaBlock .qlabel{font-size:12px;color:#8892b0;font-weight:700;margin-bottom:4px}
+.examDark .qaBlock .qtext{font-size:15px;font-weight:600;color:#e8e8e8;margin-bottom:6px}
+.examDark .qaBlock .atext{font-size:14px;color:#8892b0}
+.examDark .examStatusPrompt{background:rgba(74,144,217,.1);border:1px solid rgba(74,144,217,.2);border-radius:12px;padding:12px 14px;font-size:14px;color:#4a90d9;text-align:center;margin:10px 0;font-weight:600}
+.examDark .ghostBtn{background:transparent;color:#8892b0;border:1px solid #2a2a4a;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:500}
+.examDark .smallBtn{background:#1e2a4a;color:#e8e8e8;border:1px solid #2a2a4a;border-radius:10px;padding:8px 14px;font-size:13px;font-weight:500}
+.examDark .primary{background:#4a90d9;color:#fff;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600}
+.examDark .submitBtn{background:#16a34a;color:#fff;border-radius:12px;padding:11px 18px;font-size:15px;font-weight:600}
+.examDark .muted{color:#8892b0;font-size:13px}
+.examDark .tag{background:#1e2a4a;border-radius:8px;padding:3px 9px;font-size:11px;font-weight:600;color:#8892b0}
+.examDark .tag.diff-easy{background:rgba(34,197,94,.15);color:#4ade80}
+.examDark .tag.diff-medium{background:rgba(245,158,11,.15);color:#fbbf24}
+.examDark .tag.diff-hard{background:rgba(239,68,68,.15);color:#f87171}
+.examDark .srcLabel{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:6px;margin-top:4px}
+.examDark .srcLabel.real{background:rgba(59,130,246,.15);color:#60a5fa}
+.examDark .srcLabel.mock{background:rgba(107,114,128,.15);color:#9ca3af}
+.examDark .btnRow{display:flex;gap:10px;margin-top:12px}
+.examDark .heroBanner{background:linear-gradient(135deg,#16213e 0%,#1e2a4a 100%);border-radius:20px;padding:20px;color:#fff;margin-bottom:16px;border:1px solid #2a2a4a}
+.examDark .heroBanner h2{color:#fff}
+.examDark .heroBanner p{opacity:.85}
+.examDark audio{filter:invert(.9) hue-rotate(180deg)}
+.examDark .examHeader{display:flex;align-items:center;gap:12px;padding:16px 18px;background:#16213e;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,.3);margin:-14px -14px 14px}
+.examDark .examHeader .ehBack{color:#fff;font-size:20px;background:none;border:none;cursor:pointer;padding:4px 8px}
+.examDark .examHeader .ehTitle{font-size:16px;font-weight:700;color:#fff;flex:1}
+.examDark .examHeader .ehMode{font-size:12px;color:#8892b0;font-weight:600;background:#1a1a2e;padding:3px 10px;border-radius:999px}
+@media(max-width:380px){.examDark .dimRow{grid-template-columns:1fr 1fr}}
 /* 高考UI：试音阶段 */
 .soundCheckScreen{background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);border-radius:var(--radius);padding:28px 20px;color:#fff;text-align:center;margin-bottom:14px;box-shadow:0 8px 32px rgba(30,58,95,.3)}
 .soundCheckScreen .scIcon{font-size:48px;margin-bottom:12px}
@@ -311,8 +514,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="5.0.0";
-var APP_VERSION_CODE=5;
+var APP_VERSION="5.1.0";
+var APP_VERSION_CODE=6;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
@@ -479,7 +682,6 @@ function viewPractice(){
   if(State.subView==="listA")return openPartList("A",wrap);
   if(State.subView==="listB")return openPartList("B",wrap);
   if(State.subView==="listC")return openPartList("C",wrap);
-  if(State.subView==="questionList")return openQuestionList(wrap);
 
   wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"听说练习"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
 
@@ -489,18 +691,18 @@ function viewPractice(){
   mh.appendChild(el("div",{className:"modeIcon",text:"📝"}));
   var mi=el("div",{});
   mi.appendChild(el("div",{className:"modeTitle",text:"模考练习"}));
-  mi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C三部分 · 不可跳过 · 严格模拟高考流程"}));
+  mi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 不可跳过 · 完全还原高考流程"}));
   mh.appendChild(mi);
   mockCard.appendChild(mh);
   mockCard.appendChild(el("div",{className:"modeMeta"},[
     el("span",{className:"tag",text:"满分60分"}),
     el("span",{className:"tag",text:"Part A+B+C"}),
     el("span",{className:"tag",text:"不可跳过"}),
-    el("span",{className:"tag",text:"含试音阶段"})
+    el("span",{className:"tag",text:"含试音+视频"})
   ]));
   var mockBtns=el("div",{className:"btnRow"});
-  mockBtns.appendChild(el("button",{className:"primary",style:{flex:1},text:"🚀 开始模考",onClick:function(){showSoundCheck(function(){startMock(false);});}}));
-  mockBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机模考",onClick:function(){showSoundCheck(function(){startMock(true);});}}));
+  mockBtns.appendChild(el("button",{className:"primary",style:{flex:1},text:"🚀 开始模考",onClick:function(){showSoundCheck(function(){startExam(true,false);});}}));
+  mockBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机模考",onClick:function(){showSoundCheck(function(){startExam(true,true);});}}));
   mockCard.appendChild(mockBtns);
   wrap.appendChild(mockCard);
 
@@ -510,7 +712,7 @@ function viewPractice(){
   qh.appendChild(el("div",{className:"modeIcon",text:"📋"}));
   var qi=el("div",{});
   qi.appendChild(el("div",{className:"modeTitle",text:"试题练习"}));
-  qi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C三部分 · 可跳过 · 可立即结算 · 灵活练习"}));
+  qi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 可跳过 · 可立即结算 · 与模考流程一致"}));
   qh.appendChild(qi);
   qCard.appendChild(qh);
   qCard.appendChild(el("div",{className:"modeMeta"},[
@@ -518,18 +720,18 @@ function viewPractice(){
     el("span",{className:"tag",text:"Part A+B+C"}),
     el("span",{className:"tag",text:"可跳过"}),
     el("span",{className:"tag",text:"可立即结算"}),
-    el("span",{className:"tag",text:"含试音阶段"})
+    el("span",{className:"tag",text:"含试音+视频"})
   ]));
   var qBtns=el("div",{className:"btnRow"});
-  qBtns.appendChild(el("button",{className:"primary",style:{flex:1,background:"#6366f1"},text:"📋 选择试题",onClick:function(){State.subView="questionList";render();}}));
-  qBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机试题",onClick:function(){showSoundCheck(function(){startQuestionPractice(true);});}}));
+  qBtns.appendChild(el("button",{className:"primary",style:{flex:1,background:"#6366f1"},text:"🚀 开始练习",onClick:function(){showSoundCheck(function(){startExam(false,false);});}}));
+  qBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机练习",onClick:function(){showSoundCheck(function(){startExam(false,true);});}}));
   qCard.appendChild(qBtns);
   wrap.appendChild(qCard);
 
   /* 专项练习 */
   wrap.appendChild(el("h3",{text:"📚 专项练习",style:{margin:"16px 0 8px"}}));
   var parts=[
-    {key:"A",cls:"modeA",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 20分",meta:["4环节流程","朗读评分"],done:partDone("A"),total:DATA.partA.length,realCount:DATA.partA.filter(isRealExam).length,go:function(){State.subView="listA";render();}},
+    {key:"A",cls:"modeA",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 20分",meta:["含视频","朗读评分"],done:partDone("A"),total:DATA.partA.length,realCount:DATA.partA.filter(isRealExam).length,go:function(){State.subView="listA";render();}},
     {key:"B",cls:"modeB",icon:"💬",title:"Part B 角色扮演",sub:"Role Play · 三问五答 · 16分",meta:["情景对话","信息传递"],done:partDone("B"),total:DATA.partB.length,realCount:DATA.partB.filter(isRealExam).length,go:function(){State.subView="listB";render();}},
     {key:"C",cls:"modeC",icon:"🎧",title:"Part C 故事复述",sub:"Retelling · 24分",meta:["听两遍","复述评分"],done:partDone("C"),total:DATA.partC.length,realCount:DATA.partC.filter(isRealExam).length,go:function(){State.subView="listC";render();}}
   ];
@@ -557,14 +759,12 @@ function viewPractice(){
     wrap.appendChild(card);
   });
 
-  /* 评分说明入口已移至「指南」标签页 */
   wrap.appendChild(el("div",{className:"card mt12"},[
     el("h3",{text:"💡 使用提示"}),
-    el("p",{className:"muted",text:"1. 模考练习：完整A+B+C，不可跳过，严格模拟高考流程（含试音阶段和视频）。"}),
-    el("p",{className:"muted",text:"2. 试题练习：完整A+B+C，可跳过、可立即结算，灵活练习。"}),
+    el("p",{className:"muted",text:"1. 模考练习：完整A+B+C，不可跳过，完全还原高考流程。"}),
+    el("p",{className:"muted",text:"2. 试题练习：完整A+B+C，流程与模考一致，仅多出跳过和立即结算功能。"}),
     el("p",{className:"muted",text:"3. 专项练习：只练习一个Part，含随机选题。"}),
-    el("p",{className:"muted",text:"4. 评分说明与答题技巧请点击底部「指南」标签页。"}),
-    el("p",{className:"muted",text:"5. 三色评分：蓝色≥80%优秀，橙色65-80%良好，红色<65%待提高。"})
+    el("p",{className:"muted",text:"4. 评分说明与答题技巧请点击底部「指南」标签页。"})
   ]));
   return wrap;
 }
@@ -665,120 +865,6 @@ function showSoundCheck(callback){
   var skipBtn=el("button",{className:"ghostBtn fullWidth mt8",text:"跳过试音 →"});
   skipBtn.addEventListener("click",callback);
   root.appendChild(el("div",{className:"btnRow"},[skipBtn]));
-}
-
-/* ============ 试题列表（选择试题练习） ============ */
-function openQuestionList(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.subView=null;render();});
-  topBar.appendChild(backBtn);
-  topBar.appendChild(el("span",{className:"versionPill",text:"试题练习"}));
-  wrap.appendChild(topBar);
-  wrap.appendChild(el("h2",{text:"📋 试题练习"}));
-  wrap.appendChild(el("p",{className:"muted mb12",text:"选择一套完整试题（Part A+B+C）进行练习 · 可跳过 · 可立即结算"}));
-
-  /* 随机试题按钮 */
-  var randBtn=el("button",{className:"primary fullWidth mb12",style:{background:"#6366f1"},text:"🎲 随机抽取一套试题"});
-  randBtn.addEventListener("click",function(){showSoundCheck(function(){startQuestionPractice(true);});});
-  wrap.appendChild(randBtn);
-
-  /* 来源筛选 */
-  var srcBar=el("div",{className:"srcFilter"});
-  var srcs=[{key:"all",label:"全部"},{key:"real",label:"高考真题"},{key:"mock",label:"模拟题"}];
-  srcs.forEach(function(s){var chip=el("button",{className:"diffChip"+(State.filterSrc===s.key?" active":""),text:s.label});chip.addEventListener("click",function(){State.filterSrc=s.key;render();});srcBar.appendChild(chip);});
-  wrap.appendChild(srcBar);
-
-  /* 列出所有套题（以Part A为基准，匹配同源试题） */
-  var realSets=[];
-  var mockSets=[];
-  DATA.partA.forEach(function(a){
-    var src=a.source||"模拟练习";
-    var b=DATA.partB.filter(function(d){return d.source===a.source;})[0]||DATA.partB[Math.floor(Math.random()*DATA.partB.length)];
-    var c=DATA.partC.filter(function(d){return d.source===a.source;})[0]||DATA.partC[Math.floor(Math.random()*DATA.partC.length)];
-    var set={a:a,b:b,c:c,source:src,isReal:isRealExam(a)};
-    if(set.isReal)realSets.push(set);else mockSets.push(set);
-  });
-  var filtered=State.filterSrc==="real"?realSets:State.filterSrc==="mock"?mockSets:realSets.concat(mockSets);
-  filtered.forEach(function(set){
-    var row=el("div",{className:"resListItem"});
-    var icon=el("div",{className:"resListIcon",text:"📋"});
-    icon.style.background="linear-gradient(135deg,#6366f1,#4f46e5)";
-    row.appendChild(icon);
-    var body=el("div",{className:"resListBody"});
-    body.appendChild(el("div",{className:"resListTitle",text:set.a.title}));
-    var subText="Part A: "+set.a.title;
-    if(set.b)subText+=" · Part B: "+set.b.title;
-    if(set.c)subText+=" · Part C: "+set.c.title;
-    body.appendChild(el("div",{className:"resListSub",text:set.source+" · 满分60分"}));
-    body.appendChild(el("span",{className:"srcLabel "+(set.isReal?"real":"mock"),text:set.source}));
-    row.appendChild(body);
-    row.appendChild(el("div",{style:{textAlign:"center",flexShrink:0}},[el("div",{style:{fontSize:"14px",fontWeight:"700",color:"#6366f1"},text:"60分"}),el("div",{style:{fontSize:"10px",color:"#9ca3af"},text:"A+B+C"})]));
-    row.addEventListener("click",function(){
-      showSoundCheck(function(){startQuestionPractice(false,set.a,set.b,set.c);});
-    });
-    wrap.appendChild(row);
-  });
-  if(!filtered.length)wrap.appendChild(el("div",{className:"emptyState"},[el("div",{className:"ei",text:"📭"}),el("p",{text:"该筛选条件下暂无内容"})]));
-  return wrap;
-}
-
-/* ============ 试题练习（A+B+C，可跳过/结算） ============ */
-function startQuestionPractice(isRandom,a,b,c){
-  if(isRandom){
-    var realA=DATA.partA.filter(isRealExam);var realB=DATA.partB.filter(isRealExam);var realC=DATA.partC.filter(isRealExam);
-    var poolA=realA.length>=3?realA:DATA.partA;var poolB=realB.length>=3?realB:DATA.partB;var poolC=realC.length>=3?realC:DATA.partC;
-    a=poolA[Math.floor(Math.random()*poolA.length)];
-    b=poolB[Math.floor(Math.random()*poolB.length)];
-    c=poolC[Math.floor(Math.random()*poolC.length)];
-    toast("随机试题："+a.title);
-  }
-  var scores={A:0,B:0,C:0};
-  var root=$("#root .app");
-  function intro(){
-    root.innerHTML="";
-    root.appendChild(el("div",{className:"heroBanner",style:{background:"linear-gradient(135deg,#6366f1,#4f46e5)"}},[el("h2",{text:"📋 试题练习"}),el("p",{text:"完整A+B+C三部分 · 可跳过 · 可立即结算"})]));
-    var steps=[["Part A 模仿朗读",a.title,a.source,"20分"],["Part B 角色扮演",b.title,b.source,"16分"],["Part C 故事复述",c.title,c.source,"24分"]];
-    steps.forEach(function(s){
-      var card=el("div",{className:"modeCard modeQuestion"});
-      var head=el("div",{className:"modeHead"});
-      head.appendChild(el("div",{className:"modeIcon",text:"•"}));
-      var info=el("div",{});
-      info.appendChild(el("div",{className:"modeTitle",text:s[0]}));
-      info.appendChild(el("div",{className:"modeSub",text:s[1]+" · "+s[3]}));
-      if(s[2])info.appendChild(el("span",{className:"srcLabel "+(s[2].indexOf("真题")>=0?"real":"mock"),text:s[2]}));
-      head.appendChild(info);card.appendChild(head);root.appendChild(card);
-    });
-    var btnRow=el("div",{className:"btnRow"});
-    var startBtn=el("button",{className:"primary fullWidth",style:{fontSize:"17px",padding:"14px"},text:"开始 Part A →"});
-    startBtn.addEventListener("click",runA);
-    btnRow.appendChild(startBtn);
-    root.appendChild(btnRow);
-    root.appendChild(el("p",{className:"center muted mt8",text:"💡 可跳过当前阶段或直接结算，灵活练习"}));
-  }
-  function runA(){State._mockCallback=function(score){scores.A=score;runB();};startPartA(a,false);}
-  function runB(){State._mockCallback=function(score){scores.B=score;runC();};startPartB(b,false);}
-  function runC(){State._mockCallback=function(score){scores.C=score;finish();};startPartC(c,false);}
-  function finish(){
-    State._mockCallback=null;
-    var total=scores.A+scores.B+scores.C;var pct=Math.round(total/60*100);var g=scoreGrade(pct);
-    root.innerHTML="";
-    root.appendChild(el("div",{className:"heroBanner",style:{background:"linear-gradient(135deg,#6366f1,#4f46e5)"}},[el("h2",{text:"📊 练习完成！"})]));
-    var box=el("div",{className:"examWrap"});
-    var resBox=el("div",{className:"resultBox "+(g.level==="high"?"":g.level==="mid"?"warn":"fail")});
-    resBox.appendChild(el("div",{style:{textAlign:"center"}},[el("div",{style:{fontSize:"48px",fontWeight:"800",color:g.color},text:total+""}),el("div",{style:{fontSize:"16px",color:"#6b7280",fontWeight:"600"},text:"/ 60分（折算高考 "+Math.round(total/4*10)/10+" 分）"}),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%",style:{marginTop:"8px"}})]));
-    var dimRow=el("div",{className:"dimRow"});
-    [["Part A",scores.A,20],["Part B",scores.B,16],["Part C",scores.C,24]].forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
-    resBox.appendChild(dimRow);box.appendChild(resBox);
-    /* 评分说明链接 */
-    var guideLink=el("button",{className:"smallBtn mt8",text:"📊 查看评分说明与答题技巧 →"});
-    guideLink.addEventListener("click",function(){State.view="guide";State.subView=null;render();});
-    box.appendChild(guideLink);
-    box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再练一次",onClick:function(){showSoundCheck(function(){startQuestionPractice(true);});}})]));
-    root.appendChild(box);
-    recordScore("A",a.id,scores.A,20);recordScore("B",b.id,scores.B,16);recordScore("C",c.id,scores.C,24);
-  }
-  intro();
 }
 
 /* ============ 指南页（主标签页） ============ */
@@ -985,14 +1071,45 @@ function openPartList(part,wrap){
   return wrap;
 }
 
+/* ============ 深色考试模式辅助 ============ */
+function enterExamMode(isMock){
+  var root=$("#root .app");
+  root.classList.add("examDark");
+  var tb=document.querySelector(".tabbar");
+  if(tb)tb.style.display="none";
+  State._examMode=isMock?"mock":"practice";
+}
+function exitExamMode(){
+  var root=$("#root .app");
+  root.classList.remove("examDark");
+  var tb=document.querySelector(".tabbar");
+  if(tb)tb.style.display="";
+  State._examMode=null;
+}
+function examTopBar(partLabel,isMock){
+  var bar=el("div",{className:"examHeader"});
+  var back=el("button",{className:"ehBack",text:"←"});
+  back.addEventListener("click",function(){
+    if(confirm("确定退出？当前进度将丢失。")){
+      exitExamMode();
+      State.view="practice";State.subView=null;render();
+    }
+  });
+  bar.appendChild(back);
+  bar.appendChild(el("div",{className:"ehTitle",text:partLabel}));
+  bar.appendChild(el("span",{className:"ehMode",text:isMock?"模考":"练习"}));
+  return bar;
+}
+
 /* ============ Part A 引擎（可跳过/结算） ============ */
 function startPartA(item,isMock){
+  enterExamMode(isMock);
   var root=$("#root .app");root.innerHTML="";
   var phase=0;
   var phaseNames=["观看视频","自主练习","听录音","正式录音","评分"];
   var sc=0;
   function pbar(){var b=el("div",{className:"phaseBar"});phaseNames.forEach(function(n,i){b.appendChild(el("div",{className:(i===phase?"active ":(i<phase?"done ":""))+"phaseDot",text:(i+1)+". "+n}));});return b;}
-  function header(){var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"📖 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part A · 20分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));return h;}
+  function header(){var frag=document.createDocumentFragment();frag.appendChild(examTopBar("Part A · 模仿朗读",isMock));var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"📖 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part A · 20分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));frag.appendChild(h);return frag;}
   function skipBtn(label,target){return el("button",{className:"ghostBtn",text:label,onClick:target});}
   function settleBtn(){return el("button",{className:"ghostBtn",text:"直接结算 →",onClick:function(){phase=4;showScore(null,"");}});}
   function statusBar(status,timer,recording){
@@ -1235,7 +1352,7 @@ function startPartA(item,isMock){
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新朗读",onClick:function(){phase=3;showRecord();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("Part A: "+r.score+"/20");if(State._mockCallback)State._mockCallback(r.score);}}));}
-    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("已记录成绩："+r.score+"/20");State.subView="listA";render();}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("已记录成绩："+r.score+"/20");exitExamMode();State.view="practice";State.subView=null;render();}}));}
     box.appendChild(br);root.appendChild(box);
   }
   showVideo();
@@ -1243,12 +1360,13 @@ function startPartA(item,isMock){
 
 /* ============ Part B 引擎（可跳过/结算） ============ */
 function startPartB(item,isMock){
+  enterExamMode(isMock);
   var root=$("#root .app");root.innerHTML="";
   var phase=0;
   var phaseNames=["情景","对话","三问","五答","结果"];
   var qScores=[],aScores=[];
   function pbar(){var b=el("div",{className:"phaseBar"});phaseNames.forEach(function(n,i){b.appendChild(el("div",{className:(i===phase?"active ":(i<phase?"done ":""))+"phaseDot",text:(i+1)+". "+n}));});return b;}
-  function header(){var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"💬 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part B · 16分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));return h;}
+  function header(){var frag=document.createDocumentFragment();frag.appendChild(examTopBar("Part B · 角色扮演",isMock));var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"💬 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part B · 16分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));frag.appendChild(h);return frag;}
   function skipBtn(label,target){return el("button",{className:"ghostBtn",text:label,onClick:target});}
   function settleBtn(){return el("button",{className:"ghostBtn",text:"直接结算 →",onClick:finishB});}
   function showScenario(){root.innerHTML="";root.appendChild(pbar());root.appendChild(header());root.appendChild(el("div",{className:"examStatusPrompt",text:"请阅读情景描述，记住角色身份和关键信息"}));var box=el("div",{className:"examWrap"});box.appendChild(el("div",{className:"cnPrompt",text:item.scenario}));box.appendChild(el("p",{className:"muted",text:item.scenarioEn}));var br=el("div",{className:"btnRow"});if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=1;showDialogue();}));br.appendChild(settleBtn());}br.appendChild(el("button",{className:"primary",text:"开始听对话 →",onClick:function(){phase=1;showDialogue();}}));box.appendChild(br);root.appendChild(box);}
@@ -1311,7 +1429,7 @@ function startPartB(item,isMock){
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新练习",onClick:function(){qi=0;ai=0;qScores=[];aScores=[];phase=0;showScenario();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);toast("Part B: "+t+"/16");if(State._mockCallback)State._mockCallback(t);}}));}
-    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);toast("已记录成绩："+t+"/16");State.subView="listB";render();}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);toast("已记录成绩："+t+"/16");exitExamMode();State.view="practice";State.subView=null;render();}}));}
     box.appendChild(br);root.appendChild(box);
   }
   showScenario();
@@ -1319,11 +1437,12 @@ function startPartB(item,isMock){
 
 /* ============ Part C 引擎（可跳过/结算） ============ */
 function startPartC(item,isMock){
+  enterExamMode(isMock);
   var root=$("#root .app");root.innerHTML="";
   var phase=0;
   var phaseNames=["概要","聆听","准备","复述","结果"];
   function pbar(){var b=el("div",{className:"phaseBar"});phaseNames.forEach(function(n,i){b.appendChild(el("div",{className:(i===phase?"active ":(i<phase?"done ":""))+"phaseDot",text:(i+1)+". "+n}));});return b;}
-  function header(){var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"🎧 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part C · 24分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));return h;}
+  function header(){var frag=document.createDocumentFragment();frag.appendChild(examTopBar("Part C · 故事复述",isMock));var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"🎧 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part C · 24分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));frag.appendChild(h);return frag;}
   function skipBtn(label,target){return el("button",{className:"ghostBtn",text:label,onClick:target});}
   function settleBtn(){return el("button",{className:"ghostBtn",text:"直接结算 →",onClick:function(){phase=4;showResult("");}});}
   function showSummary(){root.innerHTML="";root.appendChild(pbar());root.appendChild(header());var box=el("div",{className:"examWrap"});box.appendChild(el("p",{className:"muted mb8",text:"故事概要和关键词。"}));box.appendChild(el("div",{className:"cnPrompt",text:item.summary}));box.appendChild(el("p",{className:"muted mt8",text:"关键词："}));var kr=el("div",{className:"keywordRow"});item.keywords.forEach(function(k){kr.appendChild(el("span",{className:"kw"},[document.createTextNode(k.en),el("small",{text:k.cn})]));});box.appendChild(kr);var br=el("div",{className:"btnRow"});if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=1;showListen();}));br.appendChild(settleBtn());}br.appendChild(el("button",{className:"primary",text:"开始聆听 →",onClick:function(){phase=1;showListen();}}));box.appendChild(br);root.appendChild(box);}
@@ -1384,14 +1503,14 @@ function startPartC(item,isMock){
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新复述",onClick:function(){phase=3;showRecord();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("Part C: "+r.score+"/24");if(State._mockCallback)State._mockCallback(r.score);}}));}
-    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("已记录成绩："+r.score+"/24");State.subView="listC";render();}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("已记录成绩："+r.score+"/24");exitExamMode();State.view="practice";State.subView=null;render();}}));}
     box.appendChild(br);root.appendChild(box);
   }
   showSummary();
 }
 
-/* ============ 模拟考试（不可跳过） ============ */
-function startMock(isRandom){
+/* ============ 统一考试入口（模考/练习） ============ */
+function startExam(isMock,isRandom){
   var realA=DATA.partA.filter(isRealExam);var realB=DATA.partB.filter(isRealExam);var realC=DATA.partC.filter(isRealExam);
   var poolA=realA.length>=3?realA:DATA.partA;var poolB=realB.length>=3?realB:DATA.partB;var poolC=realC.length>=3?realC:DATA.partC;
   var a,b,c;
@@ -1402,47 +1521,31 @@ function startMock(isRandom){
   }
   var scores={A:0,B:0,C:0};
   var root=$("#root .app");
-  function intro(){
-    root.innerHTML="";
-    root.appendChild(el("div",{className:"heroBanner"},[el("h2",{text:"📝 模考练习"}),el("p",{text:isRandom?"随机抽取三部分试题 · 不可跳过 · 完整模拟考试流程":"固定试题 · 不可跳过 · 完整模拟考试流程"})]));
-    var steps=[["Part A 模仿朗读",a.title,a.source,"20分"],["Part B 角色扮演",b.title,b.source,"16分"],["Part C 故事复述",c.title,c.source,"24分"]];
-    steps.forEach(function(s){
-      var card=el("div",{className:"modeCard modeMock"});
-      var head=el("div",{className:"modeHead"});
-      head.appendChild(el("div",{className:"modeIcon",text:"•"}));
-      var info=el("div",{});
-      info.appendChild(el("div",{className:"modeTitle",text:s[0]}));
-      info.appendChild(el("div",{className:"modeSub",text:s[1]+" · "+s[3]}));
-      if(s[2])info.appendChild(el("span",{className:"srcLabel "+(s[2].indexOf("真题")>=0?"real":"mock"),text:s[2]}));
-      head.appendChild(info);card.appendChild(head);root.appendChild(card);
-    });
-    var btn=el("button",{className:"primary fullWidth",style:{fontSize:"17px",padding:"14px"},text:"开始 Part A →"});
-    btn.addEventListener("click",runA);root.appendChild(el("div",{className:"btnRow"},[btn]));
-    root.appendChild(el("p",{className:"center muted mt8",text:"⚠️ 模考练习不可跳过，每部分必须完成"}));
-  }
-  function runA(){State._mockCallback=function(score){scores.A=score;runB();};startPartA(a,true);}
-  function runB(){State._mockCallback=function(score){scores.B=score;runC();};startPartB(b,true);}
-  function runC(){State._mockCallback=function(score){scores.C=score;finish();};startPartC(c,true);}
+  function runA(){State._mockCallback=function(score){scores.A=score;runB();};startPartA(a,isMock);}
+  function runB(){State._mockCallback=function(score){scores.B=score;runC();};startPartB(b,isMock);}
+  function runC(){State._mockCallback=function(score){scores.C=score;finish();};startPartC(c,isMock);}
   function finish(){
     State._mockCallback=null;
     var total=scores.A+scores.B+scores.C;var pct=Math.round(total/60*100);var g=scoreGrade(pct);
     root.innerHTML="";
-    root.appendChild(el("div",{className:"heroBanner"},[el("h2",{text:"📊 考试完成！"})]));
+    root.appendChild(examTopBar(isMock?"模考完成":"练习完成",isMock));
+    root.appendChild(el("div",{className:"heroBanner"},[el("h2",{text:"📊 考试完成！"}),el("p",{text:isMock?"完整A+B+C · 模考模式":"完整A+B+C · 练习模式"})]));
     var box=el("div",{className:"examWrap"});
     var resBox=el("div",{className:"resultBox "+(g.level==="high"?"":g.level==="mid"?"warn":"fail")});
-    resBox.appendChild(el("div",{style:{textAlign:"center"}},[el("div",{style:{fontSize:"48px",fontWeight:"800",color:g.color},text:total+""}),el("div",{style:{fontSize:"16px",color:"#6b7280",fontWeight:"600"},text:"/ 60分（折算高考 "+Math.round(total/4*10)/10+" 分）"}),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%",style:{marginTop:"8px"}})]));
+    resBox.appendChild(el("div",{style:{textAlign:"center"}},[el("div",{style:{fontSize:"48px",fontWeight:"800",color:g.color},text:total+""}),el("div",{style:{fontSize:"16px",color:"#8892b0",fontWeight:"600"},text:"/ 60分（折算高考 "+Math.round(total/4*10)/10+" 分）"}),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%",style:{marginTop:"8px"}})]));
     var dimRow=el("div",{className:"dimRow"});
     [["Part A",scores.A,20],["Part B",scores.B,16],["Part C",scores.C,24]].forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
     resBox.appendChild(dimRow);box.appendChild(resBox);
     /* 评分说明链接 */
     var guideLink=el("button",{className:"smallBtn mt8",text:"📊 查看评分说明与答题技巧 →"});
-    guideLink.addEventListener("click",function(){State.view="guide";State.subView=null;render();});
+    guideLink.addEventListener("click",function(){exitExamMode();State.view="guide";State.subView=null;render();});
     box.appendChild(guideLink);
-    box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再考一次",onClick:function(){showSoundCheck(function(){startMock(true);});}})]));
+    box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){exitExamMode();State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再考一次",onClick:function(){showSoundCheck(function(){startExam(isMock,true);});}})]));
     root.appendChild(box);
     recordScore("A",a.id,scores.A,20);recordScore("B",b.id,scores.B,16);recordScore("C",c.id,scores.C,24);
   }
-  intro();
+  /* 直接开始Part A，无介绍页 */
+  runA();
 }
 
 /* ============ 我的页面 ============ */
