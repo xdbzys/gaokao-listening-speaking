@@ -612,6 +612,87 @@ h3{font-size:16px;font-weight:700}
 .etsAIRecCard .earcItem:active{transform:scale(.97)}
 .etsAIRecCard .earcItem .eariText{font-size:13px;font-weight:500}
 .etsAIRecCard .earcItem .eariArrow{font-size:16px}
+
+/* ===== E听说风格：逐词颜色标注 ===== */
+.etsWordEval{background:var(--bg-tertiary);border-radius:12px;padding:20px 16px;line-height:2.6;font-size:18px;letter-spacing:.02em;margin-top:12px}
+.etsWordEval .weWord{display:inline;padding:2px 4px;border-radius:4px;margin:1px;transition:all .2s}
+.etsWordEval .weWord.correct{color:#16a34a;background:rgba(22,163,74,.08)}
+.etsWordEval .weWord.wrong{color:#dc2626;background:rgba(220,38,38,.1);text-decoration:underline wavy #dc2626}
+.etsWordEval .weWord.partial{color:#d97706;background:rgba(217,119,6,.08)}
+.etsWordEval .weWord.missed{color:#9ca3af;background:rgba(156,163,175,.06);text-decoration:line-through}
+.etsWordEval .weWord.unsure{color:#6366f1;background:rgba(99,102,241,.08)}
+.etsWordLegend{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:12px}
+.etsWordLegend .wlItem{display:flex;align-items:center;gap:4px}
+.etsWordLegend .wlDot{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* ===== E听说风格：评分对比卡 ===== */
+.etsScoreCompare{display:flex;gap:8px;margin-top:12px}
+.etsScoreCard{flex:1;background:var(--bg-card);border-radius:12px;padding:12px 8px;text-align:center;border:2px solid transparent;transition:all .2s}
+.etsScoreCard.current{border-color:var(--primary);background:rgba(59,130,246,.05)}
+.etsScoreCard .scLabel{font-size:11px;color:var(--text-secondary);margin-bottom:4px}
+.etsScoreCard .scVal{font-size:22px;font-weight:800;font-variant-numeric:tabular-nums}
+.etsScoreCard .scMax{font-size:11px;color:var(--text-tertiary)}
+.etsScoreCard .scTag{font-size:10px;font-weight:700;margin-top:2px}
+.etsScoreCard .scTag.up{color:#16a34a}
+.etsScoreCard .scTag.down{color:#dc2626}
+.etsScoreCard .scTag.same{color:var(--text-secondary)}
+
+/* ===== E听说风格：思维导图 ===== */
+.etsMindMap{background:var(--bg-tertiary);border-radius:14px;padding:20px;margin-top:12px;position:relative;overflow:hidden}
+.etsMindMap .mmCenter{display:flex;justify-content:center;margin-bottom:16px}
+.etsMindMap .mmNode{background:var(--primary);color:#fff;border-radius:20px;padding:8px 18px;font-size:14px;font-weight:700;box-shadow:0 2px 8px rgba(59,130,246,.3);text-align:center;max-width:200px}
+.etsMindMap .mmBranches{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.etsMindMap .mmBranch{background:var(--bg-card);border-radius:10px;padding:10px 12px;border-left:3px solid var(--primary);box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.etsMindMap .mmBranch .mbKeyword{font-size:13px;font-weight:700;color:var(--primary)}
+.etsMindMap .mmBranch .mbCn{font-size:11px;color:var(--text-secondary);margin-top:2px}
+.etsMindMap .mmBranch .mbSub{font-size:12px;color:var(--text);margin-top:4px;padding-left:8px;border-left:2px solid var(--border)}
+
+/* ===== E听说风格：录音界面 ===== */
+.etsRecCard{background:linear-gradient(135deg,#0f1525,#1a2236);border-radius:16px;padding:24px 20px;text-align:center;margin:12px 0;box-shadow:0 4px 20px rgba(15,21,37,.2)}
+.etsRecCard .rcIcon{width:64px;height:64px;border-radius:50%;background:rgba(59,130,246,.12);display:grid;place-items:center;margin:0 auto 12px;position:relative}
+.etsRecCard .rcIcon::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(59,130,246,.2)}
+.etsRecCard .rcIcon .rcMic{font-size:28px;color:#3b82f6}
+.etsRecCard.recording .rcIcon{background:rgba(239,68,68,.2)}
+.etsRecCard.recording .rcIcon::before{border-color:rgba(239,68,68,.3);animation:etsPulse 1.5s ease-out infinite}
+.etsRecCard.recording .rcIcon .rcMic{color:#ef4444}
+.etsRecCard .rcStatus{color:#e2e8f0;font-size:15px;font-weight:600;margin-bottom:8px}
+.etsRecCard .rcTimer{font-size:36px;font-weight:800;color:#60a5fa;font-variant-numeric:tabular-nums;letter-spacing:.05em}
+.etsRecCard .rcLabel{color:#94a3b8;font-size:12px;margin-top:4px}
+.etsRecCard .rcWave{display:flex;align-items:center;justify-content:center;gap:3px;height:30px;margin:12px 0}
+.etsRecCard .rcWave .rwBar{width:3px;background:#60a5fa;border-radius:2px;animation:etsWave 1s ease-in-out infinite alternate}
+@keyframes etsPulse{0%{transform:scale(1);opacity:1}100%{transform:scale(1.4);opacity:0}}
+@keyframes etsWave{0%{height:6px}100%{height:24px}}
+
+/* ===== E听说风格：对话气泡 ===== */
+.etsChatItem{display:flex;gap:8px;margin-bottom:10px;align-items:flex-start}
+.etsChatItem.right{flex-direction:row-reverse}
+.etsChatItem .ciAvatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-size:14px;flex-shrink:0;color:#fff;font-weight:700}
+.etsChatItem .ciAvatar.computer{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.etsChatItem .ciAvatar.you{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}
+.etsChatItem .ciBubble{max-width:75%;padding:10px 14px;border-radius:14px;font-size:14px;line-height:1.5}
+.etsChatItem:not(.right) .ciBubble{background:var(--bg-tertiary);border-bottom-left-radius:4px}
+.etsChatItem.right .ciBubble{background:rgba(139,92,246,.1);border-bottom-right-radius:4px}
+.etsChatItem .ciBubble .ciEn{color:var(--text)}
+.etsChatItem .ciBubble .ciCn{font-size:12px;color:var(--text-secondary);margin-top:4px}
+
+/* ===== E听说风格：分句练习 ===== */
+.etsSentenceList{margin-top:12px}
+.etsSentenceItem{background:var(--bg-tertiary);border-radius:10px;padding:12px;margin-bottom:8px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:all .15s}
+.etsSentenceItem:active{transform:scale(.98)}
+.etsSentenceItem.played{border-left:3px solid var(--success)}
+.etsSentenceItem .siNum{width:24px;height:24px;border-radius:50%;background:var(--bg-secondary);display:grid;place-items:center;font-size:12px;font-weight:700;flex-shrink:0}
+.etsSentenceItem.played .siNum{background:var(--success);color:#fff}
+.etsSentenceItem .siText{flex:1;font-size:14px;line-height:1.5}
+.etsSentenceItem .siPlay{font-size:18px;flex-shrink:0}
+
+/* ===== E听说风格：维度评分条 ===== */
+.etsDimScore{background:var(--bg-tertiary);border-radius:12px;padding:14px;margin-top:10px}
+.etsDimScore .dsRow{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.etsDimScore .dsRow:last-child{margin-bottom:0}
+.etsDimScore .dsLabel{width:70px;font-size:13px;font-weight:600;flex-shrink:0}
+.etsDimScore .dsBar{flex:1;height:10px;border-radius:5px;background:var(--bg-secondary);overflow:hidden}
+.etsDimScore .dsBarFill{height:100%;border-radius:5px;transition:width .6s ease}
+.etsDimScore .dsVal{width:55px;font-size:14px;font-weight:700;text-align:right;flex-shrink:0}
 </style>
 </head>
 <body>
@@ -620,8 +701,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="8.0.0";
-var APP_VERSION_CODE=9;
+var APP_VERSION="8.1.0";
+var APP_VERSION_CODE=10;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
@@ -745,6 +826,163 @@ function addError(part,item,score,maxScore,detail){var errors=load(LSC.errors,[]
 function clearErrors(){save(LSC.errors,[]);}
 function getErrors(){return load(LSC.errors,[]);}
 
+/* E听说风格：逐词颜色评估 */
+function evalWords(spokenText,referenceText){
+  if(!spokenText||!spokenText.trim()){
+    var refWords=referenceText.split(/\s+/).filter(Boolean);
+    return refWords.map(function(w){return {word:w,status:"missed"};});
+  }
+  var spoken=spokenText.toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
+  var ref=referenceText.split(/\s+/).filter(Boolean);
+  var spokenSet={};spoken.forEach(function(w){spokenSet[w]=1;});
+  var spokenFreq={};spoken.forEach(function(w){spokenFreq[w]=(spokenFreq[w]||0)+1;});
+  return ref.map(function(w){
+    var clean=w.toLowerCase().replace(/[^a-z0-9']/g,"");
+    if(!clean)return {word:w,status:"correct"};
+    if(spokenSet[clean]){
+      spokenFreq[clean]--;
+      if(spokenFreq[clean]<0)return {word:w,status:"partial"};
+      return {word:w,status:"correct"};
+    }
+    /* 模糊匹配：检查是否有相似的词 */
+    var similar=false;
+    for(var i=0;i<spoken.length;i++){
+      if(levenshtein(clean,spoken[i])<=1&&clean.length>3){similar=true;break;}
+    }
+    return {word:w,status:similar?"partial":"missed"};
+  });
+}
+function levenshtein(a,b){
+  if(a.length===0)return b.length;if(b.length===0)return a.length;
+  var m=[];for(var i=0;i<=b.length;i++)m[i]=[i];for(var j=0;j<=a.length;j++)m[0][j]=j;
+  for(var i=1;i<=b.length;i++){for(var j=1;j<=a.length;j++){if(b.charAt(i-1)===a.charAt(j-1))m[i][j]=m[i-1][j-1];else m[i][j]=Math.min(m[i-1][j-1]+1,m[i][j-1]+1,m[i-1][j]+1);}}
+  return m[b.length][a.length];
+}
+function renderWordEval(spokenText,referenceText){
+  var words=evalWords(spokenText,referenceText);
+  var box=el("div",{className:"etsWordEval"});
+  words.forEach(function(w){
+    var span=el("span",{className:"weWord "+w.status,text:w.word});
+    box.appendChild(span);
+    box.appendChild(document.createTextNode(" "));
+  });
+  /* 图例 */
+  var legend=el("div",{className:"etsWordLegend"});
+  legend.appendChild(el("div",{className:"wlItem"},[el("span",{className:"wlDot",style:{background:"#16a34a"}}),el("span",{text:"正确"})]));
+  legend.appendChild(el("div",{className:"wlItem"},[el("span",{className:"wlDot",style:{background:"#d97706"}}),el("span",{text:"部分正确"})]));
+  legend.appendChild(el("div",{className:"wlItem"},[el("span",{className:"wlDot",style:{background:"#9ca3af"}}),el("span",{text:"未识别"})]));
+  box.appendChild(legend);
+  return box;
+}
+
+/* E听说风格：评分对比（本次/上次/最高） */
+function scoreHistory(part,id){
+  var records=State.scores.filter(function(s){return s.part===part&&s.id===id;});
+  if(!records.length)return {current:null,prev:null,best:null};
+  var sorted=records.slice().sort(function(a,b){return a.date-b.date;});
+  var current=sorted[sorted.length-1];
+  var prev=sorted.length>1?sorted[sorted.length-2]:null;
+  var best=records.slice().sort(function(a,b){return b.score-a.score;})[0];
+  return {current:current,prev:prev,best:best};
+}
+function renderScoreCompare(part,id,score,max){
+  var hist=scoreHistory(part,id);
+  var box=el("div",{className:"etsScoreCompare"});
+  /* 本次 */
+  var curCard=el("div",{className:"etsScoreCard current"});
+  curCard.appendChild(el("div",{className:"scLabel",text:"本次"}));
+  curCard.appendChild(el("div",{className:"scVal",text:score+""}));
+  curCard.appendChild(el("div",{className:"scMax",text:"/"+max}));
+  if(hist.prev){
+    var diff=score-hist.prev.score;
+    var tag=el("div",{className:"scTag "+(diff>0?"up":diff<0?"down":"same"),text:diff>0?"↑"+diff:diff<0?"↓"+Math.abs(diff):"—"});
+    curCard.appendChild(tag);
+  }
+  box.appendChild(curCard);
+  /* 上次 */
+  var prevCard=el("div",{className:"etsScoreCard"});
+  prevCard.appendChild(el("div",{className:"scLabel",text:"上次"}));
+  if(hist.prev){
+    prevCard.appendChild(el("div",{className:"scVal",text:hist.prev.score+""}));
+    prevCard.appendChild(el("div",{className:"scMax",text:"/"+max}));
+  }else{
+    prevCard.appendChild(el("div",{className:"scVal",style:{color:"var(--text-tertiary)"},text:"--"}));
+    prevCard.appendChild(el("div",{className:"scMax",text:"/"+max}));
+  }
+  box.appendChild(prevCard);
+  /* 最高 */
+  var bestCard=el("div",{className:"etsScoreCard"});
+  bestCard.appendChild(el("div",{className:"scLabel",text:"最高"}));
+  if(hist.best){
+    bestCard.appendChild(el("div",{className:"scVal",style:{color:"#16a34a"},text:hist.best.score+""}));
+    bestCard.appendChild(el("div",{className:"scMax",text:"/"+max}));
+  }else{
+    bestCard.appendChild(el("div",{className:"scVal",style:{color:"var(--text-tertiary)"},text:"--"}));
+    bestCard.appendChild(el("div",{className:"scMax",text:"/"+max}));
+  }
+  box.appendChild(bestCard);
+  return box;
+}
+
+/* E听说风格：维度评分条 */
+function renderDimScore(dims){
+  var box=el("div",{className:"etsDimScore"});
+  dims.forEach(function(d){
+    var pct=Math.round(d[1]/d[2]*100);
+    var g=scoreGrade(pct);
+    var row=el("div",{className:"dsRow"});
+    row.appendChild(el("div",{className:"dsLabel",text:d[0]}));
+    var bar=el("div",{className:"dsBar"});
+    var fill=el("div",{className:"dsBarFill"});
+    fill.style.width=pct+"%";
+    fill.style.background=g.color;
+    bar.appendChild(fill);
+    row.appendChild(bar);
+    row.appendChild(el("div",{className:"dsVal",style:{color:g.color},text:d[1]+"/"+d[2]}));
+    box.appendChild(row);
+  });
+  return box;
+}
+
+/* E听说风格：录音卡片 */
+function renderRecCard(status,timer,label,isRecording){
+  var card=el("div",{className:"etsRecCard"+(isRecording?" recording":"")});
+  var icon=el("div",{className:"rcIcon"},[el("span",{className:"rcMic",text:"🎤"})]);
+  card.appendChild(icon);
+  card.appendChild(el("div",{className:"rcStatus",text:status}));
+  if(isRecording){
+    var wave=el("div",{className:"rcWave"});
+    for(var i=0;i<15;i++){
+      var bar=el("div",{className:"rwBar"});
+      bar.style.animationDelay=(i*0.08)+"s";
+      wave.appendChild(bar);
+    }
+    card.appendChild(wave);
+  }
+  if(timer!=null){
+    card.appendChild(el("div",{className:"rcTimer",text:fmtTime(timer)}));
+    card.appendChild(el("div",{className:"rcLabel",text:label||"剩余时间"}));
+  }
+  return card;
+}
+
+/* E听说风格：思维导图 */
+function renderMindMap(item){
+  var box=el("div",{className:"etsMindMap"});
+  var center=el("div",{className:"mmCenter"});
+  center.appendChild(el("div",{className:"mmNode",text:item.title||"故事复述"}));
+  box.appendChild(center);
+  var branches=el("div",{className:"mmBranches"});
+  item.keywords.forEach(function(kw){
+    var branch=el("div",{className:"mmBranch"});
+    branch.appendChild(el("div",{className:"mbKeyword",text:kw.en}));
+    branch.appendChild(el("div",{className:"mbCn",text:kw.cn}));
+    branches.appendChild(branch);
+  });
+  box.appendChild(branches);
+  return box;
+}
+
 /* 进度 */
 function recordScore(part,id,score,max){State.scores.push({part:part,id:id,score:score,max:max,date:Date.now()});if(State.scores.length>500)State.scores=State.scores.slice(-500);save(LSC.scores,State.scores);if(score/max<0.6){var item=DATA["part"+part].filter(function(d){return d.id===id;})[0];if(item)addError(part,item,score,max);}State.progress.done[id]={score:score,max:max,date:Date.now()};save(LSC.progress,State.progress);}
 function avgScore(part){var s=State.scores.filter(function(x){return x.part===part;});if(!s.length)return null;return Math.round(s.reduce(function(a,b){return a+b.score;},0)/s.length*10)/10;}
@@ -843,7 +1081,7 @@ function render(){
 }
 
 function renderTabbar(){
-  var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"expand",icon:"📖",label:"拓展"},{id:"me",icon:"👤",label:"我的"}];
+  var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"expand",icon:"📖",label:"指南"},{id:"me",icon:"👤",label:"我的"}];
   var bar=el("div",{className:"tabbar"});
   bar.style.gridTemplateColumns="repeat(3,1fr)";
   tabs.forEach(function(t){
@@ -1238,138 +1476,10 @@ function showSoundCheck(callback){
 /* ============ 拓展页（E听说风格） ============ */
 function viewExpand(){
   var wrap=el("div");
-  /* 子页面路由 */
-  if(State.expandSection==="guide")return expandGuide(wrap);
-  if(State.expandSection==="tips")return expandTips(wrap);
-  if(State.expandSection==="ai")return expandAI(wrap);
-  if(State.expandSection==="phonetic")return expandPhonetic(wrap);
-  if(State.expandSection==="plan")return expandPlan(wrap);
 
-  wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"拓展"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
+  wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"指南"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
 
-  /* 每日一句卡片 */
-  var dailySentences=[
-    {en:"Practice makes perfect.",cn:"熟能生巧。"},
-    {en:"The early bird catches the worm.",cn:"早起的鸟儿有虫吃。"},
-    {en:"Where there is a will, there is a way.",cn:"有志者事竟成。"},
-    {en:"Actions speak louder than words.",cn:"行动胜于言辞。"},
-    {en:"Every cloud has a silver lining.",cn:"每朵乌云背后都有阳光。"},
-    {en:"Rome was not built in a day.",cn:"罗马不是一天建成的。"},
-    {en:"Knowledge is power.",cn:"知识就是力量。"}
-  ];
-  var today=new Date().getDate();
-  var ds=dailySentences[today%dailySentences.length];
-  var dailyCard=el("div",{className:"etsDailyCard"});
-  dailyCard.appendChild(el("div",{className:"edcLabel",text:"🌟 每日一句 · "+new Date().toLocaleDateString("zh-CN",{month:"long",day:"numeric"})}));
-  dailyCard.appendChild(el("div",{className:"edcEn",text:ds.en}));
-  dailyCard.appendChild(el("div",{className:"edcCn",text:ds.cn}));
-  var dailyBtn=el("button",{className:"edcBtn",text:"🔊 朗读练习"});
-  dailyBtn.addEventListener("click",function(){
-    dailyBtn.textContent="播放中...";
-    Speech.speak(ds.en,{rate:0.85}).then(function(){dailyBtn.textContent="🔊 再听一遍";});
-  });
-  dailyCard.appendChild(dailyBtn);
-  wrap.appendChild(dailyCard);
-
-  /* AI智能推荐卡片 */
-  var aiCard=el("div",{className:"etsAIRecCard"});
-  aiCard.appendChild(el("div",{className:"earcTitle",text:"🤖 AI智能推荐"}));
-  var dims=abilityAnalysis();
-  var weakest=null,weakestPct=100;
-  Object.keys(dims).forEach(function(k){
-    if(dims[k].max>0&&dims[k].pct<weakestPct){weakestPct=dims[k].pct;weakest=dims[k];}
-  });
-  if(weakest){
-    aiCard.appendChild(el("div",{className:"earcSub",text:"基于你的练习数据，推荐重点提升："+weakest.label}));
-    /* 推荐练习 */
-    var recs=[];
-    if(weakest.label==="语音语调"||weakest.label==="流利度"){
-      recs=DATA.partA.slice(0,3);
-      recs.forEach(function(r){
-        var item=el("div",{className:"earcItem"});
-        item.appendChild(el("span",{className:"eariText",text:"📖 "+r.title}));
-        item.appendChild(el("span",{className:"eariArrow",text:"›"}));
-        item.addEventListener("click",function(){startPartA(r,false);});
-        aiCard.appendChild(item);
-      });
-    }else if(weakest.label==="语法表达"||weakest.label==="信息传递"){
-      recs=DATA.partB.slice(0,3);
-      recs.forEach(function(r){
-        var item=el("div",{className:"earcItem"});
-        item.appendChild(el("span",{className:"eariText",text:"💬 "+r.title}));
-        item.appendChild(el("span",{className:"eariArrow",text:"›"}));
-        item.addEventListener("click",function(){startPartB(r,false);});
-        aiCard.appendChild(item);
-      });
-    }else{
-      recs=DATA.partC.slice(0,3);
-      recs.forEach(function(r){
-        var item=el("div",{className:"earcItem"});
-        item.appendChild(el("span",{className:"eariText",text:"🎧 "+r.title}));
-        item.appendChild(el("span",{className:"eariArrow",text:"›"}));
-        item.addEventListener("click",function(){startPartC(r,false);});
-        aiCard.appendChild(item);
-      });
-    }
-  }else{
-    aiCard.appendChild(el("div",{className:"earcSub",text:"完成练习后，AI将根据你的薄弱项智能推荐练习内容。"}));
-    var startItem=el("div",{className:"earcItem"});
-    startItem.appendChild(el("span",{className:"eariText",text:"开始第一次练习 →"}));
-    startItem.appendChild(el("span",{className:"eariArrow",text:"›"}));
-    startItem.addEventListener("click",function(){State.view="practice";render();});
-    aiCard.appendChild(startItem);
-  }
-  wrap.appendChild(aiCard);
-
-  /* 拓展功能网格 */
-  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"🎯 能力拓展"})]));
-  var grid=el("div",{className:"etsExpandGrid"});
-  var items=[
-    {icon:"📊",title:"评分指南",sub:"评分标准与档次",color:"linear-gradient(135deg,#3b82f6,#2563eb)",section:"guide",badge:null},
-    {icon:"💡",title:"答题技巧",sub:"各Part技巧汇总",color:"linear-gradient(135deg,#f59e0b,#d97706)",section:"tips",badge:null},
-    {icon:"🤖",title:"AI提升课",sub:"智能推荐练习",color:"linear-gradient(135deg,#4facfe,#00f2fe)",section:"ai",badge:weakest?"NEW":null},
-    {icon:"🔤",title:"音标学习",sub:"48个音标练习",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",section:"phonetic",badge:null},
-    {icon:"📝",title:"学习计划",sub:"制定练习计划",color:"linear-gradient(135deg,#10b981,#059669)",section:"plan",badge:null},
-    {icon:"📚",title:"错题本",sub:"错题回顾订正",color:"linear-gradient(135deg,#ef4444,#dc2626)",section:null,go:function(){State.view="me";State.subView=null;render();}}
-  ];
-  items.forEach(function(it){
-    var card=el("div",{className:"etsExpandItem"});
-    var icon=el("div",{className:"eeiIcon",text:it.icon});
-    icon.style.background=it.color;
-    card.appendChild(icon);
-    card.appendChild(el("div",{className:"eeiTitle",text:it.title}));
-    card.appendChild(el("div",{className:"eeiSub",text:it.sub}));
-    if(it.badge){card.appendChild(el("div",{className:"eeiBadge",text:it.badge}));}
-    card.addEventListener("click",function(){
-      if(it.go){it.go();return;}
-      State.expandSection=it.section;render();
-    });
-    grid.appendChild(card);
-  });
-  wrap.appendChild(grid);
-
-  /* 评分等级快速预览 */
-  wrap.appendChild(el("div",{className:"card"},[
-    el("h3",{text:"🎨 评分等级"}),
-    el("div",{className:"dimRow"},[
-      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv high",text:"≥80%"}));c.appendChild(el("div",{className:"dl",text:"优秀"}));return c;})(),
-      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv mid",text:"65-79%"}));c.appendChild(el("div",{className:"dl",text:"良好"}));return c;})(),
-      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv low",text:"<65%"}));c.appendChild(el("div",{className:"dl",text:"待提高"}));return c;})()
-    ]),
-    el("p",{className:"muted mt8",text:"三色评分系统：蓝色表示优秀，橙色表示良好，红色表示需要提高。成绩低于60%的练习会自动加入错题本。"})
-  ]));
-
-  return wrap;
-}
-
-/* === 拓展子页面：评分指南 === */
-function expandGuide(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
-  topBar.appendChild(backBtn);
-  wrap.appendChild(topBar);
-
+  /* === 评分指南 === */
   var hero=el("div",{className:"guideHero"});
   hero.appendChild(el("h2",{text:"📊 评分说明"}));
   hero.appendChild(el("p",{text:"广东高考英语听说考试 · 满分60分 · 折算高考15分（÷4）"}));
@@ -1441,18 +1551,8 @@ function expandGuide(wrap){
   gradeDetailCard.appendChild(gdTbl);
   wrap.appendChild(gradeDetailCard);
 
-  return wrap;
-}
-
-/* === 拓展子页面：答题技巧 === */
-function expandTips(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
-  topBar.appendChild(backBtn);
-  wrap.appendChild(topBar);
-  wrap.appendChild(el("h2",{text:"💡 答题技巧"}));
-
+  /* === 答题技巧 === */
+  wrap.appendChild(el("div",{className:"section"},[el("h3",{text:"💡 答题技巧"})]));
   var tips=[
     {part:"Part A 模仿朗读",icon:"📖",color:"linear-gradient(135deg,#3b82f6,#2563eb)",tips:[
       "观看视频时专注捕捉发音、语调、意群停顿和生词发音",
@@ -1497,211 +1597,21 @@ function expandTips(wrap){
     card.appendChild(ul);
     wrap.appendChild(card);
   });
+
+  /* 评分等级快速预览 */
+  wrap.appendChild(el("div",{className:"card"},[
+    el("h3",{text:"🎨 评分等级"}),
+    el("div",{className:"dimRow"},[
+      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv high",text:"≥80%"}));c.appendChild(el("div",{className:"dl",text:"优秀"}));return c;})(),
+      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv mid",text:"65-79%"}));c.appendChild(el("div",{className:"dl",text:"良好"}));return c;})(),
+      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv low",text:"<65%"}));c.appendChild(el("div",{className:"dl",text:"待提高"}));return c;})()
+    ]),
+    el("p",{className:"muted mt8",text:"三色评分系统：蓝色表示优秀，橙色表示良好，红色表示需要提高。成绩低于60%的练习会自动加入错题本。"})
+  ]));
+
   return wrap;
 }
 
-/* === 拓展子页面：AI提升课 === */
-function expandAI(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
-  topBar.appendChild(backBtn);
-  wrap.appendChild(topBar);
-  wrap.appendChild(el("h2",{text:"🤖 AI智能提升"}));
-
-  var dims=abilityAnalysis();
-  /* 能力分析 */
-  var analysisCard=el("div",{className:"etsAnalysisCard"});
-  analysisCard.appendChild(el("h3",{text:"📊 能力分析"}));
-  Object.keys(dims).forEach(function(k){
-    var d=dims[k];
-    var row=el("div",{className:"etsAbilityRow"});
-    row.appendChild(el("div",{className:"earLabel",text:d.label}));
-    var bar=el("div",{className:"earBar"});
-    var fill=el("div",{className:"earBarFill"});
-    fill.style.width=(d.max>0?d.pct:0)+"%";
-    var g=scoreGrade(d.max>0?d.pct:0);
-    fill.style.background=g.color;
-    bar.appendChild(fill);
-    row.appendChild(bar);
-    row.appendChild(el("div",{className:"earVal",style:{color:g.color},text:(d.max>0?d.pct:0)+"%"}));
-    analysisCard.appendChild(row);
-  });
-  if(!State.scores.length){
-    analysisCard.appendChild(el("p",{className:"muted mt8",text:"完成练习后可查看能力分析。"}));
-  }
-  wrap.appendChild(analysisCard);
-
-  /* AI推荐 */
-  var aiCard=el("div",{className:"etsAIRecCard"});
-  aiCard.appendChild(el("div",{className:"earcTitle",text:"🎯 个性化推荐"}));
-  var weakest=null,weakestPct=100;
-  Object.keys(dims).forEach(function(k){
-    if(dims[k].max>0&&dims[k].pct<weakestPct){weakestPct=dims[k].pct;weakest={key:k,data:dims[k]};}
-  });
-  if(weakest){
-    aiCard.appendChild(el("div",{className:"earcSub",text:"你的薄弱项是「"+weakest.data.label+"」，建议重点练习以下内容："}));
-    var recPool=[];
-    if(weakest.key==="pronunciation"||weakest.key==="fluency")recPool=DATA.partA;
-    else if(weakest.key==="grammar"||weakest.key==="interaction")recPool=DATA.partB;
-    else recPool=DATA.partC;
-    var undone=recPool.filter(function(d){return !State.progress.done[d.id];});
-    var pool=undone.length>=3?undone:recPool;
-    pool.slice(0,5).forEach(function(r){
-      var item=el("div",{className:"earcItem"});
-      item.appendChild(el("span",{className:"eariText",text:r.title}));
-      item.appendChild(el("span",{className:"eariArrow",text:"›"}));
-      var partKey=weakest.key==="pronunciation"||weakest.key==="fluency"?"A":(weakest.key==="grammar"||weakest.key==="interaction"?"B":"C");
-      item.addEventListener("click",function(){
-        if(partKey==="A")startPartA(r,false);
-        else if(partKey==="B")startPartB(r,false);
-        else startPartC(r,false);
-      });
-      aiCard.appendChild(item);
-    });
-  }else{
-    aiCard.appendChild(el("div",{className:"earcSub",text:"完成练习后，AI将根据你的薄弱项智能推荐练习内容。"}));
-  }
-  wrap.appendChild(aiCard);
-  return wrap;
-}
-
-/* === 拓展子页面：音标学习 === */
-function expandPhonetic(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
-  topBar.appendChild(backBtn);
-  wrap.appendChild(topBar);
-  wrap.appendChild(el("h2",{text:"🔤 音标学习"}));
-  wrap.appendChild(el("p",{className:"muted mb12",text:"点击音标听发音，提升语音语调"}));
-
-  var phonetics=[
-    {sym:"/iː/",ex:"see, tree",color:"#3b82f6"},
-    {sym:"/ɪ/",ex:"sit, big",color:"#3b82f6"},
-    {sym:"/e/",ex:"bed, head",color:"#3b82f6"},
-    {sym:"/æ/",ex:"cat, map",color:"#3b82f6"},
-    {sym:"/ɑː/",ex:"car, far",color:"#8b5cf6"},
-    {sym:"/ɒ/",ex:"hot, dog",color:"#8b5cf6"},
-    {sym:"/ɔː/",ex:"door, more",color:"#8b5cf6"},
-    {sym:"/ʊ/",ex:"book, put",color:"#8b5cf6"},
-    {sym:"/uː/",ex:"food, blue",color:"#8b5cf6"},
-    {sym:"/ʌ/",ex:"cup, but",color:"#f59e0b"},
-    {sym:"/ɜː/",ex:"bird, her",color:"#f59e0b"},
-    {sym:"/ə/",ex:"about, teacher",color:"#f59e0b"},
-    {sym:"/eɪ/",ex:"day, name",color:"#10b981"},
-    {sym:"/aɪ/",ex:"my, time",color:"#10b981"},
-    {sym:"/ɔɪ/",ex:"boy, toy",color:"#10b981"},
-    {sym:"/aʊ/",ex:"now, house",color:"#10b981"},
-    {sym:"/əʊ/",ex:"go, no",color:"#ef4444"},
-    {sym:"/ɪə/",ex:"here, near",color:"#ef4444"},
-    {sym:"/eə/",ex:"hair, care",color:"#ef4444"},
-    {sym:"/ʊə/",ex:"tour, pure",color:"#ef4444"},
-    {sym:"/p/",ex:"pen, map",color:"#6366f1"},
-    {sym:"/b/",ex:"bag, cab",color:"#6366f1"},
-    {sym:"/t/",ex:"ten, cat",color:"#6366f1"},
-    {sym:"/d/",ex:"dog, bed",color:"#6366f1"},
-    {sym:"/k/",ex:"key, book",color:"#ec4899"},
-    {sym:"/g/",ex:"go, big",color:"#ec4899"},
-    {sym:"/f/",ex:"fat, leaf",color:"#ec4899"},
-    {sym:"/v/",ex:"van, love",color:"#ec4899"},
-    {sym:"/θ/",ex:"think, bath",color:"#14b8a6"},
-    {sym:"/ð/",ex:"this, mother",color:"#14b8a6"},
-    {sym:"/s/",ex:"sun, bus",color:"#14b8a6"},
-    {sym:"/z/",ex:"zoo, has",color:"#14b8a6"},
-    {sym:"/ʃ/",ex:"she, fish",color:"#f97316"},
-    {sym:"/ʒ/",ex:"vision, pleasure",color:"#f97316"},
-    {sym:"/h/",ex:"hat, hot",color:"#f97316"},
-    {sym:"/m/",ex:"man, name",color:"#f97316"},
-    {sym:"/n/",ex:"no, sun",color:"#a855f7"},
-    {sym:"/ŋ/",ex:"sing, ring",color:"#a855f7"},
-    {sym:"/l/",ex:"let, ball",color:"#a855f7"},
-    {sym:"/r/",ex:"red, run",color:"#a855f7"},
-    {sym:"/j/",ex:"yes, you",color:"#0891b2"},
-    {sym:"/w/",ex:"we, water",color:"#0891b2"},
-    {sym:"/tʃ/",ex:"chair, watch",color:"#0891b2"},
-    {sym:"/dʒ/",ex:"job, bridge",color:"#0891b2"}
-  ];
-  var grid=el("div",{className:"etsPhoneticGrid"});
-  phonetics.forEach(function(p){
-    var item=el("div",{className:"etsPhoneticItem"});
-    var sym=el("div",{className:"epiSymbol",text:p.sym});
-    sym.style.color=p.color;
-    item.appendChild(sym);
-    item.appendChild(el("div",{className:"epiExample",text:p.ex}));
-    item.addEventListener("click",function(){
-      var word=p.ex.split(",")[0].trim();
-      Speech.speak(word,{rate:0.7});
-      toast("播放："+word);
-    });
-    grid.appendChild(item);
-  });
-  wrap.appendChild(grid);
-  return wrap;
-}
-
-/* === 拓展子页面：学习计划 === */
-function expandPlan(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
-  topBar.appendChild(backBtn);
-  wrap.appendChild(topBar);
-  wrap.appendChild(el("h2",{text:"📝 学习计划"}));
-  wrap.appendChild(el("p",{className:"muted mb12",text:"制定每日练习计划，坚持训练提升成绩"}));
-
-  var plans=load("gdls_plans",[]);
-  /* 推荐计划 */
-  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"💡 推荐计划"})]));
-  var recPlans=[
-    {title:"7天冲刺计划",desc:"每天1套真题+1套模拟，7天覆盖全部真题",icon:"🚀",color:"linear-gradient(135deg,#3b82f6,#2563eb)",tasks:["Day 1-2: Part A 专项","Day 3-4: Part B 专项","Day 5: Part C 专项","Day 6-7: 完整模考×2"]},
-    {title:"30天提升计划",desc:"每天30分钟，系统提升听说能力",icon:"📈",color:"linear-gradient(135deg,#10b981,#059669)",tasks:["每周1-2: Part A+B 专项","每周3: 模考练习","每周4-5: 错题回顾","周末: 完整模考"]},
-    {title:"考前模拟计划",desc:"考前2周，每天1套完整模考",icon:"🎯",color:"linear-gradient(135deg,#f59e0b,#d97706)",tasks:["每天1套完整模考","模考后查看纠错","重点复习薄弱Part","最后2天回顾错题本"]}
-  ];
-  recPlans.forEach(function(rp){
-    var card=el("div",{className:"etsPlanCard"});
-    var head=el("div",{className:"eplHead"});
-    var icon=el("div",{className:"eplIcon",text:rp.icon});
-    icon.style.background=rp.color;
-    head.appendChild(icon);
-    head.appendChild(el("div",{},[el("div",{className:"eplTitle",text:rp.title}),el("div",{className:"eplProgress",text:rp.desc})]));
-    card.appendChild(head);
-    rp.tasks.forEach(function(t,i){
-      card.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:t}),el("span",{style:{fontSize:"18px"},text:"○"})]));
-    });
-    var startBtn=el("button",{className:"primary fullWidth mt8",text:"采用此计划"});
-    startBtn.addEventListener("click",function(){
-      var newPlans=load("gdls_plans",[]);
-      newPlans.push({title:rp.title,date:Date.now(),tasks:rp.tasks,done:0});
-      save("gdls_plans",newPlans);
-      toast("已添加计划："+rp.title);
-    });
-    card.appendChild(startBtn);
-    wrap.appendChild(card);
-  });
-
-  /* 我的计划 */
-  if(plans.length){
-    wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"📋 我的计划"})]));
-    plans.forEach(function(p,i){
-      var card=el("div",{className:"etsPlanCard"});
-      card.appendChild(el("div",{className:"eplHead"},[
-        el("div",{className:"eplIcon",text:"📌",style:{background:"linear-gradient(135deg,#6366f1,#4f46e5)"}}),
-        el("div",{},[el("div",{className:"eplTitle",text:p.title}),el("div",{className:"eplProgress",text:new Date(p.date).toLocaleDateString()})])
-      ]));
-      p.tasks.forEach(function(t){
-        card.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:t}),el("span",{style:{fontSize:"18px"},text:"○"})]));
-      });
-      var delBtn=el("button",{className:"smallBtn dangerGhost mt8",text:"删除计划"});
-      delBtn.addEventListener("click",function(){
-        plans.splice(i,1);save("gdls_plans",plans);render();
-      });
-      card.appendChild(delBtn);
-      wrap.appendChild(card);
-    });
-  }
-  return wrap;
-}
 
 function openPartList(part,wrap){
   var data=DATA["part"+part];
@@ -1945,17 +1855,15 @@ function startPartA(item,isMock){
     bp.appendChild(el("div",{className:"bpEn",text:"Get ready to read..."}));
     root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
-    var cdBox=el("div",{style:{textAlign:"center",padding:"20px 0"}});
-    cdBox.appendChild(el("div",{className:"countdownBig",text:"5"}));
-    cdBox.appendChild(el("div",{className:"countdownLabel",text:"准备倒计时"}));
-    box.appendChild(cdBox);
+    var prepCard=renderRecCard("准备录音...",5,"准备倒计时",false);
+    box.appendChild(prepCard);
     root.appendChild(box);
     var pc=practiceControls(isMock,function(){phase=4;showScore(null,"");},function(){phase=4;showScore(null,"");});
     if(pc)box.appendChild(pc);
-    var cdEl=cdBox.querySelector(".countdownBig");
+    var cdEl=prepCard.querySelector(".rcTimer");
     var stEl=root.querySelector(".esbTimer");
     autoCountdown(cdEl,null,5,function(s){
-      if(cdEl)cdEl.textContent=s>0?s:0;
+      if(cdEl)cdEl.textContent=fmtTime(s>0?s:0);
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
     },function(){phase=4;showRecord();});
   }
@@ -1971,16 +1879,9 @@ function startPartA(item,isMock){
     root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
     box.appendChild(el("div",{className:"passage",text:item.text}));
-    var recBar=el("div",{className:"recBar recording"});
-    recBar.appendChild(el("div",{className:"recDot"}));
-    recBar.appendChild(el("span",{text:"正在录音..."}));
-    box.appendChild(recBar);
-    var recProgBar=el("div",{className:"recProgressBar"});var recProgFill=el("div",{className:"recProgressBarFill"});
-    recProgBar.appendChild(recProgFill);box.appendChild(recProgBar);
-    var cdBox=el("div",{style:{textAlign:"center",marginTop:"10px"}});
-    cdBox.appendChild(el("div",{className:"countdownMid",text:"1:01"}));
-    cdBox.appendChild(el("div",{className:"countdownLabel",text:"剩余录音时间"}));
-    box.appendChild(cdBox);
+    /* E听说风格：录音卡片 */
+    var recCard=renderRecCard("正在录音...",61,"剩余录音时间",true);
+    box.appendChild(recCard);
     var stopBtn=el("button",{className:"submitBtn fullWidth mt8",text:"■ 结束录音"});
     box.appendChild(stopBtn);
     root.appendChild(box);
@@ -1989,13 +1890,13 @@ function startPartA(item,isMock){
     if(pc)box.appendChild(pc);
 
     var sec=0,rp=null,sp=null,finished=false;
-    var cdEl=cdBox.querySelector(".countdownMid");
+    var cdEl=recCard.querySelector(".rcTimer");
     var stEl=root.querySelector(".esbTimer");
     try{rp=Rec.record(61);}catch(e){rp=Promise.resolve(null);}
     try{sp=STT.listen(61000).catch(function(){return "";});}catch(e){sp=Promise.resolve("");}
     autoCountdown(cdEl,null,61,function(s){
       sec=61-s;
-      recProgFill.style.width=Math.round(sec/61*100)+"%";
+      if(cdEl)cdEl.textContent=fmtTime(s>0?s:0);
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
       if(s<=10)stEl.classList.add("warn");
     },function(){
@@ -2006,14 +1907,17 @@ function startPartA(item,isMock){
     });
     function finishRecord(){
       clearExamTimers();
-      recBar.classList.remove("recording");
-      recBar.querySelector("span").textContent="录音结束";
+      recCard.classList.remove("recording");
+      var rcStatus=recCard.querySelector(".rcStatus");
+      if(rcStatus)rcStatus.textContent="录音结束 ✓";
+      var rcWave=recCard.querySelector(".rcWave");
+      if(rcWave)rcWave.style.display="none";
       updateStatusBar("录音结束",null,false);
       Promise.all([rp||Promise.resolve(null),sp||Promise.resolve("")]).then(function(arr){phase=5;showScore(arr[0],arr[1]);});
     }
   }
 
-  /* Phase 5: 评分 + 纠错 */
+  /* Phase 5: 评分 + 逐词纠错（E听说风格） */
   function showScore(audioUrl,spokenText){
     clearExamTimers();
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
@@ -2021,68 +1925,29 @@ function startPartA(item,isMock){
     var box=el("div",{className:"examWrap"});
     var pct=Math.round(r.score/20*100);
     var resClass=r.grade.level==="high"?"":r.grade.level==="mid"?"warn":"fail";
-    var resBox=el("div",{className:"resultBox "+resClass});
-    resBox.appendChild(el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},[
-      el("div",{style:{display:"flex",alignItems:"baseline",gap:"8px"}},[el("span",{className:"scoreBig "+resClass,text:r.score+""}),el("span",{style:{fontSize:"16px",color:"#8892b0",fontWeight:"600"},text:"/ 20分"})]),
-      el("span",{className:"scoreGrade "+r.grade.level,text:r.grade.label+" "+pct+"%"})
-    ]));
-    var dimRow=el("div",{className:"dimRow"});
-    r.dims.forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var g=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+g.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=g.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
-    resBox.appendChild(dimRow);box.appendChild(resBox);
-    /* 纠错模块 */
-    if(spokenText&&spokenText.trim()){
-      var corrBox=el("div",{className:"correctionBox"});
-      corrBox.appendChild(el("h4",{},[el("span",{text:"🔍 "}),el("span",{text:"逐句纠错与分析"})]));
-      var refSentences=item.text.split(/([.!?])\s/).reduce(function(arr,s,i){if(i%2===0)arr.push(s);else arr[arr.length-1]+=s;return arr;},[]).filter(function(s){return s.trim();});
-      var spokenWords=spokenText.toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
-      var spokenSet={};spokenWords.forEach(function(w){spokenSet[w]=1;});
-      refSentences.forEach(function(sent,idx){
-        var sentWords=sent.toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
-        var sentHit=0;sentWords.forEach(function(w){if(spokenSet[w])sentHit++;});
-        var sentPct=sentWords.length?Math.round(sentHit/sentWords.length*100):0;
-        var isCorrect=sentPct>=60;
-        var ci=el("div",{className:"corrItem"+(isCorrect?" correct":"")});
-        var ciHead=el("div",{className:"ciHead"});
-        ciHead.appendChild(el("span",{className:"ciLabel "+(isCorrect?"right":"wrong"),text:isCorrect?"正确 ✓":"需改进 ⚠"}));
-        ciHead.appendChild(el("span",{className:"muted",text:"第"+(idx+1)+"句 · 匹配率 "+sentPct+"%"}));
-        ci.appendChild(ciHead);
-        var ciBody=el("div",{className:"ciBody"});
-        ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag correct",text:"原文"}),el("span",{className:"ciText",text:sent})]));
-        ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag your",text:"你的"}),el("span",{className:"ciText",text:spokenText.substring(idx*60,idx*60+80)+"..."})]));
-        var sentMissing=sentWords.filter(function(w,i,arr){return !spokenSet[w]&&arr.indexOf(w)===i&&w.length>2;});
-        if(sentMissing.length){
-          var errDiv=el("div",{className:"ciError"});
-          errDiv.appendChild(el("strong",{text:"❌ 未识别/读错的词："}));
-          errDiv.appendChild(el("span",{text:" "+sentMissing.join(", ")}));
-          ciBody.appendChild(errDiv);
-        }
-        if(!isCorrect){
-          var tipDiv=el("div",{className:"ciTip"});
-          tipDiv.appendChild(el("strong",{text:"💡 提升建议："}));
-          if(sentPct<30){tipDiv.appendChild(el("span",{text:" 该句几乎未识别到，建议反复聆听原声，逐词跟读练习。"}));}
-          else if(sentPct<60){tipDiv.appendChild(el("span",{text:" 部分词未读准，重点练习标红的单词。注意语速不要过快。"}));}
-          ciBody.appendChild(tipDiv);
-        }
-        ci.appendChild(ciBody);corrBox.appendChild(ci);
-      });
-      if(r.missing&&r.missing.length){
-        var tipItem=el("div",{className:"corrItem"});
-        tipItem.appendChild(el("div",{className:"ciHead"},[el("span",{className:"ciLabel wrong",text:"重点提升"}),el("span",{className:"muted",text:"高频错误词"})]));
-        var tipBody=el("div",{className:"ciBody"});
-        var errDiv=el("div",{className:"ciError"});
-        errDiv.appendChild(el("strong",{text:"需重点练习的单词："}));
-        r.missing.forEach(function(w){errDiv.appendChild(el("span",{className:"mw",text:w}));});
-        tipBody.appendChild(errDiv);
-        var tipDiv=el("div",{className:"ciTip"});
-        tipDiv.appendChild(el("strong",{text:"💡 建议："}));
-        tipDiv.appendChild(el("span",{text:" 1. 反复听原声，注意重音和元音\n2. 对着镜子练习口型\n3. 录音对比原声\n4. 每天朗读3-5遍"}));
-        tipBody.appendChild(tipDiv);tipItem.appendChild(tipBody);corrBox.appendChild(tipItem);
-      }
-      box.appendChild(corrBox);
-    }else{
-      box.appendChild(el("div",{className:"correctionBox"},[el("p",{className:"muted",text:"⚠️ 未检测到语音输入，无法进行纠错分析。"})]));
+    /* E听说风格：评分对比卡 */
+    box.appendChild(renderScoreCompare("A",item.id,r.score,20));
+    /* 维度评分条 */
+    box.appendChild(renderDimScore(r.dims));
+    /* E听说风格：逐词颜色标注 */
+    var evalTitle=el("div",{style:{marginTop:"14px",marginBottom:"6px"}});
+    evalTitle.appendChild(el("h4",{style:{fontSize:"15px",fontWeight:"700"},text:"📝 逐词评估"}));
+    box.appendChild(evalTitle);
+    box.appendChild(renderWordEval(spokenText,item.text));
+    /* 高频错误词 */
+    if(r.missing&&r.missing.length){
+      var errBox=el("div",{className:"correctionBox",style:{marginTop:"12px"}});
+      errBox.appendChild(el("h4",{},[el("span",{text:"⚠️ "}),el("span",{text:"需重点练习的单词"})]));
+      var errDiv=el("div",{className:"ciError"});
+      r.missing.forEach(function(w){errDiv.appendChild(el("span",{className:"mw",text:w}));});
+      errBox.appendChild(errDiv);
+      var tipDiv=el("div",{className:"ciTip"});
+      tipDiv.appendChild(el("strong",{text:"💡 建议："}));
+      tipDiv.appendChild(el("span",{text:" 点击单词可听发音。绿色=正确，橙色=部分正确，灰色=未识别。反复练习标红/灰色的单词。"}));
+      errBox.appendChild(tipDiv);
+      box.appendChild(errBox);
     }
-    if(r.transcript)box.appendChild(el("div",{className:"transcript"},[el("strong",{text:"识别文本："}),el("br"),el("span",{text:r.transcript})]));
+    if(r.transcript)box.appendChild(el("div",{className:"transcript",style:{marginTop:"12px"}},[el("strong",{text:"🎤 识别文本："}),el("br"),el("span",{text:r.transcript})]));
     if(audioUrl){var au=el("audio",{style:{width:"100%",marginTop:"10px"}});au.src=audioUrl;au.controls=true;box.appendChild(el("p",{className:"muted mt8",text:"录音回放："}));box.appendChild(au);}
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新朗读",onClick:function(){phase=3;showPrepRecord();}}));
@@ -2144,11 +2009,15 @@ function startPartB(item,isMock){
     root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
     item.dialogue.forEach(function(d){
-      var blk=el("div",{className:"qaBlock"});
-      blk.appendChild(el("div",{className:"qlabel",text:d.role}));
-      blk.appendChild(el("div",{className:"qtext",text:d.en}));
-      blk.appendChild(el("div",{className:"atext",text:d.cn}));
-      box.appendChild(blk);
+      var isYou=d.role.toLowerCase().indexOf("tom")>=0||d.role.toLowerCase().indexOf("student")>=0||d.role.toLowerCase().indexOf("you")>=0;
+      var chat=el("div",{className:"etsChatItem"+(isYou?" right":"")});
+      var avatar=el("div",{className:"ciAvatar "+(isYou?"you":"computer"),text:d.role.charAt(0)});
+      chat.appendChild(avatar);
+      var bubble=el("div",{className:"ciBubble"});
+      bubble.appendChild(el("div",{className:"ciEn",text:d.en}));
+      bubble.appendChild(el("div",{className:"ciCn",text:d.cn}));
+      chat.appendChild(bubble);
+      box.appendChild(chat);
     });
     root.appendChild(box);
     var pc=practiceControls(isMock,function(){phase=2;askQuestions();},finishB);
@@ -2178,15 +2047,13 @@ function startPartB(item,isMock){
     blk.appendChild(el("div",{className:"qtext",text:q.cn}));
     blk.appendChild(el("div",{className:"atext",text:"参考句型："+q.en}));
     box.appendChild(blk);
-    var cdBox=el("div",{style:{textAlign:"center",padding:"10px 0"}});
-    cdBox.appendChild(el("div",{className:"countdownMid",text:"0:20"}));
-    cdBox.appendChild(el("div",{className:"countdownLabel",text:"准备倒计时"}));
+    var cdBox=renderRecCard("准备提问...",20,"准备倒计时",false);
     box.appendChild(cdBox);
     root.appendChild(box);
     var pc=practiceControls(isMock,function(){qi++;qScores.push(0);askQuestions();},finishB);
     if(pc)box.appendChild(pc);
     /* 20秒准备 → 自动开始10秒录音 */
-    var cdEl=cdBox.querySelector(".countdownMid");
+    var cdEl=cdBox.querySelector(".rcTimer");
     var stEl=root.querySelector(".esbTimer");
     autoCountdown(cdEl,null,20,function(s){
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
@@ -2200,15 +2067,18 @@ function startPartB(item,isMock){
     clearExamTimers();
     updateStatusBar("正在录音",10,true);
     blk.querySelector(".qlabel").textContent="第"+(qi+1)+"问 · 录音中（10秒）";
-    cdBox.querySelector(".countdownLabel").textContent="录音倒计时";
-    var cdEl=cdBox.querySelector(".countdownMid");
-    cdEl.textContent="0:10";
-    var stopBtn=el("button",{className:"submitBtn mt8",text:"■ 结束录音"});
+    if(cdBox)cdBox.remove();
+    /* E听说风格：录音卡片 */
+    var recCard=renderRecCard("正在录音...",10,"录音倒计时",true);
+    blk.appendChild(recCard);
+    var stopBtn=el("button",{className:"submitBtn fullWidth mt8",text:"■ 结束录音"});
     blk.appendChild(stopBtn);
     var sp=null,finished=false;
     try{sp=STT.listen(10000).catch(function(){return "";});}catch(e){sp=Promise.resolve("");}
     var stEl=root.querySelector(".esbTimer");
+    var cdEl=recCard.querySelector(".rcTimer");
     autoCountdown(cdEl,null,10,function(s){
+      if(cdEl)cdEl.textContent=fmtTime(s>0?s:0);
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
       if(s<=10)stEl.classList.add("warn");
     },function(){
@@ -2267,11 +2137,9 @@ function startPartB(item,isMock){
       if(phase!==3)return;
       updateStatusBar("准备回答",10,false);
       blk.querySelector(".qlabel").textContent="第"+(ai+1)+"答 · 准备回答（10秒）";
-      var cdBox=el("div",{style:{textAlign:"center",padding:"10px 0"}});
-      cdBox.appendChild(el("div",{className:"countdownMid",text:"0:10"}));
-      cdBox.appendChild(el("div",{className:"countdownLabel",text:"准备倒计时"}));
+      var cdBox=renderRecCard("准备回答...",10,"准备倒计时",false);
       blk.appendChild(cdBox);
-      var cdEl=cdBox.querySelector(".countdownMid");
+      var cdEl=cdBox.querySelector(".rcTimer");
       var stEl=root.querySelector(".esbTimer");
       autoCountdown(cdEl,null,10,function(s){
         if(stEl)stEl.textContent=fmtTime(s>0?s:0);
@@ -2285,15 +2153,18 @@ function startPartB(item,isMock){
     clearExamTimers();
     updateStatusBar("正在录音",10,true);
     blk.querySelector(".qlabel").textContent="第"+(ai+1)+"答 · 录音中（10秒）";
-    cdBox.querySelector(".countdownLabel").textContent="录音倒计时";
-    var cdEl=cdBox.querySelector(".countdownMid");
-    cdEl.textContent="0:10";
-    var stopBtn=el("button",{className:"submitBtn mt8",text:"■ 结束录音"});
+    if(cdBox)cdBox.remove();
+    /* E听说风格：录音卡片 */
+    var recCard=renderRecCard("正在录音...",10,"录音倒计时",true);
+    blk.appendChild(recCard);
+    var stopBtn=el("button",{className:"submitBtn fullWidth mt8",text:"■ 结束录音"});
     blk.appendChild(stopBtn);
     var sp=null,finished=false;
     try{sp=STT.listen(10000).catch(function(){return "";});}catch(e){sp=Promise.resolve("");}
     var stEl=root.querySelector(".esbTimer");
+    var cdEl=recCard.querySelector(".rcTimer");
     autoCountdown(cdEl,null,10,function(s){
+      if(cdEl)cdEl.textContent=fmtTime(s>0?s:0);
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
     },function(){
       if(!finished){finished=true;finishAnswer(fa,sp,blk);}
@@ -2312,7 +2183,7 @@ function startPartB(item,isMock){
     });
   }
 
-  /* Phase 4: 评分 + 纠错 */
+  /* Phase 4: 评分 + 纠错（E听说风格） */
   function finishB(){
     clearExamTimers();
     phase=4;root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
@@ -2320,12 +2191,12 @@ function startPartB(item,isMock){
     var qs=qScores.slice(0,3).reduce(function(a,b){return a+b;},0),as=aScores.slice(0,5).reduce(function(a,b){return a+b;},0);
     var t=Math.min(16,qs+as);var pct=Math.round(t/16*100);var g=scoreGrade(pct);
     var box=el("div",{className:"examWrap"});
-    var resBox=el("div",{className:"resultBox "+(g.level==="high"?"":g.level==="mid"?"warn":"fail")});
-    resBox.appendChild(el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},[el("div",{style:{display:"flex",alignItems:"baseline",gap:"8px"}},[el("span",{className:"scoreBig "+(g.level==="high"?"":g.level==="mid"?"warn":"fail"),text:t+""}),el("span",{style:{fontSize:"16px",color:"#8892b0",fontWeight:"600"},text:"/ 16分"})]),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%"})]));
-    var dimRow=el("div",{className:"dimRow"});[["三问",qs,6],["五答",as,10],["总评",t,16]].forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
-    resBox.appendChild(dimRow);box.appendChild(resBox);
+    /* E听说风格：评分对比卡 */
+    box.appendChild(renderScoreCompare("B",item.id,t,16));
+    /* 维度评分条 */
+    box.appendChild(renderDimScore([["三问",qs,6],["五答",as,10]]));
     /* 纠错模块 */
-    var corrBox=el("div",{className:"correctionBox"});
+    var corrBox=el("div",{className:"correctionBox",style:{marginTop:"12px"}});
     corrBox.appendChild(el("h4",{},[el("span",{text:"🔍 "}),el("span",{text:"三问纠错（每问2分）"})]));
     item.questions.forEach(function(q,idx){
       var score=qScores[idx]||0;var isCorrect=score>=2;
@@ -2379,18 +2250,15 @@ function startPartC(item,isMock){
   }
   function updateStatusBar(status,timer,recording){var old=root.querySelector(".examStatusBar");if(old)old.replaceWith(statusBar(status,timer,recording));}
 
-  /* Phase 0: 梗概和关键词（60秒，自动推进） */
+  /* Phase 0: 梗概和思维导图（60秒，自动推进）E听说风格 */
   function showSummary(){
     clearExamTimers();
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
     root.appendChild(statusBar("阅读梗概",60,false));
     var box=el("div",{className:"examWrap"});
-    box.appendChild(el("p",{className:"muted mb8",text:"阅读故事梗要和关键词，准备聆听。"}));
+    box.appendChild(el("p",{className:"muted mb8",text:"阅读故事梗概和思维导图，准备聆听。"}));
     box.appendChild(el("div",{className:"cnPrompt",text:item.summary}));
-    box.appendChild(el("p",{className:"muted mt8",text:"关键词："}));
-    var kr=el("div",{className:"keywordRow"});
-    item.keywords.forEach(function(k){kr.appendChild(el("span",{className:"kw"},[document.createTextNode(k.en),el("small",{text:k.cn})]));});
-    box.appendChild(kr);
+    box.appendChild(renderMindMap(item));
     root.appendChild(box);
     var pc=practiceControls(isMock,function(){phase=1;showListen(1);},function(){phase=4;showResult("");});
     if(pc)box.appendChild(pc);
@@ -2409,9 +2277,7 @@ function startPartC(item,isMock){
     root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
     box.appendChild(el("div",{className:"cnPrompt",text:item.summary}));
-    var kr=el("div",{className:"keywordRow"});
-    item.keywords.forEach(function(k){kr.appendChild(el("span",{className:"kw"},[document.createTextNode(k.en),el("small",{text:k.cn})]));});
-    box.appendChild(kr);
+    box.appendChild(renderMindMap(item));
     root.appendChild(box);
     var pc=practiceControls(isMock,function(){if(time<2)showListen(time+1);else{phase=2;showPrep();}},function(){phase=4;showResult("");});
     if(pc)box.appendChild(pc);
@@ -2433,17 +2299,13 @@ function startPartC(item,isMock){
     root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
     box.appendChild(el("div",{className:"cnPrompt",text:item.summary}));
-    var kr=el("div",{className:"keywordRow"});
-    item.keywords.forEach(function(k){kr.appendChild(el("span",{className:"kw"},[document.createTextNode(k.en),el("small",{text:k.cn})]));});
-    box.appendChild(kr);
-    var cdBox=el("div",{style:{textAlign:"center",marginTop:"10px"}});
-    cdBox.appendChild(el("div",{className:"countdownMid",text:"1:00"}));
-    cdBox.appendChild(el("div",{className:"countdownLabel",text:"准备倒计时"}));
+    box.appendChild(renderMindMap(item));
+    var cdBox=renderRecCard("准备复述...",60,"准备倒计时",false);
     box.appendChild(cdBox);
     root.appendChild(box);
     var pc=practiceControls(isMock,function(){phase=3;showRecord();},function(){phase=4;showResult("");});
     if(pc)box.appendChild(pc);
-    var cdEl=cdBox.querySelector(".countdownMid");
+    var cdEl=cdBox.querySelector(".rcTimer");
     var stEl=root.querySelector(".esbTimer");
     autoCountdown(cdEl,null,60,function(s){
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
@@ -2461,28 +2323,21 @@ function startPartC(item,isMock){
     bp.appendChild(el("div",{className:"bpEn",text:"Now please retell the story."}));
     root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
-    var recBar=el("div",{className:"recBar recording"});
-    recBar.appendChild(el("div",{className:"recDot"}));
-    recBar.appendChild(el("span",{text:"正在录音..."}));
-    box.appendChild(recBar);
-    var recProgBar=el("div",{className:"recProgressBar"});var recProgFill=el("div",{className:"recProgressBarFill"});
-    recProgBar.appendChild(recProgFill);box.appendChild(recProgBar);
-    var cdBox=el("div",{style:{textAlign:"center",marginTop:"10px"}});
-    cdBox.appendChild(el("div",{className:"countdownMid",text:"2:00"}));
-    cdBox.appendChild(el("div",{className:"countdownLabel",text:"剩余复述时间"}));
-    box.appendChild(cdBox);
+    /* E听说风格：录音卡片 */
+    var recCard=renderRecCard("正在录音...",120,"剩余复述时间",true);
+    box.appendChild(recCard);
     var stopBtn=el("button",{className:"submitBtn fullWidth mt8",text:"■ 结束录音"});
     box.appendChild(stopBtn);
     root.appendChild(box);
     var pc=practiceControls(isMock,null,function(){phase=4;showResult("");});
     if(pc)box.appendChild(pc);
     var sec=0,sp=null,finished=false;
-    var cdEl=cdBox.querySelector(".countdownMid");
+    var cdEl=recCard.querySelector(".rcTimer");
     var stEl=root.querySelector(".esbTimer");
     try{sp=STT.listen(120000).catch(function(){return "";});}catch(e){sp=Promise.resolve("");}
     autoCountdown(cdEl,null,120,function(s){
       sec=120-s;
-      recProgFill.style.width=Math.round(sec/120*100)+"%";
+      if(cdEl)cdEl.textContent=fmtTime(s>0?s:0);
       if(stEl)stEl.textContent=fmtTime(s>0?s:0);
       if(s<=10)stEl.classList.add("warn");
     },function(){
@@ -2491,27 +2346,30 @@ function startPartC(item,isMock){
     stopBtn.addEventListener("click",function(){if(!finished){finished=true;finishRecord();}});
     function finishRecord(){
       clearExamTimers();
-      recBar.classList.remove("recording");
-      recBar.querySelector("span").textContent="录音结束";
+      recCard.classList.remove("recording");
+      var rcStatus=recCard.querySelector(".rcStatus");
+      if(rcStatus)rcStatus.textContent="录音结束 ✓";
+      var rcWave=recCard.querySelector(".rcWave");
+      if(rcWave)rcWave.style.display="none";
       updateStatusBar("录音结束",null,false);
       (sp||Promise.resolve("")).then(function(t){phase=4;showResult(t);});
     }
   }
 
-  /* Phase 5: 评分 + 纠错 */
+  /* Phase 5: 评分 + 纠错（E听说风格） */
   function showResult(spokenText){
     clearExamTimers();
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
     var r=scoreRetell(spokenText,item.keywords,item.story);
     var pct=Math.round(r.score/24*100);var g=r.grade;
     var box=el("div",{className:"examWrap"});
-    var resBox=el("div",{className:"resultBox "+(g.level==="high"?"":g.level==="mid"?"warn":"fail")});
-    resBox.appendChild(el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},[el("div",{style:{display:"flex",alignItems:"baseline",gap:"8px"}},[el("span",{className:"scoreBig "+(g.level==="high"?"":g.level==="mid"?"warn":"fail"),text:r.score+""}),el("span",{style:{fontSize:"16px",color:"#8892b0",fontWeight:"600"},text:"/ 24分"})]),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%"})]));
-    var dimRow=el("div",{className:"dimRow"});r.dims.forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
-    resBox.appendChild(dimRow);box.appendChild(resBox);
-    /* 纠错模块 */
+    /* E听说风格：评分对比卡 */
+    box.appendChild(renderScoreCompare("C",item.id,r.score,24));
+    /* 维度评分条 */
+    box.appendChild(renderDimScore(r.dims));
+    /* 关键词覆盖分析 */
     if(spokenText&&spokenText.trim()){
-      var corrBox=el("div",{className:"correctionBox"});
+      var corrBox=el("div",{className:"correctionBox",style:{marginTop:"12px"}});
       corrBox.appendChild(el("h4",{},[el("span",{text:"🔍 "}),el("span",{text:"关键词覆盖分析"})]));
       item.keywords.forEach(function(kw,idx){
         var hit=spokenText.toLowerCase().indexOf(kw.en.toLowerCase())>=0;
@@ -2534,9 +2392,9 @@ function startPartC(item,isMock){
       tipBody.appendChild(tipDiv);tipItem.appendChild(tipBody);corrBox.appendChild(tipItem);
       box.appendChild(corrBox);
     }else{
-      box.appendChild(el("div",{className:"correctionBox"},[el("p",{className:"muted",text:"⚠️ 未检测到语音输入，无法进行纠错分析。"})]));
+      box.appendChild(el("div",{className:"correctionBox",style:{marginTop:"12px"}},[el("p",{className:"muted",text:"⚠️ 未检测到语音输入，无法进行纠错分析。"})]));
     }
-    if(r.transcript)box.appendChild(el("div",{className:"transcript"},[el("strong",{text:"复述文本："}),el("br"),el("span",{text:r.transcript})]));
+    if(r.transcript)box.appendChild(el("div",{className:"transcript",style:{marginTop:"12px"}},[el("strong",{text:"复述文本："}),el("br"),el("span",{text:r.transcript})]));
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新复述",onClick:function(){phase=3;showRecord();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("Part C: "+r.score+"/24");if(State._mockCallback)State._mockCallback(r.score);}}));}
@@ -2576,7 +2434,7 @@ function startExam(isMock,isRandom){
     resBox.appendChild(dimRow);box.appendChild(resBox);
     /* 评分说明链接 */
     var guideLink=el("button",{className:"smallBtn mt8",text:"📊 查看评分说明与答题技巧 →"});
-    guideLink.addEventListener("click",function(){exitExamMode();State.view="expand";State.expandSection="guide";State.subView=null;render();});
+    guideLink.addEventListener("click",function(){exitExamMode();State.view="expand";State.subView=null;render();});
     box.appendChild(guideLink);
     box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){exitExamMode();State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再考一次",onClick:function(){showSoundCheck(function(){startExam(isMock,true);});}})]));
     root.appendChild(box);
