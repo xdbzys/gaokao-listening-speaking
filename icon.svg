@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g fill="#fff">
+    <path d="M256 120c-74.6 0-135 60.4-135 135s60.4 135 135 135 135-60.4 135-135-60.4-135-135-135zm0 240c-57.9 0-105-47.1-105-105s47.1-105 105-105 105 47.1 105 105-47.1 105-105 105z"/>
+    <path d="M256 180c-41.4 0-75 33.6-75 75s33.6 75 75 75 75-33.6 75-75-33.6-75-75-75zm0 120c-24.9 0-45-20.1-45-45s20.1-45 45-45 45 20.1 45 45-20.1 45-45 45z"/>
+    <circle cx="256" cy="255" r="15"/>
+    <path d="M196 255c0-33.1 26.9-60 60-60s60 26.9 60 60" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" opacity="0.4"/>
+    <path d="M166 335l-30 50h60z" opacity="0.3"/>
+    <path d="M346 335l-30 50h60z" opacity="0.3"/>
+    <text x="256" y="430" font-family="sans-serif" font-size="48" font-weight="bold" text-anchor="middle" fill="#fff" opacity="0.9">听说</text>
+  </g>
+</svg>

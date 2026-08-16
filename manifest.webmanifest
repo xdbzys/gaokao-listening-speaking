@@ -1,0 +1,18 @@
+{
+  "name": "广东高考英语听说",
+  "short_name": "高考听说",
+  "description": "广东高考英语听说练习软件 - 内置高考听说，模拟考试练习",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

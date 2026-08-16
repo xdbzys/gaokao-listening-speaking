@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "versionCode": 1,
+  "changelog": "🎉 首次发布\n✅ 内置广东高考英语听说三部分练习（Part A 模仿朗读、Part B 角色扮演、Part C 故事复述）\n✅ 模拟考试模式，完整还原考试流程\n✅ 资源搜索功能，支持在线搜索听说素材\n✅ 本地部署，离线可用\n✅ 语音朗读与语音识别练习\n✅ 练习记录与成绩统计\n✅ 检查更新与反馈功能",
+  "apkUrl": "",
+  "appUrl": "",
+  "webHtmlUrl": "",
+  "forceUpdate": false,
+  "minVersionCode": 1
+}
