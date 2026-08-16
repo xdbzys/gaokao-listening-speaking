@@ -504,6 +504,114 @@ h3{font-size:16px;font-weight:700}
 .emptyState{text-align:center;padding:40px 20px;color:var(--text-tertiary)}
 .emptyState .ei{font-size:48px;margin-bottom:10px}
 @media(max-width:380px){.app{padding:10px}.dimRow{grid-template-columns:1fr 1fr}}
+/* === E听说风格组件 === */
+/* 数据栏 */
+.etsDataBar{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);border-radius:16px;padding:16px;color:#fff;margin-bottom:14px;display:flex;justify-content:space-around;align-items:center;box-shadow:0 4px 20px rgba(102,126,234,.25)}
+.etsDataItem{text-align:center;flex:1;cursor:pointer;transition:transform .15s}
+.etsDataItem:active{transform:scale(.95)}
+.etsDataItem .ediVal{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.etsDataItem .ediLabel{font-size:11px;opacity:.85;margin-top:2px}
+.etsDataDivider{width:1px;height:32px;background:rgba(255,255,255,.2)}
+/* 模块标题 */
+.etsSectionTitle{display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px;padding:0 2px}
+.etsSectionTitle h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.etsSectionTitle .etsMore{font-size:13px;color:var(--text-secondary);font-weight:500}
+/* 模拟考试大卡片 */
+.etsMockCard{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);border-radius:16px;padding:20px;color:#fff;margin-bottom:12px;position:relative;overflow:hidden;box-shadow:0 8px 24px rgba(15,52,96,.25)}
+.etsMockCard::after{content:"";position:absolute;top:-20px;right:-20px;width:120px;height:120px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);border-radius:50%}
+.etsMockCard .mcIcon{font-size:32px;margin-bottom:8px}
+.etsMockCard .mcTitle{font-size:18px;font-weight:700;margin-bottom:4px}
+.etsMockCard .mcSub{font-size:13px;opacity:.7;margin-bottom:14px}
+.etsMockCard .mcBtnRow{display:flex;gap:10px}
+.etsMockCard .mcBtn{flex:1;border-radius:10px;padding:10px;font-size:14px;font-weight:600;text-align:center;border:none;cursor:pointer;transition:transform .12s}
+.etsMockCard .mcBtn:active{transform:scale(.96)}
+.etsMockCard .mcBtnPrimary{background:#fff;color:#1a1a2e}
+.etsMockCard .mcBtnSecondary{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)}
+/* 专项突破卡片 */
+.etsPartCard{background:var(--bg-card);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-bottom:10px;position:relative;overflow:hidden;transition:transform .12s,box-shadow .2s;cursor:pointer}
+.etsPartCard:active{transform:scale(.99);box-shadow:var(--shadow-hover)}
+.etsPartCard .epcHead{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.etsPartCard .epcIcon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:22px;color:#fff;flex-shrink:0}
+.etsPartCard .epcTitle{font-size:16px;font-weight:700}
+.etsPartCard .epcSub{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.etsPartCard .epcProgress{display:flex;align-items:center;gap:8px;margin-top:8px}
+.etsPartCard .epcBar{flex:1;height:6px;border-radius:3px;background:var(--bg-secondary);overflow:hidden}
+.etsPartCard .epcBarFill{height:100%;border-radius:3px;transition:width .5s}
+.etsPartCard .epcBarText{font-size:12px;color:var(--text-secondary);font-weight:600;white-space:nowrap}
+.etsPartCard .epcStars{display:flex;gap:2px;margin-top:6px}
+.etsPartCard .epcStar{font-size:14px;color:#d1d5db}
+.etsPartCard .epcStar.active{color:#fbbf24}
+/* 年级/来源选择器 */
+.etsYearBar{display:flex;gap:8px;margin-bottom:12px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.etsYearBar::-webkit-scrollbar{display:none}
+.etsYearChip{padding:6px 14px;border-radius:999px;font-size:13px;font-weight:600;background:var(--bg-card);border:1px solid var(--border);color:var(--text-secondary);transition:all .15s;white-space:nowrap;cursor:pointer}
+.etsYearChip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+/* 同步训练列表 */
+.etsUnitItem{background:var(--bg-card);border-radius:12px;padding:14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;box-shadow:var(--shadow);transition:transform .12s;cursor:pointer}
+.etsUnitItem:active{transform:scale(.99)}
+.etsUnitItem .euiIcon{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;font-size:18px;color:#fff;flex-shrink:0}
+.etsUnitItem .euiBody{flex:1;min-width:0}
+.etsUnitItem .euiTitle{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.etsUnitItem .euiSub{font-size:12px;color:var(--text-secondary);margin-top:2px}
+.etsUnitItem .euiStars{display:flex;gap:2px}
+.etsUnitItem .euiStar{font-size:13px;color:#d1d5db}
+.etsUnitItem .euiStar.active{color:#fbbf24}
+.etsUnitItem .euiArrow{color:var(--text-tertiary);font-size:18px}
+/* 拓展页面 */
+.etsExpandGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.etsExpandItem{background:var(--bg-card);border-radius:14px;padding:16px 12px;text-align:center;box-shadow:var(--shadow);transition:transform .12s,box-shadow .2s;cursor:pointer;position:relative;overflow:hidden}
+.etsExpandItem:active{transform:scale(.97);box-shadow:var(--shadow-hover)}
+.etsExpandItem .eeiIcon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:24px;color:#fff;margin:0 auto 8px}
+.etsExpandItem .eeiTitle{font-size:14px;font-weight:600}
+.etsExpandItem .eeiSub{font-size:11px;color:var(--text-secondary);margin-top:2px}
+.etsExpandItem .eeiBadge{position:absolute;top:8px;right:8px;background:#ef4444;color:#fff;border-radius:999px;padding:2px 6px;font-size:10px;font-weight:700}
+/* 学情分析 */
+.etsAnalysisCard{background:var(--bg-card);border-radius:16px;padding:18px;box-shadow:var(--shadow);margin-bottom:14px}
+.etsAnalysisCard h3{font-size:16px;font-weight:700;margin-bottom:12px}
+.etsPredictScore{display:flex;align-items:baseline;gap:8px;margin-bottom:12px}
+.etsPredictScore .epsVal{font-size:42px;font-weight:800;color:var(--primary);letter-spacing:-.02em}
+.etsPredictScore .epsMax{font-size:16px;color:var(--text-secondary);font-weight:600}
+.etsPredictScore .epsTag{font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;margin-left:8px}
+/* 能力雷达图 */
+.etsRadarChart{width:100%;max-width:280px;margin:0 auto;display:block}
+.etsAbilityRow{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.etsAbilityRow .earLabel{width:80px;font-size:13px;color:var(--text-secondary);text-align:right;flex-shrink:0}
+.etsAbilityRow .earBar{flex:1;height:8px;border-radius:4px;background:var(--bg-secondary);overflow:hidden}
+.etsAbilityRow .earBarFill{height:100%;border-radius:4px;transition:width .5s}
+.etsAbilityRow .earVal{width:40px;font-size:13px;font-weight:700;flex-shrink:0}
+/* 成长轨迹 */
+.etsGrowthChart{display:flex;align-items:flex-end;gap:6px;height:100px;padding:10px 0;border-bottom:1px solid var(--border)}
+.etsGrowthBar{flex:1;background:linear-gradient(180deg,var(--primary),var(--primary-dark));border-radius:4px 4px 0 0;min-height:4px;position:relative;transition:height .5s}
+.etsGrowthBar .egbVal{position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:10px;font-weight:700;color:var(--text-secondary)}
+.etsGrowthLabel{display:flex;gap:6px;margin-top:4px}
+.etsGrowthLabel span{flex:1;text-align:center;font-size:10px;color:var(--text-tertiary)}
+/* 音标学习 */
+.etsPhoneticGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.etsPhoneticItem{background:var(--bg-card);border-radius:10px;padding:10px 6px;text-align:center;box-shadow:var(--shadow);cursor:pointer;transition:transform .12s}
+.etsPhoneticItem:active{transform:scale(.95)}
+.etsPhoneticItem .epiSymbol{font-size:20px;font-weight:700;color:var(--primary)}
+.etsPhoneticItem .epiExample{font-size:11px;color:var(--text-secondary);margin-top:2px}
+/* 每日一句 */
+.etsDailyCard{background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%);border-radius:16px;padding:20px;color:#fff;margin-bottom:14px;box-shadow:0 4px 20px rgba(245,87,108,.2)}
+.etsDailyCard .edcLabel{font-size:12px;opacity:.8;margin-bottom:6px}
+.etsDailyCard .edcEn{font-size:18px;font-weight:700;line-height:1.4;margin-bottom:6px}
+.etsDailyCard .edcCn{font-size:14px;opacity:.9}
+.etsDailyCard .edcBtn{margin-top:12px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:10px;padding:8px 16px;font-size:13px;font-weight:600;cursor:pointer}
+.etsDailyCard .edcBtn:active{transform:scale(.96)}
+/* 学习计划 */
+.etsPlanCard{background:var(--bg-card);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-bottom:10px}
+.etsPlanCard .eplHead{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.etsPlanCard .eplIcon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:18px;color:#fff;flex-shrink:0}
+.etsPlanCard .eplTitle{font-size:15px;font-weight:600}
+.etsPlanCard .eplProgress{font-size:12px;color:var(--text-secondary)}
+/* AI推荐 */
+.etsAIRecCard{background:linear-gradient(135deg,#4facfe 0%,#00f2fe 100%);border-radius:16px;padding:18px;color:#fff;margin-bottom:14px;box-shadow:0 4px 20px rgba(79,172,254,.2)}
+.etsAIRecCard .earcTitle{font-size:16px;font-weight:700;margin-bottom:6px}
+.etsAIRecCard .earcSub{font-size:13px;opacity:.85;margin-bottom:12px}
+.etsAIRecCard .earcItem{background:rgba(255,255,255,.15);border-radius:10px;padding:10px 14px;margin-bottom:6px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:transform .12s}
+.etsAIRecCard .earcItem:active{transform:scale(.97)}
+.etsAIRecCard .earcItem .eariText{font-size:13px;font-weight:500}
+.etsAIRecCard .earcItem .eariArrow{font-size:16px}
 </style>
 </head>
 <body>
@@ -512,8 +620,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="7.0.0";
-var APP_VERSION_CODE=8;
+var APP_VERSION="8.0.0";
+var APP_VERSION_CODE=9;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
@@ -644,15 +752,89 @@ function totalDone(){return Object.keys(State.progress.done).length;}
 function partDone(part){return DATA["part"+part].filter(function(d){return State.progress.done[d.id];}).length;}
 function isRealExam(item){return item.source&&item.source.indexOf("高考真题")>=0;}
 function diffLabel(d){return d==="easy"?"基础":d==="medium"?"进阶":d==="hard"?"挑战":d;}
+/* 预测分：基于历史成绩推算高考听说预测分 */
+function predictScore(){
+  var a=avgScore("A"),b=avgScore("B"),c=avgScore("C");
+  if(a==null||b==null||c==null){
+    /* 部分有成绩时，用已有成绩推算 */
+    var parts=[{v:a,m:20},{v:b,m:16},{v:c,m:24}];
+    var known=parts.filter(function(p){return p.v!=null;});
+    if(!known.length)return null;
+    var knownScore=known.reduce(function(s,p){return s+p.v;},0);
+    var knownMax=known.reduce(function(s,p){return s+p.m;},0);
+    return Math.round(knownScore/knownMax*60);
+  }
+  return Math.round(a+b+c);
+}
+/* 获取年份列表 */
+function getYears(){
+  var years={};
+  ["A","B","C"].forEach(function(p){
+    DATA["part"+p].forEach(function(d){
+      var m=(d.source||"").match(/(\d{4})年/);
+      if(m)years[m[1]]=1;
+    });
+  });
+  return Object.keys(years).sort(function(a,b){return b-a;});
+}
+/* 获取来源分组 */
+function getSourceGroups(){
+  var groups={};
+  ["A","B","C"].forEach(function(p){
+    DATA["part"+p].forEach(function(d){
+      var src=d.source||"模拟练习";
+      if(!groups[src])groups[src]={A:0,B:0,C:0,total:0};
+      groups[src][p]++;groups[src].total++;
+    });
+  });
+  return groups;
+}
+/* 星级评定（E听说风格） */
+function starRating(score,max){
+  var pct=score/max;
+  if(pct>=0.85)return 3;
+  if(pct>=0.65)return 2;
+  if(pct>=0.4)return 1;
+  return 0;
+}
+/* 能力维度分析 */
+function abilityAnalysis(){
+  var dims={
+    pronunciation:{label:"语音语调",score:0,max:0},
+    fluency:{label:"流利度",score:0,max:0},
+    content:{label:"内容完整",score:0,max:0},
+    grammar:{label:"语法表达",score:0,max:0},
+    interaction:{label:"信息传递",score:0,max:0}
+  };
+  State.scores.forEach(function(s){
+    if(s.part==="A"){
+      dims.pronunciation.score+=Math.round(s.score*0.4);dims.pronunciation.max+=Math.round(s.max*0.4);
+      dims.fluency.score+=Math.round(s.score*0.3);dims.fluency.max+=Math.round(s.max*0.3);
+      dims.content.score+=Math.round(s.score*0.3);dims.content.max+=Math.round(s.max*0.3);
+    }else if(s.part==="B"){
+      dims.grammar.score+=Math.round(s.score*0.5);dims.grammar.max+=Math.round(s.max*0.5);
+      dims.interaction.score+=Math.round(s.score*0.5);dims.interaction.max+=Math.round(s.max*0.5);
+    }else if(s.part==="C"){
+      dims.content.score+=Math.round(s.score*0.5);dims.content.max+=Math.round(s.max*0.5);
+      dims.fluency.score+=Math.round(s.score*0.2);dims.fluency.max+=Math.round(s.max*0.2);
+      dims.grammar.score+=Math.round(s.score*0.3);dims.grammar.max+=Math.round(s.max*0.3);
+    }
+  });
+  Object.keys(dims).forEach(function(k){
+    var d=dims[k];
+    d.pct=d.max>0?Math.round(d.score/d.max*100):0;
+  });
+  return dims;
+}
 
 /* 状态 */
-var State={view:"practice",progress:load(LSC.progress,{done:{}}),scores:load(LSC.scores,[]),updateInfo:null,updateChecking:false,updateStatus:"",updateError:false,announce:null,subView:null,filterDiff:"all",filterSrc:"all"};
+var State={view:"practice",progress:load(LSC.progress,{done:{}}),scores:load(LSC.scores,[]),updateInfo:null,updateChecking:false,updateStatus:"",updateError:false,announce:null,subView:null,filterDiff:"all",filterSrc:"all",filterYear:"all",expandSection:null};
 
 function render(){
   var root=$("#root");root.innerHTML="";
   var view=el("div",{className:"app"});
   if(State.view==="practice")view.appendChild(viewPractice());
-  else if(State.view==="guide")view.appendChild(viewGuide());
+  else if(State.view==="expand")view.appendChild(viewExpand());
   else if(State.view==="me")view.appendChild(viewMe());
   root.appendChild(view);
   root.appendChild(renderTabbar());
@@ -661,109 +843,209 @@ function render(){
 }
 
 function renderTabbar(){
-  var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"guide",icon:"📚",label:"指南"},{id:"me",icon:"👤",label:"我的"}];
+  var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"expand",icon:"📖",label:"拓展"},{id:"me",icon:"👤",label:"我的"}];
   var bar=el("div",{className:"tabbar"});
   bar.style.gridTemplateColumns="repeat(3,1fr)";
   tabs.forEach(function(t){
     var btn=el("button",{className:State.view===t.id?"active":""});
     btn.appendChild(el("span",{className:"tabIcon",text:t.icon}));
     btn.appendChild(el("span",{className:"tabLabel",text:t.label}));
-    btn.addEventListener("click",function(){State.view=t.id;State.subView=null;render();});
+    btn.addEventListener("click",function(){State.view=t.id;State.subView=null;State.filterYear="all";render();});
     bar.appendChild(btn);
   });
   return bar;
 }
 
-/* ============ 练习页 ============ */
+/* ============ 练习页（E听说风格） ============ */
 function viewPractice(){
   var wrap=el("div");
   if(State.subView==="listA")return openPartList("A",wrap);
   if(State.subView==="listB")return openPartList("B",wrap);
   if(State.subView==="listC")return openPartList("C",wrap);
+  if(State.subView==="syncList")return openSyncList(wrap);
 
   wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"听说练习"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
 
-  /* 模考练习 */
-  var mockCard=el("div",{className:"modeCard modeMock"});
-  var mh=el("div",{className:"modeHead"});
-  mh.appendChild(el("div",{className:"modeIcon",text:"📝"}));
-  var mi=el("div",{});
-  mi.appendChild(el("div",{className:"modeTitle",text:"模考练习"}));
-  mi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 不可跳过 · 完全还原高考流程"}));
-  mh.appendChild(mi);
-  mockCard.appendChild(mh);
-  mockCard.appendChild(el("div",{className:"modeMeta"},[
-    el("span",{className:"tag",text:"满分60分"}),
-    el("span",{className:"tag",text:"Part A+B+C"}),
-    el("span",{className:"tag",text:"不可跳过"}),
-    el("span",{className:"tag",text:"含试音+视频"})
-  ]));
-  var mockBtns=el("div",{className:"btnRow"});
-  mockBtns.appendChild(el("button",{className:"primary",style:{flex:1},text:"🚀 开始模考",onClick:function(){showSoundCheck(function(){startExam(true,false);});}}));
-  mockBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机模考",onClick:function(){showSoundCheck(function(){startExam(true,true);});}}));
-  mockCard.appendChild(mockBtns);
+  /* === 顶部数据栏（E听说风格） === */
+  var ps=predictScore();
+  var dataBar=el("div",{className:"etsDataBar"});
+  var psItem=el("div",{className:"etsDataItem"});
+  psItem.appendChild(el("div",{className:"ediVal",text:ps!=null?ps:"--"}));
+  psItem.appendChild(el("div",{className:"ediLabel",text:"预测分/60"}));
+  psItem.addEventListener("click",function(){State.view="me";State.subView="analysis";render();});
+  dataBar.appendChild(psItem);
+  dataBar.appendChild(el("div",{className:"etsDataDivider"}));
+  var doneItem=el("div",{className:"etsDataItem"});
+  doneItem.appendChild(el("div",{className:"ediVal",text:totalDone()+""}));
+  doneItem.appendChild(el("div",{className:"ediLabel",text:"已练习"}));
+  doneItem.addEventListener("click",function(){State.view="me";State.subView=null;render();});
+  dataBar.appendChild(doneItem);
+  dataBar.appendChild(el("div",{className:"etsDataDivider"}));
+  var errItem=el("div",{className:"etsDataItem"});
+  errItem.appendChild(el("div",{className:"ediVal",text:getErrors().length+""}));
+  errItem.appendChild(el("div",{className:"ediLabel",text:"错题数"}));
+  errItem.addEventListener("click",function(){State.view="me";State.subView=null;render();});
+  dataBar.appendChild(errItem);
+  wrap.appendChild(dataBar);
+
+  /* === 模拟考试（E听说风格大卡片） === */
+  var mockCard=el("div",{className:"etsMockCard"});
+  mockCard.appendChild(el("div",{className:"mcIcon",text:"📝"}));
+  mockCard.appendChild(el("div",{className:"mcTitle",text:"模拟考试"}));
+  mockCard.appendChild(el("div",{className:"mcSub",text:"完整A+B+C · 与高考完全一致 · 不可跳过"}));
+  var mcBtns=el("div",{className:"mcBtnRow"});
+  var mcBtn1=el("button",{className:"mcBtn mcBtnPrimary",text:"🚀 开始模考"});
+  mcBtn1.addEventListener("click",function(){showSoundCheck(function(){startExam(true,false);});});
+  mcBtns.appendChild(mcBtn1);
+  var mcBtn2=el("button",{className:"mcBtn mcBtnSecondary",text:"🎲 随机模考"});
+  mcBtn2.addEventListener("click",function(){showSoundCheck(function(){startExam(true,true);});});
+  mcBtns.appendChild(mcBtn2);
+  mockCard.appendChild(mcBtns);
   wrap.appendChild(mockCard);
 
-  /* 试题练习 */
+  /* === 试题练习（E听说风格） === */
   var qCard=el("div",{className:"modeCard modeQuestion"});
   var qh=el("div",{className:"modeHead"});
   qh.appendChild(el("div",{className:"modeIcon",text:"📋"}));
   var qi=el("div",{});
   qi.appendChild(el("div",{className:"modeTitle",text:"试题练习"}));
-  qi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 可跳过 · 可立即结算 · 与模考流程一致"}));
+  qi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 可跳过 · 可立即结算 · 流程同模考"}));
   qh.appendChild(qi);
   qCard.appendChild(qh);
   qCard.appendChild(el("div",{className:"modeMeta"},[
     el("span",{className:"tag",text:"满分60分"}),
     el("span",{className:"tag",text:"Part A+B+C"}),
     el("span",{className:"tag",text:"可跳过"}),
-    el("span",{className:"tag",text:"可立即结算"}),
-    el("span",{className:"tag",text:"含试音+视频"})
+    el("span",{className:"tag",text:"可立即结算"})
   ]));
   var qBtns=el("div",{className:"btnRow"});
-  qBtns.appendChild(el("button",{className:"primary",style:{flex:1,background:"#6366f1"},text:"🚀 开始练习",onClick:function(){showSoundCheck(function(){startExam(false,false);});}}));
-  qBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机练习",onClick:function(){showSoundCheck(function(){startExam(false,true);});}}));
+  var qBtn1=el("button",{className:"primary",style:{flex:1,background:"#6366f1"},text:"🚀 开始练习"});
+  qBtn1.addEventListener("click",function(){showSoundCheck(function(){startExam(false,false);});});
+  qBtns.appendChild(qBtn1);
+  var qBtn2=el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机练习"});
+  qBtn2.addEventListener("click",function(){showSoundCheck(function(){startExam(false,true);});});
+  qBtns.appendChild(qBtn2);
   qCard.appendChild(qBtns);
   wrap.appendChild(qCard);
 
-  /* 专项练习 */
-  wrap.appendChild(el("h3",{text:"📚 专项练习",style:{margin:"16px 0 8px"}}));
+  /* === 专项突破（E听说风格） === */
+  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"📚 专项突破"}),el("span",{className:"etsMore",text:"按题型练习 →"})]));
   var parts=[
-    {key:"A",cls:"modeA",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 20分",meta:["含视频","朗读评分"],done:partDone("A"),total:DATA.partA.length,realCount:DATA.partA.filter(isRealExam).length,go:function(){State.subView="listA";render();}},
-    {key:"B",cls:"modeB",icon:"💬",title:"Part B 角色扮演",sub:"Role Play · 三问五答 · 16分",meta:["情景对话","信息传递"],done:partDone("B"),total:DATA.partB.length,realCount:DATA.partB.filter(isRealExam).length,go:function(){State.subView="listB";render();}},
-    {key:"C",cls:"modeC",icon:"🎧",title:"Part C 故事复述",sub:"Retelling · 24分",meta:["听两遍","复述评分"],done:partDone("C"),total:DATA.partC.length,realCount:DATA.partC.filter(isRealExam).length,go:function(){State.subView="listC";render();}}
+    {key:"A",cls:"modeA",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 20分",color:"linear-gradient(135deg,#3b82f6,#2563eb)",meta:["含视频","朗读评分"],done:partDone("A"),total:DATA.partA.length,realCount:DATA.partA.filter(isRealExam).length,go:function(){State.subView="listA";render();}},
+    {key:"B",cls:"modeB",icon:"💬",title:"Part B 角色扮演",sub:"Role Play · 三问五答 · 16分",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",meta:["情景对话","信息传递"],done:partDone("B"),total:DATA.partB.length,realCount:DATA.partB.filter(isRealExam).length,go:function(){State.subView="listB";render();}},
+    {key:"C",cls:"modeC",icon:"🎧",title:"Part C 故事复述",sub:"Retelling · 24分",color:"linear-gradient(135deg,#10b981,#059669)",meta:["听两遍","复述评分"],done:partDone("C"),total:DATA.partC.length,realCount:DATA.partC.filter(isRealExam).length,go:function(){State.subView="listC";render();}}
   ];
   parts.forEach(function(p){
-    var card=el("div",{className:"modeCard "+p.cls});
-    var head=el("div",{className:"modeHead"});
-    head.appendChild(el("div",{className:"modeIcon",text:p.icon}));
-    var hi=el("div",{});
-    hi.appendChild(el("div",{className:"modeTitle",text:p.title}));
-    hi.appendChild(el("div",{className:"modeSub",text:p.sub}));
+    var card=el("div",{className:"etsPartCard"});
+    card.addEventListener("click",function(){p.go();});
+    var head=el("div",{className:"epcHead"});
+    var icon=el("div",{className:"epcIcon",text:p.icon});
+    icon.style.background=p.color;
+    head.appendChild(icon);
+    var hi=el("div",{style:{flex:1}});
+    hi.appendChild(el("div",{className:"epcTitle",text:p.title}));
+    hi.appendChild(el("div",{className:"epcSub",text:p.sub}));
     head.appendChild(hi);
+    /* 随机练习按钮 */
+    var randBtn=el("button",{className:"smallBtn",style:{flexShrink:0},text:"🎲"});
+    randBtn.addEventListener("click",function(e){e.stopPropagation();showSoundCheck(function(){randomPractice(p.key);});});
+    head.appendChild(randBtn);
     card.appendChild(head);
+    /* 标签 */
     var meta=el("div",{className:"modeMeta"});
     p.meta.forEach(function(m){meta.appendChild(el("span",{className:"tag",text:m}));});
     meta.appendChild(el("span",{className:"tag src-real",text:"真题 "+p.realCount+"套"}));
     meta.appendChild(el("span",{className:"tag src-mock",text:"模拟 "+(p.total-p.realCount)+"套"}));
-    meta.appendChild(el("span",{className:"tag",text:"已完成 "+p.done+"/"+p.total}));
-    var avg=avgScore(p.key);
-    if(avg!=null)meta.appendChild(el("span",{className:"tag score",text:"均分 "+avg}));
     card.appendChild(meta);
-    var pBtns=el("div",{className:"btnRow"});
-    pBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"选择题目 →",onClick:function(e){e.stopPropagation();p.go();}}));
-    pBtns.appendChild(el("button",{className:"smallBtn",style:{flex:1},text:"🎲 随机练习",onClick:function(e){e.stopPropagation();showSoundCheck(function(){randomPractice(p.key);});}}));
-    card.appendChild(pBtns);
+    /* 进度条 */
+    var pct=p.total>0?Math.round(p.done/p.total*100):0;
+    var progRow=el("div",{className:"epcProgress"});
+    var progBar=el("div",{className:"epcBar"});
+    var progFill=el("div",{className:"epcBarFill"});
+    progFill.style.width=pct+"%";
+    progFill.style.background=p.color;
+    progBar.appendChild(progFill);
+    progRow.appendChild(progBar);
+    progRow.appendChild(el("div",{className:"epcBarText",text:p.done+"/"+p.total}));
+    card.appendChild(progRow);
+    /* 星级 */
+    var avg=avgScore(p.key);
+    if(avg!=null){
+      var stars=starRating(avg,p.key==="A"?20:p.key==="B"?16:24);
+      var starRow=el("div",{className:"epcStars"});
+      for(var i=0;i<3;i++){
+        starRow.appendChild(el("span",{className:"epcStar"+(i<stars?" active":""),text:"★"}));
+      }
+      starRow.appendChild(el("span",{style:{fontSize:"12px",color:"var(--text-secondary)",marginLeft:"6px"},text:"均分 "+avg}));
+      card.appendChild(starRow);
+    }
     wrap.appendChild(card);
   });
 
-  wrap.appendChild(el("div",{className:"card mt12"},[
-    el("h3",{text:"💡 使用提示"}),
-    el("p",{className:"muted",text:"1. 模考练习：完整A+B+C，不可跳过，完全还原高考流程。"}),
-    el("p",{className:"muted",text:"2. 试题练习：完整A+B+C，流程与模考一致，仅多出跳过和立即结算功能。"}),
-    el("p",{className:"muted",text:"3. 专项练习：只练习一个Part，含随机选题。"}),
-    el("p",{className:"muted",text:"4. 评分说明与答题技巧请点击底部「指南」标签页。"})
-  ]));
+  /* === 同步训练（E听说风格：按来源/年份组织） === */
+  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"🗂️ 同步训练"}),el("span",{className:"etsMore",text:"按试卷练习 →"})]));
+  var years=getYears();
+  if(years.length){
+    var yearBar=el("div",{className:"etsYearBar"});
+    var allChip=el("button",{className:"etsYearChip"+(State.filterYear==="all"?" active":""),text:"全部"});
+    allChip.addEventListener("click",function(){State.filterYear="all";render();});
+    yearBar.appendChild(allChip);
+    years.forEach(function(y){
+      var chip=el("button",{className:"etsYearChip"+(State.filterYear===y?" active":""),text:y+"年"});
+      chip.addEventListener("click",function(){State.filterYear=y;render();});
+      yearBar.appendChild(chip);
+    });
+    wrap.appendChild(yearBar);
+  }
+  /* 同步训练列表 */
+  var syncItems=[];
+  ["A","B","C"].forEach(function(p){
+    DATA["part"+p].forEach(function(d){
+      if(State.filterYear!=="all"){
+        var m=(d.source||"").match(/(\d{4})年/);
+        if(!m||m[1]!==State.filterYear)return;
+      }
+      syncItems.push({part:p,data:d});
+    });
+  });
+  /* 按来源分组显示前6个 */
+  syncItems.slice(0,6).forEach(function(si){
+    var d=si.data;var done=State.progress.done[d.id];
+    var row=el("div",{className:"etsUnitItem"});
+    var icon=el("div",{className:"euiIcon",text:si.part==="A"?"📖":si.part==="B"?"💬":"🎧"});
+    icon.style.background=si.part==="A"?"linear-gradient(135deg,#3b82f6,#2563eb)":si.part==="B"?"linear-gradient(135deg,#8b5cf6,#7c3aed)":"linear-gradient(135deg,#10b981,#059669)";
+    row.appendChild(icon);
+    var body=el("div",{className:"euiBody"});
+    body.appendChild(el("div",{className:"euiTitle",text:d.title}));
+    var subText="Part "+si.part;
+    if(d.source)subText+=" · "+d.source;
+    if(d.difficulty)subText+=" · "+diffLabel(d.difficulty);
+    body.appendChild(el("div",{className:"euiSub",text:subText}));
+    /* 星级 */
+    if(done){
+      var stars=starRating(done.score,done.max);
+      var starRow=el("div",{className:"euiStars"});
+      for(var i=0;i<3;i++){
+        starRow.appendChild(el("span",{className:"euiStar"+(i<stars?" active":""),text:"★"}));
+      }
+      body.appendChild(starRow);
+    }
+    row.appendChild(body);
+    row.appendChild(el("div",{className:"euiArrow",text:"›"}));
+    row.addEventListener("click",function(){
+      if(si.part==="A")startPartA(d,false);
+      else if(si.part==="B")startPartB(d,false);
+      else if(si.part==="C")startPartC(d,false);
+    });
+    wrap.appendChild(row);
+  });
+  /* 查看更多 */
+  if(syncItems.length>6){
+    var moreBtn=el("button",{className:"smallBtn fullWidth mt8",text:"查看全部 ("+syncItems.length+"套) →"});
+    moreBtn.addEventListener("click",function(){State.subView="syncList";render();});
+    wrap.appendChild(moreBtn);
+  }
+
   return wrap;
 }
 
@@ -776,6 +1058,94 @@ function randomPractice(part){
   if(part==="A")startPartA(item,false);
   else if(part==="B")startPartB(item,false);
   else if(part==="C")startPartC(item,false);
+}
+
+/* ============ 同步训练列表 ============ */
+function openSyncList(wrap){
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){State.subView=null;render();});
+  topBar.appendChild(backBtn);
+  wrap.appendChild(topBar);
+  wrap.appendChild(el("h2",{text:"🗂️ 同步训练"}));
+  wrap.appendChild(el("p",{className:"muted mb12",text:"按试卷来源浏览所有练习题，点击开始练习"}));
+  /* 年份筛选 */
+  var years=getYears();
+  if(years.length){
+    var yearBar=el("div",{className:"etsYearBar"});
+    var allChip=el("button",{className:"etsYearChip"+(State.filterYear==="all"?" active":""),text:"全部"});
+    allChip.addEventListener("click",function(){State.filterYear="all";render();});
+    yearBar.appendChild(allChip);
+    years.forEach(function(y){
+      var chip=el("button",{className:"etsYearChip"+(State.filterYear===y?" active":""),text:y+"年"});
+      chip.addEventListener("click",function(){State.filterYear=y;render();});
+      yearBar.appendChild(chip);
+    });
+    wrap.appendChild(yearBar);
+  }
+  /* 部分筛选 */
+  var partBar=el("div",{className:"diffFilter"});
+  var partFilters=[{key:"all",label:"全部"},{key:"A",label:"Part A"},{key:"B",label:"Part B"},{key:"C",label:"Part C"}];
+  partFilters.forEach(function(pf){
+    var chip=el("button",{className:"diffChip"+(State.filterDiff===pf.key?" active":""),text:pf.label});
+    chip.addEventListener("click",function(){State.filterDiff=pf.key;render();});
+    partBar.appendChild(chip);
+  });
+  wrap.appendChild(partBar);
+  /* 来源筛选 */
+  var srcBar=el("div",{className:"srcFilter"});
+  var srcs=[{key:"all",label:"全部"},{key:"real",label:"高考真题"},{key:"mock",label:"模拟题"}];
+  srcs.forEach(function(s){
+    var chip=el("button",{className:"diffChip"+(State.filterSrc===s.key?" active":""),text:s.label});
+    chip.addEventListener("click",function(){State.filterSrc=s.key;render();});
+    srcBar.appendChild(chip);
+  });
+  wrap.appendChild(srcBar);
+  /* 列表 */
+  var syncItems=[];
+  ["A","B","C"].forEach(function(p){
+    if(State.filterDiff!=="all"&&State.filterDiff!==p)return;
+    DATA["part"+p].forEach(function(d){
+      if(State.filterYear!=="all"){
+        var m=(d.source||"").match(/(\d{4})年/);
+        if(!m||m[1]!==State.filterYear)return;
+      }
+      if(State.filterSrc!=="all"&&(State.filterSrc==="real"?!isRealExam(d):isRealExam(d)))return;
+      syncItems.push({part:p,data:d});
+    });
+  });
+  syncItems.forEach(function(si){
+    var d=si.data;var done=State.progress.done[d.id];
+    var row=el("div",{className:"etsUnitItem"});
+    var icon=el("div",{className:"euiIcon",text:si.part==="A"?"📖":si.part==="B"?"💬":"🎧"});
+    icon.style.background=si.part==="A"?"linear-gradient(135deg,#3b82f6,#2563eb)":si.part==="B"?"linear-gradient(135deg,#8b5cf6,#7c3aed)":"linear-gradient(135deg,#10b981,#059669)";
+    row.appendChild(icon);
+    var body=el("div",{className:"euiBody"});
+    body.appendChild(el("div",{className:"euiTitle",text:d.title}));
+    var subText="Part "+si.part;
+    if(d.source)subText+=" · "+d.source;
+    if(d.topic)subText+=" · "+d.topic;
+    if(d.difficulty)subText+=" · "+diffLabel(d.difficulty);
+    body.appendChild(el("div",{className:"euiSub",text:subText}));
+    if(done){
+      var stars=starRating(done.score,done.max);
+      var starRow=el("div",{className:"euiStars"});
+      for(var i=0;i<3;i++){
+        starRow.appendChild(el("span",{className:"euiStar"+(i<stars?" active":""),text:"★"}));
+      }
+      body.appendChild(starRow);
+    }
+    row.appendChild(body);
+    row.appendChild(el("div",{className:"euiArrow",text:"›"}));
+    row.addEventListener("click",function(){
+      if(si.part==="A")startPartA(d,false);
+      else if(si.part==="B")startPartB(d,false);
+      else if(si.part==="C")startPartC(d,false);
+    });
+    wrap.appendChild(row);
+  });
+  if(!syncItems.length)wrap.appendChild(el("div",{className:"emptyState"},[el("div",{className:"ei",text:"📭"}),el("p",{text:"该筛选条件下暂无内容"})]));
+  return wrap;
 }
 
 /* ============ 高考UI：试音阶段 ============ */
@@ -865,14 +1235,143 @@ function showSoundCheck(callback){
   root.appendChild(el("div",{className:"btnRow"},[skipBtn]));
 }
 
-/* ============ 指南页（主标签页） ============ */
-function viewGuide(){
+/* ============ 拓展页（E听说风格） ============ */
+function viewExpand(){
   var wrap=el("div");
-  wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"考试指南"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
+  /* 子页面路由 */
+  if(State.expandSection==="guide")return expandGuide(wrap);
+  if(State.expandSection==="tips")return expandTips(wrap);
+  if(State.expandSection==="ai")return expandAI(wrap);
+  if(State.expandSection==="phonetic")return expandPhonetic(wrap);
+  if(State.expandSection==="plan")return expandPlan(wrap);
 
-  /* Hero */
+  wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"拓展"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
+
+  /* 每日一句卡片 */
+  var dailySentences=[
+    {en:"Practice makes perfect.",cn:"熟能生巧。"},
+    {en:"The early bird catches the worm.",cn:"早起的鸟儿有虫吃。"},
+    {en:"Where there is a will, there is a way.",cn:"有志者事竟成。"},
+    {en:"Actions speak louder than words.",cn:"行动胜于言辞。"},
+    {en:"Every cloud has a silver lining.",cn:"每朵乌云背后都有阳光。"},
+    {en:"Rome was not built in a day.",cn:"罗马不是一天建成的。"},
+    {en:"Knowledge is power.",cn:"知识就是力量。"}
+  ];
+  var today=new Date().getDate();
+  var ds=dailySentences[today%dailySentences.length];
+  var dailyCard=el("div",{className:"etsDailyCard"});
+  dailyCard.appendChild(el("div",{className:"edcLabel",text:"🌟 每日一句 · "+new Date().toLocaleDateString("zh-CN",{month:"long",day:"numeric"})}));
+  dailyCard.appendChild(el("div",{className:"edcEn",text:ds.en}));
+  dailyCard.appendChild(el("div",{className:"edcCn",text:ds.cn}));
+  var dailyBtn=el("button",{className:"edcBtn",text:"🔊 朗读练习"});
+  dailyBtn.addEventListener("click",function(){
+    dailyBtn.textContent="播放中...";
+    Speech.speak(ds.en,{rate:0.85}).then(function(){dailyBtn.textContent="🔊 再听一遍";});
+  });
+  dailyCard.appendChild(dailyBtn);
+  wrap.appendChild(dailyCard);
+
+  /* AI智能推荐卡片 */
+  var aiCard=el("div",{className:"etsAIRecCard"});
+  aiCard.appendChild(el("div",{className:"earcTitle",text:"🤖 AI智能推荐"}));
+  var dims=abilityAnalysis();
+  var weakest=null,weakestPct=100;
+  Object.keys(dims).forEach(function(k){
+    if(dims[k].max>0&&dims[k].pct<weakestPct){weakestPct=dims[k].pct;weakest=dims[k];}
+  });
+  if(weakest){
+    aiCard.appendChild(el("div",{className:"earcSub",text:"基于你的练习数据，推荐重点提升："+weakest.label}));
+    /* 推荐练习 */
+    var recs=[];
+    if(weakest.label==="语音语调"||weakest.label==="流利度"){
+      recs=DATA.partA.slice(0,3);
+      recs.forEach(function(r){
+        var item=el("div",{className:"earcItem"});
+        item.appendChild(el("span",{className:"eariText",text:"📖 "+r.title}));
+        item.appendChild(el("span",{className:"eariArrow",text:"›"}));
+        item.addEventListener("click",function(){startPartA(r,false);});
+        aiCard.appendChild(item);
+      });
+    }else if(weakest.label==="语法表达"||weakest.label==="信息传递"){
+      recs=DATA.partB.slice(0,3);
+      recs.forEach(function(r){
+        var item=el("div",{className:"earcItem"});
+        item.appendChild(el("span",{className:"eariText",text:"💬 "+r.title}));
+        item.appendChild(el("span",{className:"eariArrow",text:"›"}));
+        item.addEventListener("click",function(){startPartB(r,false);});
+        aiCard.appendChild(item);
+      });
+    }else{
+      recs=DATA.partC.slice(0,3);
+      recs.forEach(function(r){
+        var item=el("div",{className:"earcItem"});
+        item.appendChild(el("span",{className:"eariText",text:"🎧 "+r.title}));
+        item.appendChild(el("span",{className:"eariArrow",text:"›"}));
+        item.addEventListener("click",function(){startPartC(r,false);});
+        aiCard.appendChild(item);
+      });
+    }
+  }else{
+    aiCard.appendChild(el("div",{className:"earcSub",text:"完成练习后，AI将根据你的薄弱项智能推荐练习内容。"}));
+    var startItem=el("div",{className:"earcItem"});
+    startItem.appendChild(el("span",{className:"eariText",text:"开始第一次练习 →"}));
+    startItem.appendChild(el("span",{className:"eariArrow",text:"›"}));
+    startItem.addEventListener("click",function(){State.view="practice";render();});
+    aiCard.appendChild(startItem);
+  }
+  wrap.appendChild(aiCard);
+
+  /* 拓展功能网格 */
+  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"🎯 能力拓展"})]));
+  var grid=el("div",{className:"etsExpandGrid"});
+  var items=[
+    {icon:"📊",title:"评分指南",sub:"评分标准与档次",color:"linear-gradient(135deg,#3b82f6,#2563eb)",section:"guide",badge:null},
+    {icon:"💡",title:"答题技巧",sub:"各Part技巧汇总",color:"linear-gradient(135deg,#f59e0b,#d97706)",section:"tips",badge:null},
+    {icon:"🤖",title:"AI提升课",sub:"智能推荐练习",color:"linear-gradient(135deg,#4facfe,#00f2fe)",section:"ai",badge:weakest?"NEW":null},
+    {icon:"🔤",title:"音标学习",sub:"48个音标练习",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",section:"phonetic",badge:null},
+    {icon:"📝",title:"学习计划",sub:"制定练习计划",color:"linear-gradient(135deg,#10b981,#059669)",section:"plan",badge:null},
+    {icon:"📚",title:"错题本",sub:"错题回顾订正",color:"linear-gradient(135deg,#ef4444,#dc2626)",section:null,go:function(){State.view="me";State.subView=null;render();}}
+  ];
+  items.forEach(function(it){
+    var card=el("div",{className:"etsExpandItem"});
+    var icon=el("div",{className:"eeiIcon",text:it.icon});
+    icon.style.background=it.color;
+    card.appendChild(icon);
+    card.appendChild(el("div",{className:"eeiTitle",text:it.title}));
+    card.appendChild(el("div",{className:"eeiSub",text:it.sub}));
+    if(it.badge){card.appendChild(el("div",{className:"eeiBadge",text:it.badge}));}
+    card.addEventListener("click",function(){
+      if(it.go){it.go();return;}
+      State.expandSection=it.section;render();
+    });
+    grid.appendChild(card);
+  });
+  wrap.appendChild(grid);
+
+  /* 评分等级快速预览 */
+  wrap.appendChild(el("div",{className:"card"},[
+    el("h3",{text:"🎨 评分等级"}),
+    el("div",{className:"dimRow"},[
+      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv high",text:"≥80%"}));c.appendChild(el("div",{className:"dl",text:"优秀"}));return c;})(),
+      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv mid",text:"65-79%"}));c.appendChild(el("div",{className:"dl",text:"良好"}));return c;})(),
+      (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv low",text:"<65%"}));c.appendChild(el("div",{className:"dl",text:"待提高"}));return c;})()
+    ]),
+    el("p",{className:"muted mt8",text:"三色评分系统：蓝色表示优秀，橙色表示良好，红色表示需要提高。成绩低于60%的练习会自动加入错题本。"})
+  ]));
+
+  return wrap;
+}
+
+/* === 拓展子页面：评分指南 === */
+function expandGuide(wrap){
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
+  topBar.appendChild(backBtn);
+  wrap.appendChild(topBar);
+
   var hero=el("div",{className:"guideHero"});
-  hero.appendChild(el("h2",{text:"📚 评分说明与答题技巧"}));
+  hero.appendChild(el("h2",{text:"📊 评分说明"}));
   hero.appendChild(el("p",{text:"广东高考英语听说考试 · 满分60分 · 折算高考15分（÷4）"}));
   hero.appendChild(el("div",{className:"heroStats"},[
     el("div",{className:"heroStat"},[el("div",{className:"hv",text:"60"}),el("div",{className:"hl",text:"听说满分"})]),
@@ -895,116 +1394,312 @@ function viewGuide(){
   totalCard.appendChild(el("div",{className:"guideTip"},[el("strong",{text:"折算公式："}),el("span",{text:" 高考听说成绩 = 听说考试得分 ÷ 4（四舍五入保留一位小数）"})]));
   wrap.appendChild(totalCard);
 
-  /* Part A 详细指南 */
-  var aCard=el("div",{className:"guideCard a"});
-  var aHead=el("div",{className:"guideCardTitle"});
-  aHead.appendChild(el("div",{className:"guideCardIcon",text:"📖"}));
-  aHead.appendChild(el("div",{},[el("div",{text:"Part A 模仿朗读",style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:"Reading Aloud · 20分 · 含视频"})]));
-  aCard.appendChild(aHead);
-  /* 考试流程 */
-  aCard.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程（文本出现4次）："}));
-  var aFlow=el("div",{className:"guideFlow"});
-  [["1.观看视频","带字幕视频+原声"],["2.自主练习","纯文本·1分钟"],["3.听录音","文本+音频"],["4.正式录音","无声视频+字幕"]].forEach(function(s,i){
-    if(i>0)aFlow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));
-    aFlow.appendChild(el("div",{className:"guideFlowStep",text:s[0]}));
+  /* Part A-C 评分维度 */
+  var parts=[
+    {key:"a",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 20分 · 含视频",cls:"a",color:"linear-gradient(135deg,#3b82f6,#2563eb)",
+     flow:["1.观看视频","2.自主练习","3.听录音","4.正式录音"],
+     flowSub:"视频来源通常为BBC/Discovery/NG纪录片片段，约1分钟，约100词。",
+     dims:[["语音语调","8分","发音准确、语调自然、重音正确"],["语速与节奏","6分","语速适中、意群停顿合理、节奏流畅"],["完整性","6分","内容完整、无遗漏、无添加"]]},
+    {key:"b",icon:"💬",title:"Part B 角色扮演",sub:"Role Play · 16分 · 三问五答 · 2023年起无视频",cls:"b",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",
+     flow:["1.情景介绍(30s)","2.听对话(1遍)","3.三问(20s准备+10s录音)","4.五答(10s准备+10s录音)"],
+     flowSub:"前两答出自对话录音，后三答分别出自三问的计算机回答（每个回答播放2遍）。",
+     dims:[["三问","6分","每问2分，语法正确、表达清晰"],["五答","10分","每答2分，信息准确、回答完整"]]},
+    {key:"c",icon:"🎧",title:"Part C 故事复述",sub:"Retelling · 24分 · 听两遍 · 无视频",cls:"c",color:"linear-gradient(135deg,#10b981,#059669)",
+     flow:["1.梗概+关键词(15s)","2.听独白(2遍)","3.准备(60s)","4.复述录音(120s)"],
+     flowSub:"第一遍把握整体脉络和核心动词，第二遍补充关键名词、形容词等细节。",
+     dims:[["内容","12分","关键信息覆盖完整、情节连贯"],["语言","8分","语法正确、词汇运用恰当、句型多样"],["流利度","4分","表达流畅、停顿自然、语速适中"]]}
+  ];
+  parts.forEach(function(p){
+    var card=el("div",{className:"guideCard "+p.cls});
+    var head=el("div",{className:"guideCardTitle"});
+    var icon=el("div",{className:"guideCardIcon",text:p.icon});
+    icon.style.background=p.color;
+    head.appendChild(icon);
+    var hi=el("div",{},[el("div",{text:p.title,style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:p.sub})]);
+    head.appendChild(hi);
+    card.appendChild(head);
+    card.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程："}));
+    var flow=el("div",{className:"guideFlow"});
+    p.flow.forEach(function(s,i){if(i>0)flow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));flow.appendChild(el("div",{className:"guideFlowStep",text:s}));});
+    card.appendChild(flow);
+    card.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:p.flowSub}));
+    var dTbl=el("table",{className:"guideScoreTable"});
+    dTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"评分维度"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
+    p.dims.forEach(function(r){var tr=el("tr",{});r.forEach(function(c){tr.appendChild(el("td",{text:c}));});dTbl.appendChild(tr);});
+    card.appendChild(dTbl);
+    wrap.appendChild(card);
   });
-  aCard.appendChild(aFlow);
-  aCard.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:"视频来源通常为BBC/Discovery/NG纪录片片段，约1分钟，约100词。"}));
-  /* 评分维度 */
-  var aTbl=el("table",{className:"guideScoreTable"});
-  aTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"评分维度"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
-  [["语音语调","8分","发音准确、语调自然、重音正确"],["语速与节奏","6分","语速适中、意群停顿合理、节奏流畅"],["完整性","6分","内容完整、无遗漏、无添加"]].forEach(function(r){
-    var tr=el("tr",{});
-    tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));
-    aTbl.appendChild(tr);
-  });
-  aCard.appendChild(aTbl);
-  aCard.appendChild(el("div",{className:"guideTip",style:{"white-space":"pre-line"}},[
-    el("strong",{text:"💡 答题技巧：\n"}),
-    el("span",{text:"1. 观看视频时专注捕捉发音、语调、意群停顿和生词发音\n2. 自主练习时标注生词，尝试朗读熟悉文本\n3. 听录音时用影子跟读法（比原声延迟约1秒同步跟读）\n4. 正式录音时对照无声视频字幕，语音语调语速尽量与原声一致\n5. 注意句末升降调：陈述句降调，一般疑问句升调\n6. 遇到生词不停顿太久，按拼读规则朗读"})
-  ]));
-  wrap.appendChild(aCard);
 
-  /* Part B 详细指南 */
-  var bCard=el("div",{className:"guideCard b"});
-  var bHead=el("div",{className:"guideCardTitle"});
-  bHead.appendChild(el("div",{className:"guideCardIcon",text:"💬"}));
-  bHead.appendChild(el("div",{},[el("div",{text:"Part B 角色扮演",style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:"Role Play · 16分 · 三问五答 · 2023年起无视频"})]));
-  bCard.appendChild(bHead);
-  bCard.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程："}));
-  var bFlow=el("div",{className:"guideFlow"});
-  ["1.情景介绍(30s)","2.听对话(1遍)","3.三问(每问20s准备+10s录音)","4.五答(每答10s准备+10s录音)"].forEach(function(s,i){
-    if(i>0)bFlow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));
-    bFlow.appendChild(el("div",{className:"guideFlowStep",text:s}));
-  });
-  bCard.appendChild(bFlow);
-  bCard.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:"前两答出自对话录音，后三答分别出自三问的计算机回答（每个回答播放2遍）。"}));
-  var bTbl=el("table",{className:"guideScoreTable"});
-  bTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"环节"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
-  [["三问","6分","每问2分，语法正确、表达清晰"],["五答","10分","每答2分，信息准确、回答完整"]].forEach(function(r){
-    var tr=el("tr",{});
-    tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));
-    bTbl.appendChild(tr);
-  });
-  bCard.appendChild(bTbl);
-  bCard.appendChild(el("div",{className:"guideTip",style:{"white-space":"pre-line"}},[
-    el("strong",{text:"💡 答题技巧：\n"}),
-    el("span",{text:"1. 情景阶段：仔细阅读中文情景描述，记住角色身份和关键信息\n2. 对话阶段：认真聆听对话，记录人物、时间、地点、数量等关键信息\n3. 三问阶段：根据中文提示用正确英语句型提问（注意时态和语序）\n4. 五答阶段：听清问题，用完整句子回答，确保信息准确\n5. 常见疑问句型：What/Where/When/Why/How + do/does/did + 主语...？\n6. 答题时注意时态一致性，避免语法错误\n7. 听到\"嘀\"声后再开始录音，不要抢答"})
-  ]));
-  wrap.appendChild(bCard);
-
-  /* Part C 详细指南 */
-  var cCard=el("div",{className:"guideCard c"});
-  var cHead=el("div",{className:"guideCardTitle"});
-  cHead.appendChild(el("div",{className:"guideCardIcon",text:"🎧"}));
-  cHead.appendChild(el("div",{},[el("div",{text:"Part C 故事复述",style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:"Retelling · 24分 · 听两遍 · 无视频"})]));
-  cCard.appendChild(cHead);
-  cCard.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程："}));
-  var cFlow=el("div",{className:"guideFlow"});
-  ["1.梗概+关键词(15s)","2.听独白(2遍)","3.准备(60s)","4.复述录音(120s)"].forEach(function(s,i){
-    if(i>0)cFlow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));
-    cFlow.appendChild(el("div",{className:"guideFlowStep",text:s}));
-  });
-  cCard.appendChild(cFlow);
-  cCard.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:"第一遍把握整体脉络和核心动词，第二遍补充关键名词、形容词等细节。"}));
-  var cTbl=el("table",{className:"guideScoreTable"});
-  cTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"评分维度"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
-  [["内容","12分","关键信息覆盖完整、情节连贯"],["语言","8分","语法正确、词汇运用恰当、句型多样"],["流利度","4分","表达流畅、停顿自然、语速适中"]].forEach(function(r){
-    var tr=el("tr",{});
-    tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));
-    cTbl.appendChild(tr);
-  });
-  cCard.appendChild(cTbl);
-  cCard.appendChild(el("div",{className:"guideTip",style:{"white-space":"pre-line"}},[
-    el("strong",{text:"💡 答题技巧：\n"}),
-    el("span",{text:"1. 概要阶段：阅读故事梗概和关键词，了解故事大意\n2. 第一遍聆听：把握故事整体脉络，记录核心动词和动词短语\n3. 第二遍聆听：补充关键名词、形容词，完善时间地点等要素\n4. 准备阶段：用关键词串联故事情节，构思复述框架\n5. 复述阶段：用自己的语言复述，不必逐字背诵原文\n6. 注意使用正确的时态（叙事多用过去时）\n7. 合理使用连接词（first, then, after that, finally等）使复述连贯\n8. 覆盖所有关键词和关键情节，确保内容完整"})
-  ]));
-  wrap.appendChild(cCard);
-
-  /* 评分等级 */
-  var gradeCard=el("div",{className:"card"});
-  gradeCard.appendChild(el("h3",{text:"🎨 评分等级"}));
-  gradeCard.appendChild(el("div",{className:"dimRow"},[
-    (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv high",text:"≥80%"}));c.appendChild(el("div",{className:"dl",text:"优秀"}));return c;})(),
-    (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv mid",text:"65-79%"}));c.appendChild(el("div",{className:"dl",text:"良好"}));return c;})(),
-    (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv low",text:"<65%"}));c.appendChild(el("div",{className:"dl",text:"待提高"}));return c;})()
-  ]));
-  gradeCard.appendChild(el("p",{className:"muted mt8",text:"三色评分系统：蓝色表示优秀，橙色表示良好，红色表示需要提高。成绩低于60%的练习会自动加入错题本。"}));
-  wrap.appendChild(gradeCard);
-
-  /* 评分档次说明（Part A） */
+  /* Part A 评分档次 */
   var gradeDetailCard=el("div",{className:"card"});
   gradeDetailCard.appendChild(el("h3",{text:"📊 Part A 评分档次（高考标准）"}));
   var gdTbl=el("table",{className:"guideScoreTable"});
   gdTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"档次"}),el("th",{text:"语音语调"}),el("th",{text:"语速内容"}),el("th",{text:"标准"})])]));
   [["A","12分","8分","发音清晰准确，语调正确自然，语流连贯流畅"],["B","8-10分","6分","发音基本准确，语调基本正确，语流尚连贯"],["C","4-6分","4分","部分音素发音不正确，语流有不连贯"],["D","0-2分","0-2分","大部分音素发音不正确，不能按原语速"]].forEach(function(r){
-    var tr=el("tr",{});
-    r.forEach(function(c){tr.appendChild(el("td",{text:c}));});
-    gdTbl.appendChild(tr);
+    var tr=el("tr",{});r.forEach(function(c){tr.appendChild(el("td",{text:c}));});gdTbl.appendChild(tr);
   });
   gradeDetailCard.appendChild(gdTbl);
   wrap.appendChild(gradeDetailCard);
 
+  return wrap;
+}
+
+/* === 拓展子页面：答题技巧 === */
+function expandTips(wrap){
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
+  topBar.appendChild(backBtn);
+  wrap.appendChild(topBar);
+  wrap.appendChild(el("h2",{text:"💡 答题技巧"}));
+
+  var tips=[
+    {part:"Part A 模仿朗读",icon:"📖",color:"linear-gradient(135deg,#3b82f6,#2563eb)",tips:[
+      "观看视频时专注捕捉发音、语调、意群停顿和生词发音",
+      "自主练习时标注生词，尝试朗读熟悉文本",
+      "听录音时用影子跟读法（比原声延迟约1秒同步跟读）",
+      "正式录音时对照无声视频字幕，语音语调语速尽量与原声一致",
+      "注意句末升降调：陈述句降调，一般疑问句升调",
+      "遇到生词不停顿太久，按拼读规则朗读"
+    ]},
+    {part:"Part B 角色扮演",icon:"💬",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",tips:[
+      "情景阶段：仔细阅读中文情景描述，记住角色身份和关键信息",
+      "对话阶段：认真聆听对话，记录人物、时间、地点、数量等关键信息",
+      "三问阶段：根据中文提示用正确英语句型提问（注意时态和语序）",
+      "五答阶段：听清问题，用完整句子回答，确保信息准确",
+      "常见疑问句型：What/Where/When/Why/How + do/does/did + 主语...？",
+      "答题时注意时态一致性，避免语法错误",
+      "听到\"嘀\"声后再开始录音，不要抢答"
+    ]},
+    {part:"Part C 故事复述",icon:"🎧",color:"linear-gradient(135deg,#10b981,#059669)",tips:[
+      "概要阶段：阅读故事梗概和关键词，了解故事大意",
+      "第一遍聆听：把握故事整体脉络，记录核心动词和动词短语",
+      "第二遍聆听：补充关键名词、形容词，完善时间地点等要素",
+      "准备阶段：用关键词串联故事情节，构思复述框架",
+      "复述阶段：用自己的语言复述，不必逐字背诵原文",
+      "注意使用正确的时态（叙事多用过去时）",
+      "合理使用连接词（first, then, after that, finally等）使复述连贯",
+      "覆盖所有关键词和关键情节，确保内容完整"
+    ]}
+  ];
+  tips.forEach(function(t){
+    var card=el("div",{className:"guideCard",style:{borderLeftColor:t.color.match(/#[0-9a-f]{6}/i)?t.color.match(/#[0-9a-f]{6}/i)[0]:"#3b82f6"}});
+    var head=el("div",{className:"guideCardTitle"});
+    var icon=el("div",{className:"guideCardIcon",text:t.icon});
+    icon.style.background=t.color;
+    head.appendChild(icon);
+    head.appendChild(el("div",{},[el("div",{text:t.part,style:{fontSize:"17px",fontWeight:"700"}})]));
+    card.appendChild(head);
+    var ul=el("div",{className:"guideTip",style:{"white-space":"pre-line"}});
+    t.tips.forEach(function(tp,i){
+      ul.appendChild(el("div",{style:{marginBottom:"6px"},text:(i+1)+". "+tp}));
+    });
+    card.appendChild(ul);
+    wrap.appendChild(card);
+  });
+  return wrap;
+}
+
+/* === 拓展子页面：AI提升课 === */
+function expandAI(wrap){
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
+  topBar.appendChild(backBtn);
+  wrap.appendChild(topBar);
+  wrap.appendChild(el("h2",{text:"🤖 AI智能提升"}));
+
+  var dims=abilityAnalysis();
+  /* 能力分析 */
+  var analysisCard=el("div",{className:"etsAnalysisCard"});
+  analysisCard.appendChild(el("h3",{text:"📊 能力分析"}));
+  Object.keys(dims).forEach(function(k){
+    var d=dims[k];
+    var row=el("div",{className:"etsAbilityRow"});
+    row.appendChild(el("div",{className:"earLabel",text:d.label}));
+    var bar=el("div",{className:"earBar"});
+    var fill=el("div",{className:"earBarFill"});
+    fill.style.width=(d.max>0?d.pct:0)+"%";
+    var g=scoreGrade(d.max>0?d.pct:0);
+    fill.style.background=g.color;
+    bar.appendChild(fill);
+    row.appendChild(bar);
+    row.appendChild(el("div",{className:"earVal",style:{color:g.color},text:(d.max>0?d.pct:0)+"%"}));
+    analysisCard.appendChild(row);
+  });
+  if(!State.scores.length){
+    analysisCard.appendChild(el("p",{className:"muted mt8",text:"完成练习后可查看能力分析。"}));
+  }
+  wrap.appendChild(analysisCard);
+
+  /* AI推荐 */
+  var aiCard=el("div",{className:"etsAIRecCard"});
+  aiCard.appendChild(el("div",{className:"earcTitle",text:"🎯 个性化推荐"}));
+  var weakest=null,weakestPct=100;
+  Object.keys(dims).forEach(function(k){
+    if(dims[k].max>0&&dims[k].pct<weakestPct){weakestPct=dims[k].pct;weakest={key:k,data:dims[k]};}
+  });
+  if(weakest){
+    aiCard.appendChild(el("div",{className:"earcSub",text:"你的薄弱项是「"+weakest.data.label+"」，建议重点练习以下内容："}));
+    var recPool=[];
+    if(weakest.key==="pronunciation"||weakest.key==="fluency")recPool=DATA.partA;
+    else if(weakest.key==="grammar"||weakest.key==="interaction")recPool=DATA.partB;
+    else recPool=DATA.partC;
+    var undone=recPool.filter(function(d){return !State.progress.done[d.id];});
+    var pool=undone.length>=3?undone:recPool;
+    pool.slice(0,5).forEach(function(r){
+      var item=el("div",{className:"earcItem"});
+      item.appendChild(el("span",{className:"eariText",text:r.title}));
+      item.appendChild(el("span",{className:"eariArrow",text:"›"}));
+      var partKey=weakest.key==="pronunciation"||weakest.key==="fluency"?"A":(weakest.key==="grammar"||weakest.key==="interaction"?"B":"C");
+      item.addEventListener("click",function(){
+        if(partKey==="A")startPartA(r,false);
+        else if(partKey==="B")startPartB(r,false);
+        else startPartC(r,false);
+      });
+      aiCard.appendChild(item);
+    });
+  }else{
+    aiCard.appendChild(el("div",{className:"earcSub",text:"完成练习后，AI将根据你的薄弱项智能推荐练习内容。"}));
+  }
+  wrap.appendChild(aiCard);
+  return wrap;
+}
+
+/* === 拓展子页面：音标学习 === */
+function expandPhonetic(wrap){
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
+  topBar.appendChild(backBtn);
+  wrap.appendChild(topBar);
+  wrap.appendChild(el("h2",{text:"🔤 音标学习"}));
+  wrap.appendChild(el("p",{className:"muted mb12",text:"点击音标听发音，提升语音语调"}));
+
+  var phonetics=[
+    {sym:"/iː/",ex:"see, tree",color:"#3b82f6"},
+    {sym:"/ɪ/",ex:"sit, big",color:"#3b82f6"},
+    {sym:"/e/",ex:"bed, head",color:"#3b82f6"},
+    {sym:"/æ/",ex:"cat, map",color:"#3b82f6"},
+    {sym:"/ɑː/",ex:"car, far",color:"#8b5cf6"},
+    {sym:"/ɒ/",ex:"hot, dog",color:"#8b5cf6"},
+    {sym:"/ɔː/",ex:"door, more",color:"#8b5cf6"},
+    {sym:"/ʊ/",ex:"book, put",color:"#8b5cf6"},
+    {sym:"/uː/",ex:"food, blue",color:"#8b5cf6"},
+    {sym:"/ʌ/",ex:"cup, but",color:"#f59e0b"},
+    {sym:"/ɜː/",ex:"bird, her",color:"#f59e0b"},
+    {sym:"/ə/",ex:"about, teacher",color:"#f59e0b"},
+    {sym:"/eɪ/",ex:"day, name",color:"#10b981"},
+    {sym:"/aɪ/",ex:"my, time",color:"#10b981"},
+    {sym:"/ɔɪ/",ex:"boy, toy",color:"#10b981"},
+    {sym:"/aʊ/",ex:"now, house",color:"#10b981"},
+    {sym:"/əʊ/",ex:"go, no",color:"#ef4444"},
+    {sym:"/ɪə/",ex:"here, near",color:"#ef4444"},
+    {sym:"/eə/",ex:"hair, care",color:"#ef4444"},
+    {sym:"/ʊə/",ex:"tour, pure",color:"#ef4444"},
+    {sym:"/p/",ex:"pen, map",color:"#6366f1"},
+    {sym:"/b/",ex:"bag, cab",color:"#6366f1"},
+    {sym:"/t/",ex:"ten, cat",color:"#6366f1"},
+    {sym:"/d/",ex:"dog, bed",color:"#6366f1"},
+    {sym:"/k/",ex:"key, book",color:"#ec4899"},
+    {sym:"/g/",ex:"go, big",color:"#ec4899"},
+    {sym:"/f/",ex:"fat, leaf",color:"#ec4899"},
+    {sym:"/v/",ex:"van, love",color:"#ec4899"},
+    {sym:"/θ/",ex:"think, bath",color:"#14b8a6"},
+    {sym:"/ð/",ex:"this, mother",color:"#14b8a6"},
+    {sym:"/s/",ex:"sun, bus",color:"#14b8a6"},
+    {sym:"/z/",ex:"zoo, has",color:"#14b8a6"},
+    {sym:"/ʃ/",ex:"she, fish",color:"#f97316"},
+    {sym:"/ʒ/",ex:"vision, pleasure",color:"#f97316"},
+    {sym:"/h/",ex:"hat, hot",color:"#f97316"},
+    {sym:"/m/",ex:"man, name",color:"#f97316"},
+    {sym:"/n/",ex:"no, sun",color:"#a855f7"},
+    {sym:"/ŋ/",ex:"sing, ring",color:"#a855f7"},
+    {sym:"/l/",ex:"let, ball",color:"#a855f7"},
+    {sym:"/r/",ex:"red, run",color:"#a855f7"},
+    {sym:"/j/",ex:"yes, you",color:"#0891b2"},
+    {sym:"/w/",ex:"we, water",color:"#0891b2"},
+    {sym:"/tʃ/",ex:"chair, watch",color:"#0891b2"},
+    {sym:"/dʒ/",ex:"job, bridge",color:"#0891b2"}
+  ];
+  var grid=el("div",{className:"etsPhoneticGrid"});
+  phonetics.forEach(function(p){
+    var item=el("div",{className:"etsPhoneticItem"});
+    var sym=el("div",{className:"epiSymbol",text:p.sym});
+    sym.style.color=p.color;
+    item.appendChild(sym);
+    item.appendChild(el("div",{className:"epiExample",text:p.ex}));
+    item.addEventListener("click",function(){
+      var word=p.ex.split(",")[0].trim();
+      Speech.speak(word,{rate:0.7});
+      toast("播放："+word);
+    });
+    grid.appendChild(item);
+  });
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+/* === 拓展子页面：学习计划 === */
+function expandPlan(wrap){
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){State.expandSection=null;render();});
+  topBar.appendChild(backBtn);
+  wrap.appendChild(topBar);
+  wrap.appendChild(el("h2",{text:"📝 学习计划"}));
+  wrap.appendChild(el("p",{className:"muted mb12",text:"制定每日练习计划，坚持训练提升成绩"}));
+
+  var plans=load("gdls_plans",[]);
+  /* 推荐计划 */
+  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"💡 推荐计划"})]));
+  var recPlans=[
+    {title:"7天冲刺计划",desc:"每天1套真题+1套模拟，7天覆盖全部真题",icon:"🚀",color:"linear-gradient(135deg,#3b82f6,#2563eb)",tasks:["Day 1-2: Part A 专项","Day 3-4: Part B 专项","Day 5: Part C 专项","Day 6-7: 完整模考×2"]},
+    {title:"30天提升计划",desc:"每天30分钟，系统提升听说能力",icon:"📈",color:"linear-gradient(135deg,#10b981,#059669)",tasks:["每周1-2: Part A+B 专项","每周3: 模考练习","每周4-5: 错题回顾","周末: 完整模考"]},
+    {title:"考前模拟计划",desc:"考前2周，每天1套完整模考",icon:"🎯",color:"linear-gradient(135deg,#f59e0b,#d97706)",tasks:["每天1套完整模考","模考后查看纠错","重点复习薄弱Part","最后2天回顾错题本"]}
+  ];
+  recPlans.forEach(function(rp){
+    var card=el("div",{className:"etsPlanCard"});
+    var head=el("div",{className:"eplHead"});
+    var icon=el("div",{className:"eplIcon",text:rp.icon});
+    icon.style.background=rp.color;
+    head.appendChild(icon);
+    head.appendChild(el("div",{},[el("div",{className:"eplTitle",text:rp.title}),el("div",{className:"eplProgress",text:rp.desc})]));
+    card.appendChild(head);
+    rp.tasks.forEach(function(t,i){
+      card.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:t}),el("span",{style:{fontSize:"18px"},text:"○"})]));
+    });
+    var startBtn=el("button",{className:"primary fullWidth mt8",text:"采用此计划"});
+    startBtn.addEventListener("click",function(){
+      var newPlans=load("gdls_plans",[]);
+      newPlans.push({title:rp.title,date:Date.now(),tasks:rp.tasks,done:0});
+      save("gdls_plans",newPlans);
+      toast("已添加计划："+rp.title);
+    });
+    card.appendChild(startBtn);
+    wrap.appendChild(card);
+  });
+
+  /* 我的计划 */
+  if(plans.length){
+    wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"📋 我的计划"})]));
+    plans.forEach(function(p,i){
+      var card=el("div",{className:"etsPlanCard"});
+      card.appendChild(el("div",{className:"eplHead"},[
+        el("div",{className:"eplIcon",text:"📌",style:{background:"linear-gradient(135deg,#6366f1,#4f46e5)"}}),
+        el("div",{},[el("div",{className:"eplTitle",text:p.title}),el("div",{className:"eplProgress",text:new Date(p.date).toLocaleDateString()})])
+      ]));
+      p.tasks.forEach(function(t){
+        card.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:t}),el("span",{style:{fontSize:"18px"},text:"○"})]));
+      });
+      var delBtn=el("button",{className:"smallBtn dangerGhost mt8",text:"删除计划"});
+      delBtn.addEventListener("click",function(){
+        plans.splice(i,1);save("gdls_plans",plans);render();
+      });
+      card.appendChild(delBtn);
+      wrap.appendChild(card);
+    });
+  }
   return wrap;
 }
 
@@ -1881,7 +2576,7 @@ function startExam(isMock,isRandom){
     resBox.appendChild(dimRow);box.appendChild(resBox);
     /* 评分说明链接 */
     var guideLink=el("button",{className:"smallBtn mt8",text:"📊 查看评分说明与答题技巧 →"});
-    guideLink.addEventListener("click",function(){exitExamMode();State.view="guide";State.subView=null;render();});
+    guideLink.addEventListener("click",function(){exitExamMode();State.view="expand";State.expandSection="guide";State.subView=null;render();});
     box.appendChild(guideLink);
     box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){exitExamMode();State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再考一次",onClick:function(){showSoundCheck(function(){startExam(isMock,true);});}})]));
     root.appendChild(box);
@@ -1895,6 +2590,67 @@ function startExam(isMock,isRandom){
 function viewMe(){
   var wrap=el("div");
   wrap.appendChild(el("div",{className:"meHeader"},[el("div",{className:"meAvatar",text:"🗣"}),el("div",{},[el("h2",{text:"广东高考英语听说"}),el("div",{className:"muted",text:"v"+APP_VERSION})])]));
+
+  /* === 学情分析（E听说风格） === */
+  var ps=predictScore();
+  var analysisCard=el("div",{className:"etsAnalysisCard"});
+  analysisCard.appendChild(el("h3",{text:"📊 学情分析"}));
+  /* 预测分 */
+  var psRow=el("div",{className:"etsPredictScore"});
+  var psVal=el("div",{className:"epsVal",text:ps!=null?ps:"--"});
+  psRow.appendChild(psVal);
+  psRow.appendChild(el("div",{className:"epsMax",text:"/ 60分"}));
+  if(ps!=null){
+    var pct=Math.round(ps/60*100);
+    var g=scoreGrade(pct);
+    psRow.appendChild(el("div",{className:"epsTag",style:{background:g.color+"22",color:g.color},text:g.label+" "+pct+"%"}));
+  }
+  analysisCard.appendChild(psRow);
+  analysisCard.appendChild(el("p",{className:"muted",text:ps!=null?"基于历史练习成绩推算，折算高考分约 "+Math.round(ps/4*10)/10+" 分":"完成练习后可查看预测分"}));
+  /* 能力维度 */
+  var dims=abilityAnalysis();
+  var hasData=Object.keys(dims).some(function(k){return dims[k].max>0;});
+  if(hasData){
+    Object.keys(dims).forEach(function(k){
+      var d=dims[k];
+      if(d.max===0)return;
+      var row=el("div",{className:"etsAbilityRow"});
+      row.appendChild(el("div",{className:"earLabel",text:d.label}));
+      var bar=el("div",{className:"earBar"});
+      var fill=el("div",{className:"earBarFill"});
+      fill.style.width=d.pct+"%";
+      var g=scoreGrade(d.pct);
+      fill.style.background=g.color;
+      bar.appendChild(fill);
+      row.appendChild(bar);
+      row.appendChild(el("div",{className:"earVal",style:{color:g.color},text:d.pct+"%"}));
+      analysisCard.appendChild(row);
+    });
+  }
+  /* 成长轨迹 */
+  if(State.scores.length>=2){
+    analysisCard.appendChild(el("div",{style:{marginTop:"14px",marginBottom:"6px",fontSize:"13px",fontWeight:"600",color:"var(--text-secondary)"},text:"📈 成长轨迹"}));
+    var recentScores=State.scores.slice(-10);
+    var growthChart=el("div",{className:"etsGrowthChart"});
+    var maxVal=60;
+    recentScores.forEach(function(s){
+      var pct=Math.round(s.score/s.max*100);
+      var bar=el("div",{className:"etsGrowthBar"});
+      bar.style.height=Math.max(4,pct)+"%";
+      var g=scoreGrade(pct);
+      bar.style.background="linear-gradient(180deg,"+g.color+","+g.color+"aa)";
+      var valLabel=el("div",{className:"egbVal",text:s.score});
+      bar.appendChild(valLabel);
+      growthChart.appendChild(bar);
+    });
+    analysisCard.appendChild(growthChart);
+    var growthLabels=el("div",{className:"etsGrowthLabel"});
+    recentScores.forEach(function(s,i){
+      growthLabels.appendChild(el("span",{text:i+1}));
+    });
+    analysisCard.appendChild(growthLabels);
+  }
+  wrap.appendChild(analysisCard);
 
   /* 统计 */
   var sg=el("div",{className:"statGrid"});

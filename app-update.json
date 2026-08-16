@@ -1,9 +1,9 @@
 {
-  "version": "7.0.0",
-  "versionCode": 8,
-  "changelog": "v7.0.0 重大更新\n- 严格对标广东高考英语听说考试真实流程\n- Part B三问环节：学生提问后计算机自动回答（高考真实流程）\n- Part A：观看视频58秒→自主练习60秒→听录音→准备5秒→录音61秒\n- Part B：情景30秒→听对话→三问(20秒准备+10秒录音)×3→计算机回答→五答(10秒准备+10秒录音)×5\n- Part C：梗概60秒→听故事两遍→准备60秒→复述120秒\n- 模考模式：完全跟高考一样，不可跳过视频，不可自主选择答题时间，只能提前结束录音\n- 练习模式：与模考唯一区别是可跳过和立即结算\n- 全新UI设计：更高级简约美观的深色考试界面\n- 全新应用图标：简约麦克风设计\n- 配色全面升级：深蓝主题，精致边框，优雅排版",
-  "apkUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v7.apk",
-  "appUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v7.apk",
+  "version": "8.0.0",
+  "versionCode": 9,
+  "changelog": "v8.0.0 重大更新 - 练习功能全面重构\n- 完全照搬E听说软件设计，全新练习体验\n- 底部导航重构：练习 / 拓展 / 我的 三大模块\n- 练习页新增数据栏：预测分、已练习、错题数一目了然\n- 模拟考试全新深色大卡片设计\n- 专项突破：Part A/B/C 卡片式布局，含进度条和星级评定\n- 同步训练：按年份/来源筛选，支持真题模拟分类\n- 全新拓展页面：每日一句、AI智能推荐、能力拓展网格\n- AI智能推荐：基于练习数据自动分析薄弱项并推荐练习\n- 音标学习：48个国际音标，点击即听发音\n- 学习计划：7天冲刺/30天提升/考前模拟三种推荐计划\n- 评分指南与答题技巧移至拓展页，分类更清晰\n- 我的页面新增学情分析：预测分、能力维度、成长轨迹图表\n- 星级评定系统：3星制评分（优秀/良好/及格）\n- 预测分系统：基于历史成绩推算高考听说预测分",
+  "apkUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
+  "appUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://raw.githubusercontent.com/xdbzys/gaokao-listening-speaking/main/index.html",
   "forceUpdate": false,
   "minVersionCode": 1
