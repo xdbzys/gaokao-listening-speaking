@@ -1,183 +1,543 @@
 var DATA = {};
 
 // ============================================================
-// Part A 模仿朗读（20套）
+// Part A 模仿朗读（20套：8套真题 + 12套模拟）
 // 话题覆盖：自然环保、科技发明、历史文化、健康生活、教育成长、
 //           社会现象、体育运动、艺术音乐、旅行探索、人物故事
 // ============================================================
 DATA.partA = [
+  // ---- 8套真题 ----
   {
     id: "A001",
+    title: "Chinese New Year and Ice Breaking",
+    topic: "社会现象",
+    source: "2025年广东高考真题 Test A",
+    words: 97,
+    text: "As Chinese New Year draws near, while some are having fun on ice, for others, ice is an obstruction. While sailing an ice-bound sea, a ship can very easily get stuck. But it can't suppress people's desire to go home for reunion. That's why people have come up with this combination. Whenever they run into obstructing sea ice, the excavator comes into play, breaking up the ice and allowing passengers to return home safely. This is what Chinese people are like. No matter how far away they are or how difficult it is, they get together for reunion on this day.",
+    difficulty: "medium"
+  },
+  {
+    id: "A002",
+    title: "Ocean Plastic Pollution",
+    topic: "自然环保",
+    source: "2025年广东高考真题 Test C",
+    words: 93,
+    text: "Our oceans give us life and food. They can feed one billion people every day forever. But plastic waste is hurting our oceans. Every minute, a truckload of plastic goes into the sea. Plastic floats on top, mixes with water, and sits at the bottom of the ocean. It never disappears. Instead, it breaks into tiny pieces called microplastics. These microplastics are eaten by fish and other sea animals, and eventually end up on our plates. We must act now to reduce plastic waste and protect our oceans for future generations.",
+    difficulty: "medium"
+  },
+  {
+    id: "A003",
+    title: "Wave Energy",
+    topic: "自然环保",
+    source: "2024年广东高考真题 Test C",
+    words: 93,
+    text: "Wave energy comes from ocean waves, which are endless because they're caused by how the Earth and Moon move. This energy can be turned into electricity, even from small waves. Unlike fossil fuels, wave energy is clean and renewable. It produces no harmful gases and will never run out. Many countries are now building wave energy stations along their coastlines. Scientists believe that in the future, wave energy could power millions of homes around the world. However, the technology is still developing, and there are challenges to overcome, such as high costs and the impact on marine life.",
+    difficulty: "medium"
+  },
+  {
+    id: "A004",
+    title: "Childhood Memories",
+    topic: "教育成长",
+    source: "2023年广东高考真题 Test A",
+    words: 97,
+    text: "When we think of our childhood, we often think of it as a time of long school holidays, a time of exploration. We were free to play, to run, and to dream. We built forts out of cardboard boxes and turned backyards into magical kingdoms. We collected rocks, chased butterflies, and climbed trees. Our imagination had no limits. As we grow older, the responsibilities of adult life can make us forget the simple joys of those early years. But the memories remain, reminding us of a time when the world was full of wonder and every day was an adventure waiting to happen.",
+    difficulty: "easy"
+  },
+  {
+    id: "A005",
+    title: "Music: The Universal Language",
+    topic: "艺术音乐",
+    source: "2023年广东高考真题 Test B",
+    words: 98,
+    text: "Music. It's the universal language we all know, we all feel. It holds the remarkable power to bring us together. Across cultures and continents, music speaks directly to our hearts. A beautiful melody can make us smile, bring tears to our eyes, or inspire us to dance. Scientists have found that music can reduce stress, improve memory, and even help patients recover from illness. In schools, music education helps children develop creativity and social skills. Whether we are singing, playing an instrument, or simply listening with our eyes closed, music enriches our lives and connects us to one another in ways that words alone cannot.",
+    difficulty: "medium"
+  },
+  {
+    id: "A006",
+    title: "Personal Habits and Routines",
+    topic: "健康生活",
+    source: "2022年广东高考真题 Test A",
+    words: 104,
+    text: "Everyone has their own routine and personal habits. Although it is difficult to change them, sometimes it's a good idea to try something different, like Rodman and Gina. Rodman used to be a night owl, staying up late and struggling to wake up in the morning. Gina was an early bird, always rising before sunrise. When they decided to swap routines for a month, both discovered unexpected benefits. Rodman found that mornings were peaceful and productive, while Gina learned that late nights offered quiet time for reflection. Sometimes, stepping out of our comfort zone and trying a new routine can open our eyes to new possibilities and improve our lives in surprising ways.",
+    difficulty: "medium"
+  },
+  {
+    id: "A007",
+    title: "Elephants Searching for Water",
+    topic: "自然环保",
+    source: "2022年广东高考真题 Test B",
+    words: 104,
+    text: "A week has passed. The elephants are still searching for water. They have traveled over fifty kilometers from their original habitat, crossing roads and farmlands. The dry season has been particularly harsh this year, and their usual water sources have dried up. The herd, led by a wise matriarch, moves with determination. Young calves struggle to keep up, but the adults protect them carefully. Local authorities and villagers have been working together to guide the elephants safely and provide them with food and water. Scientists are monitoring their journey closely, hoping to understand why these magnificent creatures left their home and how we can better protect them in the future.",
+    difficulty: "hard"
+  },
+  {
+    id: "A008",
+    title: "Melting Ice and Polar Bears",
+    topic: "自然环保",
+    source: "2021年广东高考真题 Test A",
+    words: 101,
+    text: "In recent years, more and more ice has been melting. And for one animal, this is a critical issue. Polar bears depend on sea ice for hunting, traveling, and breeding. As the ice melts earlier each spring and freezes later each autumn, polar bears are forced to swim longer distances to find food. Many are losing weight and struggling to survive. Scientists warn that if global temperatures continue to rise, polar bears could face extinction within this century. The shrinking ice also affects the entire Arctic ecosystem, from seals to fish to the indigenous peoples who have lived there for thousands of years. Protecting polar bears means addressing climate change.",
+    difficulty: "hard"
+  },
+  // ---- 12套模拟 ----
+  {
+    id: "A009",
     title: "The Amazon Rainforest",
     topic: "自然环保",
+    source: "广东高考模拟卷",
     words: 103,
     text: "The Amazon rainforest is the largest tropical rainforest in the world, covering over five million square kilometers across nine countries in South America. Often called the lungs of the Earth, it produces about twenty percent of the world's oxygen. The rainforest is home to millions of species of plants, animals, and insects, many of which have not yet been discovered by scientists. Unfortunately, deforestation has become a serious problem in recent decades. Large areas of the forest are being cut down for farming and logging. Protecting the Amazon is essential for maintaining the balance of our planet's climate and preserving its incredible biodiversity.",
     difficulty: "medium"
   },
   {
-    id: "A002",
-    title: "Ocean Pollution",
-    topic: "自然环保",
-    words: 102,
-    text: "Every year, millions of tons of plastic waste end up in our oceans, causing serious damage to marine life. Sea turtles, dolphins, and seabirds often mistake plastic bags for food, which can lead to injury or even death. The plastic waste gradually breaks down into tiny pieces called microplastics, which enter the food chain and eventually reach humans. Scientists estimate that by the year twenty fifty, there could be more plastic than fish in the ocean. To solve this problem, we must reduce our use of single-use plastics, improve recycling systems, and clean up the waste that has already polluted our waters.",
-    difficulty: "medium"
-  },
-  {
-    id: "A003",
+    id: "A010",
     title: "Artificial Intelligence",
     topic: "科技发明",
+    source: "广东高考模拟卷",
     words: 99,
     text: "Artificial intelligence, or AI, is one of the most significant technological advancements of the twenty-first century. It refers to the development of computer systems that can perform tasks normally requiring human intelligence, such as recognizing speech, making decisions, and translating languages. In recent years, AI has been widely applied in various fields, including healthcare, education, transportation, and entertainment. While AI brings enormous benefits to society, it also raises concerns about job displacement and data privacy. As AI technology continues to evolve rapidly, it is crucial that we develop ethical guidelines to ensure it serves the best interests of humanity.",
     difficulty: "hard"
   },
   {
-    id: "A004",
-    title: "The History of Television",
-    topic: "科技发明",
-    words: 110,
-    text: "Television has become one of the most popular forms of entertainment in modern society. The invention of television dates back to the late nineteen twenties, when the first successful television transmissions were made. Over the decades, television technology has evolved dramatically, from black-and-white screens to high-definition color displays. Today, smart TVs can connect to the internet, allowing viewers to stream movies, play games, and browse websites. Despite the rise of smartphones and computers, television remains an important medium for news, education, and family entertainment. It continues to bring people together, creating shared experiences across cultures and generations. It has transformed the way we see and understand the world around us.",
-    difficulty: "medium"
-  },
-  {
-    id: "A005",
+    id: "A011",
     title: "The Great Wall of China",
     topic: "历史文化",
+    source: "广东高考模拟卷",
     words: 100,
     text: "The Great Wall of China is one of the most famous landmarks in the world. It stretches over twenty-one thousand kilometers across northern China, winding through mountains, valleys, and deserts. The wall was built over two thousand years ago to protect the Chinese empire from invasions by northern tribes. Millions of workers spent decades constructing different sections of the wall, using bricks, stones, and packed earth. Today, the Great Wall is a UNESCO World Heritage Site and attracts millions of visitors every year. It stands as a remarkable symbol of Chinese history, culture, and the determination of the Chinese people.",
     difficulty: "easy"
   },
   {
-    id: "A006",
+    id: "A012",
     title: "Ancient Egyptian Civilization",
     topic: "历史文化",
+    source: "广东高考模拟卷",
     words: 103,
     text: "Ancient Egyptian civilization is one of the oldest and most fascinating civilizations in human history. It developed along the banks of the Nile River more than five thousand years ago. The ancient Egyptians were remarkable builders, engineers, and artists. They constructed massive pyramids and temples that still stand today, showcasing their extraordinary architectural skills. They also invented a writing system called hieroglyphics, which used pictures and symbols to represent words and sounds. The Egyptians made significant contributions to mathematics, medicine, and astronomy. Their rich culture and achievements continue to captivate historians and archaeologists, offering valuable insights into the brilliance of the ancient world.",
     difficulty: "medium"
   },
   {
-    id: "A007",
+    id: "A013",
     title: "The Importance of Sleep",
     topic: "健康生活",
+    source: "广东高考模拟卷",
     words: 100,
     text: "Sleep is essential for our physical and mental health. When we sleep, our bodies repair damaged cells, strengthen our immune system, and store energy for the next day. Studies show that adults need seven to nine hours of sleep each night to function properly. Lack of sleep can lead to many problems, including poor concentration, weakened memory, and increased risk of illness. To improve sleep quality, experts recommend going to bed at the same time every night, avoiding screens before bedtime, and keeping the bedroom cool and dark. Good sleep habits can make a big difference in our daily lives.",
     difficulty: "easy"
   },
   {
-    id: "A008",
+    id: "A014",
     title: "Benefits of Regular Exercise",
     topic: "健康生活",
+    source: "广东高考模拟卷",
     words: 103,
     text: "Regular exercise is one of the most effective ways to maintain good health and improve overall well-being. Physical activity strengthens the heart, builds muscle, and helps control body weight. It also releases chemicals in the brain called endorphins, which naturally boost our mood and reduce feelings of stress and anxiety. Research has shown that people who exercise regularly tend to live longer and have a lower risk of chronic diseases such as diabetes and heart disease. Even thirty minutes of moderate exercise a day, such as walking, swimming, or cycling, can bring significant health benefits. Start small and gradually increase your activity level.",
     difficulty: "medium"
   },
   {
-    id: "A009",
+    id: "A015",
     title: "The Value of Reading",
     topic: "教育成长",
+    source: "广东高考模拟卷",
     words: 106,
     text: "Reading is one of the most valuable habits a person can develop. It opens our minds to new ideas, expands our knowledge, and improves our language skills. When we read, we travel to different places and times without leaving our homes. We can learn about history, science, culture, and the lives of interesting people. Reading also helps improve our concentration and memory. Studies have shown that children who read regularly tend to perform better in school. Whether it is a novel, a biography, or a science magazine, every book we read adds something meaningful to our lives. So pick up a book and start reading today.",
     difficulty: "easy"
   },
   {
-    id: "A010",
+    id: "A016",
     title: "The Power of Lifelong Learning",
     topic: "教育成长",
+    source: "广东高考模拟卷",
     words: 103,
     text: "Lifelong learning is the continuous pursuit of knowledge throughout one's life. In today's rapidly changing world, the skills we learned in school may quickly become outdated. New technologies, scientific discoveries, and social changes require us to constantly update our knowledge and abilities. Lifelong learning can take many forms, such as reading books, attending workshops, taking online courses, or learning from colleagues. It not only enhances our career prospects but also keeps our minds sharp and active as we age. Research suggests that people who keep learning throughout their lives tend to have better mental health and greater life satisfaction. Learning truly never stops.",
     difficulty: "medium"
   },
   {
-    id: "A011",
-    title: "The Impact of Social Media",
-    topic: "社会现象",
-    words: 106,
-    text: "Social media has fundamentally transformed the way people communicate, share information, and interact with one another. Platforms such as WeChat, Instagram, and TikTok have billions of active users worldwide. While social media offers numerous benefits, including instant communication and access to diverse perspectives, it also presents significant challenges. Excessive use of social media has been linked to anxiety, depression, and poor sleep quality, particularly among teenagers. The spread of misinformation and online bullying are other serious concerns. As social media continues to shape our society, it is increasingly important for users to develop critical thinking skills and practice responsible digital citizenship in their daily online activities.",
-    difficulty: "hard"
-  },
-  {
-    id: "A012",
-    title: "Urbanization",
-    topic: "社会现象",
-    words: 106,
-    text: "Urbanization is the process by which more and more people move from rural areas to cities in search of better jobs, education, and living conditions. This trend has accelerated dramatically over the past few decades. Today, more than half of the world's population lives in urban areas. While cities offer numerous opportunities, rapid urbanization also creates serious challenges. Traffic congestion, air pollution, housing shortages, and overcrowding are common problems in many large cities. Governments around the world are working to develop sustainable urban planning strategies, including building green spaces, improving public transportation, and creating affordable housing. The goal is to make cities more livable for everyone.",
-    difficulty: "medium"
-  },
-  {
-    id: "A013",
+    id: "A017",
     title: "The Olympic Spirit",
     topic: "体育运动",
+    source: "广东高考模拟卷",
     words: 106,
     text: "The Olympic Games are the world's largest international sporting event, bringing together athletes from over two hundred countries. The Games are held every four years, alternating between summer and winter editions. The Olympic motto, faster, higher, stronger, encourages athletes to push beyond their limits and strive for excellence. Beyond competition, the Olympics promote peace, friendship, and mutual understanding among nations. Athletes from different backgrounds and cultures come together in the Olympic Village, sharing meals, stories, and experiences. The opening and closing ceremonies, featuring music, dance, and spectacular performances, celebrate the host country's culture. The Olympics remind us that sports can unite the world in remarkable ways.",
     difficulty: "easy"
   },
   {
-    id: "A014",
-    title: "Running for Health",
-    topic: "体育运动",
-    words: 110,
-    text: "Running is one of the simplest and most accessible forms of exercise. All you need is a pair of comfortable shoes and a safe place to run. Regular running can improve cardiovascular health, strengthen muscles, and burn calories effectively. It also releases endorphins, which create a feeling of happiness often referred to as the runner's high. Many people find that running helps clear their minds and reduce stress after a long day. For beginners, it is important to start slowly and gradually increase distance and speed. Joining a running club or participating in local races can provide motivation and make the experience more enjoyable. Running benefits both body and mind.",
-    difficulty: "medium"
-  },
-  {
-    id: "A015",
-    title: "The Healing Power of Music",
-    topic: "艺术音乐",
-    words: 109,
-    text: "Music has a remarkable ability to influence our emotions and even improve our health. Scientific research has shown that listening to music can lower blood pressure, reduce anxiety, and relieve pain. In hospitals around the world, music therapy is increasingly used to help patients recover from surgery and manage chronic conditions. Different types of music produce different effects. Slow, gentle melodies can calm the mind and promote relaxation, while upbeat rhythms can boost energy and motivation. Music also plays an important role in bringing people together, crossing barriers of language, culture, and age. Whether we sing, play an instrument, or simply listen, music enriches our lives in countless ways.",
-    difficulty: "medium"
-  },
-  {
-    id: "A016",
+    id: "A018",
     title: "Traditional Chinese Painting",
     topic: "艺术音乐",
+    source: "广东高考模拟卷",
     words: 109,
     text: "Traditional Chinese painting is one of the oldest continuous artistic traditions in the world. It uses a brush, ink, and paper or silk to create beautiful images of landscapes, flowers, birds, and figures. Unlike Western painting, which focuses on realistic details and perspective, Chinese painting emphasizes the spirit and essence of the subject. Artists often leave empty spaces on the paper, believing that what is left unsaid can be just as meaningful as what is painted. Many Chinese paintings also include calligraphy and poetry, combining visual art with literature. Painters such as Qi Baishi and Xu Beihong have created masterpieces that continue to inspire art lovers around the world.",
     difficulty: "easy"
   },
   {
-    id: "A017",
+    id: "A019",
     title: "Space Exploration",
     topic: "旅行探索",
+    source: "广东高考模拟卷",
     words: 109,
     text: "Space exploration represents one of humanity's greatest adventures. Since the first satellite was launched in nineteen fifty-seven, humans have made remarkable progress in understanding the universe. Astronauts have walked on the Moon, robots have explored the surface of Mars, and telescopes have captured stunning images of distant galaxies. The International Space Station, orbiting four hundred kilometers above the Earth, serves as a permanent laboratory where scientists conduct experiments in microgravity. Despite the enormous costs and risks involved, space exploration continues to drive technological innovation and inspire future generations. Many scientists believe that establishing human settlements on other planets may eventually become necessary for the long-term survival of our species.",
     difficulty: "hard"
   },
   {
-    id: "A018",
-    title: "The Wonders of National Parks",
-    topic: "旅行探索",
-    words: 108,
-    text: "National parks are protected areas of natural beauty that offer breathtaking landscapes and unique wildlife. The United States established the world's first national park, Yellowstone, in eighteen seventy-two. Today, there are thousands of national parks across the globe, preserving forests, mountains, deserts, lakes, and coastal regions. These parks provide habitats for endangered species and serve as living classrooms where visitors can learn about nature and conservation. Activities such as hiking, camping, bird watching, and photography attract millions of visitors each year. National parks also play a vital role in fighting climate change by absorbing carbon dioxide and protecting biodiversity. They are truly treasures that belong to all humanity.",
-    difficulty: "medium"
-  },
-  {
-    id: "A019",
+    id: "A020",
     title: "Marie Curie",
     topic: "人物故事",
+    source: "广东高考模拟卷",
     words: 110,
     text: "Marie Curie was one of the most brilliant scientists in history. Born in Poland in eighteen sixty-seven, she moved to Paris to study physics and mathematics. Despite facing numerous challenges as a woman in science, she conducted groundbreaking research on radioactivity. Together with her husband Pierre, she discovered two new elements, polonium and radium. In nineteen oh three, she became the first woman to win a Nobel Prize, and in nineteen eleven, she won a second Nobel Prize in a different field of science. During World War I, she developed mobile X-ray units to help treat wounded soldiers. Her dedication to science and selfless service continue to inspire people worldwide.",
     difficulty: "medium"
-  },
-  {
-    id: "A020",
-    title: "Thomas Edison",
-    topic: "人物故事",
-    words: 109,
-    text: "Thomas Edison was one of the greatest inventors in American history. He was born in eighteen forty-seven and received very little formal education. Instead, his mother taught him at home, and he developed a strong love for reading and experimenting. Edison held over one thousand patents for his inventions. His most famous inventions include the electric light bulb, the phonograph, and the motion picture camera. Edison was known for his incredible work ethic, often working long hours. He once said that genius is one percent inspiration and ninety-nine percent perspiration. His determination and creativity changed the world, and his inventions continue to influence our daily lives in countless ways.",
-    difficulty: "easy"
   }
 ];
 
 // ============================================================
-// Part B 角色扮演（15套）
-// 话题覆盖：校园生活、购物消费、旅游出行、健康医疗、社交活动、
-//           求职面试、科技应用、家庭生活、社区服务、文化交流
+// Part B 角色扮演（20套：8套真题 + 12套模拟）
+// 每套包含：情景对话、三问（cn/en/answer）、五答（q/a）
 // ============================================================
 DATA.partB = [
+  // ---- 8套真题 ----
   {
     id: "B001",
+    title: "Photographing Fishtail Waves",
+    topic: "旅行探索",
+    source: "2025年广东高考真题 Test A",
+    scenario: "角色是Mary，与Tom谈论在海南拍摄鱼尾浪照片的经历。Tom最近上了电视采访。",
+    scenarioEn: "You are Mary, talking with Tom about his experience photographing fishtail waves in Hainan. Tom was recently on a TV interview.",
+    dialogue: [
+      {role: "Mary", cn: "Tom，我昨天在电视上看到你了！你拍摄鱼尾浪上电视采访了，太厉害了！", en: "Tom, I saw you on TV yesterday! You were interviewed about photographing fishtail waves. That's amazing!"},
+      {role: "Tom", cn: "谢谢，Mary！是的，我在海南拍摄鱼尾浪已经两年了，电视台听说了就来做了一个采访。", en: "Thank you, Mary! Yes, I've been photographing fishtail waves in Hainan for two years. The TV station heard about it and came to do an interview."},
+      {role: "Mary", cn: "两年了！那你一开始是怎么开始拍鱼尾浪的呢？", en: "Two years! How did you start photographing fishtail waves in the first place?"},
+      {role: "Tom", cn: "两年前我去海南度假，早上在海滩散步时看到了鱼尾浪，觉得太美了，就决定用相机记录下来。", en: "Two years ago, I went to Hainan for a vacation. While walking along the beach one morning, I saw the fishtail waves and thought they were so beautiful that I decided to capture them with my camera."},
+      {role: "Mary", cn: "听说有一位生物老师给你发了邮件？", en: "I heard a biology teacher sent you an email?"},
+      {role: "Tom", cn: "是的，她在网上看到了我的照片，给我发了邮件，说我的照片不仅有美感，还有科学价值。", en: "Yes, she saw my photos online and emailed me. She said my photos were not only beautiful but also scientifically valuable."}
+    ],
+    questions: [
+      {
+        cn: "你是怎么有这个想法的？",
+        en: "How did you come up with this idea?",
+        answer: "I was on vacation in Hainan two years ago. One morning, I was walking along the beach and saw the beautiful fishtail waves. I was so amazed by their unique shape that I decided to capture them with my camera. That's how the whole project started."
+      },
+      {
+        cn: "那位老师在邮件里说了什么？",
+        en: "What did that teacher say in the email?",
+        answer: "The teacher said that my photos were not only beautiful but also scientifically valuable. She encouraged me to keep photographing and offered to help me connect with marine researchers who study wave patterns."
+      },
+      {
+        cn: "到目前为止，你拍了多少张照片？",
+        en: "How many photos have you taken so far?",
+        answer: "So far, I have taken more than five hundred photos of fishtail waves. Each one is unique because the waves change constantly depending on the wind, tide, and weather conditions."
+      }
+    ],
+    fiveAnswers: [
+      {q: "How long has Tom been photographing fishtail waves in Hainan?", a: "Tom has been photographing fishtail waves in Hainan for two years."},
+      {q: "Where did Tom first see the fishtail waves?", a: "Tom first saw the fishtail waves while walking along the beach in Hainan during a vacation."},
+      {q: "Who sent Tom an email after seeing his photos?", a: "A biology teacher sent Tom an email after seeing his photos online."},
+      {q: "What did the biology teacher say about Tom's photos?", a: "The teacher said the photos were not only beautiful but also scientifically valuable."},
+      {q: "How many photos has Tom taken so far?", a: "Tom has taken more than five hundred photos of fishtail waves so far."}
+    ],
+    difficulty: "medium"
+  },
+  {
+    id: "B002",
+    title: "Walking the Silk Road",
+    topic: "旅行探索",
+    source: "2025年广东高考真题 Test C",
+    scenario: "角色是Mary，与Tom谈论行走丝绸之路的经历。",
+    scenarioEn: "You are Mary, talking with Tom about the experience of walking the Silk Road.",
+    dialogue: [
+      {role: "Tom", cn: "Mary，听说你刚走完了丝绸之路，恭喜你！", en: "Mary, I heard you just finished walking the Silk Road. Congratulations!"},
+      {role: "Mary", cn: "谢谢你，Tom！是的，我走完了整个丝绸之路，花了六个月的时间。", en: "Thank you, Tom! Yes, I walked the entire Silk Road. It took me six months."},
+      {role: "Tom", cn: "六个月！你为什么选择步行而不是坐车呢？", en: "Six months! Why did you choose to walk instead of taking a vehicle?"},
+      {role: "Mary", cn: "因为步行可以让我慢慢体验旅程，真正感受丝绸之路的历史和文化。", en: "Because walking allows me to experience the journey slowly and truly feel the history and culture of the Silk Road."},
+      {role: "Tom", cn: "一定很辛苦吧。你是如何准备这次旅行的？", en: "It must have been hard. How did you prepare for this trip?"},
+      {role: "Mary", cn: "我花了一年时间准备，研究了路线、锻炼了身体，还学了几门语言的基本用语。", en: "I spent a year preparing. I researched the route, trained physically, and learned basic phrases in several languages."}
+    ],
+    questions: [
+      {
+        cn: "你为什么选择步行？",
+        en: "Why did you choose to walk?",
+        answer: "I chose to walk because I wanted to experience the journey slowly and truly. Walking allows me to see the landscapes, meet local people, and feel the history of the Silk Road in a way that driving or flying never could. It was a spiritual journey as much as a physical one."
+      },
+      {
+        cn: "你是如何准备这次旅行的？",
+        en: "How did you prepare for this trip?",
+        answer: "I spent a year preparing. I researched the route and studied the history and culture of the countries along the way. I trained physically by hiking every weekend with a heavy backpack. I also learned basic phrases in several languages and got all the necessary visas and vaccinations."
+      },
+      {
+        cn: "你怎样与不同国家的人沟通？",
+        en: "How do you communicate with people from different countries?",
+        answer: "I used a combination of basic English, hand gestures, and a translation app on my phone. Sometimes I also drew pictures to communicate. Most people were patient and kind, and we managed to understand each other despite the language barrier."
+      }
+    ],
+    fiveAnswers: [
+      {q: "How long did it take Mary to walk the Silk Road?", a: "It took Mary six months to walk the entire Silk Road."},
+      {q: "Why did Mary choose to walk instead of taking a vehicle?", a: "Mary chose to walk to experience the journey slowly and truly feel the history and culture."},
+      {q: "How long did Mary spend preparing for the trip?", a: "Mary spent a year preparing for the trip."},
+      {q: "How did Mary train physically for the trip?", a: "Mary trained physically by hiking every weekend with a heavy backpack."},
+      {q: "What tools did Mary use to communicate with people from different countries?", a: "Mary used basic English, hand gestures, a translation app, and sometimes drew pictures to communicate."}
+    ],
+    difficulty: "hard"
+  },
+  {
+    id: "B003",
+    title: "Afforestation in Hometown",
+    topic: "自然环保",
+    source: "2024年广东高考真题 Test C",
+    scenario: "角色是Tom，与Mary谈论家乡植树造林的变化。",
+    scenarioEn: "You are Tom, talking with Mary about the afforestation changes in your hometown.",
+    dialogue: [
+      {role: "Mary", cn: "Tom，听说你的家乡变化很大，是不是？", en: "Tom, I heard your hometown has changed a lot. Is that true?"},
+      {role: "Tom", cn: "是的，Mary。十年前我的家乡还是一个荒凉的地方，几乎没有什么树。现在到处都是绿色的森林。", en: "Yes, Mary. Ten years ago, my hometown was a barren place with very few trees. Now it is covered with green forests."},
+      {role: "Mary", cn: "那变化是怎么发生的呢？", en: "How did the change happen?"},
+      {role: "Tom", cn: "当地政府和村民一起努力，启动了一个大规模的植树项目。政府提供了免费的树苗和技术指导。", en: "The local government and villagers worked together to start a massive tree-planting project. The government provided free seedlings and technical guidance."},
+      {role: "Mary", cn: "村民的收入增加了吗？", en: "Did the villagers' income increase?"},
+      {role: "Tom", cn: "当然！村民开始种果树卖水果，还发展了生态旅游，收入大幅增加。", en: "Absolutely! The villagers started growing fruit trees and selling fruits. They also developed eco-tourism, which significantly increased their income."}
+    ],
+    questions: [
+      {
+        cn: "那时你的家乡是什么样的呢？",
+        en: "What was your hometown like then?",
+        answer: "Ten years ago, my hometown was a barren and dry place. There were very few trees, and the land was mostly empty. The wind would blow dust everywhere, and many young people had left to find work in the cities. It was a difficult place to live."
+      },
+      {
+        cn: "变化是怎么发生的呢？",
+        en: "How did the change happen?",
+        answer: "The local government started a tree-planting project and encouraged villagers to participate. They provided free tree seedlings and technical guidance. The villagers worked together, planting trees on the hills and along the roads. After years of effort, the barren land turned into green forests."
+      },
+      {
+        cn: "他们如何增加收入呢？",
+        en: "How do they increase their income?",
+        answer: "The villagers started growing fruit trees and selling the fruits. They also developed eco-tourism, inviting visitors to experience the beautiful forest scenery. Some villagers opened farmhouse restaurants and sold local products, which significantly increased their income."
+      }
+    ],
+    fiveAnswers: [
+      {q: "What was Tom's hometown like ten years ago?", a: "Ten years ago, Tom's hometown was a barren and dry place with very few trees."},
+      {q: "Who started the tree-planting project?", a: "The local government started the tree-planting project and encouraged villagers to participate."},
+      {q: "What did the government provide for the villagers?", a: "The government provided free tree seedlings and technical guidance."},
+      {q: "How did the villagers increase their income?", a: "The villagers started growing fruit trees, selling fruits, and developing eco-tourism."},
+      {q: "What did some villagers open to increase their income?", a: "Some villagers opened farmhouse restaurants and sold local products."}
+    ],
+    difficulty: "medium"
+  },
+  {
+    id: "B004",
+    title: "Giraffe-Themed Hotel",
+    topic: "旅行探索",
+    source: "2023年广东高考真题 Test A",
+    scenario: "角色是Mary，与Tom谈论在长颈鹿主题酒店的经历。",
+    scenarioEn: "You are Mary, talking with Tom about the experience at a giraffe-themed hotel.",
+    dialogue: [
+      {role: "Tom", cn: "Mary，我刚从肯尼亚回来，住了一家长颈鹿主题酒店！", en: "Mary, I just came back from Kenya. I stayed at a giraffe-themed hotel!"},
+      {role: "Mary", cn: "哇，听起来太棒了！你真的在酒店里看到长颈鹿了吗？", en: "Wow, that sounds amazing! Did you really see giraffes in the hotel?"},
+      {role: "Tom", cn: "是的！长颈鹿在酒店周围自由走动，有时候还会来到餐厅窗边。", en: "Yes! The giraffes walk freely around the hotel grounds. Sometimes they even come to the dining room windows."},
+      {role: "Mary", cn: "太不可思议了！长颈鹿在酒店停留了多久？", en: "That's incredible! How long did the giraffes stay at the hotel?"},
+      {role: "Tom", cn: "每天早上大概停留两到三个小时来觅食，然后回到附近的森林。", en: "They usually stay for about two to three hours each morning to feed, and then return to the nearby forest."},
+      {role: "Mary", cn: "这趟旅行你花了多少钱？", en: "How much did you spend on this trip?"},
+      {role: "Tom", cn: "整个旅行大约花了一万五千元，包括机票、住宿和游览。酒店本身每晚大约两千元。", en: "The whole trip cost about fifteen thousand yuan, including flights, accommodation, and tours. The hotel itself was about two thousand yuan per night."}
+    ],
+    questions: [
+      {
+        cn: "你真的在酒店里看到长颈鹿了吗？",
+        en: "Did you really see giraffes in the hotel?",
+        answer: "Yes, I really saw giraffes in the hotel! They walk freely around the hotel grounds. Sometimes they come right up to the dining room windows, and you can feed them while having breakfast. It was an amazing experience to see them so close."
+      },
+      {
+        cn: "长颈鹿在酒店停留了多久？",
+        en: "How long did the giraffes stay at the hotel?",
+        answer: "The giraffes usually stay around the hotel for about two to three hours each morning. They come to feed and then return to the nearby forest. But during the dry season, they stay longer because the hotel provides water and food for them."
+      },
+      {
+        cn: "这趟旅行你花了多少钱？",
+        en: "How much did you spend on this trip?",
+        answer: "The whole trip cost me about fifteen thousand yuan, including flights, accommodation, and safari tours. The hotel itself was about two thousand yuan per night, which is a bit expensive, but it was absolutely worth it for the unique experience."
+      }
+    ],
+    fiveAnswers: [
+      {q: "Where did Tom just come back from?", a: "Tom just came back from Kenya."},
+      {q: "What is special about the hotel Tom stayed at?", a: "The hotel is giraffe-themed and real giraffes walk around the hotel grounds."},
+      {q: "What can guests do while having breakfast?", a: "Guests can feed giraffes through the dining room windows while having breakfast."},
+      {q: "How long do the giraffes usually stay around the hotel each morning?", a: "The giraffes usually stay around the hotel for about two to three hours each morning."},
+      {q: "How much did Tom's whole trip cost?", a: "Tom's whole trip cost about fifteen thousand yuan."}
+    ],
+    difficulty: "medium"
+  },
+  {
+    id: "B005",
+    title: "Repair Café",
+    topic: "社会现象",
+    source: "2023年广东高考真题 Test B",
+    scenario: "角色是Mary，与Tom谈论维修咖啡馆。",
+    scenarioEn: "You are Mary, talking with Tom about repair cafés.",
+    dialogue: [
+      {role: "Tom", cn: "Mary，我上周末去了一家维修咖啡馆，真的很有趣！", en: "Mary, I went to a repair café last weekend. It was really interesting!"},
+      {role: "Mary", cn: "维修咖啡馆？什么是维修咖啡馆？", en: "A repair café? What is a repair café?"},
+      {role: "Tom", cn: "就是一个人们可以带坏掉的东西去，志愿者免费帮忙修理的地方。", en: "It's a place where people can bring broken items and volunteers help fix them for free."},
+      {role: "Mary", cn: "听起来不错！这类咖啡馆很流行吗？", en: "Sounds good! Are these cafés popular?"},
+      {role: "Tom", cn: "是的，现在全世界有两千多家维修咖啡馆，越来越受欢迎了。", en: "Yes, there are now more than two thousand repair cafés worldwide, and they are becoming increasingly popular."},
+      {role: "Mary", cn: "那它们还提供什么呢？除了修理服务之外。", en: "What else do they offer? Besides repair services."},
+      {role: "Tom", cn: "他们还提供修理技能工作坊，还有专家来讲授可持续发展和环保知识。", en: "They also offer repair skills workshops, and experts give talks on sustainability and environmental protection."}
+    ],
+    questions: [
+      {
+        cn: "什么是维修咖啡馆？",
+        en: "What is a repair café?",
+        answer: "A repair café is a place where people can bring their broken items, such as electronics, clothes, or furniture, and volunteers help them fix these items for free. While waiting, people can enjoy a cup of coffee and chat with others. It's a community-based project that promotes repair and reuse."
+      },
+      {
+        cn: "这类咖啡馆很流行吗？",
+        en: "Are these cafés popular?",
+        answer: "Yes, repair cafés have become very popular in recent years. There are now more than two thousand repair cafés around the world. People love the idea because it saves money, reduces waste, and helps protect the environment. Many cities are opening new ones every month."
+      },
+      {
+        cn: "那它们还提供什么呢？",
+        en: "What else do they offer?",
+        answer: "Besides repair services, repair cafés also offer workshops where people can learn basic repair skills. Some cafés host events where experts talk about sustainability and environmental protection. They also provide a social space where neighbors can meet, share skills, and build community connections."
+      }
+    ],
+    fiveAnswers: [
+      {q: "What did Tom do last weekend?", a: "Tom went to a repair café last weekend."},
+      {q: "What can people do at a repair café?", a: "People can bring broken items and volunteers help fix them for free."},
+      {q: "How many repair cafés are there worldwide?", a: "There are more than two thousand repair cafés worldwide."},
+      {q: "Why do people love repair cafés?", a: "People love repair cafés because they save money, reduce waste, and help protect the environment."},
+      {q: "What else do repair cafés offer besides repair services?", a: "Repair cafés also offer repair skills workshops and talks on sustainability and environmental protection."}
+    ],
+    difficulty: "medium"
+  },
+  {
+    id: "B006",
+    title: "Living in China",
+    topic: "文化交流",
+    source: "2022年广东高考真题 Test A",
+    scenario: "角色是Mary，与Tom谈论在中国生活的经历。",
+    scenarioEn: "You are Mary, talking with Tom about the experience of living in China.",
+    dialogue: [
+      {role: "Tom", cn: "Mary，你在北京多久了？", en: "Mary, how long have you been in Beijing?"},
+      {role: "Mary", cn: "大约六个月了，Tom。我非常喜欢这里！", en: "About six months, Tom. I'm really enjoying it here!"},
+      {role: "Tom", cn: "你对北京的第一印象是什么？", en: "What was your first impression of Beijing?"},
+      {role: "Mary", cn: "北京是一个充满活力的城市，古老和现代完美融合，人们也非常友好。", en: "Beijing is a vibrant city where ancient and modern blend perfectly. The people are also very friendly."},
+      {role: "Tom", cn: "你来这里之前学过中文吗？", en: "Did you learn Chinese before you came here?"},
+      {role: "Mary", cn: "是的，我来之前学了一年中文，但实际交流比课堂上难多了。", en: "Yes, I studied Chinese for a year before I came. But real-life conversation is much harder than in class."},
+      {role: "Tom", cn: "你能跟我多说点你在北京的生活吗？", en: "Can you tell me more about your life in Beijing?"},
+      {role: "Mary", cn: "当然！我在一所小学教英语，周末喜欢探索城市、参观博物馆。我还参加了书法课和太极班。", en: "Sure! I teach English at a primary school. On weekends, I like to explore the city and visit museums. I've also joined a calligraphy class and a tai chi group."}
+    ],
+    questions: [
+      {
+        cn: "你对北京的第一印象是什么？",
+        en: "What was your first impression of Beijing?",
+        answer: "My first impression of Beijing was that it's a huge and vibrant city with a fascinating mix of old and new. There are ancient temples and traditional hutongs right next to modern skyscrapers. The streets are full of energy, and the food is amazing. I was also impressed by how welcoming the people were."
+      },
+      {
+        cn: "你来这里之前学过中文吗？",
+        en: "Did you learn Chinese before you came here?",
+        answer: "Yes, I studied Chinese for about a year before I came here. I took evening classes at a language school in my hometown. But honestly, real-life conversation is much harder than what I learned in class. I'm still learning and practicing every day."
+      },
+      {
+        cn: "你能跟我多说点你在北京的生活吗？",
+        en: "Can you tell me more about your life in Beijing?",
+        answer: "Sure! I teach English at a primary school during the week. On weekends, I like to explore the city, visit museums, and try different restaurants. I've also joined a Chinese calligraphy class and a tai chi group in a local park. I've made many good friends here and I feel very lucky to experience life in such a wonderful city."
+      }
+    ],
+    fiveAnswers: [
+      {q: "How long has Mary been in Beijing?", a: "Mary has been in Beijing for about six months."},
+      {q: "What was Mary's first impression of Beijing?", a: "Mary's first impression was that Beijing is a vibrant city with a mix of old and new, and friendly people."},
+      {q: "How long did Mary study Chinese before coming to Beijing?", a: "Mary studied Chinese for about a year before coming to Beijing."},
+      {q: "What does Mary do during the week?", a: "Mary teaches English at a primary school during the week."},
+      {q: "What classes has Mary joined in Beijing?", a: "Mary has joined a Chinese calligraphy class and a tai chi group."}
+    ],
+    difficulty: "medium"
+  },
+  {
+    id: "B007",
+    title: "Wuzhen Theatre Festival",
+    topic: "艺术音乐",
+    source: "2022年广东高考真题 Test B",
+    scenario: "角色是Tom，与Mary谈论参加乌镇戏剧节的经历。",
+    scenarioEn: "You are Tom, talking with Mary about the experience at the Wuzhen Theatre Festival.",
+    dialogue: [
+      {role: "Mary", cn: "Tom，听说你在乌镇戏剧节表演了，怎么样？", en: "Tom, I heard you performed at the Wuzhen Theatre Festival. How was it?"},
+      {role: "Tom", cn: "太棒了，Mary！气氛非常好，有来自世界各地的表演者。", en: "It was amazing, Mary! The atmosphere was incredible, with performers from all over the world."},
+      {role: "Mary", cn: "戏剧节里有多少个演出？", en: "How many performances are there in the festival?"},
+      {role: "Tom", cn: "有一百多个演出，包括戏剧、街头表演、木偶剧和音乐会，持续十天。", en: "There were more than one hundred performances, including plays, street performances, puppet shows, and concerts. It lasted for ten days."},
+      {role: "Mary", cn: "你最难忘的经历是什么？", en: "What is your most unforgettable experience?"},
+      {role: "Tom", cn: "最难忘的是在雨天表演，观众打着伞看完了整场演出，结束时还起立鼓掌。", en: "The most unforgettable part was performing on a rainy day. The audience watched our entire performance with umbrellas and gave us a standing ovation at the end."},
+      {role: "Mary", cn: "你觉得你的表演怎么样？", en: "How do you think your performance was?"},
+      {role: "Tom", cn: "我觉得表演得不错，虽然开始有点紧张，忘了一句台词，但即兴发挥，观众没发现。", en: "I think it went well. Although I was nervous at first and forgot one line, I improvised and the audience didn't notice."}
+    ],
+    questions: [
+      {
+        cn: "戏剧节里有多少个演出？",
+        en: "How many performances are there in the festival?",
+        answer: "There were more than one hundred performances during the festival, including plays, street performances, puppet shows, and music concerts. They took place in theaters, on the streets, and even on boats along the river. It was a ten-day event with performances from morning until late at night."
+      },
+      {
+        cn: "你最难忘的经历是什么？",
+        en: "What is your most unforgettable experience?",
+        answer: "My most unforgettable experience was performing on a rainy day. We thought the audience would leave, but instead, people stood in the rain with umbrellas, watching our entire performance. When we finished, they gave us a standing ovation. I was deeply moved by their passion and support for the arts."
+      },
+      {
+        cn: "你觉得你的表演怎么样？",
+        en: "How do you think your performance was?",
+        answer: "I think my performance went well, though I was nervous at first. I forgot one line, but I improvised and the audience didn't seem to notice. My fellow actors were very supportive. Overall, I felt it was a great learning experience and I'm proud of what we accomplished together."
+      }
+    ],
+    fiveAnswers: [
+      {q: "What kind of performance did Tom do at the festival?", a: "Tom was in a street performance, acting out a traditional Chinese story."},
+      {q: "How many performances were there during the festival?", a: "There were more than one hundred performances during the festival."},
+      {q: "How long did the Wuzhen Theatre Festival last?", a: "The festival lasted for ten days."},
+      {q: "What was Tom's most unforgettable experience?", a: "Tom's most unforgettable experience was performing on a rainy day when the audience stayed and watched in the rain."},
+      {q: "What happened when Tom forgot a line?", a: "Tom improvised and the audience didn't seem to notice."}
+    ],
+    difficulty: "hard"
+  },
+  {
+    id: "B008",
+    title: "Leaf Peeping",
+    topic: "旅行探索",
+    source: "2021年广东高考真题 Test A",
+    scenario: "角色是Tom，与Mary谈论观赏树叶（leaf peeping）的活动。",
+    scenarioEn: "You are Tom, talking with Mary about the activity of leaf peeping.",
+    dialogue: [
+      {role: "Mary", cn: "Tom，听说你上周末去观赏树叶了，怎么样？", en: "Tom, I heard you went leaf peeping last weekend. How was it?"},
+      {role: "Tom", cn: "太美了，Mary！秋天的颜色真的很惊艳！", en: "It was beautiful, Mary! The autumn colors were absolutely stunning!"},
+      {role: "Mary", cn: "Leaf peeping？那是什么意思呢？", en: "Leaf peeping? What does that mean?"},
+      {role: "Tom", cn: "就是人们在秋天去旅行，欣赏树叶变色的美景，尤其是枫叶变红变黄。", en: "It's a popular autumn activity where people travel to see the colorful fall foliage, especially maple leaves turning red and golden."},
+      {role: "Mary", cn: "你只是看树叶吗？还做别的吗？", en: "Do you just look at leaves? Or do you do other things?"},
+      {role: "Tom", cn: "不只是看树叶，我们还去远足、拍照、在树下野餐，享受秋天的空气。", en: "It's not just about looking at leaves. We also go hiking, take photographs, have picnics under the trees, and enjoy the fresh autumn air."},
+      {role: "Mary", cn: "什么时候看树叶最好？", en: "When is the best time to see leaves?"},
+      {role: "Tom", cn: "通常是十月初到十一月中旬，取决于地点和天气。", en: "Usually from early October to mid-November, depending on the location and weather."}
+    ],
+    questions: [
+      {
+        cn: "那是什么意思呢？",
+        en: "What does that mean?",
+        answer: "Leaf peeping is a popular autumn activity where people travel to areas with colorful fall foliage, especially to see the leaves of maple, oak, and other trees change color. The term 'peeping' means looking at or admiring the beautiful autumn leaves. It's a tradition in many countries."
+      },
+      {
+        cn: "你只是看树叶吗？",
+        en: "Do you just look at leaves?",
+        answer: "No, it's not just about looking at leaves. We also go hiking, take photographs, have picnics under the colorful trees, and enjoy the fresh autumn air. Some people collect fallen leaves as souvenirs or make art with them. It's also a great opportunity to spend time with family and friends in nature."
+      },
+      {
+        cn: "什么时候看树叶最好？",
+        en: "When is the best time to see leaves?",
+        answer: "The best time is usually from early October to mid-November, depending on the location and weather. In cooler regions, the leaves change color earlier. The peak season is when the leaves have turned red, orange, and golden but haven't fallen yet. This usually lasts for about two to three weeks."
+      }
+    ],
+    fiveAnswers: [
+      {q: "What did Tom do last weekend?", a: "Tom went leaf peeping last weekend."},
+      {q: "What does 'leaf peeping' mean?", a: "Leaf peeping is an autumn activity where people travel to see colorful fall foliage."},
+      {q: "What other activities can people do besides looking at leaves?", a: "People can also go hiking, take photographs, have picnics, and collect fallen leaves."},
+      {q: "When is the best time for leaf peeping?", a: "The best time is usually from early October to mid-November."},
+      {q: "How long does the peak season usually last?", a: "The peak season usually lasts for about two to three weeks."}
+    ],
+    difficulty: "easy"
+  },
+  // ---- 12套模拟 ----
+  {
+    id: "B009",
     title: "Joining a School Club",
     topic: "校园生活",
+    source: "广东高考模拟卷",
     scenario: "你是一名学生，正在和学校社团负责人讨论加入摄影社团的事情。",
     scenarioEn: "You are a student, talking with the head of a school club about joining the photography club.",
     dialogue: [
@@ -215,9 +575,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B002",
+    id: "B010",
     title: "Returning a Defective Product",
     topic: "购物消费",
+    source: "广东高考模拟卷",
     scenario: "你是一名顾客，在商店退换一件有质量问题的蓝牙耳机。",
     scenarioEn: "You are a customer, returning a defective Bluetooth earphone at a store.",
     dialogue: [
@@ -255,9 +616,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B003",
+    id: "B011",
     title: "Planning a Trip to Yunnan",
     topic: "旅游出行",
+    source: "广东高考模拟卷",
     scenario: "你正在和旅行社的工作人员讨论暑假去云南的旅行计划。",
     scenarioEn: "You are discussing summer vacation travel plans to Yunnan with a travel agency staff member.",
     dialogue: [
@@ -295,9 +657,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B004",
+    id: "B012",
     title: "Visiting a Doctor",
     topic: "健康医疗",
+    source: "广东高考模拟卷",
     scenario: "你去看医生，向医生描述你最近咳嗽和发烧的症状。",
     scenarioEn: "You are visiting a doctor and describing your symptoms of coughing and fever.",
     dialogue: [
@@ -335,9 +698,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B005",
+    id: "B013",
     title: "Organizing a Birthday Party",
     topic: "社交活动",
+    source: "广东高考模拟卷",
     scenario: "你正在和朋友讨论如何给同学李华举办一个惊喜生日派对。",
     scenarioEn: "You are discussing how to throw a surprise birthday party for your classmate Li Hua with your friend.",
     dialogue: [
@@ -375,9 +739,10 @@ DATA.partB = [
     difficulty: "easy"
   },
   {
-    id: "B006",
+    id: "B014",
     title: "A Job Interview at a Cafe",
     topic: "求职面试",
+    source: "广东高考模拟卷",
     scenario: "你正在一家咖啡馆面试兼职工作，向面试官介绍自己。",
     scenarioEn: "You are interviewing for a part-time job at a cafe and introducing yourself to the interviewer.",
     dialogue: [
@@ -415,9 +780,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B007",
+    id: "B015",
     title: "Using a New Learning App",
     topic: "科技应用",
+    source: "广东高考模拟卷",
     scenario: "你正在向一位技术人员询问一款新学习应用的使用方法。",
     scenarioEn: "You are asking a technician about how to use a new learning app.",
     dialogue: [
@@ -455,9 +821,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B008",
+    id: "B016",
     title: "Discussing Weekend Plans",
     topic: "家庭生活",
+    source: "广东高考模拟卷",
     scenario: "你正在和家人讨论这个周末的活动安排。",
     scenarioEn: "You are discussing weekend activity plans with your family.",
     dialogue: [
@@ -495,9 +862,10 @@ DATA.partB = [
     difficulty: "easy"
   },
   {
-    id: "B009",
+    id: "B017",
     title: "Volunteering at a Library",
     topic: "社区服务",
+    source: "广东高考模拟卷",
     scenario: "你正在和图书馆管理员讨论申请做图书馆志愿者的事情。",
     scenarioEn: "You are discussing applying to be a library volunteer with a library staff member.",
     dialogue: [
@@ -535,9 +903,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B010",
+    id: "B018",
     title: "An Exchange Student Program",
     topic: "文化交流",
+    source: "广东高考模拟卷",
     scenario: "你正在和老师讨论参加学校交换生项目的事情。",
     scenarioEn: "You are discussing participating in an exchange student program with your teacher.",
     dialogue: [
@@ -575,9 +944,10 @@ DATA.partB = [
     difficulty: "hard"
   },
   {
-    id: "B011",
+    id: "B019",
     title: "Choosing Elective Courses",
     topic: "校园生活",
+    source: "广东高考模拟卷",
     scenario: "你正在和同学讨论新学期的选修课选择。",
     scenarioEn: "You are discussing elective course choices for the new semester with your classmate.",
     dialogue: [
@@ -615,9 +985,10 @@ DATA.partB = [
     difficulty: "medium"
   },
   {
-    id: "B012",
+    id: "B020",
     title: "Hotel Check-in",
     topic: "旅游出行",
+    source: "广东高考模拟卷",
     scenario: "你正在酒店前台办理入住手续，询问酒店的相关服务。",
     scenarioEn: "You are checking in at a hotel front desk and asking about hotel services.",
     dialogue: [
@@ -653,138 +1024,149 @@ DATA.partB = [
       {q: "Where is the hotel gym located?", a: "The hotel gym is on the third floor."}
     ],
     difficulty: "easy"
-  },
-  {
-    id: "B013",
-    title: "A Dental Appointment",
-    topic: "健康医疗",
-    scenario: "你去看牙医，向医生描述牙齿疼痛的问题。",
-    scenarioEn: "You are visiting a dentist and describing your toothache problem.",
-    dialogue: [
-      {role: "you", cn: "医生，我右边的一颗牙最近很疼，尤其是吃冷的东西的时候。", en: "Doctor, one of my teeth on the right side has been hurting recently, especially when I eat cold things."},
-      {role: "dentist", cn: "让我看看。有一颗蛀牙，需要补一下。不是很严重，不用担心。", en: "Let me take a look. You have a decayed tooth that needs a filling. It is not too serious, do not worry."},
-      {role: "you", cn: "补牙需要多长时间？", en: "How long will the filling take?"},
-      {role: "dentist", cn: "大概三十到四十分钟。今天就可以做。", en: "About thirty to forty minutes. We can do it today."},
-      {role: "you", cn: "补牙后有什么需要注意的吗？", en: "Is there anything I should be careful about after the filling?"},
-      {role: "dentist", cn: "两小时内不要吃东西，二十四小时内不要用那侧嚼硬的食物。", en: "Do not eat anything for two hours, and avoid chewing hard food on that side for twenty-four hours."}
-    ],
-    questions: [
-      {
-        cn: "补牙费用大概是多少？",
-        en: "How much will the filling cost?",
-        answer: "The filling costs about two hundred yuan. If you have dental insurance, it can cover about seventy percent of the cost."
-      },
-      {
-        cn: "补的牙能用多久？",
-        en: "How long will the filling last?",
-        answer: "A good filling can last five to ten years if you take proper care of your teeth, including regular brushing and flossing."
-      },
-      {
-        cn: "需要定期来检查吗？",
-        en: "Do I need to come for regular check-ups?",
-        answer: "Yes, we recommend a dental check-up every six months to catch any problems early and maintain good oral health."
-      }
-    ],
-    fiveAnswers: [
-      {q: "What was the patient's dental problem?", a: "The patient had a decayed tooth on the right side that hurt, especially when eating cold things."},
-      {q: "What treatment does the patient need?", a: "The patient needs a filling."},
-      {q: "How long will the filling take?", a: "The filling will take about thirty to forty minutes."},
-      {q: "How much does the filling cost?", a: "The filling costs about two hundred yuan."},
-      {q: "How often should the patient have dental check-ups?", a: "The patient should have a dental check-up every six months."}
-    ],
-    difficulty: "medium"
-  },
-  {
-    id: "B014",
-    title: "A School Sports Event",
-    topic: "社交活动",
-    scenario: "你正在和同学讨论即将举行的学校运动会。",
-    scenarioEn: "You are discussing the upcoming school sports day with your classmate.",
-    dialogue: [
-      {role: "you", cn: "下周五是学校运动会，你报了什么项目？", en: "Next Friday is the school sports day. What event did you sign up for?"},
-      {role: "classmate", cn: "我报了一百米短跑和跳远。你呢？", en: "I signed up for the hundred-meter dash and the long jump. What about you?"},
-      {role: "you", cn: "我报了接力赛和篮球投篮。我们班谁报了长跑？", en: "I signed up for the relay race and basketball shooting. Who in our class signed up for the long-distance run?"},
-      {role: "classmate", cn: "李明报了一千五百米。他每天早上都在练习。", en: "Li Ming signed up for the fifteen-hundred-meter run. He has been practicing every morning."},
-      {role: "you", cn: "运动会几点开始？", en: "What time does the sports day start?"},
-      {role: "classmate", cn: "早上八点半开始，下午四点结束。中午有一个小时的休息时间。", en: "It starts at eight thirty in the morning and ends at four in the afternoon. There is a one-hour lunch break."}
-    ],
-    questions: [
-      {
-        cn: "运动会如果下雨会改期吗？",
-        en: "Will the sports day be rescheduled if it rains?",
-        answer: "Yes, if it rains heavily, the sports day will be postponed to the following Friday. Light rain will not affect the schedule."
-      },
-      {
-        cn: "每个项目的获奖者有什么奖品？",
-        en: "What prizes do the winners of each event get?",
-        answer: "The top three in each event receive medals and certificates. The overall class champion receives a trophy and a pizza party."
-      },
-      {
-        cn: "家长可以来观看吗？",
-        en: "Can parents come to watch?",
-        answer: "Yes, parents are welcome to attend. They can sit in the designated guest area on the west side of the field."
-      }
-    ],
-    fiveAnswers: [
-      {q: "What events did the classmate sign up for?", a: "The classmate signed up for the hundred-meter dash and the long jump."},
-      {q: "Who signed up for the long-distance run?", a: "Li Ming signed up for the fifteen-hundred-meter run."},
-      {q: "What events did the speaker sign up for?", a: "The speaker signed up for the relay race and basketball shooting."},
-      {q: "What time does the sports day start?", a: "The sports day starts at eight thirty in the morning."},
-      {q: "How long is the lunch break?", a: "The lunch break is one hour."}
-    ],
-    difficulty: "easy"
-  },
-  {
-    id: "B015",
-    title: "An Online Learning Platform",
-    topic: "科技应用",
-    scenario: "你正在和同学讨论一个在线学习平台的使用体验。",
-    scenarioEn: "You are discussing the experience of using an online learning platform with your classmate.",
-    dialogue: [
-      {role: "you", cn: "你用那个在线学习平台了吗？感觉怎么样？", en: "Have you used that online learning platform? How do you feel about it?"},
-      {role: "classmate", cn: "用了，挺好的。上面有很多名师课程，还有互动练习。", en: "Yes, it is pretty good. There are many courses by famous teachers, plus interactive exercises."},
-      {role: "you", cn: "课程可以回看吗？我有时候来不及看直播。", en: "Can I watch the courses again? Sometimes I cannot catch the live broadcast."},
-      {role: "classmate", cn: "可以的，所有直播课都会录下来，三天内可以回看。", en: "Yes, all live classes are recorded and can be replayed within three days."},
-      {role: "you", cn: "互动练习是怎么做的？", en: "How do the interactive exercises work?"},
-      {role: "classmate", cn: "每节课后都有小测验，系统会自动打分并给出解析。还可以和同学在线讨论。", en: "After each class, there is a short quiz. The system grades it automatically and provides explanations. You can also discuss with classmates online."}
-    ],
-    questions: [
-      {
-        cn: "平台上的课程覆盖哪些科目？",
-        en: "What subjects do the courses on the platform cover?",
-        answer: "The platform covers all major subjects including English, math, physics, chemistry, and biology, from middle school to high school level."
-      },
-      {
-        cn: "使用平台需要什么设备？",
-        en: "What equipment do I need to use the platform?",
-        answer: "You can use it on a computer, tablet, or smartphone. For live classes, we recommend using a device with a camera and microphone for better interaction."
-      },
-      {
-        cn: "平台有学习进度追踪功能吗？",
-        en: "Does the platform have a learning progress tracking feature?",
-        answer: "Yes, the platform tracks your study time, quiz scores, and completion rate. It also generates a weekly progress report that you can share with your parents or teachers."
-      }
-    ],
-    fiveAnswers: [
-      {q: "What does the online learning platform offer?", a: "It offers courses by famous teachers and interactive exercises."},
-      {q: "How long can live classes be replayed?", a: "Live classes can be replayed within three days."},
-      {q: "What happens after each class?", a: "There is a short quiz that is graded automatically with explanations."},
-      {q: "What subjects does the platform cover?", a: "The platform covers English, math, physics, chemistry, and biology."},
-      {q: "What does the weekly progress report include?", a: "It includes study time, quiz scores, and completion rate, and can be shared with parents or teachers."}
-    ],
-    difficulty: "hard"
   }
 ];
 
 // ============================================================
-// Part C 故事复述（15套）
-// 话题覆盖：励志、感恩、勇气、智慧、友谊、诚信、坚持、善良、成长、冒险
+// Part C 故事复述（20套：8套真题 + 12套模拟）
+// 每套包含：梗概、关键词、完整故事原文
 // ============================================================
 DATA.partC = [
+  // ---- 8套真题 ----
   {
     id: "C001",
+    title: "The Favorite Writer",
+    topic: "励志",
+    source: "2025年广东高考真题 Test A",
+    summary: "Tom向Mary推荐自己最喜爱的作家，后来发现Mary就是该作家。",
+    keywords: [
+      {en: "same", cn: "相同的"},
+      {en: "favorite writer", cn: "最喜爱的作家"},
+      {en: "meeting", cn: "见面"},
+      {en: "arrived", cn: "到达"},
+      {en: "surprised", cn: "惊讶的"}
+    ],
+    story: "Tom loved reading very much. Recently, he joined a book club. There he met Mary. Tom found they had the same taste for books. During their conversations, Tom kept talking about his favorite writer, whose pen name was Lily Stone. He told Mary how much he admired this writer's novels and how the stories had changed his life. Mary listened quietly and smiled. One day, Tom suggested they attend a book signing event where Lily Stone was supposed to appear. When the day arrived, Tom was thrilled. They went to the bookstore together and waited eagerly. When the writer finally walked in, Tom was surprised to see that it was Mary herself! Mary explained that she had been writing under a pen name for years and had never told anyone in the book club. Tom could hardly believe that he had been sitting next to his favorite writer all along. They both laughed about the funny coincidence, and Tom felt even more inspired to pursue his own dream of writing.",
+    difficulty: "medium"
+  },
+  {
+    id: "C002",
+    title: "The Sleeping Pills Scare",
+    topic: "家庭生活",
+    source: "2025年广东高考真题 Test C",
+    summary: "Mary照顾小孙子，以为他误食安眠药，虚惊一场。",
+    keywords: [
+      {en: "look after", cn: "照顾"},
+      {en: "alone", cn: "独自"},
+      {en: "sleeping pills", cn: "安眠药"},
+      {en: "terrified", cn: "恐惧的"},
+      {en: "fell off", cn: "掉落"}
+    ],
+    story: "One weekend, Mary was asked to look after her five-year-old grandson, little Timmy, while her daughter was away. She was happy to spend time alone with him. In the afternoon, Mary went to the kitchen to prepare some snacks. When she came back, she saw Timmy standing near the bedside table with a bottle in his hand. Mary's heart sank when she realized it was her bottle of sleeping pills. She was terrified that Timmy had swallowed some. She grabbed the bottle and saw that the cap was open. She immediately called the hospital and her daughter, crying and panicking. The doctor told her to bring Timmy in right away. At the hospital, the doctor examined Timmy carefully. To everyone's relief, it turned out that Timmy had not eaten any pills at all. He had simply been curious about the bottle and had knocked it off the table. The pills had fallen off onto the floor, and Timmy had not touched them. Mary was so relieved that she hugged Timmy tightly and promised to be more careful in the future.",
+    difficulty: "medium"
+  },
+  {
+    id: "C003",
+    title: "The Wrong Stadium",
+    topic: "友谊",
+    source: "2024年广东高考真题 Test C",
+    summary: "Tom去看球赛走错球场，帮助Mary回家，在她家看到现场球赛。",
+    keywords: [
+      {en: "soccer game", cn: "足球赛"},
+      {en: "wrong", cn: "错误的"},
+      {en: "bag", cn: "包"},
+      {en: "hesitated", cn: "犹豫"},
+      {en: "sitting room", cn: "客厅"}
+    ],
+    story: "Tom was a big soccer fan. One Saturday, he went to watch a soccer game at the city stadium. However, he went to the wrong stadium by mistake. When he realized his error, the game at the other stadium had already started, and it was too late to go there. Disappointed, Tom was about to leave when he noticed an elderly woman, Mary, looking confused and lost. She was carrying a heavy bag and seemed unable to find her way. Tom hesitated for a moment, then decided to help her. He approached Mary and offered to help her carry her bag and walk her home. Mary was very grateful and accepted. On the way, they chatted and Tom learned that Mary also loved soccer. When they arrived at Mary's house, she invited Tom in for a cup of tea. To Tom's surprise and delight, Mary had a large-screen TV in her sitting room, and the soccer game he had wanted to watch was being broadcast live! Mary's family was watching it, and they welcomed Tom to join them. Tom ended up having a wonderful afternoon, watching the game with new friends, all because he had gone to the wrong stadium and helped a stranger.",
+    difficulty: "medium"
+  },
+  {
+    id: "C004",
+    title: "Parcels for Mary",
+    topic: "善良",
+    source: "2023年广东高考真题 Test A",
+    summary: "邮局职员Tom接到Mary来电查询包裹，了解到她独居寂寞后组织邻居给她寄包裹。",
+    keywords: [
+      {en: "parcels", cn: "包裹"},
+      {en: "neighbors", cn: "邻居"},
+      {en: "lonely", cn: "孤独的"},
+      {en: "idea", cn: "主意"},
+      {en: "bought", cn: "买"}
+    ],
+    story: "Tom worked at a small post office in a quiet town. One day, he received a phone call from an elderly woman named Mary. She called to ask if there were any parcels for her. Tom checked but found nothing. Mary sounded disappointed. Tom learned that Mary lived alone and her children lived far away. She rarely received any parcels or letters. Tom felt sorry for her. Over the next few weeks, Mary called several more times, always asking about parcels. Each time, there was nothing for her. Tom noticed that Mary sounded increasingly lonely. Then Tom had an idea. He told his colleagues and neighbors about Mary's situation. They decided to send her small parcels regularly, with books, handmade crafts, and warm letters. Some neighbors even bought small gifts to include. When Mary received the first parcel, she was overjoyed. She called the post office to thank Tom. She said the parcels made her feel connected and cared for. Tom and his neighbors continued sending parcels, and Mary was no longer lonely. She even started sending small gifts back to them. The whole community became closer because of one woman's loneliness and one man's kindness.",
+    difficulty: "medium"
+  },
+  {
+    id: "C005",
+    title: "Painting for Paints",
+    topic: "感恩",
+    source: "2023年广东高考真题 Test B",
+    summary: "Mary用画作换颜料，后将获奖画作送给Tom。",
+    keywords: [
+      {en: "painting", cn: "画作"},
+      {en: "paints", cn: "颜料"},
+      {en: "dream", cn: "梦想"},
+      {en: "get", cn: "得到"},
+      {en: "won", cn: "赢得"}
+    ],
+    story: "Mary was a talented young artist who loved painting more than anything. However, she came from a poor family and could not afford to buy good quality paints. One day, she ran out of paints completely and was unable to continue her work. She was devastated. Her friend Tom, who owned a small art supply shop, noticed her sadness. Mary had an idea. She offered to trade one of her paintings for a set of paints. Tom agreed happily. Mary got the paints she needed and continued pursuing her dream of becoming a professional artist. Months later, Mary entered a national art competition with a beautiful landscape painting she had created using the paints Tom had given her. To her joy and surprise, she won first prize. The award ceremony was held in the city, and Mary's painting was displayed in a famous gallery. Mary felt deeply grateful to Tom for his help. She decided to give the award-winning painting to Tom as a gift, saying that without his kindness, she would never have been able to create it. Tom was deeply touched and proudly hung the painting in his shop, where it inspired many young artists.",
+    difficulty: "medium"
+  },
+  {
+    id: "C006",
+    title: "Tom's Lie About the Trip",
+    topic: "成长",
+    source: "2022年广东高考真题 Test A",
+    summary: "Tom不想去奶奶家乡，撒谎后认识到错误。",
+    keywords: [
+      {en: "voted", cn: "投票"},
+      {en: "Grandma's choice", cn: "奶奶的选择"},
+      {en: "complained", cn: "抱怨"},
+      {en: "lied", cn: "撒谎"},
+      {en: "fun", cn: "乐趣"}
+    ],
+    story: "Every summer, Tom's family would vote on where to go for their vacation. This year, his grandmother's choice won the vote. She wanted to visit her old hometown in the countryside. Tom complained bitterly because he wanted to go to the beach. He thought the countryside would be boring and there would be nothing to do. The night before they left, Tom lied to his parents, saying he felt sick and couldn't go. His parents were worried but let him stay at home with his aunt. However, while his family was away, Tom felt lonely and bored at home. His aunt showed him photos that his grandmother had sent from the countryside. The photos showed beautiful mountains, clear rivers, and his grandmother's old house. His cousins were having a great time catching fish and flying kites. Tom realized he had made a mistake. He had lied because he was selfish, and now he was missing out on all the fun. He called his grandmother and apologized. The next day, his father came to pick him up. When Tom arrived at the countryside, he had the most amazing time. He learned that trying new things could be wonderful, and he promised never to lie again.",
+    difficulty: "easy"
+  },
+  {
+    id: "C007",
+    title: "Mary the Writer",
+    topic: "励志",
+    source: "2022年广东高考真题 Test B",
+    summary: "Mary不想从事家族糖果生意，想当作家，最终得到家人支持。",
+    keywords: [
+      {en: "sweets makers", cn: "糖果制造商"},
+      {en: "writer", cn: "作家"},
+      {en: "upset", cn: "不安的"},
+      {en: "talk", cn: "谈话"},
+      {en: "mistake", cn: "错误"}
+    ],
+    story: "Mary's family had been sweets makers for three generations. Her parents owned a famous candy shop and expected Mary to take over the family business. However, Mary had a different dream. She wanted to be a writer. She loved creating stories and dreamed of publishing her own novels. When Mary told her parents about her dream, they were upset. They argued that making sweets was a stable and profitable business, while writing was risky and uncertain. Mary felt hurt and misunderstood. She stopped talking to her parents and spent all her time writing in her room. The situation got worse until Mary's grandmother intervened. She sat down with Mary and her parents for a serious talk. Grandma said that she had once wanted to be a teacher but had given up her dream to continue the family business. She told Mary's parents that they were making a mistake by forcing Mary into a path she didn't love. Grandma encouraged Mary to pursue writing while also learning the family business as a backup. Mary's parents finally understood and supported her dream. Mary went on to become a successful writer, and she even wrote a story about a family of sweets makers.",
+    difficulty: "medium"
+  },
+  {
+    id: "C008",
+    title: "Grandma's Drawing Collection",
+    topic: "感恩",
+    source: "2021年广东高考真题 Test A",
+    summary: "Tom儿时扔掉的画被奶奶收藏，奶奶去世后Tom发现并举办展览。",
+    keywords: [
+      {en: "drawing", cn: "画作"},
+      {en: "throw", cn: "扔掉"},
+      {en: "grandma", cn: "奶奶"},
+      {en: "exhibition", cn: "展览"},
+      {en: "touched", cn: "感动的"}
+    ],
+    story: "When Tom was a little boy, he loved drawing. He would draw everywhere, on paper, on walls, and even on his textbooks. One day, his art teacher asked the class to draw something about their families. Tom drew a picture of his grandmother cooking in the kitchen. He was not satisfied with it and thought it looked ugly, so he crumpled it up and was about to throw it away. His grandmother saw this and quietly picked up the drawing from the trash. She smoothed it out and kept it. Years passed. Tom grew up and became an architect. He had largely forgotten about his childhood drawings. One day, his grandmother passed away. While sorting through her belongings, Tom found a small box. Inside were all the drawings he had made as a child, including the one he had tried to throw away. His grandmother had kept every single one. There was also a note that read, I always knew you would do great things. These drawings remind me of where you started. Tom was deeply touched. He decided to hold a small exhibition of his childhood drawings to honor his grandmother's love and belief in him. The exhibition was called Grandma's Collection, and it moved everyone who visited.",
+    difficulty: "medium"
+  },
+  // ---- 12套模拟 ----
+  {
+    id: "C009",
     title: "The Boy Who Never Gave Up",
     topic: "励志",
+    source: "广东高考模拟卷",
     summary: "一个数学成绩不好的男孩，在老师的鼓励下坚持不懈地努力，最终在数学竞赛中获奖。",
     keywords: [
       {en: "struggle", cn: "挣扎"},
@@ -797,9 +1179,10 @@ DATA.partC = [
     difficulty: "medium"
   },
   {
-    id: "C002",
+    id: "C010",
     title: "A Letter of Gratitude",
     topic: "感恩",
+    source: "广东高考模拟卷",
     summary: "一位学生写信感谢曾经帮助过自己的英语老师，回忆老师如何改变了自己的人生。",
     keywords: [
       {en: "gratitude", cn: "感恩"},
@@ -812,9 +1195,10 @@ DATA.partC = [
     difficulty: "medium"
   },
   {
-    id: "C003",
+    id: "C011",
     title: "The Brave Lifeguard",
     topic: "勇气",
+    source: "广东高考模拟卷",
     summary: "一位年轻的救生员在面对危险时克服恐惧，勇敢地救起了一名溺水者。",
     keywords: [
       {en: "lifeguard", cn: "救生员"},
@@ -827,9 +1211,10 @@ DATA.partC = [
     difficulty: "medium"
   },
   {
-    id: "C004",
+    id: "C012",
     title: "The Wise Old Man",
     topic: "智慧",
+    source: "广东高考模拟卷",
     summary: "一位智慧的老人用巧妙的方法解决了村里两个邻居之间的纠纷。",
     keywords: [
       {en: "dispute", cn: "纠纷"},
@@ -842,9 +1227,10 @@ DATA.partC = [
     difficulty: "hard"
   },
   {
-    id: "C005",
+    id: "C013",
     title: "Two Friends in the Storm",
     topic: "友谊",
+    source: "广东高考模拟卷",
     summary: "两个好朋友在暴风雪中互相帮助，最终安全回到家中。",
     keywords: [
       {en: "storm", cn: "暴风雪"},
@@ -857,9 +1243,10 @@ DATA.partC = [
     difficulty: "medium"
   },
   {
-    id: "C006",
+    id: "C014",
     title: "The Honest Student",
     topic: "诚信",
+    source: "广东高考模拟卷",
     summary: "一名学生捡到一笔钱后毫不犹豫地交给了警察，最终找到了失主。",
     keywords: [
       {en: "wallet", cn: "钱包"},
@@ -872,9 +1259,10 @@ DATA.partC = [
     difficulty: "easy"
   },
   {
-    id: "C007",
+    id: "C015",
     title: "The Marathon Runner",
     topic: "坚持",
+    source: "广东高考模拟卷",
     summary: "一位马拉松选手在比赛中受伤，但他坚持跑完全程，体现了不屈不挠的精神。",
     keywords: [
       {en: "marathon", cn: "马拉松"},
@@ -887,9 +1275,10 @@ DATA.partC = [
     difficulty: "medium"
   },
   {
-    id: "C008",
+    id: "C016",
     title: "The Kind Stranger",
     topic: "善良",
+    source: "广东高考模拟卷",
     summary: "一位陌生人的善良之举帮助了一个迷路的小女孩找到了家人。",
     keywords: [
       {en: "lost", cn: "迷路"},
@@ -902,9 +1291,10 @@ DATA.partC = [
     difficulty: "easy"
   },
   {
-    id: "C009",
+    id: "C017",
     title: "Learning to Be Independent",
     topic: "成长",
+    source: "广东高考模拟卷",
     summary: "一个依赖父母的学生在外求学过程中学会了独立生活。",
     keywords: [
       {en: "independent", cn: "独立的"},
@@ -917,9 +1307,10 @@ DATA.partC = [
     difficulty: "medium"
   },
   {
-    id: "C010",
+    id: "C018",
     title: "The Mountain Adventure",
     topic: "冒险",
+    source: "广东高考模拟卷",
     summary: "一群朋友在登山冒险中遇到了意想不到的困难，但他们团结一致最终成功登顶。",
     keywords: [
       {en: "adventure", cn: "冒险"},
@@ -932,9 +1323,10 @@ DATA.partC = [
     difficulty: "hard"
   },
   {
-    id: "C011",
+    id: "C019",
     title: "From Failure to Success",
     topic: "励志",
+    source: "广东高考模拟卷",
     summary: "一位年轻创业者在经历多次失败后最终取得成功的故事。",
     keywords: [
       {en: "failure", cn: "失败"},
@@ -947,9 +1339,10 @@ DATA.partC = [
     difficulty: "hard"
   },
   {
-    id: "C012",
+    id: "C020",
     title: "The Teacher's Gift",
     topic: "感恩",
+    source: "广东高考模拟卷",
     summary: "一位老师在退休前收到学生们的感恩礼物，回忆起自己教学生涯中最珍贵的时刻。",
     keywords: [
       {en: "retire", cn: "退休"},
@@ -959,51 +1352,6 @@ DATA.partC = [
       {en: "touch", cn: "感动"}
     ],
     story: "After thirty-five years of teaching, Mr. Chen was retiring. On his last day, the school held a special ceremony for him. His former students from different years came back to say goodbye. One student, now a doctor, stood up and said that Mr. Chen was the first person who believed in him. When everyone else thought he was a troublemaker, Mr. Chen saw something different in him and told him he had potential, which changed his life. Another student, now a writer, said that Mr. Chen taught him to love reading and gave him a book when he was going through a difficult time, which opened a whole new world for him. Then, the students presented Mr. Chen with a scrapbook filled with photos, letters, and memories from his teaching career. Mr. Chen held the book with trembling hands and tears in his eyes. He said it was the most precious gift he had ever received.",
-    difficulty: "medium"
-  },
-  {
-    id: "C013",
-    title: "Speaking Up on Stage",
-    topic: "勇气",
-    summary: "一个胆小的女孩克服了舞台恐惧，在学校演讲比赛中展现了勇气。",
-    keywords: [
-      {en: "shy", cn: "害羞的"},
-      {en: "speech", cn: "演讲"},
-      {en: "nervous", cn: "紧张的"},
-      {en: "overcome", cn: "克服"},
-      {en: "proud", cn: "自豪的"}
-    ],
-    story: "Mei was the quietest girl in her class. She was so shy that she could barely speak in front of a small group. When her English teacher announced a speech contest, Mei wanted to participate but was terrified. Her best friend, Lucy, encouraged her to sign up, saying she had a beautiful voice and just needed to believe in herself. Mei decided to give it a try. She wrote her speech and practiced in front of her mirror every night. As the contest day approached, her anxiety grew. On the day of the contest, her hands were shaking and her heart was pounding. When her name was called, she walked to the stage on trembling legs. She looked at the audience and froze. For a moment, she wanted to run away. Then she saw Lucy smiling at her from the front row, giving her a thumbs up. Mei took a deep breath and began to speak. Her voice grew stronger with each sentence, and by the end, the audience was applauding warmly.",
-    difficulty: "medium"
-  },
-  {
-    id: "C014",
-    title: "The New Classmate",
-    topic: "友谊",
-    summary: "班里的同学们主动帮助一位新来的转学生融入新环境，建立了深厚的友谊。",
-    keywords: [
-      {en: "new", cn: "新的"},
-      {en: "classmate", cn: "同学"},
-      {en: "welcome", cn: "欢迎"},
-      {en: "lonely", cn: "孤独的"},
-      {en: "friendship", cn: "友谊"}
-    ],
-    story: "When Daniel transferred to a new school in the middle of the semester, he felt lonely and out of place. He did not know anyone and missed his old friends. During lunch, he sat alone at a table in the corner of the cafeteria. A boy named Peter noticed him and walked over, asking if he wanted to sit with his group. Daniel hesitated, then nodded. Peter introduced him to his friends, who welcomed him warmly. Over the next few weeks, Peter made sure Daniel was never alone. He showed him around the school, helped him catch up with his studies, and invited him to join the basketball team. Daniel was grateful but too shy to express it. One day, he brought homemade cookies to school and gave them to Peter and his friends, thanking them for making him feel at home. Peter smiled and said that was what friends were for. From that day on, Daniel knew he had found true friends.",
-    difficulty: "easy"
-  },
-  {
-    id: "C015",
-    title: "The Young Musician",
-    topic: "坚持",
-    summary: "一位年轻的钢琴学习者经过多年坚持不懈的练习，最终在音乐会上大放异彩。",
-    keywords: [
-      {en: "piano", cn: "钢琴"},
-      {en: "practice", cn: "练习"},
-      {en: "patience", cn: "耐心"},
-      {en: "perform", cn: "表演"},
-      {en: "dream", cn: "梦想"}
-    ],
-    story: "From the age of six, Sophie dreamed of becoming a pianist. Her parents enrolled her in piano lessons, but the journey was far from easy. For the first few years, Sophie hated practicing. The scales were boring, and her fingers often hit the wrong keys. She wanted to quit many times. Her piano teacher, Mrs. Liu, told her that talent is important, but practice is what makes a musician great. Sophie decided to keep going. She practiced for one hour every day, then two hours, and eventually three hours as she grew older. There were times when she felt frustrated and wanted to smash the piano keys. But she never gave up. At sixteen, Sophie entered a national piano competition. She was nervous, but when her fingers touched the keys, all her fear disappeared. She played with such passion and skill that the audience was spellbound. When she finished, the hall erupted in applause. Sophie won first place, and her dream had finally come true.",
     difficulty: "medium"
   }
 ];
