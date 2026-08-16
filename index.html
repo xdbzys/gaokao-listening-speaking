@@ -197,6 +197,68 @@ h3{font-size:16px;font-weight:700}
 .updateBtnPrimary:active{transform:scale(.97)}
 .updateBtnGhost{background:transparent;border:none;color:var(--text-secondary);border-radius:12px;padding:12px 16px;font-size:14px;white-space:nowrap}
 .toast{position:fixed;left:50%;bottom:calc(100px + var(--safe-bottom));transform:translateX(-50%);background:rgba(17,24,39,.92);color:#fff;padding:10px 18px;border-radius:999px;font-size:13px;z-index:2000;animation:fadeIn .2s;max-width:90vw;text-align:center}
+/* 高考UI：视频播放区 */
+.videoStage{background:#000;border-radius:14px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:14px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.videoStage .vsOverlay{position:absolute;inset:0;background:linear-gradient(135deg,#0f172a,#1e3a5f);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.videoStage .vsIcon{font-size:48px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.4))}
+.videoStage .vsLabel{color:#94a3b8;font-size:13px;font-weight:600}
+.videoStage .vsSubtitles{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:16px;line-height:1.6;padding:0 20px;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.videoStage.playing .vsOverlay{opacity:.3;transition:opacity .3s}
+.videoStage .vsPlayBtn{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;backdrop-filter:blur(8px);transition:all .2s;cursor:pointer}
+.videoStage .vsPlayBtn:active{transform:scale(.9)}
+.videoStage .vsProgress{position:absolute;bottom:0;left:0;right:0;height:4px;background:rgba(255,255,255,.15)}
+.videoStage .vsProgressFill{height:100%;background:var(--primary);border-radius:2px;transition:width .3s}
+/* 高考UI：考试状态栏（参考E听说） */
+.examStatusBar{background:linear-gradient(135deg,#1e3a5f,#2563eb);border-radius:14px;padding:12px 16px;color:#fff;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;box-shadow:0 4px 16px rgba(30,58,95,.2)}
+.examStatusBar .esbStatus{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px}
+.examStatusBar .esbStatus .esbDot{width:10px;height:10px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}
+.examStatusBar .esbStatus.recording .esbDot{background:#f87171}
+.examStatusBar .esbTimer{background:rgba(255,255,255,.2);border-radius:999px;padding:4px 14px;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+.examStatusBar .esbTimer.warn{background:#f87171;animation:pulse 1s infinite}
+/* 高考UI：双语指令提示 */
+.bilingualPrompt{background:#fffbeb;border-left:4px solid var(--warning);border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.bilingualPrompt .bpCn{font-size:14px;font-weight:600;color:#92400e;margin-bottom:4px}
+.bilingualPrompt .bpEn{font-size:13px;color:#78350f;font-style:italic}
+/* 高考UI：录音进度条 */
+.recProgressBar{height:6px;border-radius:3px;background:var(--bg-secondary);margin-top:10px;overflow:hidden;position:relative}
+.recProgressBarFill{height:100%;background:linear-gradient(90deg,#ef4444,#f87171);border-radius:3px;transition:width .3s;width:0%}
+/* 纠错模块 */
+.correctionBox{background:var(--bg-card);border-radius:14px;padding:16px;box-shadow:var(--shadow);margin-top:12px;border:1px solid var(--border)}
+.correctionBox h4{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.corrItem{background:var(--bg-tertiary);border-radius:10px;padding:12px;margin-bottom:8px;border-left:3px solid var(--danger)}
+.corrItem.correct{border-left-color:var(--success)}
+.corrItem .ciHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.corrItem .ciLabel{font-size:12px;font-weight:700;padding:2px 8px;border-radius:6px}
+.corrItem .ciLabel.wrong{background:#fee2e2;color:#991b1b}
+.corrItem .ciLabel.right{background:#dcfce7;color:#166534}
+.corrItem .ciBody{font-size:13px;line-height:1.7}
+.corrItem .ciRow{display:flex;gap:6px;margin:4px 0;align-items:flex-start}
+.corrItem .ciTag{font-size:11px;font-weight:700;padding:1px 6px;border-radius:4px;flex-shrink:0;margin-top:2px}
+.corrItem .ciTag.your{background:#fee2e2;color:#991b1b}
+.corrItem .ciTag.correct{background:#dcfce7;color:#166534}
+.corrItem .ciTag.tip{background:#dbeafe;color:#1d4ed8}
+.corrItem .ciText{font-size:13px;color:var(--text)}
+.corrItem .ciError{background:#fef2f2;border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12px;color:#991b1b;line-height:1.5}
+.corrItem .ciTip{background:#eff6ff;border-radius:8px;padding:8px 10px;margin-top:6px;font-size:12px;color:#1d4ed8;line-height:1.5}
+/* 指南页 */
+.guideHero{background:linear-gradient(135deg,#0f766e,#14b8a6);border-radius:20px;padding:24px;color:#fff;margin-bottom:16px;box-shadow:0 8px 32px rgba(15,118,110,.2)}
+.guideHero h2{color:#fff;font-size:22px;margin-bottom:6px}
+.guideHero p{opacity:.9;font-size:13px}
+.guideCard{background:var(--bg-card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin-bottom:14px;border-left:4px solid var(--primary)}
+.guideCard.a{border-left-color:#3b82f6}
+.guideCard.b{border-left-color:#8b5cf6}
+.guideCard.c{border-left-color:#10b981}
+.guideCardTitle{font-size:17px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.guideCardIcon{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;font-size:18px;color:#fff;flex-shrink:0}
+.guideCard.a .guideCardIcon{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.guideCard.b .guideCardIcon{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}
+.guideCard.c .guideCardIcon{background:linear-gradient(135deg,#10b981,#059669)}
+.guideFlow{display:flex;gap:4px;flex-wrap:wrap;margin:10px 0}
+.guideFlowStep{background:var(--bg-tertiary);border-radius:8px;padding:6px 10px;font-size:12px;font-weight:600;color:var(--text-secondary)}
+.guideFlowArrow{color:var(--text-tertiary);font-size:14px;display:flex;align-items:center}
+/* 提交按钮 */
+.submitBtn{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;width:100%;text-align:center;transition:transform .12s;box-shadow:0 4px 12px rgba(22,163,74,.3)}
+.submitBtn:active{transform:scale(.97)}
 .hidden{display:none!important}
 /* 高考UI：试音阶段 */
 .soundCheckScreen{background:linear-gradient(135deg,#1e3a5f 0%,#2563eb 100%);border-radius:var(--radius);padding:28px 20px;color:#fff;text-align:center;margin-bottom:14px;box-shadow:0 8px 32px rgba(30,58,95,.3)}
@@ -249,8 +311,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="4.0.0";
-var APP_VERSION_CODE=4;
+var APP_VERSION="5.0.0";
+var APP_VERSION_CODE=5;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
@@ -389,6 +451,7 @@ function render(){
   var root=$("#root");root.innerHTML="";
   var view=el("div",{className:"app"});
   if(State.view==="practice")view.appendChild(viewPractice());
+  else if(State.view==="guide")view.appendChild(viewGuide());
   else if(State.view==="me")view.appendChild(viewMe());
   root.appendChild(view);
   root.appendChild(renderTabbar());
@@ -397,8 +460,9 @@ function render(){
 }
 
 function renderTabbar(){
-  var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"me",icon:"👤",label:"我的"}];
+  var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"guide",icon:"📚",label:"指南"},{id:"me",icon:"👤",label:"我的"}];
   var bar=el("div",{className:"tabbar"});
+  bar.style.gridTemplateColumns="repeat(3,1fr)";
   tabs.forEach(function(t){
     var btn=el("button",{className:State.view===t.id?"active":""});
     btn.appendChild(el("span",{className:"tabIcon",text:t.icon}));
@@ -415,7 +479,6 @@ function viewPractice(){
   if(State.subView==="listA")return openPartList("A",wrap);
   if(State.subView==="listB")return openPartList("B",wrap);
   if(State.subView==="listC")return openPartList("C",wrap);
-  if(State.subView==="guide")return viewScoringGuide(wrap);
   if(State.subView==="questionList")return openQuestionList(wrap);
 
   wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"听说练习"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
@@ -494,21 +557,13 @@ function viewPractice(){
     wrap.appendChild(card);
   });
 
-  /* 评分说明与答题技巧入口 */
-  var guideCard=el("div",{className:"card mt12"});
-  guideCard.appendChild(el("h3",{text:"📊 评分说明与答题技巧"}));
-  guideCard.appendChild(el("p",{className:"muted",text:"严格按广东高考英语听说考试标准算分，点击查看详细评分规则和答题技巧。"}));
-  var guideBtn=el("button",{className:"primary",text:"查看评分说明与答题技巧 →"});
-  guideBtn.addEventListener("click",function(){State.subView="guide";render();});
-  guideCard.appendChild(guideBtn);
-  wrap.appendChild(guideCard);
-
+  /* 评分说明入口已移至「指南」标签页 */
   wrap.appendChild(el("div",{className:"card mt12"},[
     el("h3",{text:"💡 使用提示"}),
-    el("p",{className:"muted",text:"1. 模考练习：完整A+B+C，不可跳过，严格模拟高考流程（含试音阶段）。"}),
+    el("p",{className:"muted",text:"1. 模考练习：完整A+B+C，不可跳过，严格模拟高考流程（含试音阶段和视频）。"}),
     el("p",{className:"muted",text:"2. 试题练习：完整A+B+C，可跳过、可立即结算，灵活练习。"}),
     el("p",{className:"muted",text:"3. 专项练习：只练习一个Part，含随机选题。"}),
-    el("p",{className:"muted",text:"4. 试题标注来源：蓝色为高考真题，灰色为模拟题。"}),
+    el("p",{className:"muted",text:"4. 评分说明与答题技巧请点击底部「指南」标签页。"}),
     el("p",{className:"muted",text:"5. 三色评分：蓝色≥80%优秀，橙色65-80%良好，红色<65%待提高。"})
   ]));
   return wrap;
@@ -717,7 +772,7 @@ function startQuestionPractice(isRandom,a,b,c){
     resBox.appendChild(dimRow);box.appendChild(resBox);
     /* 评分说明链接 */
     var guideLink=el("button",{className:"smallBtn mt8",text:"📊 查看评分说明与答题技巧 →"});
-    guideLink.addEventListener("click",function(){State.subView="guide";render();});
+    guideLink.addEventListener("click",function(){State.view="guide";State.subView=null;render();});
     box.appendChild(guideLink);
     box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再练一次",onClick:function(){showSoundCheck(function(){startQuestionPractice(true);});}})]));
     root.appendChild(box);
@@ -726,20 +781,25 @@ function startQuestionPractice(isRandom,a,b,c){
   intro();
 }
 
-/* ============ 评分说明与答题技巧 ============ */
-function viewScoringGuide(wrap){
-  var topBar=el("div",{className:"topBar"});
-  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
-  backBtn.addEventListener("click",function(){State.subView=null;render();});
-  topBar.appendChild(backBtn);
-  topBar.appendChild(el("span",{className:"versionPill",text:"评分说明"}));
-  wrap.appendChild(topBar);
-  wrap.appendChild(el("h2",{text:"📊 评分说明与答题技巧"}));
-  wrap.appendChild(el("p",{className:"muted mb12",text:"广东高考英语听说考试满分60分，折算为高考英语科目15分（÷4）。"}));
+/* ============ 指南页（主标签页） ============ */
+function viewGuide(){
+  var wrap=el("div");
+  wrap.appendChild(el("div",{className:"topBar"},[el("h1",{text:"考试指南"}),el("span",{className:"versionPill",text:"v"+APP_VERSION})]));
 
-  /* 总分说明 */
-  var totalSec=el("div",{className:"guideSection"});
-  totalSec.appendChild(el("h3",{text:"📝 总分构成"}));
+  /* Hero */
+  var hero=el("div",{className:"guideHero"});
+  hero.appendChild(el("h2",{text:"📚 评分说明与答题技巧"}));
+  hero.appendChild(el("p",{text:"广东高考英语听说考试 · 满分60分 · 折算高考15分（÷4）"}));
+  hero.appendChild(el("div",{className:"heroStats"},[
+    el("div",{className:"heroStat"},[el("div",{className:"hv",text:"60"}),el("div",{className:"hl",text:"听说满分"})]),
+    el("div",{className:"heroStat"},[el("div",{className:"hv",text:"15"}),el("div",{className:"hl",text:"折算高考分"})]),
+    el("div",{className:"heroStat"},[el("div",{className:"hv",text:"30min"}),el("div",{className:"hl",text:"考试时长"})])
+  ]));
+  wrap.appendChild(hero);
+
+  /* 总分构成 */
+  var totalCard=el("div",{className:"card"});
+  totalCard.appendChild(el("h3",{text:"📝 总分构成"}));
   var tbl=el("table",{className:"guideScoreTable"});
   tbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"部分"}),el("th",{text:"题型"}),el("th",{text:"满分"}),el("th",{text:"折算高考分"})])]));
   [["Part A","模仿朗读 Reading Aloud","20分","5分"],["Part B","角色扮演 Role Play","16分","4分"],["Part C","故事复述 Retelling","24分","6分"],["合计","—","60分","15分"]].forEach(function(r){
@@ -747,14 +807,26 @@ function viewScoringGuide(wrap){
     tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));tr.appendChild(el("td",{text:r[3]}));
     tbl.appendChild(tr);
   });
-  totalSec.appendChild(tbl);
-  totalSec.appendChild(el("div",{className:"guideTip"},[el("strong",{text:"折算公式："}),el("span",{text:"高考听说成绩 = 听说考试得分 ÷ 4（四舍五入保留一位小数）"})]));
-  wrap.appendChild(totalSec);
+  totalCard.appendChild(tbl);
+  totalCard.appendChild(el("div",{className:"guideTip"},[el("strong",{text:"折算公式："}),el("span",{text:" 高考听说成绩 = 听说考试得分 ÷ 4（四舍五入保留一位小数）"})]));
+  wrap.appendChild(totalCard);
 
-  /* Part A 评分 */
-  var aSec=el("div",{className:"guideSection"});
-  aSec.appendChild(el("h3",{text:"📖 Part A 模仿朗读（20分）"}));
-  aSec.appendChild(el("div",{className:"guidePart"}));
+  /* Part A 详细指南 */
+  var aCard=el("div",{className:"guideCard a"});
+  var aHead=el("div",{className:"guideCardTitle"});
+  aHead.appendChild(el("div",{className:"guideCardIcon",text:"📖"}));
+  aHead.appendChild(el("div",{},[el("div",{text:"Part A 模仿朗读",style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:"Reading Aloud · 20分 · 含视频"})]));
+  aCard.appendChild(aHead);
+  /* 考试流程 */
+  aCard.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程（文本出现4次）："}));
+  var aFlow=el("div",{className:"guideFlow"});
+  [["1.观看视频","带字幕视频+原声"],["2.自主练习","纯文本·1分钟"],["3.听录音","文本+音频"],["4.正式录音","无声视频+字幕"]].forEach(function(s,i){
+    if(i>0)aFlow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));
+    aFlow.appendChild(el("div",{className:"guideFlowStep",text:s[0]}));
+  });
+  aCard.appendChild(aFlow);
+  aCard.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:"视频来源通常为BBC/Discovery/NG纪录片片段，约1分钟，约100词。"}));
+  /* 评分维度 */
   var aTbl=el("table",{className:"guideScoreTable"});
   aTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"评分维度"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
   [["语音语调","8分","发音准确、语调自然、重音正确"],["语速与节奏","6分","语速适中、意群停顿合理、节奏流畅"],["完整性","6分","内容完整、无遗漏、无添加"]].forEach(function(r){
@@ -762,16 +834,27 @@ function viewScoringGuide(wrap){
     tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));
     aTbl.appendChild(tr);
   });
-  aSec.appendChild(aTbl);
-  aSec.appendChild(el("div",{className:"guideTip"},[
-    el("strong",{text:"答题技巧：\n"}),
-    el("span",{text:"1. 阅读阶段：快速浏览全文，标注生词发音和意群停顿位置。\n2. 聆听阶段：注意示范朗读的语音语调、重音和节奏，模仿其语感。\n3. 朗读阶段：保持稳定语速，不要过快或过慢，注意意群间停顿。\n4. 遇到生词不要停顿太久，尽量按拼读规则朗读。\n5. 注意句末升降调：陈述句降调，疑问句升调。"})
+  aCard.appendChild(aTbl);
+  aCard.appendChild(el("div",{className:"guideTip",style:{"white-space":"pre-line"}},[
+    el("strong",{text:"💡 答题技巧：\n"}),
+    el("span",{text:"1. 观看视频时专注捕捉发音、语调、意群停顿和生词发音\n2. 自主练习时标注生词，尝试朗读熟悉文本\n3. 听录音时用影子跟读法（比原声延迟约1秒同步跟读）\n4. 正式录音时对照无声视频字幕，语音语调语速尽量与原声一致\n5. 注意句末升降调：陈述句降调，一般疑问句升调\n6. 遇到生词不停顿太久，按拼读规则朗读"})
   ]));
-  wrap.appendChild(aSec);
+  wrap.appendChild(aCard);
 
-  /* Part B 评分 */
-  var bSec=el("div",{className:"guideSection"});
-  bSec.appendChild(el("h3",{text:"💬 Part B 角色扮演（16分）"}));
+  /* Part B 详细指南 */
+  var bCard=el("div",{className:"guideCard b"});
+  var bHead=el("div",{className:"guideCardTitle"});
+  bHead.appendChild(el("div",{className:"guideCardIcon",text:"💬"}));
+  bHead.appendChild(el("div",{},[el("div",{text:"Part B 角色扮演",style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:"Role Play · 16分 · 三问五答 · 2023年起无视频"})]));
+  bCard.appendChild(bHead);
+  bCard.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程："}));
+  var bFlow=el("div",{className:"guideFlow"});
+  ["1.情景介绍(30s)","2.听对话(1遍)","3.三问(每问20s准备+10s录音)","4.五答(每答10s准备+10s录音)"].forEach(function(s,i){
+    if(i>0)bFlow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));
+    bFlow.appendChild(el("div",{className:"guideFlowStep",text:s}));
+  });
+  bCard.appendChild(bFlow);
+  bCard.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:"前两答出自对话录音，后三答分别出自三问的计算机回答（每个回答播放2遍）。"}));
   var bTbl=el("table",{className:"guideScoreTable"});
   bTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"环节"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
   [["三问","6分","每问2分，语法正确、表达清晰"],["五答","10分","每答2分，信息准确、回答完整"]].forEach(function(r){
@@ -779,16 +862,27 @@ function viewScoringGuide(wrap){
     tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));
     bTbl.appendChild(tr);
   });
-  bSec.appendChild(bTbl);
-  bSec.appendChild(el("div",{className:"guideTip"},[
-    el("strong",{text:"答题技巧：\n"}),
-    el("span",{text:"1. 情景阶段：仔细阅读中文情景描述，记住角色身份和关键信息。\n2. 对话阶段：认真聆听对话，记录人物、时间、地点、数量等关键信息。\n3. 三问阶段：根据中文提示，用正确的英语句型提问（注意时态和语序）。\n4. 五答阶段：听清问题，用完整句子回答，确保信息准确。\n5. 常见疑问句型：What/Where/When/Why/How + do/does/did + 主语...？\n6. 答题时注意时态一致性，避免语法错误。"})
+  bCard.appendChild(bTbl);
+  bCard.appendChild(el("div",{className:"guideTip",style:{"white-space":"pre-line"}},[
+    el("strong",{text:"💡 答题技巧：\n"}),
+    el("span",{text:"1. 情景阶段：仔细阅读中文情景描述，记住角色身份和关键信息\n2. 对话阶段：认真聆听对话，记录人物、时间、地点、数量等关键信息\n3. 三问阶段：根据中文提示用正确英语句型提问（注意时态和语序）\n4. 五答阶段：听清问题，用完整句子回答，确保信息准确\n5. 常见疑问句型：What/Where/When/Why/How + do/does/did + 主语...？\n6. 答题时注意时态一致性，避免语法错误\n7. 听到\"嘀\"声后再开始录音，不要抢答"})
   ]));
-  wrap.appendChild(bSec);
+  wrap.appendChild(bCard);
 
-  /* Part C 评分 */
-  var cSec=el("div",{className:"guideSection"});
-  cSec.appendChild(el("h3",{text:"🎧 Part C 故事复述（24分）"}));
+  /* Part C 详细指南 */
+  var cCard=el("div",{className:"guideCard c"});
+  var cHead=el("div",{className:"guideCardTitle"});
+  cHead.appendChild(el("div",{className:"guideCardIcon",text:"🎧"}));
+  cHead.appendChild(el("div",{},[el("div",{text:"Part C 故事复述",style:{fontSize:"17px",fontWeight:"700"}}),el("div",{className:"muted",text:"Retelling · 24分 · 听两遍 · 无视频"})]));
+  cCard.appendChild(cHead);
+  cCard.appendChild(el("div",{className:"muted",style:{marginBottom:"6px",fontSize:"13px",fontWeight:"600"},text:"📋 考试流程："}));
+  var cFlow=el("div",{className:"guideFlow"});
+  ["1.梗概+关键词(15s)","2.听独白(2遍)","3.准备(60s)","4.复述录音(120s)"].forEach(function(s,i){
+    if(i>0)cFlow.appendChild(el("div",{className:"guideFlowArrow",text:"→"}));
+    cFlow.appendChild(el("div",{className:"guideFlowStep",text:s}));
+  });
+  cCard.appendChild(cFlow);
+  cCard.appendChild(el("p",{className:"muted",style:{fontSize:"12px",marginTop:"4px"},text:"第一遍把握整体脉络和核心动词，第二遍补充关键名词、形容词等细节。"}));
   var cTbl=el("table",{className:"guideScoreTable"});
   cTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"评分维度"}),el("th",{text:"满分"}),el("th",{text:"评分标准"})])]));
   [["内容","12分","关键信息覆盖完整、情节连贯"],["语言","8分","语法正确、词汇运用恰当、句型多样"],["流利度","4分","表达流畅、停顿自然、语速适中"]].forEach(function(r){
@@ -796,23 +890,36 @@ function viewScoringGuide(wrap){
     tr.appendChild(el("td",{text:r[0]}));tr.appendChild(el("td",{text:r[1]}));tr.appendChild(el("td",{text:r[2]}));
     cTbl.appendChild(tr);
   });
-  cSec.appendChild(cTbl);
-  cSec.appendChild(el("div",{className:"guideTip"},[
-    el("strong",{text:"答题技巧：\n"}),
-    el("span",{text:"1. 概要阶段：阅读故事梗概和关键词，了解故事大意。\n2. 聆听阶段：第一遍把握故事整体脉络，第二遍补充关键细节。\n3. 准备阶段：用关键词串联故事情节，构思复述框架。\n4. 复述阶段：用自己的语言复述，不必逐字背诵原文。\n5. 注意使用正确的时态（叙事多用过去时）。\n6. 合理使用连接词（first, then, after that, finally等）使复述连贯。\n7. 覆盖所有关键词和关键情节，确保内容完整。\n8. 保持语速适中，不要因为紧张而说得太快或太慢。"})
+  cCard.appendChild(cTbl);
+  cCard.appendChild(el("div",{className:"guideTip",style:{"white-space":"pre-line"}},[
+    el("strong",{text:"💡 答题技巧：\n"}),
+    el("span",{text:"1. 概要阶段：阅读故事梗概和关键词，了解故事大意\n2. 第一遍聆听：把握故事整体脉络，记录核心动词和动词短语\n3. 第二遍聆听：补充关键名词、形容词，完善时间地点等要素\n4. 准备阶段：用关键词串联故事情节，构思复述框架\n5. 复述阶段：用自己的语言复述，不必逐字背诵原文\n6. 注意使用正确的时态（叙事多用过去时）\n7. 合理使用连接词（first, then, after that, finally等）使复述连贯\n8. 覆盖所有关键词和关键情节，确保内容完整"})
   ]));
-  wrap.appendChild(cSec);
+  wrap.appendChild(cCard);
 
-  /* 评分等级说明 */
-  var gradeSec=el("div",{className:"guideSection"});
-  gradeSec.appendChild(el("h3",{text:"🎨 评分等级"}));
-  gradeSec.appendChild(el("div",{className:"dimRow"},[
+  /* 评分等级 */
+  var gradeCard=el("div",{className:"card"});
+  gradeCard.appendChild(el("h3",{text:"🎨 评分等级"}));
+  gradeCard.appendChild(el("div",{className:"dimRow"},[
     (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv high",text:"≥80%"}));c.appendChild(el("div",{className:"dl",text:"优秀"}));return c;})(),
     (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv mid",text:"65-79%"}));c.appendChild(el("div",{className:"dl",text:"良好"}));return c;})(),
     (function(){var c=el("div",{className:"dimCard"});c.appendChild(el("div",{className:"dv low",text:"<65%"}));c.appendChild(el("div",{className:"dl",text:"待提高"}));return c;})()
   ]));
-  gradeSec.appendChild(el("p",{className:"muted mt8",text:"三色评分系统：蓝色表示优秀，橙色表示良好，红色表示需要提高。成绩低于60%的练习会自动加入错题本。"}));
-  wrap.appendChild(gradeSec);
+  gradeCard.appendChild(el("p",{className:"muted mt8",text:"三色评分系统：蓝色表示优秀，橙色表示良好，红色表示需要提高。成绩低于60%的练习会自动加入错题本。"}));
+  wrap.appendChild(gradeCard);
+
+  /* 评分档次说明（Part A） */
+  var gradeDetailCard=el("div",{className:"card"});
+  gradeDetailCard.appendChild(el("h3",{text:"📊 Part A 评分档次（高考标准）"}));
+  var gdTbl=el("table",{className:"guideScoreTable"});
+  gdTbl.appendChild(el("thead",{},[el("tr",{},[el("th",{text:"档次"}),el("th",{text:"语音语调"}),el("th",{text:"语速内容"}),el("th",{text:"标准"})])]));
+  [["A","12分","8分","发音清晰准确，语调正确自然，语流连贯流畅"],["B","8-10分","6分","发音基本准确，语调基本正确，语流尚连贯"],["C","4-6分","4分","部分音素发音不正确，语流有不连贯"],["D","0-2分","0-2分","大部分音素发音不正确，不能按原语速"]].forEach(function(r){
+    var tr=el("tr",{});
+    r.forEach(function(c){tr.appendChild(el("td",{text:c}));});
+    gdTbl.appendChild(tr);
+  });
+  gradeDetailCard.appendChild(gdTbl);
+  wrap.appendChild(gradeDetailCard);
 
   return wrap;
 }
@@ -882,52 +989,143 @@ function openPartList(part,wrap){
 function startPartA(item,isMock){
   var root=$("#root .app");root.innerHTML="";
   var phase=0;
-  var phaseNames=["阅读","聆听","朗读","评分"];
+  var phaseNames=["观看视频","自主练习","听录音","正式录音","评分"];
   var sc=0;
   function pbar(){var b=el("div",{className:"phaseBar"});phaseNames.forEach(function(n,i){b.appendChild(el("div",{className:(i===phase?"active ":(i<phase?"done ":""))+"phaseDot",text:(i+1)+". "+n}));});return b;}
   function header(){var h=el("div",{className:"examTitle"});h.appendChild(el("span",{text:"📖 "+item.title}));h.appendChild(el("span",{className:"timer",text:"Part A · 20分"}));if(item.difficulty)h.appendChild(el("span",{className:"tag diff-"+item.difficulty,text:diffLabel(item.difficulty)}));if(item.source)h.appendChild(el("span",{className:"srcLabel "+(isRealExam(item)?"real":"mock"),text:item.source}));return h;}
   function skipBtn(label,target){return el("button",{className:"ghostBtn",text:label,onClick:target});}
-  function settleBtn(){return el("button",{className:"ghostBtn",text:"直接结算 →",onClick:function(){phase=3;showScore(null,"");}});}
+  function settleBtn(){return el("button",{className:"ghostBtn",text:"直接结算 →",onClick:function(){phase=4;showScore(null,"");}});}
+  function statusBar(status,timer,recording){
+    var bar=el("div",{className:"examStatusBar"});
+    var s=el("div",{className:"esbStatus"+(recording?" recording":"")});
+    s.appendChild(el("div",{className:"esbDot"}));
+    s.appendChild(el("span",{text:status}));
+    bar.appendChild(s);
+    if(timer!=null)bar.appendChild(el("div",{className:"esbTimer"+(timer<=10?" warn":""),text:fmtTime(timer)}));
+    return bar;
+  }
+  /* Phase 0: 观看视频（带字幕+原声） */
+  function showVideo(){
+    root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
+    root.appendChild(statusBar("播放录像",null,false));
+    var bp=el("div",{className:"bilingualPrompt"});
+    bp.appendChild(el("div",{className:"bpCn",text:"请观看视频，注意语音语调和节奏。"}));
+    bp.appendChild(el("div",{className:"bpEn",text:"Please watch the video clip and read after the speaker."}));
+    root.appendChild(bp);
+    var box=el("div",{className:"examWrap"});
+    /* 视频播放区（模拟高考视频界面） */
+    var stage=el("div",{className:"videoStage"});
+    var overlay=el("div",{className:"vsOverlay"});
+    overlay.appendChild(el("div",{className:"vsIcon",text:"🎬"}));
+    overlay.appendChild(el("div",{className:"vsLabel",text:"视频播放区"}));
+    var playBtn=el("div",{className:"vsPlayBtn",text:"▶"});
+    overlay.appendChild(playBtn);
+    stage.appendChild(overlay);
+    /* 字幕区 */
+    var subtitles=el("div",{className:"vsSubtitles hidden"});
+    box.appendChild(stage);
+    /* 进度条 */
+    var progBar=el("div",{className:"vsProgress"});var progFill=el("div",{className:"vsProgressFill"});progBar.appendChild(progFill);stage.appendChild(progBar);
+    var info=el("p",{className:"muted mt8",text:"💡 高考Part A包含视频，通常截取自BBC/Discovery/NG纪录片。请专注捕捉发音、语调和意群停顿。"});
+    box.appendChild(info);
+    var startVideoBtn=el("button",{className:"primary fullWidth mt8",text:"▶ 播放视频（配音朗读）"});
+    startVideoBtn.addEventListener("click",function(){
+      startVideoBtn.classList.add("hidden");
+      stage.classList.add("playing");
+      subtitles.classList.remove("hidden");
+      subtitles.textContent=item.text.substring(0,60)+"...";
+      /* 逐句播放配音+显示字幕 */
+      var sentences=item.text.split(/([.!?])\s/).reduce(function(arr,s,i){if(i%2===0)arr.push(s);else arr[arr.length-1]+=s;return arr;},[]).filter(function(s){return s.trim();});
+      var si=0,totalSec=0;
+      function playNext(){
+        if(si>=sentences.length){
+          progFill.style.width="100%";
+          subtitles.textContent="播放完成";
+          setTimeout(function(){
+            var nextBtn=el("button",{className:"primary fullWidth mt8",text:"进入自主练习 →"});
+            nextBtn.addEventListener("click",function(){phase=1;showRead();});
+            box.appendChild(nextBtn);
+          },1000);
+          return;
+        }
+        subtitles.textContent=sentences[si];
+        progFill.style.width=Math.round((si+1)/sentences.length*100)+"%";
+        Speech.speak(sentences[si],{rate:0.9}).then(function(){
+          si++;totalSec++;playNext();
+        });
+      }
+      playNext();
+    });
+    box.appendChild(startVideoBtn);
+    var br=el("div",{className:"btnRow"});
+    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=1;showRead();}));br.appendChild(settleBtn());}
+    br.appendChild(el("button",{className:"smallBtn",text:"跳过视频 →",onClick:function(){phase=1;showRead();}}));
+    box.appendChild(br);root.appendChild(box);
+  }
+  /* Phase 1: 自主练习（纯文本，无音无像） */
   function showRead(){
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
-    root.appendChild(el("div",{className:"examStatusPrompt",text:"请仔细阅读文本，留意生词发音和意群停顿"}));
+    root.appendChild(statusBar("准备时间",60,false));
+    var bp=el("div",{className:"bilingualPrompt"});
+    bp.appendChild(el("div",{className:"bpCn",text:"现在你有一分钟的准备时间。"}));
+    bp.appendChild(el("div",{className:"bpEn",text:"Now you have ONE minute to practise reading."}));
+    root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
     box.appendChild(el("div",{className:"passage",text:item.text}));
     var br=el("div",{className:"btnRow"});
-    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=1;showListen();}));br.appendChild(settleBtn());}
-    br.appendChild(el("button",{className:"primary",text:"已阅读，聆听示范 →",onClick:function(){phase=1;showListen();}}));
+    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=2;showListen();}));br.appendChild(settleBtn());}
+    br.appendChild(el("button",{className:"primary",text:"已练习，听录音 →",onClick:function(){phase=2;showListen();}}));
     box.appendChild(br);root.appendChild(box);
   }
+  /* Phase 2: 听录音（文本+音频，无视频） */
   function showListen(){
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
-    root.appendChild(el("div",{className:"examStatusPrompt",text:"请聆听示范朗读，注意语音语调和节奏"}));
+    root.appendChild(statusBar("听语音",null,false));
+    var bp=el("div",{className:"bilingualPrompt"});
+    bp.appendChild(el("div",{className:"bpCn",text:"现在请对照原文，再听一遍录音。"}));
+    bp.appendChild(el("div",{className:"bpEn",text:"Now listen to the speaker once again and try to read after the speaker."}));
+    root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
-    box.appendChild(el("p",{className:"muted mb8",text:"聆听示范朗读，注意语音语调和节奏。"}));
     box.appendChild(el("div",{className:"passage",text:item.text}));
     var playBtn=el("button",{className:"audioBtn mt8",text:"▶ 播放示范朗读"});
     playBtn.addEventListener("click",function(){playBtn.disabled=true;playBtn.textContent="播放中...";Speech.speak(item.text,{rate:0.92}).then(function(){playBtn.disabled=false;playBtn.textContent="▶ 重新播放";});});
     box.appendChild(playBtn);
     var br=el("div",{className:"btnRow"});
-    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=2;showRecord();}));br.appendChild(settleBtn());}
-    br.appendChild(el("button",{className:"primary",text:"开始朗读录音 →",onClick:function(){phase=2;showRecord();}}));
+    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=3;showRecord();}));br.appendChild(settleBtn());}
+    br.appendChild(el("button",{className:"primary",text:"开始正式录音 →",onClick:function(){phase=3;showRecord();}}));
     box.appendChild(br);root.appendChild(box);
   }
+  /* Phase 3: 正式录音（无声视频+字幕） */
   function showRecord(){
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
-    root.appendChild(el("div",{className:"examStatusPrompt",text:"请准备朗读，录音时长约1分钟"}));
+    root.appendChild(statusBar("准备录音",null,false));
+    var bp=el("div",{className:"bilingualPrompt"});
+    bp.appendChild(el("div",{className:"bpCn",text:"现在开始录音。请对照无声视频字幕朗读。"}));
+    bp.appendChild(el("div",{className:"bpEn",text:"Now read as the speaker in the video."}));
+    root.appendChild(bp);
     var box=el("div",{className:"examWrap"});
+    /* 无声视频区（显示字幕，无声音） */
+    var stage=el("div",{className:"videoStage"});
+    var overlay=el("div",{className:"vsOverlay"});
+    overlay.appendChild(el("div",{className:"vsIcon",text:"🎬"}));
+    overlay.appendChild(el("div",{className:"vsLabel",text:"无声视频 · 对照字幕朗读"}));
+    stage.appendChild(overlay);
+    var subtitles=el("div",{className:"vsSubtitles",text:item.text.substring(0,80)+"..."});
+    stage.appendChild(subtitles);
+    box.appendChild(stage);
     box.appendChild(el("div",{className:"passage",text:item.text}));
     var recBar=el("div",{className:"recBar"});recBar.appendChild(el("div",{className:"recDot"}));recBar.appendChild(el("span",{text:"点击开始朗读录音"}));
     box.appendChild(recBar);
+    var recProgBar=el("div",{className:"recProgressBar"});var recProgFill=el("div",{className:"recProgressBarFill"});recProgBar.appendChild(recProgFill);box.appendChild(recProgBar);
     var cdBox=el("div",{style:{textAlign:"center",marginTop:"10px"}});
-    cdBox.appendChild(el("div",{className:"countdownMid hidden",text:"1:00"}));
+    cdBox.appendChild(el("div",{className:"countdownMid hidden",text:"1:30"}));
     cdBox.appendChild(el("div",{className:"countdownLabel hidden",text:"剩余录音时间"}));
     box.appendChild(cdBox);
     var startBtn=el("button",{className:"primary fullWidth mt8",text:"🎤 开始录音"});
-    var stopBtn=el("button",{className:"primary fullWidth hidden mt8",text:"■ 结束录音"});
+    var stopBtn=el("button",{className:"submitBtn hidden mt8",text:"■ 结束录音 · 提交"});
     box.appendChild(startBtn);box.appendChild(stopBtn);
     var br=el("div",{className:"btnRow"});
-    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=3;showScore(null,"");}));br.appendChild(settleBtn());}
+    if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=4;showScore(null,"");}));br.appendChild(settleBtn());}
     box.appendChild(br);root.appendChild(box);
     var sec=0,ti=null,rp=null,sp=null;
     var cdEl=cdBox.querySelector(".countdownMid");
@@ -935,16 +1133,22 @@ function startPartA(item,isMock){
     startBtn.addEventListener("click",function(){
       startBtn.classList.add("hidden");stopBtn.classList.remove("hidden");recBar.classList.add("recording");recBar.querySelector("span").textContent="正在录音...";sec=0;
       cdEl.classList.remove("hidden");cdLabel.classList.remove("hidden");
-      ti=setInterval(function(){sec++;var remain=90-sec;cdEl.textContent=fmtTime(remain);if(sec>=90)stopBtn.click();},1000);
+      /* 替换状态栏为录音状态 */
+      var oldBar=root.querySelector(".examStatusBar");
+      if(oldBar)oldBar.replaceWith(statusBar("正在录音",90,true));
+      ti=setInterval(function(){sec++;var remain=90-sec;cdEl.textContent=fmtTime(remain);recProgFill.style.width=Math.round(sec/90*100)+"%";var sb=root.querySelector(".examStatusBar .esbTimer");if(sb){sb.textContent=fmtTime(remain);if(remain<=10)sb.classList.add("warn");}if(sec>=90)stopBtn.click();},1000);
       try{rp=Rec.record(90);}catch(e){rp=Promise.resolve(null);}
       try{sp=STT.listen(90000).catch(function(){return "";});}catch(e){sp=Promise.resolve("");}
     });
     stopBtn.addEventListener("click",function(){
       stopBtn.classList.add("hidden");startBtn.classList.remove("hidden");recBar.classList.remove("recording");recBar.querySelector("span").textContent="点击开始朗读录音";clearInterval(ti);
       cdEl.classList.add("hidden");cdLabel.classList.add("hidden");
-      Promise.all([rp||Promise.resolve(null),sp||Promise.resolve("")]).then(function(arr){phase=3;showScore(arr[0],arr[1]);});
+      var oldBar=root.querySelector(".examStatusBar");
+      if(oldBar)oldBar.replaceWith(statusBar("录音结束",null,false));
+      Promise.all([rp||Promise.resolve(null),sp||Promise.resolve("")]).then(function(arr){phase=4;showScore(arr[0],arr[1]);});
     });
   }
+  /* Phase 4: 评分 + 纠错 */
   function showScore(audioUrl,spokenText){
     root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
     var r=scoreReading(spokenText,item.text);sc=r.score;
@@ -957,18 +1161,84 @@ function startPartA(item,isMock){
       el("span",{className:"scoreGrade "+r.grade.level,text:r.grade.label+" "+pct+"%"})
     ]));
     var dimRow=el("div",{className:"dimRow"});
-    r.dims.forEach(function(d){var pct=Math.round(d[1]/d[2]*100);var g=scoreGrade(pct);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+g.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=pct+"%";fill.style.background=g.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
+    r.dims.forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var g=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+g.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=g.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
     resBox.appendChild(dimRow);box.appendChild(resBox);
+
+    /* 纠错模块 */
+    if(spokenText&&spokenText.trim()){
+      var corrBox=el("div",{className:"correctionBox"});
+      corrBox.appendChild(el("h4",{},[el("span",{text:"🔍 "}),el("span",{text:"逐句纠错与分析"})]));
+      /* 逐句对比 */
+      var refSentences=item.text.split(/([.!?])\s/).reduce(function(arr,s,i){if(i%2===0)arr.push(s);else arr[arr.length-1]+=s;return arr;},[]).filter(function(s){return s.trim();});
+      var spokenWords=spokenText.toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
+      var spokenSet={};spokenWords.forEach(function(w){spokenSet[w]=1;});
+      refSentences.forEach(function(sent,idx){
+        var sentWords=sent.toLowerCase().replace(/[^a-z0-9\s']/g," ").split(/\s+/).filter(Boolean);
+        var sentHit=0;sentWords.forEach(function(w){if(spokenSet[w])sentHit++;});
+        var sentPct=sentWords.length?Math.round(sentHit/sentWords.length*100):0;
+        var isCorrect=sentPct>=60;
+        var ci=el("div",{className:"corrItem"+(isCorrect?" correct":"")});
+        var ciHead=el("div",{className:"ciHead"});
+        ciHead.appendChild(el("span",{className:"ciLabel "+(isCorrect?"right":"wrong"),text:isCorrect?"正确 ✓":"需改进 ⚠"}));
+        ciHead.appendChild(el("span",{className:"muted",text:"第"+(idx+1)+"句 · 匹配率 "+sentPct+"%"}));
+        ci.appendChild(ciHead);
+        var ciBody=el("div",{className:"ciBody"});
+        /* 正确答案 */
+        ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag correct",text:"原文"}),el("span",{className:"ciText",text:sent})]));
+        /* 用户识别 */
+        ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag your",text:"你的"}),el("span",{className:"ciText",text:spokenText.substring(idx*60,idx*60+80)+"..."})]));
+        /* 未识别单词 */
+        var sentMissing=sentWords.filter(function(w,i,arr){return !spokenSet[w]&&arr.indexOf(w)===i&&w.length>2;});
+        if(sentMissing.length){
+          var errDiv=el("div",{className:"ciError"});
+          errDiv.appendChild(el("strong",{text:"❌ 未识别/读错的词："}));
+          errDiv.appendChild(el("span",{text:" "+sentMissing.join(", ")}));
+          ciBody.appendChild(errDiv);
+        }
+        /* 改进建议 */
+        if(!isCorrect){
+          var tipDiv=el("div",{className:"ciTip"});
+          tipDiv.appendChild(el("strong",{text:"💡 提升建议："}));
+          if(sentPct<30){
+            tipDiv.appendChild(el("span",{text:" 该句几乎未识别到，建议反复聆听原声，逐词跟读练习。注意生词发音。"}));
+          }else if(sentPct<60){
+            tipDiv.appendChild(el("span",{text:" 部分词未读准，重点练习标红的单词。注意语速不要过快，确保每个词发音清晰。"}));
+          }
+          ciBody.appendChild(tipDiv);
+        }
+        ci.appendChild(ciBody);
+        corrBox.appendChild(ci);
+      });
+      /* 整体提升建议 */
+      if(r.missing&&r.missing.length){
+        var tipItem=el("div",{className:"corrItem"});
+        tipItem.appendChild(el("div",{className:"ciHead"},[el("span",{className:"ciLabel wrong",text:"重点提升"}),el("span",{className:"muted",text:"高频错误词"})]));
+        var tipBody=el("div",{className:"ciBody"});
+        var errDiv=el("div",{className:"ciError"});
+        errDiv.appendChild(el("strong",{text:"需重点练习的单词："}));
+        r.missing.forEach(function(w){errDiv.appendChild(el("span",{className:"mw",text:w}));});
+        tipBody.appendChild(errDiv);
+        var tipDiv=el("div",{className:"ciTip"});
+        tipDiv.appendChild(el("strong",{text:"💡 建议："}));
+        tipDiv.appendChild(el("span",{text:" 1. 反复听原声，注意这些词的重音和元音发音\n2. 对着镜子练习口型\n3. 录音对比原声，找出差异\n4. 每天朗读3-5遍，直到熟练"}));
+        tipBody.appendChild(tipDiv);
+        tipItem.appendChild(tipBody);
+        corrBox.appendChild(tipItem);
+      }
+      box.appendChild(corrBox);
+    }else{
+      box.appendChild(el("div",{className:"correctionBox"},[el("p",{className:"muted",text:"⚠️ 未检测到语音输入，无法进行纠错分析。请确保麦克风权限已开启并尝试重新录音。"})]));
+    }
+
     if(r.transcript)box.appendChild(el("div",{className:"transcript"},[el("strong",{text:"识别文本："}),el("br"),el("span",{text:r.transcript})]));
-    if(r.missing&&r.missing.length){var mw=el("div",{className:"missWords"});mw.appendChild(el("p",{className:"muted",text:"未识别到的单词："}));r.missing.forEach(function(w){mw.appendChild(el("span",{className:"mw",text:w}));});box.appendChild(mw);}
     if(audioUrl){var au=el("audio",{style:{width:"100%",marginTop:"10px"}});au.src=audioUrl;au.controls=true;box.appendChild(el("p",{className:"muted mt8",text:"录音回放："}));box.appendChild(au);}
     var br=el("div",{className:"btnRow"});
-    br.appendChild(el("button",{className:"smallBtn",text:"重新朗读",onClick:function(){phase=2;showRecord();}}));
+    br.appendChild(el("button",{className:"smallBtn",text:"重新朗读",onClick:function(){phase=3;showRecord();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("Part A: "+r.score+"/20");if(State._mockCallback)State._mockCallback(r.score);}}));}
     else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("已记录成绩："+r.score+"/20");State.subView="listA";render();}}));}
     box.appendChild(br);root.appendChild(box);
   }
-  showRead();
+  showVideo();
 }
 
 /* ============ Part B 引擎（可跳过/结算） ============ */
@@ -997,6 +1267,47 @@ function startPartB(item,isMock){
     resBox.appendChild(el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},[el("div",{style:{display:"flex",alignItems:"baseline",gap:"8px"}},[el("span",{className:"scoreBig "+(g.level==="high"?"":g.level==="mid"?"warn":"fail"),text:t+""}),el("span",{style:{fontSize:"16px",color:"#6b7280",fontWeight:"600"},text:"/ 16分"})]),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%"})]));
     var dimRow=el("div",{className:"dimRow"});[["三问",qs,6],["五答",as,10],["总评",t,16]].forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
     resBox.appendChild(dimRow);box.appendChild(resBox);
+
+    /* 纠错模块：三问 */
+    var corrBox=el("div",{className:"correctionBox"});
+    corrBox.appendChild(el("h4",{},[el("span",{text:"🔍 "}),el("span",{text:"三问纠错（每问2分）"})]));
+    item.questions.forEach(function(q,idx){
+      var score=qScores[idx]||0;var isCorrect=score>=2;
+      var ci=el("div",{className:"corrItem"+(isCorrect?" correct":"")});
+      ci.appendChild(el("div",{className:"ciHead"},[el("span",{className:"ciLabel "+(isCorrect?"right":"wrong"),text:isCorrect?"满分 ✓":"扣分 ⚠"}),el("span",{className:"muted",text:"第"+(idx+1)+"问 · 得分 "+score+"/2"})]));
+      var ciBody=el("div",{className:"ciBody"});
+      ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag tip",text:"中文"}),el("span",{className:"ciText",text:q.cn})]));
+      ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag correct",text:"参考"}),el("span",{className:"ciText",text:q.en})]));
+      ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag correct",text:"答案"}),el("span",{className:"ciText",text:q.answer})]));
+      if(!isCorrect){
+        var tipDiv=el("div",{className:"ciTip"});
+        tipDiv.appendChild(el("strong",{text:"💡 提升建议："}));
+        if(score===0){tipDiv.appendChild(el("span",{text:" 未得分。注意疑问句语序：疑问词+助动词+主语+谓语？检查时态是否正确。"}));}
+        else{tipDiv.appendChild(el("span",{text:" 部分正确。注意语法准确性，确保时态和主谓一致。"}));}
+        ciBody.appendChild(tipDiv);
+      }
+      ci.appendChild(ciBody);corrBox.appendChild(ci);
+    });
+    /* 五答纠错 */
+    corrBox.appendChild(el("h4",{style:{marginTop:"12px"}},[el("span",{text:"🔍 "}),el("span",{text:"五答纠错（每答2分）"})]));
+    item.fiveAnswers.forEach(function(fa,idx){
+      var score=aScores[idx]||0;var isCorrect=score>=2;
+      var ci=el("div",{className:"corrItem"+(isCorrect?" correct":"")});
+      ci.appendChild(el("div",{className:"ciHead"},[el("span",{className:"ciLabel "+(isCorrect?"right":"wrong"),text:isCorrect?"满分 ✓":"扣分 ⚠"}),el("span",{className:"muted",text:"第"+(idx+1)+"答 · 得分 "+score+"/2"})]));
+      var ciBody=el("div",{className:"ciBody"});
+      ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag tip",text:"问题"}),el("span",{className:"ciText",text:fa.q})]));
+      ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag correct",text:"答案"}),el("span",{className:"ciText",text:fa.a})]));
+      if(!isCorrect){
+        var tipDiv=el("div",{className:"ciTip"});
+        tipDiv.appendChild(el("strong",{text:"💡 提升建议："}));
+        if(score===0){tipDiv.appendChild(el("span",{text:" 未得分。回顾对话录音，留意关键信息（人物、时间、数量）。用完整句子回答。"}));}
+        else{tipDiv.appendChild(el("span",{text:" 信息不完整。确保回答包含所有关键信息点。"}));}
+        ciBody.appendChild(tipDiv);
+      }
+      ci.appendChild(ciBody);corrBox.appendChild(ci);
+    });
+    box.appendChild(corrBox);
+
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新练习",onClick:function(){qi=0;ai=0;qScores=[];aScores=[];phase=0;showScenario();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);toast("Part B: "+t+"/16");if(State._mockCallback)State._mockCallback(t);}}));}
@@ -1019,7 +1330,63 @@ function startPartC(item,isMock){
   function showListen(){root.innerHTML="";root.appendChild(pbar());root.appendChild(header());var box=el("div",{className:"examWrap"});box.appendChild(el("p",{className:"muted mb8",text:"故事播放两遍。"}));var lc=0;var pb=el("button",{className:"audioBtn",text:"▶ 播放故事（第1遍）"});pb.addEventListener("click",function(){pb.disabled=true;pb.textContent="播放中...";Speech.speak(item.story,{rate:0.92}).then(function(){pb.disabled=false;lc++;pb.textContent=lc<2?"▶ 播放故事（第2遍）":"✓ 已听两遍";if(lc>=2){phase=2;showPrep();}});});box.appendChild(pb);var br=el("div",{className:"btnRow"});if(!isMock){br.appendChild(skipBtn("跳过 →",function(){phase=2;showPrep();}));br.appendChild(settleBtn());}box.appendChild(br);root.appendChild(box);}
   function showPrep(){root.innerHTML="";root.appendChild(pbar());root.appendChild(header());root.appendChild(el("div",{className:"examStatusPrompt",text:"请准备复述，准备时间1分钟"}));var box=el("div",{className:"examWrap"});box.appendChild(el("div",{className:"cnPrompt",text:item.summary}));var kr=el("div",{className:"keywordRow"});item.keywords.forEach(function(k){kr.appendChild(el("span",{className:"kw"},[document.createTextNode(k.en),el("small",{text:k.cn})]));});box.appendChild(kr);var cdBox=el("div",{style:{textAlign:"center",marginTop:"10px"}});cdBox.appendChild(el("div",{className:"countdownMid",text:"1:00"}));cdBox.appendChild(el("div",{className:"countdownLabel",text:"准备倒计时"}));box.appendChild(cdBox);var br=el("div",{className:"btnRow"});if(!isMock){br.appendChild(skipBtn("跳过 →",function(){clearInterval(prepTi);phase=3;showRecord();}));br.appendChild(settleBtn());}br.appendChild(el("button",{className:"primary",text:"开始复述录音 →",onClick:function(){clearInterval(prepTi);phase=3;showRecord();}}));box.appendChild(br);root.appendChild(box);var prepSec=60,prepTi=setInterval(function(){prepSec--;cdBox.querySelector(".countdownMid").textContent=fmtTime(prepSec);if(prepSec<=0){clearInterval(prepTi);phase=3;showRecord();}},1000);}
   function showRecord(){root.innerHTML="";root.appendChild(pbar());root.appendChild(header());root.appendChild(el("div",{className:"examStatusPrompt",text:"请开始复述，复述时间约1.5分钟"}));var box=el("div",{className:"examWrap"});var recBar=el("div",{className:"recBar"});recBar.appendChild(el("div",{className:"recDot"}));recBar.appendChild(el("span",{text:"点击开始复述录音"}));box.appendChild(recBar);var cdBox=el("div",{style:{textAlign:"center",marginTop:"10px"}});cdBox.appendChild(el("div",{className:"countdownMid hidden",text:"1:30"}));cdBox.appendChild(el("div",{className:"countdownLabel hidden",text:"剩余复述时间"}));box.appendChild(cdBox);var sb=el("button",{className:"primary fullWidth mt8",text:"🎤 开始录音"});var stb=el("button",{className:"primary fullWidth hidden mt8",text:"■ 结束录音"});box.appendChild(sb);box.appendChild(stb);var sp=null,recTi=null,recSec=0;var cdEl=cdBox.querySelector(".countdownMid");var cdLabel=cdBox.querySelector(".countdownLabel");sb.addEventListener("click",function(){sb.classList.add("hidden");stb.classList.remove("hidden");recBar.classList.add("recording");recBar.querySelector("span").textContent="正在录音...";cdEl.classList.remove("hidden");cdLabel.classList.remove("hidden");recSec=0;recTi=setInterval(function(){recSec++;var remain=90-recSec;cdEl.textContent=fmtTime(remain);if(recSec>=90)stb.click();},1000);try{sp=STT.listen(120000).catch(function(){return "";});}catch(e){sp=Promise.resolve("");}});stb.addEventListener("click",function(){stb.classList.add("hidden");sb.classList.remove("hidden");recBar.classList.remove("recording");recBar.querySelector("span").textContent="点击开始复述录音";clearInterval(recTi);cdEl.classList.add("hidden");cdLabel.classList.add("hidden");(sp||Promise.resolve("")).then(function(t){phase=4;showResult(t);});});root.appendChild(box);}
-  function showResult(spokenText){root.innerHTML="";root.appendChild(pbar());root.appendChild(header());var r=scoreRetell(spokenText,item.keywords,item.story);var pct=Math.round(r.score/24*100);var g=r.grade;var box=el("div",{className:"examWrap"});var resBox=el("div",{className:"resultBox "+(g.level==="high"?"":g.level==="mid"?"warn":"fail")});resBox.appendChild(el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},[el("div",{style:{display:"flex",alignItems:"baseline",gap:"8px"}},[el("span",{className:"scoreBig "+(g.level==="high"?"":g.level==="mid"?"warn":"fail"),text:r.score+""}),el("span",{style:{fontSize:"16px",color:"#6b7280",fontWeight:"600"},text:"/ 24分"})]),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%"})]));var dimRow=el("div",{className:"dimRow"});r.dims.forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});resBox.appendChild(dimRow);box.appendChild(resBox);if(r.transcript)box.appendChild(el("div",{className:"transcript"},[el("strong",{text:"复述文本："}),el("br"),el("span",{text:r.transcript})]));var br=el("div",{className:"btnRow"});br.appendChild(el("button",{className:"smallBtn",text:"重新复述",onClick:function(){phase=3;showRecord();}}));if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("Part C: "+r.score+"/24");if(State._mockCallback)State._mockCallback(r.score);}}));}else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("已记录成绩："+r.score+"/24");State.subView="listC";render();}}));}box.appendChild(br);root.appendChild(box);}
+  function showResult(spokenText){
+    root.innerHTML="";root.appendChild(pbar());root.appendChild(header());
+    var r=scoreRetell(spokenText,item.keywords,item.story);
+    var pct=Math.round(r.score/24*100);var g=r.grade;
+    var box=el("div",{className:"examWrap"});
+    var resBox=el("div",{className:"resultBox "+(g.level==="high"?"":g.level==="mid"?"warn":"fail")});
+    resBox.appendChild(el("div",{style:{display:"flex",alignItems:"center",justifyContent:"space-between"}},[el("div",{style:{display:"flex",alignItems:"baseline",gap:"8px"}},[el("span",{className:"scoreBig "+(g.level==="high"?"":g.level==="mid"?"warn":"fail"),text:r.score+""}),el("span",{style:{fontSize:"16px",color:"#6b7280",fontWeight:"600"},text:"/ 24分"})]),el("span",{className:"scoreGrade "+g.level,text:g.label+" "+pct+"%"})]));
+    var dimRow=el("div",{className:"dimRow"});r.dims.forEach(function(d){var dp=Math.round(d[1]/d[2]*100);var dg=scoreGrade(dp);var dc=el("div",{className:"dimCard"});dc.appendChild(el("div",{className:"dv "+dg.level,text:d[1]+"/"+d[2]}));dc.appendChild(el("div",{className:"dl",text:d[0]}));var bar=el("div",{className:"dimBar"});var fill=el("div",{className:"dimBarFill"});fill.style.width=dp+"%";fill.style.background=dg.color;bar.appendChild(fill);dc.appendChild(bar);dimRow.appendChild(dc);});
+    resBox.appendChild(dimRow);box.appendChild(resBox);
+
+    /* 纠错模块：关键词覆盖分析 */
+    if(spokenText&&spokenText.trim()){
+      var corrBox=el("div",{className:"correctionBox"});
+      corrBox.appendChild(el("h4",{},[el("span",{text:"🔍 "}),el("span",{text:"关键词覆盖分析"})]));
+      item.keywords.forEach(function(kw,idx){
+        var hit=spokenText.toLowerCase().indexOf(kw.en.toLowerCase())>=0;
+        var ci=el("div",{className:"corrItem"+(hit?" correct":"")});
+        ci.appendChild(el("div",{className:"ciHead"},[el("span",{className:"ciLabel "+(hit?"right":"wrong"),text:hit?"已覆盖 ✓":"遗漏 ⚠"}),el("span",{className:"muted",text:"关键词 "+(idx+1)+"/"+item.keywords.length})]));
+        var ciBody=el("div",{className:"ciBody"});
+        ciBody.appendChild(el("div",{className:"ciRow"},[el("span",{className:"ciTag correct",text:"关键词"}),el("span",{className:"ciText",text:kw.en+" ("+kw.cn+")"})]));
+        if(!hit){
+          var tipDiv=el("div",{className:"ciTip"});
+          tipDiv.appendChild(el("strong",{text:"💡 提升建议："}));
+          tipDiv.appendChild(el("span",{text:" 该关键词未出现在复述中。回顾故事录音，注意该词出现的上下文，复述时确保包含。"}));
+          ciBody.appendChild(tipDiv);
+        }
+        ci.appendChild(ciBody);corrBox.appendChild(ci);
+      });
+      /* 故事原文对比 */
+      corrBox.appendChild(el("h4",{style:{marginTop:"12px"}},[el("span",{text:"📖 "}),el("span",{text:"故事原文"})]));
+      corrBox.appendChild(el("div",{className:"transcript",style:{"max-height":"200px"},text:item.story}));
+      /* 复述对比 */
+      if(r.transcript){
+        corrBox.appendChild(el("h4",{style:{marginTop:"12px"}},[el("span",{text:"🎤 "}),el("span",{text:"你的复述"})]));
+        corrBox.appendChild(el("div",{className:"transcript",text:r.transcript}));
+      }
+      /* 整体提升建议 */
+      var tipItem=el("div",{className:"corrItem"});
+      tipItem.appendChild(el("div",{className:"ciHead"},[el("span",{className:"ciLabel "+(r.kwHit>=item.keywords.length*0.6?"right":"wrong"),text:r.kwHit>=item.keywords.length*0.6?"良好 ✓":"需提升 ⚠"}),el("span",{className:"muted",text:"关键词覆盖 "+r.kwHit+"/"+r.kwTotal})]));
+      var tipBody=el("div",{className:"ciBody"});
+      var tipDiv=el("div",{className:"ciTip"});
+      tipDiv.appendChild(el("strong",{text:"💡 复述技巧："}));
+      tipDiv.appendChild(el("span",{text:"\n1. 第一遍聆听时记录核心动词，把握故事主线\n2. 第二遍补充关键名词和形容词\n3. 复述时用连接词串联：first, then, after that, finally\n4. 注意时态一致（叙事多用过去时）\n5. 不必逐字背诵，用自己的语言复述\n6. 确保覆盖所有关键词，内容完整"}));
+      tipBody.appendChild(tipDiv);
+      tipItem.appendChild(tipBody);corrBox.appendChild(tipItem);
+      box.appendChild(corrBox);
+    }else{
+      box.appendChild(el("div",{className:"correctionBox"},[el("p",{className:"muted",text:"⚠️ 未检测到语音输入，无法进行纠错分析。请确保麦克风权限已开启并尝试重新录音。"})]));
+    }
+
+    if(r.transcript)box.appendChild(el("div",{className:"transcript"},[el("strong",{text:"复述文本："}),el("br"),el("span",{text:r.transcript})]));
+    var br=el("div",{className:"btnRow"});
+    br.appendChild(el("button",{className:"smallBtn",text:"重新复述",onClick:function(){phase=3;showRecord();}}));
+    if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("Part C: "+r.score+"/24");if(State._mockCallback)State._mockCallback(r.score);}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("已记录成绩："+r.score+"/24");State.subView="listC";render();}}));}
+    box.appendChild(br);root.appendChild(box);
+  }
   showSummary();
 }
 
@@ -1069,7 +1436,7 @@ function startMock(isRandom){
     resBox.appendChild(dimRow);box.appendChild(resBox);
     /* 评分说明链接 */
     var guideLink=el("button",{className:"smallBtn mt8",text:"📊 查看评分说明与答题技巧 →"});
-    guideLink.addEventListener("click",function(){State.subView="guide";render();});
+    guideLink.addEventListener("click",function(){State.view="guide";State.subView=null;render();});
     box.appendChild(guideLink);
     box.appendChild(el("div",{className:"btnRow"},[el("button",{className:"smallBtn",text:"返回首页",onClick:function(){State.view="practice";State.subView=null;render();}}),el("button",{className:"primary",text:"再考一次",onClick:function(){showSoundCheck(function(){startMock(true);});}})]));
     root.appendChild(box);
