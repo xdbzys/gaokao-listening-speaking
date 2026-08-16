@@ -1,46 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e"/>
-      <stop offset="50%" style="stop-color:#16213e"/>
-      <stop offset="100%" style="stop-color:#0f172a"/>
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e1b4b"/>
     </linearGradient>
-    <linearGradient id="mic" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff"/>
-      <stop offset="100%" style="stop-color:#e2e8f0"/>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#3b82f6" flood-opacity="0.3"/>
     </filter>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
-  <!-- Sound wave arcs -->
-  <g fill="none" stroke="#4a90d9" stroke-width="4" stroke-linecap="round" opacity="0.3">
-    <path d="M160 256 Q160 180 220 160" />
-    <path d="M140 256 Q140 160 220 130" opacity="0.6"/>
-    <path d="M352 256 Q352 180 292 160" />
-    <path d="M372 256 Q372 160 292 130" opacity="0.6"/>
+  <!-- Background -->
+  <rect width="512" height="512" rx="116" fill="url(#bg)"/>
+  <!-- Subtle grid pattern -->
+  <g opacity="0.03">
+    <line x1="0" y1="128" x2="512" y2="128" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="256" x2="512" y2="256" stroke="#fff" stroke-width="1"/>
+    <line x1="0" y1="384" x2="512" y2="384" stroke="#fff" stroke-width="1"/>
+    <line x1="128" y1="0" x2="128" y2="512" stroke="#fff" stroke-width="1"/>
+    <line x1="256" y1="0" x2="256" y2="512" stroke="#fff" stroke-width="1"/>
+    <line x1="384" y1="0" x2="384" y2="512" stroke="#fff" stroke-width="1"/>
   </g>
-  <g fill="none" stroke="#4a90d9" stroke-width="4" stroke-linecap="round" opacity="0.2">
-    <path d="M160 256 Q160 332 220 352" />
-    <path d="M140 256 Q140 352 220 382" opacity="0.6"/>
-    <path d="M352 256 Q352 332 292 352" />
-    <path d="M372 256 Q372 352 292 382" opacity="0.6"/>
+  <!-- Sound waves (left) -->
+  <g fill="none" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" opacity="0.4">
+    <path d="M150 256 Q150 200 200 185"/>
+    <path d="M130 256 Q130 175 200 155" opacity="0.6"/>
   </g>
-  <!-- Microphone body -->
-  <g filter="url(#glow)">
-    <rect x="226" y="170" width="60" height="110" rx="30" fill="url(#mic)"/>
-    <rect x="220" y="180" width="6" height="90" rx="3" fill="#cbd5e1" opacity="0.5"/>
-    <rect x="286" y="180" width="6" height="90" rx="3" fill="#cbd5e1" opacity="0.5"/>
-    <!-- Mic stand -->
-    <path d="M206 270 Q206 320 256 320 Q306 320 306 270" fill="none" stroke="url(#mic)" stroke-width="8" stroke-linecap="round"/>
-    <line x1="256" y1="320" x2="256" y2="360" stroke="url(#mic)" stroke-width="8" stroke-linecap="round"/>
-    <line x1="226" y1="360" x2="286" y2="360" stroke="url(#mic)" stroke-width="8" stroke-linecap="round"/>
+  <!-- Sound waves (right) -->
+  <g fill="none" stroke="url(#accent)" stroke-width="3" stroke-linecap="round" opacity="0.4">
+    <path d="M362 256 Q362 200 312 185"/>
+    <path d="M382 256 Q382 175 312 155" opacity="0.6"/>
   </g>
-  <!-- Subtle accent dots -->
-  <circle cx="120" cy="120" r="4" fill="#4a90d9" opacity="0.4"/>
-  <circle cx="392" cy="392" r="4" fill="#4a90d9" opacity="0.4"/>
-  <circle cx="392" cy="120" r="3" fill="#6c5ce7" opacity="0.3"/>
-  <circle cx="120" cy="392" r="3" fill="#6c5ce7" opacity="0.3"/>
+  <!-- Microphone -->
+  <g filter="url(#shadow)">
+    <!-- Mic capsule -->
+    <rect x="232" y="168" width="48" height="96" rx="24" fill="#f8fafc"/>
+    <!-- Mic grille lines -->
+    <line x1="244" y1="188" x2="268" y2="188" stroke="#cbd5e1" stroke-width="1.5" opacity="0.5"/>
+    <line x1="244" y1="200" x2="268" y2="200" stroke="#cbd5e1" stroke-width="1.5" opacity="0.5"/>
+    <line x1="244" y1="212" x2="268" y2="212" stroke="#cbd5e1" stroke-width="1.5" opacity="0.5"/>
+    <line x1="244" y1="224" x2="268" y2="224" stroke="#cbd5e1" stroke-width="1.5" opacity="0.5"/>
+    <!-- Mic arc -->
+    <path d="M210 256 Q210 310 256 310 Q302 310 302 256" fill="none" stroke="#f8fafc" stroke-width="6" stroke-linecap="round"/>
+    <!-- Stand -->
+    <line x1="256" y1="310" x2="256" y2="352" stroke="#f8fafc" stroke-width="6" stroke-linecap="round"/>
+    <line x1="226" y1="352" x2="286" y2="352" stroke="#f8fafc" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- Accent dot -->
+  <circle cx="256" cy="168" r="6" fill="url(#accent)"/>
 </svg>
