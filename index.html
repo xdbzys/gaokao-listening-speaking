@@ -175,6 +175,8 @@ h3{font-size:16px;font-weight:700}
 .tabbar{position:fixed;left:50%;bottom:max(10px,var(--safe-bottom));transform:translateX(-50%);width:min(420px,calc(100vw - 16px));background:rgba(255,255,255,.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(226,232,240,.6);border-radius:20px;padding:5px;display:grid;grid-template-columns:repeat(2,1fr);gap:2px;box-shadow:0 -2px 20px rgba(0,0,0,.03),0 8px 28px rgba(0,0,0,.05);z-index:50}
 .tabbar button{color:var(--text-tertiary);background:transparent;border-radius:14px;padding:10px 2px;font-size:11px;display:grid;place-items:center;gap:2px;transition:all .2s;white-space:nowrap;overflow:hidden}
 .tabbar button.active{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;box-shadow:0 2px 10px rgba(59,130,246,.3)}
+.tabbar button.disabled{opacity:.4;pointer-events:auto}
+.tabbar button.disabled:active{transform:none}
 .tabIcon{width:22px;height:22px;display:flex;justify-content:center;align-items:center;line-height:1;font-size:20px}
 .tabLabel{font-size:11px}
 .updateOverlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:1000;display:grid;place-items:center;padding:20px;animation:fadeIn .2s}
@@ -704,8 +706,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="8.4.0";
-var APP_VERSION_CODE=14;
+var APP_VERSION="8.5.0";
+var APP_VERSION_CODE=15;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var APK_FILE="gaokao-english-listening-v8.apk";
@@ -750,6 +752,22 @@ function el(tag,props,children){
 function fmtTime(s){s=Math.max(0,Math.ceil(s));var m=Math.floor(s/60);return m+":"+(s%60<10?"0":"")+(s%60);}
 var toastTimer=null;
 function toast(msg){var old=$("#__toast");if(old)old.remove();var t=el("div",{id:"__toast",className:"toast",text:msg});document.body.appendChild(t);clearTimeout(toastTimer);toastTimer=setTimeout(function(){if(t.parentNode)t.remove();},2600);}
+/* 自定义确认弹窗（替代confirm，WebView兼容） */
+function showConfirm(msg,onConfirm){
+  var old=$("#__confirm");if(old)old.remove();
+  var ov=el("div",{id:"__confirm",className:"updateOverlay",style:{zIndex:10000}});
+  ov.addEventListener("click",function(e){if(e.target===e.currentTarget)ov.remove();});
+  var modal=el("div",{className:"updateModal",style:{maxWidth:"340px",textAlign:"center"}});
+  modal.appendChild(el("div",{style:{fontSize:"36px",marginBottom:"12px"},text:"⚠️"}));
+  modal.appendChild(el("p",{style:{fontSize:"15px",fontWeight:"600",marginBottom:"20px",color:"#1e293b"},text:msg}));
+  var btnRow=el("div",{style:{display:"flex",gap:"10px"}});
+  var cancelBtn=el("button",{className:"updateBtnGhost",style:{flex:1},text:"取消"});
+  cancelBtn.addEventListener("click",function(){ov.remove();});
+  var okBtn=el("button",{className:"updateBtnPrimary",style:{flex:1},text:"确定"});
+  okBtn.addEventListener("click",function(){ov.remove();if(onConfirm)onConfirm();});
+  btnRow.appendChild(cancelBtn);btnRow.appendChild(okBtn);
+  modal.appendChild(btnRow);ov.appendChild(modal);document.body.appendChild(ov);
+}
 function load(k,def){try{var v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 
@@ -1190,6 +1208,11 @@ function abilityAnalysis(){
 var State={view:"practice",progress:load(LSC.progress,{done:{}}),scores:load(LSC.scores,[]),updateInfo:null,updateChecking:false,updateStatus:"",updateError:false,announce:null,subView:null,filterDiff:"all",filterSrc:"all",filterYear:"all",expandSection:null};
 
 function render(){
+  /* 考试进行中时不重置主页面（防止画面乱跳） */
+  if(State._examMode&&!State._examRenderAllowed){
+    return;
+  }
+  State._examRenderAllowed=false;
   var root=$("#root");root.innerHTML="";
   var view=el("div",{className:"app"});
   if(State.view==="practice")view.appendChild(viewPractice());
@@ -1205,11 +1228,23 @@ function renderTabbar(){
   var tabs=[{id:"practice",icon:"🎤",label:"练习"},{id:"expand",icon:"📖",label:"指南"},{id:"me",icon:"👤",label:"我的"}];
   var bar=el("div",{className:"tabbar"});
   bar.style.gridTemplateColumns="repeat(3,1fr)";
+  var inExam=!!State._examMode;
   tabs.forEach(function(t){
     var btn=el("button",{className:State.view===t.id?"active":""});
+    if(inExam)btn.classList.add("disabled");
     btn.appendChild(el("span",{className:"tabIcon",text:t.icon}));
     btn.appendChild(el("span",{className:"tabLabel",text:t.label}));
-    btn.addEventListener("click",function(){State.view=t.id;State.subView=null;State.filterYear="all";render();});
+    btn.addEventListener("click",function(){
+      if(inExam){
+        /* 考试中锁定tab切换，需先退出考试 */
+        showConfirm("正在考试中，切换将丢失当前进度。确定切换？",function(){
+          exitExamMode();
+          State.view=t.id;State.subView=null;State.filterYear="all";render();
+        });
+        return;
+      }
+      State.view=t.id;State.subView=null;State.filterYear="all";render();
+    });
     bar.appendChild(btn);
   });
   return bar;
@@ -1504,6 +1539,16 @@ function openSyncList(wrap){
 /* ============ 高考UI：试音阶段 ============ */
 function showSoundCheck(callback){
   var root=$("#root .app");root.innerHTML="";
+  /* 返回按钮 */
+  var topBar=el("div",{className:"topBar"});
+  var backBtn=el("button",{className:"smallBtn",text:"← 返回"});
+  backBtn.addEventListener("click",function(){
+    Speech.stop();
+    State.view="practice";State.subView=null;render();
+  });
+  topBar.appendChild(backBtn);
+  topBar.appendChild(el("span",{className:"versionPill",text:"试音"}));
+  root.appendChild(topBar);
   var screen=el("div",{className:"soundCheckScreen"});
   screen.appendChild(el("div",{className:"scIcon",text:"🔊"}));
   screen.appendChild(el("div",{className:"scTitle",text:"试音阶段"}));
@@ -1795,6 +1840,7 @@ function enterExamMode(isMock){
   if(tb)tb.style.display="none";
   State._examMode=isMock?"mock":"practice";
   State._examTimers=[];
+  State._examRenderAllowed=false;
 }
 function exitExamMode(){
   var root=$("#root .app");
@@ -1804,6 +1850,9 @@ function exitExamMode(){
   if(State._examTimers){State._examTimers.forEach(function(t){clearInterval(t);clearTimeout(t);});}
   State._examTimers=null;
   State._examMode=null;
+  State._examRenderAllowed=true;
+  State._mockCallback=null;
+  State._settleCallback=null;
 }
 function addExamTimer(ti){if(!State._examTimers)State._examTimers=[];State._examTimers.push(ti);return ti;}
 function clearExamTimers(){if(State._examTimers){State._examTimers.forEach(function(t){clearInterval(t);clearTimeout(t);});State._examTimers=[];}}
@@ -1811,10 +1860,11 @@ function examTopBar(partLabel,isMock){
   var bar=el("div",{className:"examHeader"});
   var back=el("button",{className:"ehBack",text:"←"});
   back.addEventListener("click",function(){
-    if(confirm("确定退出？当前进度将丢失。")){
+    /* 自定义确认弹窗，避免WebView中confirm被拦截 */
+    showConfirm("确定退出？当前进度将丢失。",function(){
       exitExamMode();
       State.view="practice";State.subView=null;render();
-    }
+    });
   });
   bar.appendChild(back);
   bar.appendChild(el("div",{className:"ehTitle",text:partLabel}));
@@ -1896,7 +1946,10 @@ function startPartA(item,isMock){
     var stage=el("div",{className:"videoStage"});
     var overlay=el("div",{className:"vsOverlay"});
     overlay.appendChild(el("div",{className:"vsIcon",text:"🎬"}));
-    overlay.appendChild(el("div",{className:"vsLabel",text:"视频播放中..."}));
+    var vsLabel=el("div",{className:"vsLabel",text:"点击播放视频"});
+    overlay.appendChild(vsLabel);
+    var playBtn=el("div",{className:"vsPlayBtn",text:"▶"});
+    overlay.appendChild(playBtn);
     stage.appendChild(overlay);
     var subtitles=el("div",{className:"vsSubtitles"});
     stage.appendChild(subtitles);
@@ -1912,20 +1965,50 @@ function startPartA(item,isMock){
     var sentences=item.text.split(/([.!?])\s/).reduce(function(arr,s,i){if(i%2===0)arr.push(s);else arr[arr.length-1]+=s;return arr;},[]).filter(function(s){return s.trim();});
     var si=0;
     var totalSec=58;
+    var videoStarted=false;
     var cdEl=root.querySelector(".esbTimer");
-    autoCountdown(cdEl,null,totalSec,function(s){
-      updateStatusBar("播放录像",s,false);
-      progFill.style.width=Math.round((totalSec-s)/totalSec*100)+"%";
-    },function(){
-      phase=1;showRead();
-    });
-    /* 逐句播放配音 */
-    function playNext(){
-      if(si>=sentences.length){subtitles.textContent="播放完成";return;}
-      subtitles.textContent=sentences[si];
-      Speech.speak(sentences[si],{rate:0.9}).then(function(){si++;playNext();});
+
+    function startVideoPlayback(){
+      if(videoStarted)return;
+      videoStarted=true;
+      overlay.classList.add("playing");
+      vsLabel.textContent="视频播放中...";
+      playBtn.style.display="none";
+      stage.classList.add("playing");
+      /* 启动倒计时 */
+      autoCountdown(cdEl,null,totalSec,function(s){
+        updateStatusBar("播放录像",s,false);
+        progFill.style.width=Math.round((totalSec-s)/totalSec*100)+"%";
+      },function(){
+        if(phase===0){phase=1;showRead();}
+      });
+      /* 逐句播放配音+字幕 */
+      playNext();
     }
-    playNext();
+
+    function playNext(){
+      if(si>=sentences.length){subtitles.textContent="✓ 播放完成";return;}
+      subtitles.textContent=sentences[si];
+      subtitles.style.opacity="1";
+      /* 有TTS：播完一句再下一句；无TTS：按字数计时显示 */
+      var spoken=Speech.speak(sentences[si],{rate:0.9});
+      var estMs=Math.max(2000,sentences[si].length*90);
+      var timer=setTimeout(function(){
+        si++;playNext();
+      },estMs);
+      addExamTimer(timer);
+      spoken.then(function(){
+        clearTimeout(timer);
+        if(si<sentences.length){si++;playNext();}
+      });
+    }
+
+    /* 点击播放按钮启动 */
+    playBtn.addEventListener("click",startVideoPlayback);
+    overlay.addEventListener("click",startVideoPlayback);
+
+    /* 模考模式自动开始播放；练习模式也自动开始 */
+    setTimeout(startVideoPlayback,500);
   }
 
   /* Phase 1: 自主练习（60秒，自动推进） */
@@ -2163,6 +2246,12 @@ function startPartB(item,isMock){
     var ch=Promise.resolve();
     item.dialogue.forEach(function(d){ch=ch.then(function(){return Speech.speak(d.en,{rate:0.9});});});
     ch.then(function(){if(phase===1){phase=2;askQuestions();}});
+    /* 练习模式可手动跳过听对话 */
+    if(!isMock){
+      var skipBtn=el("button",{className:"primary mt8",text:"跳过对话，开始提问 →"});
+      skipBtn.addEventListener("click",function(){if(phase===1){phase=2;askQuestions();}});
+      box.appendChild(skipBtn);
+    }
   }
 
   /* Phase 2: 三问（每问20秒准备+10秒录音，自动推进） */
@@ -2428,9 +2517,17 @@ function startPartC(item,isMock){
     if(pc)box.appendChild(pc);
     /* 自动播放故事 */
     Speech.speak(item.story,{rate:0.92}).then(function(){
-      if(time<2){showListen(time+1);}
-      else{phase=2;showPrep();}
+      if(phase===1){
+        if(time<2){showListen(time+1);}
+        else{phase=2;showPrep();}
+      }
     });
+    /* 练习模式可手动跳过听故事 */
+    if(!isMock){
+      var skipBtn=el("button",{className:"primary mt8",text:time<2?"跳过，听下一遍 →":"跳过，开始准备 →"});
+      skipBtn.addEventListener("click",function(){if(phase===1){if(time<2){showListen(time+1);}else{phase=2;showPrep();}}});
+      box.appendChild(skipBtn);
+    }
   }
 
   /* Phase 3: 准备复述（60秒，自动推进） */
@@ -2750,7 +2847,7 @@ function viewMe(){
     });
     if(errors.length>10)errSec.appendChild(el("p",{className:"muted center mt8",text:"仅显示最近10条"}));
     var clrBtn=el("button",{className:"smallBtn dangerGhost mt8",text:"清空错题本"});
-    clrBtn.addEventListener("click",function(){if(confirm("确定清空错题本？")){clearErrors();render();}});
+    clrBtn.addEventListener("click",function(){showConfirm("确定清空错题本？",function(){clearErrors();toast("错题本已清空");render();});});
     errSec.appendChild(clrBtn);
   }
   wrap.appendChild(errSec);
@@ -2818,8 +2915,12 @@ function viewMe(){
   var rsBtn=el("button",{className:"smallBtn",text:"📥 恢复"});rsBtn.addEventListener("click",restoreData);
   dmSec.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:"恢复练习数据"}),rsBtn]));
   var clrBtn2=el("button",{className:"smallBtn dangerGhost",text:"清除"});
-  clrBtn2.addEventListener("click",function(){if(confirm("确定清除所有记录？")){localStorage.removeItem(LSC.progress);localStorage.removeItem(LSC.scores);localStorage.removeItem(LSC.errors);State.progress={done:{}};State.scores=[];toast("已清除所有记录");render();}});
+  clrBtn2.addEventListener("click",function(){showConfirm("确定清除所有答题记录？",function(){localStorage.removeItem(LSC.progress);localStorage.removeItem(LSC.scores);localStorage.removeItem(LSC.errors);State.progress={done:{}};State.scores=[];toast("已清除所有答题记录");render();});});
   dmSec.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:"清除所有记录"}),clrBtn2]));
+  /* 新增：单独清除答题记录 */
+  var clrScoreBtn=el("button",{className:"smallBtn dangerGhost",text:"清除"});
+  clrScoreBtn.addEventListener("click",function(){showConfirm("确定清除所有答题记录（不影响错题本）？",function(){localStorage.removeItem(LSC.scores);State.scores=[];toast("答题记录已清除");render();});});
+  dmSec.appendChild(el("div",{className:"row"},[el("span",{className:"rl",text:"清除答题记录"}),clrScoreBtn]));
   wrap.appendChild(dmSec);
 
   /* 隐私 & 官网 */

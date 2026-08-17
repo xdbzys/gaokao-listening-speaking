@@ -1,7 +1,7 @@
 {
-  "version": "8.4.0",
-  "versionCode": 14,
-  "changelog": "v8.4.0 修复语音播放和视频播放问题\n- 新增原生Android TTS引擎桥接（解决WebView不支持语音合成问题）\n- 三重回退机制：原生TTS → Web Speech API → 计时模式\n- 修复视频播放：视频阶段现在通过原生TTS逐句配音+字幕显示\n- 启用硬件加速，优化WebView媒体播放设置\n- 语音识别权限自动请求\n- 所有考试流程（Part A/B/C）均可正常播放语音",
+  "version": "8.5.0",
+  "versionCode": 15,
+  "changelog": "v8.5.0 全面修复功能问题\n- 修复视频播放：添加播放控件、字幕动画同步、点击可重播\n- 修复返回键无效：自定义确认弹窗替代confirm（WebView兼容）\n- 修复清理错题本无反应：使用自定义弹窗+toast反馈\n- 新增清除答题记录功能（不影响错题本）\n- 修复画面乱跳：考试中锁定tab切换、防止render重置考试页面\n- 修复语音播放：TTS不可用时按字数计时继续流程\n- 添加Part B/C练习模式跳过按钮\n- 试音阶段添加返回按钮\n- 考试中切换tab需确认退出",
   "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",
