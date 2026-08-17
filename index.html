@@ -704,8 +704,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="8.3.1";
-var APP_VERSION_CODE=13;
+var APP_VERSION="8.4.0";
+var APP_VERSION_CODE=14;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var APK_FILE="gaokao-english-listening-v8.apk";
@@ -753,16 +753,53 @@ function toast(msg){var old=$("#__toast");if(old)old.remove();var t=el("div",{id
 function load(k,def){try{var v=localStorage.getItem(k);return v?JSON.parse(v):def;}catch(e){return def;}}
 function save(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 
-/* 语音引擎 */
+/* 语音引擎（三重回退：原生TTS → Web Speech API → 计时模式） */
 var Speech={};
-Speech.supported=function(){return "speechSynthesis" in window;};
+Speech._nativeBridge=(typeof window.NativeTTS!=="undefined");
+Speech._nativeReady=false;
+Speech._nativeResolve=null;
+Speech._nativeTimer=null;
 Speech._voices=[];
 Speech._enVoice=null;
 Speech._initDone=false;
+Speech._webSupported=("speechSynthesis" in window);
+Speech.supported=function(){
+  if(Speech._nativeBridge&&Speech._nativeReady)return true;
+  return Speech._webSupported;
+};
 Speech.init=function(){
   if(Speech._initDone)return;
   Speech._initDone=true;
-  if(!Speech.supported())return;
+  /* 原生TTS桥接初始化 */
+  if(Speech._nativeBridge){
+    window.NativeTTS._onDone=function(){
+      if(Speech._nativeTimer){clearTimeout(Speech._nativeTimer);Speech._nativeTimer=null;}
+      if(Speech._nativeResolve){var r=Speech._nativeResolve;Speech._nativeResolve=null;r();}
+    };
+    window.NativeTTS._onError=function(){
+      if(Speech._nativeTimer){clearTimeout(Speech._nativeTimer);Speech._nativeTimer=null;}
+      if(Speech._nativeResolve){var r=Speech._nativeResolve;Speech._nativeResolve=null;r();}
+    };
+    window.NativeTTS._onStart=function(){};
+    /* 轮询检查原生TTS是否就绪 */
+    var nativeChecks=0;
+    function checkNative(){
+      nativeChecks++;
+      try{
+        if(window.NativeTTS.isReady()){
+          Speech._nativeReady=true;
+          console.log("[Speech] Native TTS bridge ready");
+          return;
+        }
+      }catch(e){}
+      if(nativeChecks<30){setTimeout(checkNative,200);}
+      else{console.log("[Speech] Native TTS not ready after 6s, will use fallback");}
+    }
+    checkNative();
+    return;
+  }
+  /* Web Speech API初始化 */
+  if(!Speech._webSupported)return;
   function loadVoices(){
     Speech._voices=window.speechSynthesis.getVoices()||[];
     if(Speech._voices.length){
@@ -777,34 +814,60 @@ Speech.init=function(){
 Speech.speak=function(text,opts){
   opts=opts||{};
   Speech.init();
-  if(!Speech.supported()){
-    toast("⚠️ 当前设备不支持语音播放，请点击文字旁的播放按钮");
-    return Promise.resolve();
+  var rate=opts.rate||0.95;
+  /* 优先：原生TTS桥接 */
+  if(Speech._nativeBridge&&Speech._nativeReady){
+    return new Promise(function(resolve){
+      Speech.stop();
+      Speech._nativeResolve=resolve;
+      try{window.NativeTTS.speak(text,rate);}catch(e){resolve();return;}
+      /* 超时保护：按字数估算时长 */
+      var estMs=Math.max(2000,text.length*120)+3000;
+      Speech._nativeTimer=setTimeout(function(){
+        if(Speech._nativeResolve){Speech._nativeResolve=null;resolve();}
+      },estMs);
+    });
   }
+  /* 其次：Web Speech API */
+  if(Speech._webSupported){
+    return new Promise(function(resolve){
+      try{
+        window.speechSynthesis.cancel();
+        if(!Speech._voices.length){Speech._voices=window.speechSynthesis.getVoices()||[];}
+        if(!Speech._enVoice&&Speech._voices.length){
+          Speech._enVoice=Speech._voices.filter(function(v){return /en[-_]US/i.test(v.lang);})[0]||Speech._voices.filter(function(v){return /^en/i.test(v.lang);})[0]||null;
+        }
+        var u=new SpeechSynthesisUtterance(text);
+        u.lang="en-US";
+        u.rate=rate;
+        u.pitch=opts.pitch||1;
+        u.volume=1;
+        if(Speech._enVoice)u.voice=Speech._enVoice;
+        var resolved=false;
+        u.onend=function(){if(!resolved){resolved=true;resolve();}};
+        u.onerror=function(){if(!resolved){resolved=true;resolve();}};
+        setTimeout(function(){
+          try{window.speechSynthesis.speak(u);}catch(e){if(!resolved){resolved=true;resolve();}}
+        },50);
+        setTimeout(function(){if(!resolved){resolved=true;window.speechSynthesis.cancel();resolve();}},(text.length*100)+5000);
+      }catch(e){resolve();}
+    });
+  }
+  /* 最后：计时回退模式（无TTS时按字数估算时长继续流程） */
   return new Promise(function(resolve){
-    try{
-      window.speechSynthesis.cancel();
-      if(!Speech._voices.length){Speech._voices=window.speechSynthesis.getVoices()||[];}
-      if(!Speech._enVoice&&Speech._voices.length){
-        Speech._enVoice=Speech._voices.filter(function(v){return /en[-_]US/i.test(v.lang);})[0]||Speech._voices.filter(function(v){return /^en/i.test(v.lang);})[0]||null;
-      }
-      var u=new SpeechSynthesisUtterance(text);
-      u.lang="en-US";
-      u.rate=opts.rate||0.95;
-      u.pitch=opts.pitch||1;
-      u.volume=1;
-      if(Speech._enVoice)u.voice=Speech._enVoice;
-      var resolved=false;
-      u.onend=function(){if(!resolved){resolved=true;resolve();}};
-      u.onerror=function(){if(!resolved){resolved=true;resolve();}};
-      setTimeout(function(){
-        try{window.speechSynthesis.speak(u);}catch(e){if(!resolved){resolved=true;resolve();}}
-      },50);
-      setTimeout(function(){if(!resolved){resolved=true;window.speechSynthesis.cancel();resolve();}},(text.length*100)+5000);
-    }catch(e){resolve();}
+    var estMs=Math.max(1500,text.length*80);
+    setTimeout(resolve,estMs);
   });
 };
-Speech.stop=function(){if(Speech.supported())try{window.speechSynthesis.cancel();}catch(e){}};
+Speech.stop=function(){
+  if(Speech._nativeBridge&&Speech._nativeReady){
+    try{window.NativeTTS.stop();}catch(e){}
+    if(Speech._nativeTimer){clearTimeout(Speech._nativeTimer);Speech._nativeTimer=null;}
+    if(Speech._nativeResolve){Speech._nativeResolve=null;}
+    return;
+  }
+  if(Speech._webSupported)try{window.speechSynthesis.cancel();}catch(e){}
+};
 
 /* 语音识别 */
 var STT={};

@@ -1,7 +1,7 @@
 {
-  "version": "8.3.1",
-  "versionCode": 13,
-  "changelog": "v8.3.1 更新机制修复 + 构建优化\n- 修复更新链接无法打开的问题\n- 优化多源CDN更新机制（jsdelivr优先，国内可访问）\n- 静默document.write更新：直接将新版本推送到旧版本\n- 与原软件更新思路一致：检测更新→推送新版本→自动应用\n- 修复音频播放和语音合成问题\n- 护眼绿主题全面适配",
+  "version": "8.4.0",
+  "versionCode": 14,
+  "changelog": "v8.4.0 修复语音播放和视频播放问题\n- 新增原生Android TTS引擎桥接（解决WebView不支持语音合成问题）\n- 三重回退机制：原生TTS → Web Speech API → 计时模式\n- 修复视频播放：视频阶段现在通过原生TTS逐句配音+字幕显示\n- 启用硬件加速，优化WebView媒体播放设置\n- 语音识别权限自动请求\n- 所有考试流程（Part A/B/C）均可正常播放语音",
   "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",
