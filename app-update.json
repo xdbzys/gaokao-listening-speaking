@@ -1,7 +1,7 @@
 {
-  "version": "8.2.0",
-  "versionCode": 11,
-  "changelog": "v8.2.0 练习流程重构 - 点击任意题目自动A→B→C完整练习\n- 专项突破/同步训练：选择题目后自动启动完整A→B→C链式练习\n- 选中题目用于对应Part，其他Part自动匹配同源/同话题题目\n- Part A完成→自动进入Part B→自动进入Part C→显示总分\n- 练习模式保留跳过/直接结算功能\n- 链式练习完成后显示完整成绩报告（A+B+C总分+维度分析）\n- 随机练习也改为完整A→B→C链式\n- 更新UI文案提示「选题后自动A→B→C」",
+  "version": "8.3.0",
+  "versionCode": 12,
+  "changelog": "v8.3.0 练习流程重构 + 护眼绿主题 + 音频修复\n- 练习必须完整A→B→C才能算分，跳过的部分记0分\n- 直接结算跳到最终评分页，未完成部分记0分\n- 不再在每个Part完成后显示单独评分，直接进入下一Part\n- 考试界面从黑色改为护眼绿主题（#c7edcc）\n- 修复语音合成模块：预加载voices、添加超时保护、错误处理\n- 所有考试组件（卡片、按钮、状态栏等）适配绿色主题\n- 录音卡片：准备阶段绿色调，录音阶段红色调",
   "apkUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
   "appUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://raw.githubusercontent.com/xdbzys/gaokao-listening-speaking/main/index.html",
