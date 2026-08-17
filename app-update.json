@@ -1,10 +1,10 @@
 {
   "version": "8.3.0",
   "versionCode": 12,
-  "changelog": "v8.3.0 练习流程重构 + 护眼绿主题 + 音频修复\n- 练习必须完整A→B→C才能算分，跳过的部分记0分\n- 直接结算跳到最终评分页，未完成部分记0分\n- 不再在每个Part完成后显示单独评分，直接进入下一Part\n- 考试界面从黑色改为护眼绿主题（#c7edcc）\n- 修复语音合成模块：预加载voices、添加超时保护、错误处理\n- 所有考试组件（卡片、按钮、状态栏等）适配绿色主题\n- 录音卡片：准备阶段绿色调，录音阶段红色调",
-  "apkUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
-  "appUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
-  "webHtmlUrl": "https://raw.githubusercontent.com/xdbzys/gaokao-listening-speaking/main/index.html",
+  "changelog": "v8.3.0 练习流程重构 + 护眼绿主题 + 音频修复\n- 练习必须完整A→B→C才能算分，跳过的部分记0分\n- 直接结算跳到最终评分页，未完成部分记0分\n- 不再在每个Part完成后显示单独评分，直接进入下一Part\n- 考试界面从黑色改为护眼绿主题（#c7edcc）\n- 修复语音合成模块：预加载voices、添加超时保护、错误处理\n- 所有考试组件（卡片、按钮、状态栏等）适配绿色主题\n- 录音卡片：准备阶段绿色调，录音阶段红色调\n- 更新机制优化：多源CDN备用、静默document.write更新",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
+  "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
+  "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",
   "forceUpdate": false,
   "minVersionCode": 1
 }

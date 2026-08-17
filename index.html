@@ -708,16 +708,25 @@ var APP_VERSION="8.3.0";
 var APP_VERSION_CODE=12;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
-var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
+var APK_FILE="gaokao-english-listening-v8.apk";
+/* 多源更新URL（jsdelivr CDN优先，国内可访问） */
 var UPDATE_URL_JSDELIVR="https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/app-update.json";
-var UPDATE_URL_RAW="https://gitee.com/"+GITHUB_USER+"/"+REPO+"/raw/master/app-update.json";
+var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
+var UPDATE_URL_RAW="https://raw.githubusercontent.com/"+GITHUB_USER+"/"+REPO+"/main/app-update.json";
 var UPDATE_URL_API="https://api.github.com/repos/"+GITHUB_USER+"/"+REPO+"/contents/app-update.json";
-var APK_MIRRORS=[
-  {name:"Gitee",url:"https://gitee.com/"+GITHUB_USER+"/"+REPO+"/raw/master/gaokao-listening.apk"},
-  {name:"jsdelivr",url:"https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/gaokao-listening.apk"},
-  {name:"GitHub",url:"https://github.com/"+GITHUB_USER+"/"+REPO+"/releases/latest/download/gaokao-listening.apk"}
+/* 多源HTML更新URL（用于静默document.write更新） */
+var WEB_HTML_URLS=[
+  "https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/index.html",
+  "https://raw.githubusercontent.com/"+GITHUB_USER+"/"+REPO+"/main/index.html",
+  "https://"+GITHUB_USER+".github.io/"+REPO+"/index.html"
 ];
-var WEB_HTML_URL="https://"+GITHUB_USER+".github.io/"+REPO+"/index.html";
+var WEB_HTML_URL=WEB_HTML_URLS[0];
+/* APK下载多源镜像 */
+var APK_MIRRORS=[
+  {name:"jsdelivr CDN",url:"https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/"+APK_FILE},
+  {name:"GitHub Raw",url:"https://raw.githubusercontent.com/"+GITHUB_USER+"/"+REPO+"/main/"+APK_FILE},
+  {name:"GitHub Release",url:"https://github.com/"+GITHUB_USER+"/"+REPO+"/releases/latest/download/"+APK_FILE}
+];
 var OFFICIAL_SITE="https://"+GITHUB_USER+".github.io/"+REPO+"/";
 var PRIVACY_URL="https://"+GITHUB_USER+".github.io/"+REPO+"/privacy.html";
 var FEEDBACK_QQ="3219858871";
@@ -2773,20 +2782,31 @@ function restoreData(){var inp=el("input",{type:"file",accept:".json"});inp.addE
 /* ============ 更新检查（照搬原软件） ============ */
 function checkUpdate(silent){
   State.updateChecking=true;State.updateError=false;State.updateStatus=silent?"":"正在检查更新...";render();
+  function tryJsdelivr(){var url=UPDATE_URL_JSDELIVR+"?_t="+Date.now();return fetch(url,{cache:"no-store",headers:{Accept:"application/json, text/plain, */*"}}).then(function(r){if(!r.ok)throw Error("jsdelivr HTTP "+r.status);return r.json();});}
   function tryGhPages(){var url=UPDATE_URL_GHPAGES+"?_t="+Date.now();return fetch(url,{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("GH Pages HTTP "+r.status);return r.json();});}
-  function tryJsdelivr(){var url=UPDATE_URL_JSDELIVR+"&_t="+Date.now();return fetch(url,{cache:"no-store",headers:{Accept:"application/json, text/plain, */*"}}).then(function(r){if(!r.ok)throw Error("jsdelivr HTTP "+r.status);return r.json();});}
   function tryRaw(){var url=UPDATE_URL_RAW+"?_t="+Date.now();return fetch(url,{cache:"no-store",redirect:"follow",headers:{Accept:"application/json, text/plain, */*"}}).then(function(r){if(!r.ok)throw Error("raw HTTP "+r.status);return r.json();});}
   function tryApi(){var url=UPDATE_URL_API+"?_t="+Date.now();return fetch(url,{cache:"no-store",headers:{Accept:"application/json, text/plain, */*","Accept-Language":"zh-CN,zh;q=0.9"}}).then(function(r){if(!r.ok)throw Error("API HTTP "+r.status);return r.json();}).then(function(n){if(n.content&&n.encoding==="base64"){return JSON.parse(decodeURIComponent(escape(atob(n.content))));}else if(n.versionCode)return n;throw Error("API格式无法识别");});}
-  tryGhPages().catch(function(){return tryJsdelivr();}).catch(function(){return tryRaw();}).catch(function(){return tryApi();}).catch(function(){throw Error("检查更新失败，请检查网络");}).then(function(remote){
+  tryJsdelivr().catch(function(){return tryGhPages();}).catch(function(){return tryRaw();}).catch(function(){return tryApi();}).catch(function(){throw Error("检查更新失败，请检查网络");}).then(function(remote){
     if(typeof remote.versionCode!=="number")throw Error("versionCode无效");
     var hasUpdate=remote.versionCode>APP_VERSION_CODE;
     var changelog=remote.changelog||remote.updateLog||"";
     var ver=remote.version||remote.versionCode;
-    var apkUrl=remote.apkUrl||remote.appUrl||"";
+    var apkUrl=remote.apkUrl||remote.appUrl||(APK_MIRRORS[0]&&APK_MIRRORS[0].url);
     State.updateInfo={hasUpdate:hasUpdate,version:ver,versionCode:remote.versionCode,updateLog:changelog,changelog:changelog,apkUrl:apkUrl,appUrl:apkUrl,updating:false};
     if(!silent)State.updateStatus=hasUpdate?("发现新版本 v"+ver):"已是最新版本";
     if(silent&&hasUpdate){var dismissed=load(LSC.dismissed,"");if(String(ver)!==String(dismissed)){State.announce={version:ver,changelog:changelog};}}
-    if(silent&&hasUpdate&&remote.webHtmlUrl){fetch(remote.webHtmlUrl).then(function(e){return e.text();}).then(function(t){if(t&&(t.includes("<!doctype")||t.includes("<html"))){document.open();document.write(t);document.close();}}).catch(function(){});}
+    /* 静默更新：多源fetch新HTML，document.write替换 */
+    if(silent&&hasUpdate){
+      function tryFetchHtml(idx){
+        if(idx>=WEB_HTML_URLS.length)return Promise.reject(new Error("all html sources failed"));
+        return fetch(WEB_HTML_URLS[idx]+"?_t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text();}).then(function(t){
+          if(t&&(t.includes("<!doctype")||t.includes("<html"))&&t.includes("APP_VERSION")){
+            document.open();document.write(t);document.close();
+          }else{throw Error("content invalid");}
+        }).catch(function(){return tryFetchHtml(idx+1);});
+      }
+      tryFetchHtml(0).catch(function(){});
+    }
     State.updateChecking=false;render();
   }).catch(function(e){
     State.updateChecking=false;State.updateError=true;
@@ -2796,9 +2816,26 @@ function checkUpdate(silent){
 }
 function doUpdate(){
   if(!State.updateInfo||!State.updateInfo.hasUpdate)return;
-  State.updateInfo.updating=true;State.updateStatus="正在打开下载页面...";render();
-  var info=State.updateInfo;var apkUrl=info.apkUrl||info.appUrl||(APK_MIRRORS[0]&&APK_MIRRORS[0].url);
-  if(apkUrl){if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Browser){window.Capacitor.Plugins.Browser.open({url:apkUrl});}else{window.open(apkUrl,"_blank");}toast("已打开下载页面");}else if(WEB_HTML_URL){window.open(WEB_HTML_URL,"_blank");}
+  State.updateInfo.updating=true;State.updateStatus="正在更新中...";render();
+  /* 优先静默web更新（document.write），失败再打开APK下载 */
+  function tryFetchHtml(idx){
+    if(idx>=WEB_HTML_URLS.length){openApkDownload();return;}
+    toast("正在从"+["jsdelivr","GitHub Raw","GitHub Pages"][idx]+"获取更新...");
+    fetch(WEB_HTML_URLS[idx]+"?_t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text();}).then(function(t){
+      if(t&&(t.includes("<!doctype")||t.includes("<html"))&&t.includes("APP_VERSION")){
+        toast("正在应用更新...");
+        document.open();document.write(t);document.close();
+      }else{throw Error("内容无效");}
+    }).catch(function(){tryFetchHtml(idx+1);});
+  }
+  function openApkDownload(){
+    var info=State.updateInfo;var apkUrl=info.apkUrl||info.appUrl||(APK_MIRRORS[0]&&APK_MIRRORS[0].url);
+    if(apkUrl){
+      if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Browser){window.Capacitor.Plugins.Browser.open({url:apkUrl});}else{window.open(apkUrl,"_blank");}
+      toast("已打开下载页面");
+    }else if(WEB_HTML_URL){window.open(WEB_HTML_URL,"_blank");}
+  }
+  tryFetchHtml(0);
 }
 function renderUpdateOverlay(){
   var old=$("#__updOverlay");if(old)old.remove();if(!State.announce)return;
@@ -2818,7 +2855,7 @@ function renderUpdateOverlay(){
   body.appendChild(ul);modal.appendChild(body);
   var footer=el("div",{className:"updateModalFooter"});
   var ghost=el("button",{className:"updateBtnGhost",text:"下次再说"});ghost.addEventListener("click",function(){save(LSC.dismissed,a.version);closeAnnounce();});footer.appendChild(ghost);
-  var primary=el("button",{className:"updateBtnPrimary",text:"立即更新"});primary.addEventListener("click",function(){closeAnnounce();var url=(APK_MIRRORS[0]&&APK_MIRRORS[0].url)||WEB_HTML_URL;if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Browser){window.Capacitor.Plugins.Browser.open({url:url});}else{window.open(url,"_blank");}});footer.appendChild(primary);
+  var primary=el("button",{className:"updateBtnPrimary",text:"立即更新"});primary.addEventListener("click",function(){closeAnnounce();doUpdate();});footer.appendChild(primary);
   modal.appendChild(footer);ov.appendChild(modal);document.body.appendChild(ov);
 }
 function closeAnnounce(){State.announce=null;var o=$("#__updOverlay");if(o)o.remove();}
