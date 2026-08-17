@@ -703,8 +703,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="8.1.0";
-var APP_VERSION_CODE=10;
+var APP_VERSION="8.2.0";
+var APP_VERSION_CODE=11;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
@@ -1169,11 +1169,11 @@ function viewPractice(){
   wrap.appendChild(qCard);
 
   /* === 专项突破（E听说风格） === */
-  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"📚 专项突破"}),el("span",{className:"etsMore",text:"按题型练习 →"})]));
+  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"📚 专项突破"}),el("span",{className:"etsMore",text:"选题后自动A→B→C →"})]));
   var parts=[
-    {key:"A",cls:"modeA",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 20分",color:"linear-gradient(135deg,#3b82f6,#2563eb)",meta:["含视频","朗读评分"],done:partDone("A"),total:DATA.partA.length,realCount:DATA.partA.filter(isRealExam).length,go:function(){State.subView="listA";render();}},
-    {key:"B",cls:"modeB",icon:"💬",title:"Part B 角色扮演",sub:"Role Play · 三问五答 · 16分",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",meta:["情景对话","信息传递"],done:partDone("B"),total:DATA.partB.length,realCount:DATA.partB.filter(isRealExam).length,go:function(){State.subView="listB";render();}},
-    {key:"C",cls:"modeC",icon:"🎧",title:"Part C 故事复述",sub:"Retelling · 24分",color:"linear-gradient(135deg,#10b981,#059669)",meta:["听两遍","复述评分"],done:partDone("C"),total:DATA.partC.length,realCount:DATA.partC.filter(isRealExam).length,go:function(){State.subView="listC";render();}}
+    {key:"A",cls:"modeA",icon:"📖",title:"Part A 模仿朗读",sub:"Reading Aloud · 选题后完整A→B→C",color:"linear-gradient(135deg,#3b82f6,#2563eb)",meta:["含视频","朗读评分"],done:partDone("A"),total:DATA.partA.length,realCount:DATA.partA.filter(isRealExam).length,go:function(){State.subView="listA";render();}},
+    {key:"B",cls:"modeB",icon:"💬",title:"Part B 角色扮演",sub:"Role Play · 选题后完整A→B→C",color:"linear-gradient(135deg,#8b5cf6,#7c3aed)",meta:["情景对话","信息传递"],done:partDone("B"),total:DATA.partB.length,realCount:DATA.partB.filter(isRealExam).length,go:function(){State.subView="listB";render();}},
+    {key:"C",cls:"modeC",icon:"🎧",title:"Part C 故事复述",sub:"Retelling · 选题后完整A→B→C",color:"linear-gradient(135deg,#10b981,#059669)",meta:["听两遍","复述评分"],done:partDone("C"),total:DATA.partC.length,realCount:DATA.partC.filter(isRealExam).length,go:function(){State.subView="listC";render();}}
   ];
   parts.forEach(function(p){
     var card=el("div",{className:"etsPartCard"});
@@ -1223,7 +1223,7 @@ function viewPractice(){
   });
 
   /* === 同步训练（E听说风格：按来源/年份组织） === */
-  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"🗂️ 同步训练"}),el("span",{className:"etsMore",text:"按试卷练习 →"})]));
+  wrap.appendChild(el("div",{className:"etsSectionTitle"},[el("h3",{text:"🗂️ 同步训练"}),el("span",{className:"etsMore",text:"选题后自动A→B→C →"})]));
   var years=getYears();
   if(years.length){
     var yearBar=el("div",{className:"etsYearBar"});
@@ -1273,9 +1273,7 @@ function viewPractice(){
     row.appendChild(body);
     row.appendChild(el("div",{className:"euiArrow",text:"›"}));
     row.addEventListener("click",function(){
-      if(si.part==="A")startPartA(d,false);
-      else if(si.part==="B")startPartB(d,false);
-      else if(si.part==="C")startPartC(d,false);
+      showSoundCheck(function(){startChainPractice(si.part,d,false);});
     });
     wrap.appendChild(row);
   });
@@ -1294,10 +1292,8 @@ function randomPractice(part){
   var undone=data.filter(function(d){return !State.progress.done[d.id];});
   var pool=undone.length>0?undone:data;
   var item=pool[Math.floor(Math.random()*pool.length)];
-  toast("随机选题："+item.title);
-  if(part==="A")startPartA(item,false);
-  else if(part==="B")startPartB(item,false);
-  else if(part==="C")startPartC(item,false);
+  toast("随机选题："+item.title+"（完整A→B→C练习）");
+  showSoundCheck(function(){startChainPractice(part,item,false);});
 }
 
 /* ============ 同步训练列表 ============ */
@@ -1378,9 +1374,7 @@ function openSyncList(wrap){
     row.appendChild(body);
     row.appendChild(el("div",{className:"euiArrow",text:"›"}));
     row.addEventListener("click",function(){
-      if(si.part==="A")startPartA(d,false);
-      else if(si.part==="B")startPartB(d,false);
-      else if(si.part==="C")startPartC(d,false);
+      showSoundCheck(function(){startChainPractice(si.part,d,false);});
     });
     wrap.appendChild(row);
   });
@@ -1624,7 +1618,7 @@ function openPartList(part,wrap){
   topBar.appendChild(el("span",{className:"versionPill",text:partDone(part)+"/"+data.length+" 已完成"}));
   wrap.appendChild(topBar);
   wrap.appendChild(el("h2",{text:"Part "+part+" "+(part==="A"?"模仿朗读":part==="B"?"角色扮演":"故事复述")}));
-  wrap.appendChild(el("p",{className:"muted mb12",text:part==="A"?"阅读→聆听→朗读→评分（可跳过或直接结算）":part==="B"?"情景→对话→三问→五答→评分（可跳过或直接结算）":"概要→聆听→准备→复述→评分（可跳过或直接结算）"}));
+  wrap.appendChild(el("p",{className:"muted mb12",text:"选择题目后自动开始完整A→B→C练习（可跳过或直接结算）"}));
 
   /* 难度筛选 */
   var diffBar=el("div",{className:"diffFilter"});
@@ -1666,9 +1660,7 @@ function openPartList(part,wrap){
       ]));
     }
     row.addEventListener("click",function(){
-      if(part==="A")startPartA(item,false);
-      else if(part==="B")startPartB(item,false);
-      else if(part==="C")startPartC(item,false);
+      showSoundCheck(function(){startChainPractice(part,item,false);});
     });
     wrap.appendChild(row);
   });
@@ -1954,7 +1946,7 @@ function startPartA(item,isMock){
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新朗读",onClick:function(){phase=3;showPrepRecord();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("Part A: "+r.score+"/20");if(State._mockCallback)State._mockCallback(r.score);}}));}
-    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);toast("已记录成绩："+r.score+"/20");exitExamMode();State.view="practice";State.subView=null;render();}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("A",item.id,r.score,20);if(State._mockCallback){toast("Part A: "+r.score+"/20 → 进入Part B");State._mockCallback(r.score);}else{toast("已记录成绩："+r.score+"/20");exitExamMode();State.view="practice";State.subView=null;render();}}}));}
     box.appendChild(br);root.appendChild(box);
   }
   showVideo();
@@ -2226,7 +2218,7 @@ function startPartB(item,isMock){
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新练习",onClick:function(){qi=0;ai=0;qScores=[];aScores=[];phase=0;showScenario();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);toast("Part B: "+t+"/16");if(State._mockCallback)State._mockCallback(t);}}));}
-    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);toast("已记录成绩："+t+"/16");exitExamMode();State.view="practice";State.subView=null;render();}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("B",item.id,t,16);if(State._mockCallback){toast("Part B: "+t+"/16 → 进入Part C");State._mockCallback(t);}else{toast("已记录成绩："+t+"/16");exitExamMode();State.view="practice";State.subView=null;render();}}}));}
     box.appendChild(br);root.appendChild(box);
   }
   showScenario();
@@ -2400,7 +2392,7 @@ function startPartC(item,isMock){
     var br=el("div",{className:"btnRow"});
     br.appendChild(el("button",{className:"smallBtn",text:"重新复述",onClick:function(){phase=3;showRecord();}}));
     if(isMock){br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("Part C: "+r.score+"/24");if(State._mockCallback)State._mockCallback(r.score);}}));}
-    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);toast("已记录成绩："+r.score+"/24");exitExamMode();State.view="practice";State.subView=null;render();}}));}
+    else{br.appendChild(el("button",{className:"primary",text:"完成 ✓",onClick:function(){recordScore("C",item.id,r.score,24);if(State._mockCallback){toast("Part C: "+r.score+"/24 → 完成练习");State._mockCallback(r.score);}else{toast("已记录成绩："+r.score+"/24");exitExamMode();State.view="practice";State.subView=null;render();}}}));}
     box.appendChild(br);root.appendChild(box);
   }
   showSummary();
@@ -2408,6 +2400,30 @@ function startPartC(item,isMock){
 
 
 /* ============ 统一考试入口（模考/练习） ============ */
+/* 查找匹配题目：优先同来源，其次同话题，最后随机未做 */
+function findMatching(item,targetPart){
+  var data=DATA["part"+targetPart];
+  if(item.source){
+    var sameSource=data.filter(function(d){return d.source===item.source;});
+    if(sameSource.length)return sameSource[0];
+  }
+  if(item.topic){
+    var sameTopic=data.filter(function(d){return d.topic===item.topic;});
+    if(sameTopic.length)return sameTopic[0];
+  }
+  var undone=data.filter(function(d){return !State.progress.done[d.id];});
+  var pool=undone.length>0?undone:data;
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+
+/* 链式练习：A→B→C连续完成，点击任意题目启动完整练习 */
+function startChainPractice(selectedPart,item,isMock){
+  var a=selectedPart==="A"?item:findMatching(item,"A");
+  var b=selectedPart==="B"?item:findMatching(a,"B");
+  var c=selectedPart==="C"?item:findMatching(b,"C");
+  startChainWithItems(a,b,c,isMock);
+}
+
 function startExam(isMock,isRandom){
   var realA=DATA.partA.filter(isRealExam);var realB=DATA.partB.filter(isRealExam);var realC=DATA.partC.filter(isRealExam);
   var poolA=realA.length>=3?realA:DATA.partA;var poolB=realB.length>=3?realB:DATA.partB;var poolC=realC.length>=3?realC:DATA.partC;
@@ -2417,6 +2433,10 @@ function startExam(isMock,isRandom){
   }else{
     a=poolA[0];b=poolB[0];c=poolC[0];
   }
+  startChainWithItems(a,b,c,isMock);
+}
+
+function startChainWithItems(a,b,c,isMock){
   var scores={A:0,B:0,C:0};
   var root=$("#root .app");
   function runA(){State._mockCallback=function(score){scores.A=score;runB();};startPartA(a,isMock);}

@@ -1,7 +1,7 @@
 {
-  "version": "8.1.0",
-  "versionCode": 10,
-  "changelog": "v8.1.0 练习内部体验升级 - 照搬E听说练习内容与UI布局\n- 录音界面全面升级：E听说风格深色录音卡片，带波形动画\n- 准备阶段统一为E听说风格卡片，蓝色准备/红色录音视觉区分\n- Part A 评分：逐词颜色标注（绿色正确/橙色部分正确/灰色未识别）\n- Part A 新增评分对比卡：本次/上次/最高分对比，含涨跌标记\n- Part B 对话展示：E听说风格对话气泡，角色头像+中英文双语\n- Part C 思维导图：中心节点+关键词分支布局\n- 全部Part新增维度评分条：三色进度条直观展示各维度得分\n- 录音卡片：脉冲动画图标+波形条动画+大号倒计时\n- 录音结束自动切换状态：波形隐藏，显示完成标记",
+  "version": "8.2.0",
+  "versionCode": 11,
+  "changelog": "v8.2.0 练习流程重构 - 点击任意题目自动A→B→C完整练习\n- 专项突破/同步训练：选择题目后自动启动完整A→B→C链式练习\n- 选中题目用于对应Part，其他Part自动匹配同源/同话题题目\n- Part A完成→自动进入Part B→自动进入Part C→显示总分\n- 练习模式保留跳过/直接结算功能\n- 链式练习完成后显示完整成绩报告（A+B+C总分+维度分析）\n- 随机练习也改为完整A→B→C链式\n- 更新UI文案提示「选题后自动A→B→C」",
   "apkUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
   "appUrl": "https://github.com/xdbzys/gaokao-listening-speaking/raw/main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://raw.githubusercontent.com/xdbzys/gaokao-listening-speaking/main/index.html",
