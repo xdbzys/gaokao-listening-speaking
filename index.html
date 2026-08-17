@@ -718,8 +718,8 @@ var UPDATE_URL_RAW="https://raw.githubusercontent.com/"+GITHUB_USER+"/"+REPO+"/m
 var UPDATE_URL_API="https://api.github.com/repos/"+GITHUB_USER+"/"+REPO+"/contents/app-update.json";
 /* 多源HTML更新URL（用于静默document.write更新） */
 var WEB_HTML_URLS=[
-  "https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/index.html",
   "https://raw.githubusercontent.com/"+GITHUB_USER+"/"+REPO+"/main/index.html",
+  "https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/index.html",
   "https://"+GITHUB_USER+".github.io/"+REPO+"/index.html"
 ];
 var WEB_HTML_URL=WEB_HTML_URLS[0];
@@ -3000,7 +3000,7 @@ function doUpdate(){
   /* 优先静默web更新（document.write），失败再打开APK下载 */
   function tryFetchHtml(idx){
     if(idx>=WEB_HTML_URLS.length){openApkDownload();return;}
-    toast("正在从"+["jsdelivr","GitHub Raw","GitHub Pages"][idx]+"获取更新...");
+    toast("正在从"+["GitHub Raw","jsdelivr CDN","GitHub Pages"][idx]+"获取更新...");
     fetch(WEB_HTML_URLS[idx]+"?_t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text();}).then(function(t){
       if(t&&(t.includes("<!doctype")||t.includes("<html"))&&t.includes("APP_VERSION")){
         toast("正在应用更新...");
