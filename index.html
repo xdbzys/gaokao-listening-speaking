@@ -648,12 +648,14 @@ h3{font-size:16px;font-weight:700}
 .etsMindMap .mmBranch .mbSub{font-size:12px;color:var(--text);margin-top:4px;padding-left:8px;border-left:2px solid var(--border)}
 
 /* ===== E听说风格：录音界面 ===== */
-.etsRecCard{background:linear-gradient(135deg,#0f1525,#1a2236);border-radius:16px;padding:24px 20px;text-align:center;margin:12px 0;box-shadow:0 4px 20px rgba(15,21,37,.2)}
+.etsRecCard{border-radius:16px;padding:24px 20px;text-align:center;margin:12px 0;box-shadow:0 4px 20px rgba(15,21,37,.2);transition:all .3s ease}
+.etsRecCard:not(.recording){background:linear-gradient(135deg,#0c1428,#162845);border:1px solid rgba(59,130,246,.2)}
+.etsRecCard.recording{background:linear-gradient(135deg,#1a0a0a,#2a1015);border:1px solid rgba(239,68,68,.25)}
 .etsRecCard .rcIcon{width:64px;height:64px;border-radius:50%;background:rgba(59,130,246,.12);display:grid;place-items:center;margin:0 auto 12px;position:relative}
 .etsRecCard .rcIcon::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(59,130,246,.2)}
 .etsRecCard .rcIcon .rcMic{font-size:28px;color:#3b82f6}
 .etsRecCard.recording .rcIcon{background:rgba(239,68,68,.2)}
-.etsRecCard.recording .rcIcon::before{border-color:rgba(239,68,68,.3);animation:etsPulse 1.5s ease-out infinite}
+.etsRecCard.recording .rcIcon::before{border-color:rgba(239,68,68,.4);animation:etsPulse 1.5s ease-out infinite}
 .etsRecCard.recording .rcIcon .rcMic{color:#ef4444}
 .etsRecCard .rcStatus{color:#e2e8f0;font-size:15px;font-weight:600;margin-bottom:8px}
 .etsRecCard .rcTimer{font-size:36px;font-weight:800;color:#60a5fa;font-variant-numeric:tabular-nums;letter-spacing:.05em}
