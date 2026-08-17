@@ -1,7 +1,7 @@
 {
-  "version": "8.5.0",
-  "versionCode": 15,
-  "changelog": "v8.5.0 全面修复功能问题\n- 修复视频播放：添加播放控件、字幕动画同步、点击可重播\n- 修复返回键无效：自定义确认弹窗替代confirm（WebView兼容）\n- 修复清理错题本无反应：使用自定义弹窗+toast反馈\n- 新增清除答题记录功能（不影响错题本）\n- 修复画面乱跳：考试中锁定tab切换、防止render重置考试页面\n- 修复语音播放：TTS不可用时按字数计时继续流程\n- 添加Part B/C练习模式跳过按钮\n- 试音阶段添加返回按钮\n- 考试中切换tab需确认退出",
+  "version": "8.5.1",
+  "versionCode": 16,
+  "changelog": "v8.5.1 修复语音播放和检查更新滚动问题\n- 修复Speech模块：原生TTS未就绪时不再跳过Web Speech API初始化\n- 新增Web Speech API快速检测：1.5秒内未启动则判定不可用，立即回退到计时模式\n- 修复检查更新导致页面滚动到顶部：添加skipScroll控制\n- 视频字幕动画与语音同步：TTS不可用时按字数计时显示字幕",
   "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",

@@ -706,8 +706,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="8.5.0";
-var APP_VERSION_CODE=15;
+var APP_VERSION="8.5.1";
+var APP_VERSION_CODE=16;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var APK_FILE="gaokao-english-listening-v8.apk";
@@ -781,9 +781,11 @@ Speech._voices=[];
 Speech._enVoice=null;
 Speech._initDone=false;
 Speech._webSupported=("speechSynthesis" in window);
+Speech._webActuallyWorks=null; /* null=未测试, true=可用, false=不可用 */
 Speech.supported=function(){
   if(Speech._nativeBridge&&Speech._nativeReady)return true;
-  return Speech._webSupported;
+  if(Speech._webSupported&&Speech._webActuallyWorks!==false)return true;
+  return false;
 };
 Speech.init=function(){
   if(Speech._initDone)return;
@@ -814,7 +816,7 @@ Speech.init=function(){
       else{console.log("[Speech] Native TTS not ready after 6s, will use fallback");}
     }
     checkNative();
-    return;
+    /* 不return，继续初始化Web Speech API作为回退 */
   }
   /* Web Speech API初始化 */
   if(!Speech._webSupported)return;
@@ -846,8 +848,8 @@ Speech.speak=function(text,opts){
       },estMs);
     });
   }
-  /* 其次：Web Speech API */
-  if(Speech._webSupported){
+  /* 其次：Web Speech API（带快速检测，WebView中可能静默失败） */
+  if(Speech._webSupported&&Speech._webActuallyWorks!==false){
     return new Promise(function(resolve){
       try{
         window.speechSynthesis.cancel();
@@ -862,11 +864,23 @@ Speech.speak=function(text,opts){
         u.volume=1;
         if(Speech._enVoice)u.voice=Speech._enVoice;
         var resolved=false;
+        var webStarted=false;
+        u.onstart=function(){webStarted=true;Speech._webActuallyWorks=true;};
         u.onend=function(){if(!resolved){resolved=true;resolve();}};
         u.onerror=function(){if(!resolved){resolved=true;resolve();}};
         setTimeout(function(){
           try{window.speechSynthesis.speak(u);}catch(e){if(!resolved){resolved=true;resolve();}}
         },50);
+        /* 快速检测：1.5秒内Web Speech未开始则判定不可用，回退到计时模式 */
+        setTimeout(function(){
+          if(!webStarted&&!resolved){
+            Speech._webActuallyWorks=false;
+            resolved=true;
+            try{window.speechSynthesis.cancel();}catch(e){}
+            resolve();
+          }
+        },1500);
+        /* 超时保护 */
         setTimeout(function(){if(!resolved){resolved=true;window.speechSynthesis.cancel();resolve();}},(text.length*100)+5000);
       }catch(e){resolve();}
     });
@@ -1213,6 +1227,8 @@ function render(){
     return;
   }
   State._examRenderAllowed=false;
+  var skipScroll=State._skipScroll;
+  State._skipScroll=false;
   var root=$("#root");root.innerHTML="";
   var view=el("div",{className:"app"});
   if(State.view==="practice")view.appendChild(viewPractice());
@@ -1221,7 +1237,7 @@ function render(){
   root.appendChild(view);
   root.appendChild(renderTabbar());
   renderUpdateOverlay();
-  window.scrollTo(0,0);
+  if(!skipScroll)window.scrollTo(0,0);
 }
 
 function renderTabbar(){
@@ -2945,7 +2961,7 @@ function restoreData(){var inp=el("input",{type:"file",accept:".json"});inp.addE
 
 /* ============ 更新检查（照搬原软件） ============ */
 function checkUpdate(silent){
-  State.updateChecking=true;State.updateError=false;State.updateStatus=silent?"":"正在检查更新...";render();
+  State.updateChecking=true;State.updateError=false;State.updateStatus=silent?"":"正在检查更新...";State._skipScroll=true;render();
   function tryJsdelivr(){var url=UPDATE_URL_JSDELIVR+"?_t="+Date.now();return fetch(url,{cache:"no-store",headers:{Accept:"application/json, text/plain, */*"}}).then(function(r){if(!r.ok)throw Error("jsdelivr HTTP "+r.status);return r.json();});}
   function tryGhPages(){var url=UPDATE_URL_GHPAGES+"?_t="+Date.now();return fetch(url,{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("GH Pages HTTP "+r.status);return r.json();});}
   function tryRaw(){var url=UPDATE_URL_RAW+"?_t="+Date.now();return fetch(url,{cache:"no-store",redirect:"follow",headers:{Accept:"application/json, text/plain, */*"}}).then(function(r){if(!r.ok)throw Error("raw HTTP "+r.status);return r.json();});}
@@ -2971,16 +2987,16 @@ function checkUpdate(silent){
       }
       tryFetchHtml(0).catch(function(){});
     }
-    State.updateChecking=false;render();
+    State.updateChecking=false;State._skipScroll=true;render();
   }).catch(function(e){
     State.updateChecking=false;State.updateError=true;
     if(!silent)State.updateStatus="检查失败："+e.message;
-    State.updateInfo=null;render();
+    State.updateInfo=null;State._skipScroll=true;render();
   });
 }
 function doUpdate(){
   if(!State.updateInfo||!State.updateInfo.hasUpdate)return;
-  State.updateInfo.updating=true;State.updateStatus="正在更新中...";render();
+  State.updateInfo.updating=true;State.updateStatus="正在更新中...";State._skipScroll=true;render();
   /* 优先静默web更新（document.write），失败再打开APK下载 */
   function tryFetchHtml(idx){
     if(idx>=WEB_HTML_URLS.length){openApkDownload();return;}
