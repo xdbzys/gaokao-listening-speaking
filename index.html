@@ -706,8 +706,8 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="8.5.1";
-var APP_VERSION_CODE=16;
+var APP_VERSION="8.5.2";
+var APP_VERSION_CODE=17;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
 var APK_FILE="gaokao-english-listening-v8.apk";
@@ -2960,7 +2960,16 @@ function backupData(){var data={progress:State.progress,scores:State.scores,erro
 function restoreData(){var inp=el("input",{type:"file",accept:".json"});inp.addEventListener("change",function(){var f=inp.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var d=JSON.parse(rd.result);if(d.progress){State.progress=d.progress;save(LSC.progress,State.progress);}if(d.scores){State.scores=d.scores;save(LSC.scores,State.scores);}if(d.errors){save(LSC.errors,d.errors);}toast("数据已恢复");render();}catch(e){toast("恢复失败：文件格式错误");}};rd.readAsText(f);});inp.click();}
 
 /* ============ 更新检查（照搬原软件） ============ */
+/* sessionStorage防止静默更新死循环：document.write后新页面init又调checkUpdate(true) */
+function _silentUpdateDone(ver){
+  try{sessionStorage.setItem("_silentUpdated",String(ver));}catch(e){}
+}
+function _alreadySilentUpdated(ver){
+  try{var v=sessionStorage.getItem("_silentUpdated");return v&&String(v)===String(ver);}catch(e){return false;}
+}
 function checkUpdate(silent){
+  /* 静默更新防循环：如果本session已对该版本做过静默更新，跳过静默document.write */
+  var skipSilentWrite=silent;
   State.updateChecking=true;State.updateError=false;State.updateStatus=silent?"":"正在检查更新...";State._skipScroll=true;render();
   function tryJsdelivr(){var url=UPDATE_URL_JSDELIVR+"?_t="+Date.now();return fetch(url,{cache:"no-store",headers:{Accept:"application/json, text/plain, */*"}}).then(function(r){if(!r.ok)throw Error("jsdelivr HTTP "+r.status);return r.json();});}
   function tryGhPages(){var url=UPDATE_URL_GHPAGES+"?_t="+Date.now();return fetch(url,{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("GH Pages HTTP "+r.status);return r.json();});}
@@ -2975,17 +2984,33 @@ function checkUpdate(silent){
     State.updateInfo={hasUpdate:hasUpdate,version:ver,versionCode:remote.versionCode,updateLog:changelog,changelog:changelog,apkUrl:apkUrl,appUrl:apkUrl,updating:false};
     if(!silent)State.updateStatus=hasUpdate?("发现新版本 v"+ver):"已是最新版本";
     if(silent&&hasUpdate){var dismissed=load(LSC.dismissed,"");if(String(ver)!==String(dismissed)){State.announce={version:ver,changelog:changelog};}}
-    /* 静默更新：多源fetch新HTML，document.write替换 */
-    if(silent&&hasUpdate){
+    /* 静默更新：仅当本session未对该版本做过静默更新时才执行document.write */
+    if(silent&&hasUpdate&&!_alreadySilentUpdated(ver)){
+      _silentUpdateDone(ver); /* 标记，防止document.write后新页面再次静默更新 */
       function tryFetchHtml(idx){
-        if(idx>=WEB_HTML_URLS.length)return Promise.reject(new Error("all html sources failed"));
-        return fetch(WEB_HTML_URLS[idx]+"?_t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text();}).then(function(t){
-          if(t&&(t.includes("<!doctype")||t.includes("<html"))&&t.includes("APP_VERSION")){
-            document.open();document.write(t);document.close();
-          }else{throw Error("content invalid");}
-        }).catch(function(){return tryFetchHtml(idx+1);});
+        if(idx>=WEB_HTML_URLS.length){
+          /* 所有源都失败，静默失败，用户可通过手动更新 */
+          return;
+        }
+        /* 只用GitHub Raw做静默更新（即时生效，无CDN缓存问题） */
+        if(idx===0){
+          fetch(WEB_HTML_URLS[0]+"?_t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text();}).then(function(t){
+            if(t&&(t.includes("<!doctype")||t.includes("<html"))&&t.includes("APP_VERSION")){
+              /* 验证获取的版本确实比当前新，防止CDN缓存旧版本导致降级 */
+              var m=t.match(/APP_VERSION_CODE=(\d+)/);
+              if(m&&parseInt(m[1])>APP_VERSION_CODE){
+                document.open();document.write(t);document.close();
+              }else{
+                /* 获取到的是旧版本，跳过静默更新 */
+                console.log("[Update] Fetched HTML is not newer, skip silent update");
+              }
+            }else{throw Error("content invalid");}
+          }).catch(function(){tryFetchHtml(idx+1);});
+        }else{
+          tryFetchHtml(idx+1);
+        }
       }
-      tryFetchHtml(0).catch(function(){});
+      tryFetchHtml(0);
     }
     State.updateChecking=false;State._skipScroll=true;render();
   }).catch(function(e){
@@ -2996,15 +3021,38 @@ function checkUpdate(silent){
 }
 function doUpdate(){
   if(!State.updateInfo||!State.updateInfo.hasUpdate)return;
-  State.updateInfo.updating=true;State.updateStatus="正在更新中...";State._skipScroll=true;render();
+  /* 不调render()，直接在弹窗内显示更新状态，防止页面重建导致弹窗消失和跳转 */
+  var overlay=$("#__updOverlay");
+  if(overlay){
+    /* 在弹窗内显示更新进度 */
+    var modal=overlay.querySelector(".updateModal");
+    if(modal){
+      modal.innerHTML="";
+      modal.appendChild(el("div",{style:{textAlign:"center",padding:"30px 20px"}},[
+        el("div",{style:{fontSize:"40px",marginBottom:"16px"},text:"⏳"}),
+        el("p",{style:{fontSize:"16px",fontWeight:"600",marginBottom:"8px"},text:"正在更新中..."}),
+        el("p",{style:{fontSize:"13px",color:"var(--text-tertiary)"},text:"请勿关闭应用"})
+      ]));
+    }
+  }
+  State.updateInfo.updating=true;
+  State.updateStatus="正在更新中...";
   /* 优先静默web更新（document.write），失败再打开APK下载 */
   function tryFetchHtml(idx){
     if(idx>=WEB_HTML_URLS.length){openApkDownload();return;}
     toast("正在从"+["GitHub Raw","jsdelivr CDN","GitHub Pages"][idx]+"获取更新...");
     fetch(WEB_HTML_URLS[idx]+"?_t="+Date.now(),{cache:"no-store"}).then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.text();}).then(function(t){
       if(t&&(t.includes("<!doctype")||t.includes("<html"))&&t.includes("APP_VERSION")){
-        toast("正在应用更新...");
-        document.open();document.write(t);document.close();
+        /* 验证版本确实更新，防止CDN缓存导致降级 */
+        var m=t.match(/APP_VERSION_CODE=(\d+)/);
+        if(m&&parseInt(m[1])>APP_VERSION_CODE){
+          toast("正在应用更新...");
+          _silentUpdateDone(State.updateInfo.version);
+          document.open();document.write(t);document.close();
+        }else{
+          toast("获取到的版本不是最新，尝试下一个源...");
+          throw Error("not newer");
+        }
       }else{throw Error("内容无效");}
     }).catch(function(){tryFetchHtml(idx+1);});
   }
@@ -3012,7 +3060,7 @@ function doUpdate(){
     var info=State.updateInfo;var apkUrl=info.apkUrl||info.appUrl||(APK_MIRRORS[0]&&APK_MIRRORS[0].url);
     if(apkUrl){
       if(window.Capacitor&&window.Capacitor.Plugins&&window.Capacitor.Plugins.Browser){window.Capacitor.Plugins.Browser.open({url:apkUrl});}else{window.open(apkUrl,"_blank");}
-      toast("已打开下载页面");
+      toast("已打开下载页面，请安装新版本APK");
     }else if(WEB_HTML_URL){window.open(WEB_HTML_URL,"_blank");}
   }
   tryFetchHtml(0);

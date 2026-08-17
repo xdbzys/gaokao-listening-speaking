@@ -1,7 +1,7 @@
 {
-  "version": "8.5.1",
-  "versionCode": 16,
-  "changelog": "v8.5.1 修复语音播放和检查更新滚动问题\n- 修复Speech模块：原生TTS未就绪时不再跳过Web Speech API初始化\n- 新增Web Speech API快速检测：1.5秒内未启动则判定不可用，立即回退到计时模式\n- 修复检查更新导致页面滚动到顶部：添加skipScroll控制\n- 视频字幕动画与语音同步：TTS不可用时按字数计时显示字幕",
+  "version": "8.5.2",
+  "versionCode": 17,
+  "changelog": "v8.5.2 修复更新死循环和版本跳转问题\n- 修复静默更新死循环：sessionStorage标记本session已更新，防止document.write后新页面再次触发\n- 修复版本互相跳转：验证fetch到的HTML版本号确实比当前新才应用，防止CDN缓存旧版本导致降级\n- 修复点击更新闪窗口：doUpdate不再调render重建页面，直接在弹窗内显示更新进度\n- 修复更新跳转练习页：不再重建页面，弹窗保持显示直到更新完成\n- 静默更新只用GitHub Raw源（即时更新，无CDN缓存问题）",
   "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
   "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",
