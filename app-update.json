@@ -1,9 +1,9 @@
 {
-  "version": "10.0.0",
-  "versionCode": 19,
-  "changelog": "v10.0.0 全真高考流程重制版\n- 全新四Tab首页（首页/练习/指南/我的），E听说风格UI全面升级\n- 高考全流程还原：考前须知→Part A/B/C指令英文播报→录音提示音\n- 高考提示音系统：开考长\"嘟\"、录音结束三连音、最后10秒滴答、5秒预警\n- 模考剩余时间语音播报（\"距离考试结束还有约X分钟\"），与真实机考一致\n- 2018高考真题视频包直接内置APK，无需网络下载，离线秒开彻底解决视频不能播放\n- 优化音频指令：先播指令再放录音，节奏与高考考场一致\n- 双语指令同步显示，支持跳过播报快速进入",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v10.apk",
-  "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v10.apk",
+  "version": "11.0.0",
+  "versionCode": 20,
+  "changelog": "v11.0.0 全真高考流程优化版\n- 修复版本检测问题，确保正确检测到新版本\n- 取消练习模式\"可立即结算\"和\"跳过整部分\"，改为逐题跳过+上一步\n- 全新暗色考试主题（深蓝紫底色），与真实高考机考界面一致\n- 支持导入.solo试题文件（文件选择器+自动解析Part A/B/C）\n- 新增SoloTalk测试套题18（含真题视频+音频+参考答案）\n- 新增2019-2024年高考真题数据\n- 考试流程严格按高考：准备阶段→观看视频→默读准备→录音→下一题",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v11.apk",
+  "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v11.apk",
   "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",
   "forceUpdate": false,
   "minVersionCode": 1

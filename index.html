@@ -263,56 +263,113 @@ h3{font-size:16px;font-weight:700}
 .submitBtn{background:linear-gradient(135deg,#16a34a,#15803d);color:#fff;border-radius:12px;padding:12px 20px;font-size:15px;font-weight:700;width:100%;text-align:center;transition:transform .12s;box-shadow:0 4px 12px rgba(22,163,74,.3)}
 .submitBtn:active{transform:scale(.97)}
 /* 考试界面（护眼绿主题） */
-.examDark{background:#c7edcc;min-height:100vh;color:#1a3c1e}
-.examDark .examHeader{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#a8d8aa;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.examDark .examHeader .ehBack{color:#2e6b30;font-size:20px;background:none;border:none;cursor:pointer;padding:4px 8px;transition:color .2s}
-.examDark .examHeader .ehBack:active{color:#1a3c1e}
-.examDark .examHeader .ehTitle{font-size:17px;font-weight:600;color:#1a3c1e;flex:1;letter-spacing:-.01em}
-.examDark .examHeader .ehMode{font-size:11px;color:#2e6b30;font-weight:600;background:#d4ead4;padding:3px 10px;border-radius:999px;letter-spacing:.02em}
+/* ===== v11 暗色考试主题（深蓝紫底色，与真实高考机考界面一致） ===== */
+.examDark{background:#1a1a2e;min-height:100vh;color:#fff}
+.examDark .examHeader{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#16163a;position:sticky;top:0;z-index:10;box-shadow:0 1px 4px rgba(0,0,0,.3)}
+.examDark .examHeader .ehBack{color:#fff;font-size:20px;background:none;border:none;cursor:pointer;padding:4px 8px;transition:color .2s}
+.examDark .examHeader .ehBack:active{color:#a0a0c0}
+.examDark .examHeader .ehTitle{font-size:17px;font-weight:600;color:#fff;flex:1;letter-spacing:-.01em}
+.examDark .examHeader .ehMode{font-size:11px;color:#e8a838;font-weight:600;background:rgba(232,168,56,.15);padding:3px 10px;border-radius:999px;letter-spacing:.02em}
 .examDark .examStage{padding:20px 18px}
-.examDark .examStageTitle{font-size:24px;font-weight:800;color:#1a3c1e;margin-bottom:6px;letter-spacing:.01em}
-.examDark .examStageSub{font-size:13px;color:#4a7a4c;margin-bottom:16px}
+.examDark .examStageTitle{font-size:24px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:.01em}
+.examDark .examStageSub{font-size:13px;color:#a0a0c0;margin-bottom:16px}
 .examDark .examProgress{display:flex;gap:4px;margin-bottom:20px}
-.examDark .examProgressSeg{flex:1;height:4px;border-radius:2px;background:#d4ead4;transition:all .3s}
-.examDark .examProgressSeg.done{background:#4caf50}
-.examDark .examProgressSeg.active{background:#2e7d32}
-.examDark .examCard{background:#e8f5e9;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
-.examDark .examCardTitle{font-size:14px;color:#4a7a4c;font-weight:600;margin-bottom:10px}
-.examDark .examCardText{font-size:17px;line-height:2;color:#1a3c1e;letter-spacing:.01em}
-.examDark .examCardText .cn{color:#3d6b40;font-size:15px;margin-bottom:8px}
-.examDark .examBilingual{background:#e8f5e9;border-left:3px solid #4caf50;border-radius:10px;padding:14px;margin-bottom:16px}
-.examDark .examBilingual .bpCn{font-size:14px;color:#1a3c1e;font-weight:600;margin-bottom:4px}
-.examDark .examBilingual .bpEn{font-size:13px;color:#4a7a4c;font-style:italic}
-.examDark .examStatusBarD{background:#e8f5e9;border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.examDark .examStatusBarD .esbStatus{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;color:#1a3c1e}
-.examDark .examStatusBarD .esbDot{width:10px;height:10px;border-radius:50%;background:#4caf50;animation:pulse 1.5s infinite}
+.examDark .examProgressSeg{flex:1;height:4px;border-radius:2px;background:#2a2a4a;transition:all .3s}
+.examDark .examProgressSeg.done{background:#4a90d9}
+.examDark .examProgressSeg.active{background:#e8a838}
+.examDark .examCard{background:#252540;border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.examDark .examCardTitle{font-size:14px;color:#a0a0c0;font-weight:600;margin-bottom:10px}
+.examDark .examCardText{font-size:17px;line-height:2;color:#fff;letter-spacing:.01em}
+.examDark .examCardText .cn{color:#c0c0e0;font-size:15px;margin-bottom:8px}
+.examDark .examBilingual{background:#252540;border-left:3px solid #4a90d9;border-radius:10px;padding:14px;margin-bottom:16px}
+.examDark .examBilingual .bpCn{font-size:14px;color:#fff;font-weight:600;margin-bottom:4px}
+.examDark .examBilingual .bpEn{font-size:13px;color:#a0a0c0;font-style:italic}
+.examDark .examStatusBarD{background:#252540;border-radius:14px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.examDark .examStatusBarD .esbStatus{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;color:#fff}
+.examDark .examStatusBarD .esbDot{width:10px;height:10px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}
 .examDark .examStatusBarD.recording .esbDot{background:#f44336}
-.examDark .examStatusBarD .esbTimer{background:#a8d8aa;color:#1a3c1e;border-radius:999px;padding:4px 14px;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
-.examDark .examStatusBarD .esbTimer.warn{background:#ff7043;color:#fff;animation:pulse 1s infinite}
-.examDark .examVideoStage{background:#1b3a1d;border-radius:14px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:16px}
-.examDark .examVideoStage .vsOverlay{position:absolute;inset:0;background:linear-gradient(135deg,#1b3a1d,#2e5a30);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.examDark .examStatusBarD .esbTimer{background:rgba(232,168,56,.2);color:#e8a838;border-radius:999px;padding:4px 14px;font-size:18px;font-weight:800;font-variant-numeric:tabular-nums}
+.examDark .examStatusBarD .esbTimer.warn{background:#f44336;color:#fff;animation:pulse 1s infinite}
+.examDark .examVideoStage{background:#0d0d1a;border-radius:14px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:16px}
+.examDark .examVideoStage .vsOverlay{position:absolute;inset:0;background:linear-gradient(135deg,#0d0d1a,#1a1a2e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
 .examDark .examVideoStage .vsIcon{font-size:48px}
-.examDark .examVideoStage .vsLabel{color:#a8d8aa;font-size:13px}
+.examDark .examVideoStage .vsLabel{color:#a0a0c0;font-size:13px}
 .examDark .examVideoStage .vsSubtitles{position:absolute;bottom:16px;left:0;right:0;text-align:center;color:#fff;font-size:16px;padding:0 20px;text-shadow:0 2px 8px rgba(0,0,0,.8)}
 .examDark .examVideoStage .vsPlayBtn{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;cursor:pointer}
-.examDark .examRecBar{display:flex;align-items:center;gap:12px;background:#e8f5e9;border-radius:14px;padding:14px;margin-top:14px}
-.examDark .examRecBar .recDot{width:14px;height:14px;border-radius:50%;background:#4caf50;flex-shrink:0}
-.examDark .examRecBar.recording{background:#fce4ec}
+.examDark .examRecBar{display:flex;align-items:center;gap:12px;background:#252540;border-radius:14px;padding:14px;margin-top:14px}
+.examDark .examRecBar .recDot{width:14px;height:14px;border-radius:50%;background:#4ade80;flex-shrink:0}
+.examDark .examRecBar.recording{background:#2a1520}
 .examDark .examRecBar.recording .recDot{background:#f44336;animation:pulse 1.2s infinite}
-.examDark .examRecBar span{color:#1a3c1e;font-size:15px}
-.examDark .examRecProgress{height:4px;border-radius:2px;background:#d4ead4;margin-top:10px;overflow:hidden}
+.examDark .examRecBar span{color:#fff;font-size:15px}
+.examDark .examRecProgress{height:4px;border-radius:2px;background:#2a2a4a;margin-top:10px;overflow:hidden}
 .examDark .examRecProgressFill{height:100%;background:linear-gradient(90deg,#f44336,#d32f2f);transition:width .3s;width:0%}
 .examDark .examBtnRow{display:flex;gap:10px;margin-top:16px}
-.examDark .examBtnPrimary{flex:1;background:#2e7d32;color:#fff;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:transform .12s}
+.examDark .examBtnPrimary{flex:1;background:#4a90d9;color:#fff;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:transform .12s}
 .examDark .examBtnPrimary:active{transform:scale(.97)}
-.examDark .examBtnGhost{background:transparent;color:#4a7a4c;border:1px solid #a8d8aa;border-radius:12px;padding:14px 18px;font-size:14px;cursor:pointer;transition:all .15s}
+.examDark .examBtnGhost{background:transparent;color:#a0a0c0;border:1px solid #2a2a4a;border-radius:12px;padding:14px 18px;font-size:14px;cursor:pointer;transition:all .15s}
 .examDark .examBtnGhost:active{transform:scale(.96)}
-.examDark .examBtnSubmit{flex:1;background:#2e7d32;color:#fff;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:transform .12s}
+.examDark .examBtnSubmit{flex:1;background:#e8a838;color:#fff;border:none;border-radius:12px;padding:14px;font-size:16px;font-weight:700;text-align:center;cursor:pointer;transition:transform .12s}
 .examDark .examBtnSubmit:active{transform:scale(.97)}
-.examDark .examResultCard{background:#e8f5e9;border-radius:16px;padding:24px;margin-bottom:16px;text-align:center}
-.examDark .examResultScore{font-size:56px;font-weight:800;line-height:1}
-.examDark .examResultMax{font-size:18px;color:#4a7a4c;font-weight:600;margin-top:4px}
+.examDark .examResultCard{background:#252540;border-radius:16px;padding:24px;margin-bottom:16px;text-align:center}
+.examDark .examResultScore{font-size:56px;font-weight:800;line-height:1;color:#e8a838}
+.examDark .examResultMax{font-size:18px;color:#a0a0c0;font-weight:600;margin-top:4px}
 .examDark .examResultGrade{display:inline-block;font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px;margin-top:10px}
+/* ===== v11 暗色主题导航按钮（上一步/跳过） ===== */
+.examDarkBtnRow{display:flex;gap:12px;margin-top:16px;padding:0 18px 20px}
+.examDarkPrev{flex:1;background:linear-gradient(135deg,#4a90d9,#357abd);color:#fff;border:none;border-radius:999px;padding:12px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s}
+.examDarkPrev:active{transform:scale(.96)}
+.examDarkPrev.disabled{opacity:.35;pointer-events:none}
+.examDarkSkip{flex:1;background:linear-gradient(135deg,#e8a838,#d49530);color:#fff;border:none;border-radius:999px;padding:12px 0;font-size:15px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:transform .12s}
+.examDarkSkip:active{transform:scale(.96)}
+/* 暗色主题通用元素覆盖 */
+.examDark .examWrap{background:#252540;border-radius:16px;padding:18px;box-shadow:0 2px 12px rgba(0,0,0,.2);margin-bottom:14px}
+.examDark .instrStage{background:#252540;border-radius:16px;padding:24px;text-align:center}
+.examDark .insPartTag{color:#e8a838;font-size:12px;font-weight:700;letter-spacing:.1em;margin-bottom:8px}
+.examDark .insTitle{font-size:22px;font-weight:800;color:#fff;margin-bottom:4px}
+.examDark .insScoreTag{display:inline-block;font-size:12px;color:#e8a838;background:rgba(232,168,56,.15);padding:3px 12px;border-radius:999px;margin-bottom:14px}
+.examDark .insBody{text-align:left;margin-bottom:16px}
+.examDark .insCn{font-size:15px;color:#c0c0e0;line-height:1.8;margin-bottom:8px}
+.examDark .insEn{font-size:14px;color:#8080a0;font-style:italic;line-height:1.6}
+.examDark .insStatus{font-size:13px;color:#e8a838;margin-top:10px}
+.examDark .passage{font-size:16px;line-height:2;color:#e0e0f0;background:#1d1d35;border-radius:12px;padding:16px;margin-top:12px}
+.examDark .phaseBar{display:flex;gap:2px;margin-bottom:14px;flex-wrap:wrap}
+.examDark .phaseDot{font-size:11px;color:#606080;padding:4px 8px;border-radius:6px;background:#1d1d35}
+.examDark .phaseDot.active{color:#e8a838;background:rgba(232,168,56,.15);font-weight:700}
+.examDark .phaseDot.done{color:#4a90d9;background:rgba(74,144,217,.1)}
+.examDark .bilingualPrompt{background:#1d1d35;border-radius:12px;padding:12px 14px;margin-bottom:12px;border-left:3px solid #4a90d9}
+.examDark .bpCn{font-size:14px;color:#fff;font-weight:600;margin-bottom:4px}
+.examDark .bpEn{font-size:13px;color:#8080a0}
+.examDark .videoStage{background:#000;border-radius:12px;aspect-ratio:16/9;position:relative;overflow:hidden;margin-bottom:12px}
+.examDark .recWaveRow i{background:#f44336}
+.examDark .qCountNum{color:#e8a838}
+.examDark .announceBar{background:#0f1525;color:#fff;border:1px solid #2a2a4a}
+.examDark .heroBanner{background:linear-gradient(135deg,#252540,#1a1a2e);border-radius:16px;padding:20px;text-align:center;margin-bottom:16px}
+.examDark .heroBanner h2{color:#e8a838;font-size:22px;font-weight:800}
+.examDark .heroBanner p{color:#a0a0c0;font-size:13px;margin-top:4px}
+.examDark .resultBox{background:#252540;border-radius:16px;padding:20px;margin-bottom:16px}
+.examDark .dimRow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:14px}
+.examDark .dimCard{background:#1d1d35;border-radius:12px;padding:12px;text-align:center}
+.examDark .dimCard .dv{font-size:18px;font-weight:800}
+.examDark .dimCard .dv.high{color:#4ade80}
+.examDark .dimCard .dv.mid{color:#e8a838}
+.examDark .dimCard .dv.fail{color:#f44336}
+.examDark .dimCard .dl{font-size:11px;color:#8080a0;margin-top:4px}
+.examDark .dimBar{height:4px;border-radius:2px;background:#2a2a4a;margin-top:6px;overflow:hidden}
+.examDark .dimBarFill{height:100%;border-radius:2px;transition:width .5s}
+.examDark .scoreGrade{display:inline-block;font-size:13px;font-weight:700;padding:3px 12px;border-radius:999px;margin-top:6px}
+.examDark .scoreGrade.high{background:rgba(74,222,128,.15);color:#4ade80}
+.examDark .scoreGrade.mid{background:rgba(232,168,56,.15);color:#e8a838}
+.examDark .scoreGrade.fail{background:rgba(244,67,54,.15);color:#f44336}
+.examDark .smallBtn{background:#2a2a4a;color:#a0a0c0;border:1px solid #3a3a5a;border-radius:999px;padding:8px 18px;font-size:13px;font-weight:600;cursor:pointer}
+.examDark .ghostBtn{background:transparent;color:#a0a0c0;border:1px solid #3a3a5a;border-radius:999px;padding:10px 18px;font-size:14px;cursor:pointer}
+.examDark .primary{background:#4a90d9;color:#fff;border:none;border-radius:999px;padding:12px 24px;font-size:15px;font-weight:700;cursor:pointer}
+.examDark .timer{color:#e8a838;font-size:13px;font-weight:600;background:rgba(232,168,56,.15);padding:3px 10px;border-radius:999px}
+.examDark .srcLabel{font-size:11px;padding:2px 8px;border-radius:6px}
+.examDark .srcLabel.real{background:rgba(74,144,217,.15);color:#4a90d9}
+.examDark .srcLabel.mock{background:rgba(232,168,56,.15);color:#e8a838}
+.examDark .examTitle{display:flex;align-items:center;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.examDark .examTitle>span:first-child{font-size:17px;font-weight:700;color:#fff}
+.examDark .muted{color:#8080a0}
 .examDark .examResultGrade.high{background:rgba(46,125,50,.2);color:#2e7d32}
 .examDark .examResultGrade.mid{background:rgba(245,158,11,.2);color:#f59e0b}
 .examDark .examResultGrade.low{background:rgba(239,68,68,.2);color:#ef4444}
@@ -821,11 +878,11 @@ h3{font-size:16px;font-weight:700}
 <script>
 "use strict";
 (function(){
-var APP_VERSION="10.0.0";
-var APP_VERSION_CODE=19;
+var APP_VERSION="11.0.0";
+var APP_VERSION_CODE=20;
 var GITHUB_USER="xdbzys";
 var REPO="gaokao-listening-speaking";
-var APK_FILE="gaokao-english-listening-v10.apk";
+var APK_FILE="gaokao-english-listening-v11.apk";
 /* 多源更新URL（jsdelivr CDN优先，国内可访问） */
 var UPDATE_URL_JSDELIVR="https://cdn.jsdelivr.net/gh/"+GITHUB_USER+"/"+REPO+"@main/app-update.json";
 var UPDATE_URL_GHPAGES="https://"+GITHUB_USER+".github.io/"+REPO+"/app-update.json";
@@ -1611,11 +1668,16 @@ var PackMgr={
     {id:"gaokao2018",name:"2018年广东高考英语听说真题包",desc:"高考原题视频 Test A/B + 完整文本与参考答案",ver:1,size:"4.6MB",
      urls:["https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/packs/gaokao2018.zip",
            "https://raw.githubusercontent.com/xdbzys/gaokao-listening-speaking/main/packs/gaokao2018.zip",
-           "https://xdbzys.github.io/gaokao-listening-speaking/packs/gaokao2018.zip"]}
+           "https://xdbzys.github.io/gaokao-listening-speaking/packs/gaokao2018.zip"]},
+    {id:"solotalk18",name:"SoloTalk测试套题18（含真题视频+音频）",desc:"Part A/B/C完整套题·含视频/音频/参考答案",ver:1,size:"6.5MB",
+     urls:["https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/packs/solotalk18.solo",
+           "https://raw.githubusercontent.com/xdbzys/gaokao-listening-speaking/main/packs/solotalk18.solo",
+           "https://xdbzys.github.io/gaokao-listening-speaking/packs/solotalk18.solo"]}
   ],
   /* APK内置真题包（随安装包分发，离线秒开，无需网络下载） */
   BUILTIN_ASSET:[
-    {id:"gaokao2018",file:"gaokao2018.zip",name:"2018年广东高考英语听说真题包",desc:"高考原题视频 Test A/B（APK内置·离线可用）"}
+    {id:"gaokao2018",file:"gaokao2018.zip",name:"2018年广东高考英语听说真题包",desc:"高考原题视频 Test A/B（APK内置·离线可用）"},
+    {id:"solotalk18",file:"solotalk18.solo",name:"SoloTalk测试套题18",desc:"Part A/B/C完整套题·含真题视频/音频（APK内置·离线可用）"}
   ],
   _db:null,_opening:null,
   packs:{},cache:{},
@@ -1669,6 +1731,7 @@ var PackMgr={
   },
   _toBuf:function(u8){return u8.slice().buffer;},
   textOf:function(z,entry){return new TextDecoder("utf-8").decode(PackMgr.zipInflate(z,entry));},
+  _decode:function(u8){try{return new TextDecoder("utf-8").decode(u8);}catch(e){var s="";for(var i=0;i<u8.length;i++)s+=String.fromCharCode(u8[i]);return s;}},
   extractDocx:function(z,entry){
     var out=PackMgr.zipInflate(z,entry);
     var dz=PackMgr.zipParse(PackMgr._toBuf(out));
@@ -1881,7 +1944,112 @@ var PackMgr={
     });
   }
 };
-/* 资源包进度弹窗 */
+
+/* ============ SoloTalk套题解析器（.solo文件格式） ============ */
+var SoloTalk={
+  _id:0,
+  /* 导入.solo文件：解析data.json+提取媒体资源，转为APP内部试题格式 */
+  importFile:function(file){
+    return new Promise(function(res,rej){
+      var reader=new FileReader();
+      reader.onload=function(){
+        try{
+          var buf=reader.result;
+          var entries=PackMgr.zipParse(buf);
+          /* 找data.json */
+          var djEntry=null;
+          for(var i=0;i<entries.length;i++){
+            if(entries[i].name==="data.json"&&!entries[i].dir){djEntry=entries[i];break;}
+          }
+          if(!djEntry)throw new Error(".solo文件中未找到data.json");
+          var djBytes=PackMgr.zipInflate({buf:buf,dv:new DataView(buf)},djEntry);
+          var djStr=PackMgr._decode(djBytes);
+          var data=JSON.parse(djStr);
+          /* 生成唯一ID */
+          var soloId="solo_"+Date.now();
+          var soloName=data.meta?data.meta.name||"SoloTalk套题":"SoloTalk套题";
+          /* 存储整个.solo的zip数据，供后续getMedia使用 */
+          PackMgr.packs[soloId]={zip:buf,entries:entries};
+          /* 转换为APP内部格式 */
+          var partAItem=null,partBItem=null,partCItem=null;
+          /* Part A转换 */
+          if(data.partA){
+            partAItem={
+              id:"SA"+(SoloTalk._id++),
+              title:soloName+" - Part A",
+              topic:"SoloTalk导入",
+              source:"SoloTalk套题（导入）",
+              words:(data.partA.hidden_text||"").split(/\s+/).length,
+              text:data.partA.hidden_text||"",
+              difficulty:"medium",
+              _packVideo:data.partA.video?{pack:soloId,path:data.partA.video}:null
+            };
+            DATA.partA.unshift(partAItem);
+          }
+          /* Part B转换 */
+          if(data.partB){
+            var threeQ=(data.partB.three_questions||[]).map(function(q,i){
+              return{
+                cn:q.cn_prompt||("提问 "+(i+1)),
+                en:q.hidden_answer||"",
+                audio:q.en_audio?{pack:soloId,path:q.en_audio}:null
+              };
+            });
+            var fiveQ=(data.partB.five_answers||[]).map(function(q,i){
+              return{
+                q:q.en_question||("Question "+(i+1)),
+                a:q.hidden_answer||"",
+                audio:q.q_audio?{pack:soloId,path:q.q_audio}:null
+              };
+            });
+            partBItem={
+              id:"SB"+(SoloTalk._id++),
+              title:soloName+" - Part B",
+              topic:"SoloTalk导入",
+              source:"SoloTalk套题（导入）",
+              situation:data.partB.situation||"",
+              listeningText:data.partB.listening_text||"",
+              listeningAudio:data.partB.listening_audio?{pack:soloId,path:data.partB.listening_audio}:null,
+              threeQuestions:threeQ,
+              fiveQuestions:fiveQ,
+              difficulty:"medium"
+            };
+            DATA.partB.unshift(partBItem);
+          }
+          /* Part C转换 */
+          if(data.partC){
+            partCItem={
+              id:"SC"+(SoloTalk._id++),
+              title:soloName+" - Part C",
+              topic:"SoloTalk导入",
+              source:"SoloTalk套题（导入）",
+              summary:data.partC.summary||"",
+              keywords:data.partC.keywords||"",
+              storyText:data.partC.tts_text||"",
+              audio:data.partC.audio?{pack:soloId,path:data.partC.audio}:null,
+              keyPoints:data.partC.key_points||"",
+              difficulty:"medium"
+            };
+            DATA.partC.unshift(partCItem);
+          }
+          /* 持久化到localStorage */
+          try{
+            var imported=JSON.parse(localStorage.getItem("_soloImported")||"[]");
+            imported.push({id:soloId,name:soloId,date:Date.now(),
+              partA:partAItem?partAItem.id:null,
+              partB:partBItem?partBItem.id:null,
+              partC:partCItem?partCItem.id:null
+            });
+            localStorage.setItem("_soloImported",JSON.stringify(imported));
+          }catch(e){}
+          res({summary:soloName+" · Part A/B/C已导入题库"});
+        }catch(e){rej(e);}
+      };
+      reader.onerror=function(){rej(new Error("文件读取失败"));};
+      reader.readAsArrayBuffer(file);
+    });
+  }
+};
 function showPackProgress(t){
   var o=document.getElementById("__pkProg");if(o)o.remove();
   o=el("div",{id:"__pkProg"});
@@ -1956,14 +2124,14 @@ function viewPractice(){
   qh.appendChild(el("div",{className:"modeIcon",text:"📋"}));
   var qi=el("div",{});
   qi.appendChild(el("div",{className:"modeTitle",text:"试题练习"}));
-  qi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 可跳过 · 可立即结算 · 流程同模考"}));
+  qi.appendChild(el("div",{className:"modeSub",text:"完整A+B+C · 逐题可跳过 · 严格高考流程"}));
   qh.appendChild(qi);
   qCard.appendChild(qh);
   qCard.appendChild(el("div",{className:"modeMeta"},[
     el("span",{className:"tag",text:"满分60分"}),
     el("span",{className:"tag",text:"Part A+B+C"}),
-    el("span",{className:"tag",text:"可跳过"}),
-    el("span",{className:"tag",text:"可立即结算"})
+    el("span",{className:"tag",text:"逐题跳过"}),
+    el("span",{className:"tag",text:"暗色主题"})
   ]));
   var qBtns=el("div",{className:"btnRow"});
   var qBtn1=el("button",{className:"primary",style:{flex:1,background:"#6366f1"},text:"🚀 开始练习"});
@@ -2040,28 +2208,41 @@ function viewPractice(){
   iicon.style.background="linear-gradient(135deg,#06b6d4,#0891b2)";
   ih.appendChild(iicon);
   var ihi=el("div",{style:{flex:1,minWidth:0}});
-  ihi.appendChild(el("div",{className:"epcTitle",text:"导入本地真题包"}));
-  ihi.appendChild(el("div",{className:"epcSub",text:"网上下载的真题压缩包(zip)，自动识别视频/音频/文档"}));
+  ihi.appendChild(el("div",{className:"epcTitle",text:"导入试题包 (.solo / .zip)"}));
+  ihi.appendChild(el("div",{className:"epcSub",text:"支持SoloTalk套题(.solo)和真题压缩包(zip)，自动解析Part A/B/C"}));
   ih.appendChild(ihi);
   var impBtn=el("button",{className:"smallBtn",style:{flexShrink:0},text:"选择文件"});
   ih.appendChild(impBtn);
   impCard.appendChild(ih);
-  var fin=el("input",{type:"file",accept:".zip,application/zip,application/x-zip-compressed"});
+  var fin=el("input",{type:"file",accept:".solo,.zip,application/zip,application/x-zip-compressed"});
   fin.style.display="none";
   impCard.appendChild(fin);
   impBtn.addEventListener("click",function(){fin.click();});
   fin.addEventListener("change",function(){
     if(!fin.files||!fin.files[0])return;
     var f=fin.files[0];
+    var isSolo=f.name.toLowerCase().endsWith(".solo");
     showPackProgress("正在解析 "+f.name);
-    PackMgr.importFile(f).then(function(r){
-      hidePackProgress();
-      toast("导入成功："+(r.summary||"完成"));
-      State._skipScroll=true;render();
-    }).catch(function(e){
+    if(isSolo){
+      /* SoloTalk套题格式解析 */
+      SoloTalk.importFile(f).then(function(r){
+        hidePackProgress();
+        toast("导入成功："+(r.summary||"完成"));
+        State._skipScroll=true;render();
+      }).catch(function(e){
       hidePackProgress();
       toast("导入失败："+e.message);
     });
+    }else{
+      PackMgr.importFile(f).then(function(r){
+        hidePackProgress();
+        toast("导入成功："+(r.summary||"完成"));
+        State._skipScroll=true;render();
+      }).catch(function(e){
+        hidePackProgress();
+        toast("导入失败："+e.message);
+      });
+    }
   });
   wrap.appendChild(impCard);
   wrap.appendChild(el("p",{className:"muted",style:{fontSize:"12px",margin:"0 0 14px 4px",lineHeight:"1.7"},text:"💡 资源包机制：真题视频与文本压缩存储在软件内，点开试题时自动解压播放，与高考原题完全一致；无网络也可使用。"}));
@@ -2526,7 +2707,7 @@ function openPartList(part,wrap){
   topBar.appendChild(el("span",{className:"versionPill",text:partDone(part)+"/"+data.length+" 已完成"}));
   wrap.appendChild(topBar);
   wrap.appendChild(el("h2",{text:"Part "+part+" "+(part==="A"?"模仿朗读":part==="B"?"角色扮演":"故事复述")}));
-  wrap.appendChild(el("p",{className:"muted mb12",text:"选择题目后自动开始完整A→B→C练习（可跳过或直接结算）"}));
+  wrap.appendChild(el("p",{className:"muted mb12",text:"选择题目后自动开始完整A→B→C练习（逐题可跳过，不可跳过整部分）"}));
 
   /* 难度筛选 */
   var diffBar=el("div",{className:"diffFilter"});
@@ -2659,26 +2840,32 @@ function recCountdown(cdEl,seconds,onReady,onEnd){
   return ti;
 }
 /* 练习模式辅助按钮行 */
-function practiceControls(isMock,partLabel){
+/* 练习模式控制：仅允许逐题跳过+上一步，不允许跳过整部分或直接结算 */
+function practiceControls(isMock,partLabel,opts){
   if(isMock)return null;
-  var row=el("div",{className:"btnRow"});
-  var sb=el("button",{className:"ghostBtn",text:"跳过"+(partLabel||"本部分")+"（0分）→"});
-  sb.addEventListener("click",function(){
+  opts=opts||{};
+  var row=el("div",{className:"examDarkBtnRow"});
+  /* 上一步按钮（蓝色）：默认返回上一阶段 */
+  var prevBtn=el("button",{className:"examDarkPrev",text:"◀◀ 上一步"});
+  prevBtn.addEventListener("click",function(){
     clearExamTimers();Speech.stop();
-    if(State._mockCallback){
-      toast("已跳过"+(partLabel||"本部分")+"，记0分");
+    if(opts.onPrev){opts.onPrev();}
+  });
+  if(!opts.canPrev)prevBtn.classList.add("disabled");
+  row.appendChild(prevBtn);
+  /* 跳过当前题目按钮（橙色，仅跳过当前题，不跳过整部分） */
+  var skipBtn=el("button",{className:"examDarkSkip",text:"跳过 ▶▶"});
+  skipBtn.addEventListener("click",function(){
+    clearExamTimers();Speech.stop();
+    toast("已跳过当前题目，记0分");
+    if(opts.onSkip){
+      opts.onSkip();
+    }else if(State._mockCallback){
+      /* 默认行为：跳过当前题，进入下一题（不跳过整部分） */
       State._mockCallback(0);
     }
   });
-  row.appendChild(sb);
-  var stb=el("button",{className:"ghostBtn",text:"直接结算 →"});
-  stb.addEventListener("click",function(){
-    if(State._settleCallback){
-      toast("直接结算，未完成部分记0分");
-      State._settleCallback();
-    }
-  });
-  row.appendChild(stb);
+  row.appendChild(skipBtn);
   return row;
 }
 
@@ -3750,17 +3937,14 @@ function startChainWithItems(a,b,c,isMock){
   }
   function runA(){
     State._mockCallback=function(score){scores.A=score;announceRemaining(15,runB);};
-    State._settleCallback=function(){clearExamTimers();Speech.stop();finish();};
     startPartA(a,isMock);
   }
   function runB(){
     State._mockCallback=function(score){scores.B=score;announceRemaining(8,runC);};
-    State._settleCallback=function(){clearExamTimers();Speech.stop();finish();};
     startPartB(b,isMock);
   }
   function runC(){
     State._mockCallback=function(score){scores.C=score;finish();};
-    State._settleCallback=function(){clearExamTimers();Speech.stop();finish();};
     startPartC(c,isMock);
   }
   function finish(){

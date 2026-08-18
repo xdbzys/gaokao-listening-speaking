@@ -6,6 +6,16 @@ var DATA = {};
 //           社会现象、体育运动、艺术音乐、旅行探索、人物故事
 // ============================================================
 DATA.partA = [
+  // ---- SoloTalk测试套题18（导入格式真题） ----
+  {
+    id: "A_S18",
+    title: "SoloTalk套题18 - Antarctica Penguins",
+    topic: "自然环保",
+    source: "SoloTalk测试套题18（高考真题格式）",
+    words: 97,
+    text: "At the southernmost extreme of our planet, the continent of Antarctica is as large as the United States of America. Ninety percent of all the world's ice is found here. This frozen world is largely deserted until the start of spring. Adelie penguins are in a hurry. The clock is ticking. Instead of waiting for the summer melt, the new arrivals hasten south over the frozen sea. They have come here to breed, but polar summers are so short, they must be in position before it. As the sea ice melt, life can journey farther south.",
+    difficulty: "medium"
+  },
   // ---- 8套真题 ----
   {
     id: "A001",
@@ -195,6 +205,38 @@ DATA.partA = [
 // 每套包含：情景对话、三问（cn/en/answer）、五答（q/a）
 // ============================================================
 DATA.partB = [
+  // ---- SoloTalk测试套题18（导入格式真题） ----
+  {
+    id: "B_S18",
+    title: "SoloTalk套题18 - Classical Music Talk",
+    topic: "艺术音乐",
+    source: "SoloTalk测试套题18（高考真题格式）",
+    scenario: "角色：你是Paul。\n任务：（1）与Jenny谈论兴趣爱好；\n(2)根据谈话内容回答朋友的提问。\n生词：classicalmusic古典音乐 incredible极好的 depth深度",
+    scenarioEn: "You are Paul, talking with Jenny about hobbies and interests.",
+    dialogue: [
+      {role: "Paul", cn: "你好Jenny，很高兴在这里见到你。最近怎么样？", en: "Hello, Jenny. It's glad to see you here. How's everything going?"},
+      {role: "Jenny", cn: "嗨Paul，也很高兴见到你。一切都好，你呢？", en: "Hi, Paul. Glad to see you too. Everything is OK. What about you?"},
+      {role: "Paul", cn: "我也很好。对了，这个周末有什么计划吗？", en: "I'm fine, too. By the way, do you have any plans for this weekend?"},
+      {role: "Jenny", cn: "没什么特别的，怎么了？", en: "Nothing much. Why?"},
+      {role: "Paul", cn: "我在想去听音乐会，你想一起去吗？", en: "I'm thinking about going to a concert. Do you want to go with me?"},
+      {role: "Jenny", cn: "当然好啊！你想听什么类型的音乐会？", en: "Sure. What kind of concert are you thinking about going to?"},
+      {role: "Paul", cn: "在城市音乐厅的古典音乐会。", en: "A classical music concert in the city concert hall."},
+      {role: "Jenny", cn: "太棒了！我真的很喜欢古典音乐。", en: "That's great! I'm really into classical music."}
+    ],
+    questions: [
+      {cn: "你通常喜欢听谁的音乐？", en: "Whose music do you usually enjoy listening to?", answer: "Beethoven's. I think his music is incredible. I've heard that listening to it can make you more intelligent, too. Besides, it does help people relax."},
+      {cn: "你还听其他什么类型的音乐？", en: "Do you listen to other kinds of music?", answer: "Actually, I mostly just listen to classical music. I don't like pop music, because I don't think pop music has much depth."},
+      {cn: "你怎么对古典音乐产生兴趣的？", en: "How did you become interested in classical music?", answer: "Well, when I was about 10 years old, I started playing the piano. I think that was how it all started. And now playing the piano is one of my hobbies."}
+    ],
+    fiveAnswers: [
+      {q: "What do you want to do this weekend?", a: "Go to a concert."},
+      {q: "What kind of music does Jenny like?", a: "Classical music."},
+      {q: "How does Jenny feel about Beethoven's music?", a: "Incredible."},
+      {q: "Why does Jenny dislike pop music?", a: "Because it doesn't have much depth."},
+      {q: "When did Jenny start playing the piano?", a: "At the age of ten."}
+    ],
+    difficulty: "medium"
+  },
   // ---- 8套真题 ----
   {
     id: "B001",
@@ -1032,6 +1074,18 @@ DATA.partB = [
 // 每套包含：梗概、关键词、完整故事原文
 // ============================================================
 DATA.partC = [
+  // ---- SoloTalk测试套题18（导入格式真题） ----
+  {
+    id: "C_S18",
+    title: "SoloTalk套题18 - Ann's Iceland Trip",
+    topic: "人物故事",
+    source: "SoloTalk测试套题18（高考真题格式）",
+    summary: "Ann一家计划去冰岛旅游，她以为他们必须赶在冰岛融化之前去到那里。",
+    keywords: "busy（忙碌的），travel（旅游），summerholiday（暑假），answer（回答），melt（融化）",
+    story: "Mr. Green works as a doctor in a hospital. He's very good to the patients and many people like to see him when they do not feel well, so he's very busy all the time. His wife works in a school near London, and she has to do the housework every day.\n\nMr. and Mrs. Green have a daughter named Ann. She's eight years old this year and she began to go to school last summer. Some of her friends often go travelling abroad, but her parents do not have any time.\n\nThis summer Mrs. Green's summer holiday begins, and Mr. Green has nothing to do. So she asks her husband to take the family to Iceland. Mr. Green agrees with her. Ann and her mother are very happy. So Ann tells her friends that her father is going to take the family to Iceland.\n\n\"Why are you going to travel to Iceland, Ann?\" asks a girl, one of her friends.\n\nThe little girl doesn't know how she should answer the question. She thinks for a few minutes and says, \"We're going to see it before it melts.\"",
+    keyPoints: "Mr. Green is a doctor and he's always busy, His wife works in a school near London, And their daughter Ann began to go to school last summer, Some of her friends often go travelling abroad, but her parents don't have any time, Mrs. Green asks her husband to take the family to Iceland this summer holiday, Mr. Green agrees, So Ann happily tells her friends about the travel, Then one of her friends asks her why they're going to travel to Iceland, She thinks for several minutes and then she answers that they're going to see Iceland before it melts,",
+    difficulty: "medium"
+  },
   // ---- 8套真题 ----
   {
     id: "C001",
