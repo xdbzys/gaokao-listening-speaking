@@ -1,9 +1,9 @@
 {
-  "version": "8.5.2",
-  "versionCode": 17,
-  "changelog": "v8.5.2 修复更新死循环和版本跳转问题\n- 修复静默更新死循环：sessionStorage标记本session已更新，防止document.write后新页面再次触发\n- 修复版本互相跳转：验证fetch到的HTML版本号确实比当前新才应用，防止CDN缓存旧版本导致降级\n- 修复点击更新闪窗口：doUpdate不再调render重建页面，直接在弹窗内显示更新进度\n- 修复更新跳转练习页：不再重建页面，弹窗保持显示直到更新完成\n- 静默更新只用GitHub Raw源（即时更新，无CDN缓存问题）",
-  "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
-  "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v8.apk",
+  "version": "9.0.0",
+  "versionCode": 18,
+  "changelog": "v9.0.0 真题资源包系统上线\n- 全新资源包机制：真题视频+文本压缩进软件，点开试题自动解压，与高考原题完全一致\n- 内置2018年真题包下载（Test A/B 高考原题视频，仅4.6MB）\n- Part A 播放高考原题视频（山水画/北极熊纪录片原声朗读）\n- 听录音阶段重放原视频对照原文；录音阶段静音重放，完全模拟考场\n- 支持导入网上下载的真题压缩包(zip)：自动识别视频/音频/Word文档，GBK中文文件名兼容\n- 资源包存储在本机（IndexedDB），下载一次永久离线使用",
+  "apkUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v9.apk",
+  "appUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/gaokao-english-listening-v9.apk",
   "webHtmlUrl": "https://cdn.jsdelivr.net/gh/xdbzys/gaokao-listening-speaking@main/index.html",
   "forceUpdate": false,
   "minVersionCode": 1
